@@ -1,38 +1,29 @@
 #!/usr/bin/env bash
-# Download your model weight file.
-#
-# Rules:
-#   - Must be idempotent (safe to run multiple times).
-#   - Must download without any credentials (public URL only).
-#   - The output path must match `_runtime.model_path` in metadata.json.
-
+# Downloads the GGUF model weight file into model/. Idempotent, no credentials.
+# The file must be publicly hosted; edit MODEL_URL if you host elsewhere.
 set -euo pipefail
 
-HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MODEL_DIR="$HERE/model"
-MODEL_FILE="$MODEL_DIR/SmolLM2-135M-Instruct-Q4_K_M.gguf"
+MODEL_DIR="model"
+MODEL_FILE="${MODEL_DIR}/adtc-agritgllm-adviser-Q4_K_M.gguf"
 
-# ── Replace this URL with your public model weight URL ─────────────────────────
-MODEL_URL="https://huggingface.co/bartowski/SmolLM2-135M-Instruct-GGUF/resolve/main/SmolLM2-135M-Instruct-Q4_K_M.gguf"
-# ───────────────────────────────────────────────────────────────────────────────
+# Public Hugging Face download URL. No credentials needed.
+MODEL_URL="https://huggingface.co/exau/adtc-agritgllm-adviser/resolve/main/adtc-agritgllm-adviser-Q4_K_M.gguf?download=true"
 
-mkdir -p "$MODEL_DIR"
+mkdir -p "${MODEL_DIR}"
 
-if [[ -f "$MODEL_FILE" ]]; then
-  echo "model already present at $MODEL_FILE — skipping download"
+if [ -f "${MODEL_FILE}" ]; then
+  echo "Model already present at ${MODEL_FILE}, skipping download."
   exit 0
 fi
 
-echo "downloading $MODEL_URL → $MODEL_FILE (~80 MB)…"
-
-if command -v curl > /dev/null 2>&1; then
-  curl -L --fail --progress-bar -o "$MODEL_FILE.partial" "$MODEL_URL"
-elif command -v wget > /dev/null 2>&1; then
-  wget --show-progress -O "$MODEL_FILE.partial" "$MODEL_URL"
+echo "Downloading model to ${MODEL_FILE} ..."
+if command -v curl >/dev/null 2>&1; then
+  curl -L --fail -o "${MODEL_FILE}" "${MODEL_URL}"
+elif command -v wget >/dev/null 2>&1; then
+  wget -O "${MODEL_FILE}" "${MODEL_URL}"
 else
-  echo "error: neither curl nor wget found" >&2
+  echo "ERROR: need curl or wget to download the model." >&2
   exit 1
 fi
 
-mv "$MODEL_FILE.partial" "$MODEL_FILE"
-echo "done: $MODEL_FILE"
+echo "Done: ${MODEL_FILE}"
