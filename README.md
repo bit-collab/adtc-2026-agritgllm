@@ -14,10 +14,22 @@ Ask it a question in plain English and it answers as a Togolese agricultural adv
 bash download_model.sh
 ```
 
-That pulls the weights into `model/`. From there, point llama.cpp at the file and ask it something:
+That pulls the weights into `model/`. From there, point llama.cpp at the file:
+
+```bash
+llama-server -m model/adtc-agritgllm-adviser-Q4_K_M.gguf -c 2048 --temp 0
+```
+
+Then ask it something:
 
 ```
 My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong?
 ```
+
+**Run it at temperature 0.** This adviser is tuned to commit to one diagnosis and to
+decline questions outside its domain, such as how to build an irrigation pump, and
+greedy decoding is what keeps both behaviours stable. At the sampling temperatures
+some clients default to, a 1.7B model starts padding sound advice with invented
+detail, which is exactly what you do not want in a tool a farmer will act on.
 
 Read **[REPORT.md](REPORT.md)** for the problem it solves, why this base model and this quantization won over the alternatives we measured, and the full benchmark numbers from the official ADTC profiler. **[metadata.json](metadata.json)** holds the submission metadata and the test prompts.
