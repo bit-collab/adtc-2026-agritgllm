@@ -80,9 +80,17 @@ One caveat we would rather state than have discovered. The development laptop ex
 
 On the twelve-question battery, run against the quantized GGUF with no system prompt, the model identifies itself as a Togo adviser, distinguishes whiteflies from aphids, recognises cassava mosaic disease, names anaplasmosis and babesiosis for a tick-borne presentation, gives locally available dry-season goat fodder, handles the maize whorl caterpillar, advises waiting before sowing beans into saturated soil, recommends drying and storing maize rather than selling into the post-harvest price trough, declines to advise on Kenya, and refuses to invent instructions for building a solar pump, deferring to ICAT instead.
 
-## 5. Reproducing this
+## 5. Running the model
 
-The training and export scripts are in the repository: QLoRA supervised fine-tuning, the DPO pass, the non-thinking template, and GGUF export. `download_model.sh` fetches the published GGUF into `model/`, after which the model runs through llama.cpp with no network access.
+`download_model.sh` fetches the published GGUF into `model/`, after which it runs
+through llama.cpp with no network access at any point.
+
+The pipeline that produced it, described in section 2, ran in this order: 4-bit
+QLoRA supervised fine-tuning with Unsloth on the conversation dataset, with the
+best checkpoint selected on validation loss and early stopping armed; a short DPO
+pass on hand-written preference pairs built from the model's own wrong answers;
+then a merge and export to GGUF Q4_K_M, with the non-thinking chat template and
+the Togo persona baked into the model file itself.
 
 ## 6. Open-source tools used
 
