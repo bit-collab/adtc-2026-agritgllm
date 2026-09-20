@@ -1,0 +1,8 @@
+adtc-profiler mode=participant model=adtc-agritgllm-adviser-v3-Q4_K_M.gguf
+→ running llama-bench (throughput)…
+→ running lm_eval task=arc_easy limit=50…
+llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  0%|          | 0/50 [00:00<?, ?it/s]100%|██████████| 50/50 [00:00<00:00, 1141.95it/s]
+fatal: not a git repository (or any of the parent directories): .git
+✓ wrote /artifacts/submission.json

@@ -12,7 +12,7 @@ ANAMET, ANSAT, CAGIA, SIM). No system prompt needed, the persona is baked into t
 | **Base model** | LFM2-700M (Liquid AI), LoRA on a bf16 base, supervised fine-tuning then DPO |
 | **Runtime** | llama.cpp, CPU only, fully offline |
 | **Weights** | GGUF Q4_K_M, 468.6 MB (447 MiB) |
-| **On the target machine** | 15.6 tok/s cold, 557 MB peak, official profiler on 8 GB RAM / 4 vCPU / no GPU. Section 6 of the report says exactly which file was measured and how |
+| **On the target machine** | 16.7 tok/s cold, 557 MB peak, measured on this exact file by the official profiler in its own Docker recipe, 4 threads, 7.5 GB, no GPU, no network. Section 6 of the report has all three runs |
 
 **What changed since Round 1.** The file is 2.4 times smaller. The base model was changed twice,
 each time on a measurement and not on a preference. The training data was rebuilt from 60 curated

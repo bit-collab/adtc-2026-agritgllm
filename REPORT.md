@@ -95,7 +95,7 @@ The gain on learned facts is five standard errors, so it is not noise. On fiches
 
 ### 3.4 Choosing the quantization: Q4_K_M
 
-We built three files from the same weights and measured all three on the target machine, three runs each, 4 threads, no GPU.
+We built three files from the same weights and measured all three on the target machine, three runs each, 4 threads, no GPU. Those runs were made on the file we had at the time, to choose the quantization; the shipped file's own figures are in section 6.
 
 | | file size | tok/s (median of 3) | spread | RAM used | Sperf | Seff |
 |---|---:|---:|---:|---:|---:|---:|
@@ -343,46 +343,58 @@ unseen material, and we would rather state that than imply we solved it.
 
 ## 6. Constraints and honesty about numbers
 
-Every speed, memory and temperature figure in this report comes from `adtc-profiler` itself,
-run in participant mode on a replica of the evaluation profile, and from no tool of ours. The
-replica is an Intel Core i5-1335U with 7.4 GB of RAM, no GPU, Debian 13, no network. The raw
-artefacts, three JSON files, their logs and the thermal trace, are in
-`provenance/evaluation/target_machine/`.
+Every speed, memory and temperature figure in this section comes from `adtc-profiler` itself
+and from no tool of ours, run the way the organizers run it: inside the Docker image built from
+the profiler's own Dockerfile on 20 September, which compiles llama.cpp `b10175` with AVX, AVX2,
+AVX512, FMA and F16C all turned off, in a container limited to 7.5 GB of memory and to four
+CPUs, with 4 threads and the network switched off. The machine is a replica of the evaluation
+profile: an Intel Core i5-1335U with 7.4 GB of RAM, no GPU, Debian 13. The image build logs, the
+three JSON reports, their logs and the thermal trace are in `provenance/evaluation/target_machine/`,
+under `v3-q4-*` and `docker-build-20260920*`.
 
-**Which file these numbers come from.** The profiler runs below were made on the file we published for
-Round 2's first submission, `adtc-agritgllm-adviser-v2-Q4_K_M.gguf`, and not on the file this
-repository now downloads. The two are the same architecture, the same quantization and the same
-size to within 32 bytes; they differ in the values of the weights, which is not something that
-changes throughput or memory in llama.cpp. We still do not present them as a measurement of the
-shipped file. They are the best figures we have, they are labelled for what they are, and they will
-be replaced by a profiler run on the shipped file as soon as we have it.
+**Which file these numbers come from.** The shipped one. All three runs below were made on
+`adtc-agritgllm-adviser-v3-Q4_K_M.gguf`, downloaded by `download_model.sh` from the pinned
+Hugging Face commit into a fresh clone of this repository at commit `0d720d0`, which is the
+`git_commit_sha` the profiler wrote on its own into each report. The earlier runs on the file we
+had first published for this round are kept next to them, under `egrpo-q4-*`, for comparison.
 
 We do not report numbers from our development laptop. On the very file audited in Round 1, that
 laptop measured about ten times faster than the audit environment. Rule 3.4 penalises an
 unexplained gap between what we declare and what organizers measure, and the only way to avoid
 the gap is never to quote the wrong machine.
 
-**Throughput.** Three runs on the same file: 15.64 tok/s on a cold start, then 15.27 and 14.91
-once the machine had heated. We quote the cold run because that is the condition a fresh audit
-starts from, and we quote the other two here because hiding the spread would be dishonest. The
-spread is 0.73 tok/s, about 5 per cent.
+**Throughput.** Three runs: **16.74 tok/s on a cold start**, then 16.24 once the machine had
+heated, and 16.26 on the full run that also scores accuracy. First token after the 512 token
+prompt: 22,967, 23,396 and 22,912 ms. We quote the cold run because that is the condition a fresh
+audit starts from, and the other two because hiding the spread would be dishonest; the spread is
+0.50 tok/s, about 3 per cent. All three sit above the 15 tok/s where the performance score
+saturates. The previous file measured 15.64 cold on the same machine, before the container recipe.
 
-**Memory.** Peak resident set 557.46 MB against a 7 GB budget, steady state 519.4 MB, for a file
-of 447 MB. Only 6 of the 16 layers keep a key-value cache, so the working set grows slowly as a
-conversation gets longer. There is no realistic path to an out-of-memory failure on this profile.
+**Memory.** Peak resident set 557.4, 557.6 and 557.5 MB against a 7.5 GB limit, steady state
+around 521 MB, for a file of 447 MiB. Only 6 of the 16 layers keep a key-value cache, so the
+working set grows slowly as a conversation gets longer. Free memory on the host never went below
+4.2 GB during the whole session. There is no realistic path to an out-of-memory failure on this
+profile.
+
+**Accuracy, as the profiler measures it.** The full run scores `arc_easy` at 0.68 `acc_norm` on
+50 samples, against 0.64 for the previous file. It is a general knowledge benchmark in English,
+not an agricultural one, and 50 samples carry a wide error bar; we record it because the
+profiler does, not because it says much about the job.
 
 **Temperature, and this one is against us.** All three runs report `"throttled": true`, with a
-core peak of 99, 100 and 98 degrees. We are not going to present that as a detail. The thermal
-trace, 365 samples over 1,834 seconds, shows what is actually happening: during the hot phases
-the processor holds 3,700 to 3,900 MHz. It is not collapsing, it is working at its power limit,
-which is normal behaviour for this class of chip and its 100 degree junction limit.
+core peak of 100, 100 and 98 degrees, and this with the audit recipe of four threads on four
+CPUs. The thermal trace, 711 samples over 3,565 seconds, shows what is actually happening: three
+hot windows of 171, 176 and 251 seconds, one per run, during which the processor holds 2,150 to
+4,300 MHz, 3,850 on average. It is not collapsing, it is working at its power limit, which is
+normal behaviour for this class of chip and its 100 degree junction limit. Between runs it
+returns to 50 to 60 degrees within a minute.
 
-That leaves a trade we can make and have not yet made. The performance score saturates at 15
-tok/s and we measure 15.64, so there is frequency to give back. A configuration that runs cooler
-and slower costs very little on the performance term and clears a penalty worth ten points; the
-break-even sits near 10 tok/s, far below anything we would ship. The sweep that finds such a
-configuration is `provenance/evaluation/thermal_sweep.sh`, and the procedure around it is in
-`provenance/evaluation/final_measurement_procedure.md`.
+What that changes from our earlier reading: we had hoped that going down to four threads would
+clear the flag while keeping the score above 15 tok/s. Four threads is exactly what the recipe
+uses, and the flag is still raised. The frequency left to give back is therefore below four
+threads, where the performance term starts to pay; the break-even sits near 10 tok/s. The sweep
+that would find such a configuration is `provenance/evaluation/thermal_sweep.sh`, and we have
+not run it on the shipped file.
 
 One question we cannot answer from the rules as written, and would rather ask than guess: is the
 thermal term read from the `submission.json` we provide, or from the organizers' own audit run?
@@ -391,8 +403,9 @@ model, in the documented launch command, and we will put it there.
 
 **One caveat on the replica itself.** Its processor is a 13th generation i5-1335U, while the
 published profile describes a 10th to 12th generation part. Our throughput may therefore be
-optimistic relative to the machine the organizers use. We say so rather than let the difference
-be discovered.
+optimistic relative to the machine the organizers use, and its thermal behaviour is that of a
+thin 15 inch laptop, not necessarily theirs. We say so rather than let the difference be
+discovered.
 
 ---
 

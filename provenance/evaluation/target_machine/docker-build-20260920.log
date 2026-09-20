@@ -1,0 +1,2367 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.02kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim
+#3 DONE 3.2s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 4.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 122B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 26.68kB done
+#5 DONE 0.0s
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 resolve docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9 0.0s done
+#6 sha256:0526d5e29bf341cb1941d46a6d4ab64fcde4fca3dc3adccfb4dbf5728b88b61e 0B / 249B 0.2s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 0B / 14.45MB 0.2s
+#6 sha256:41e7217c2e506d048f89ca0c5cfef848c05ef990900627c19f99938c4aae57f8 0B / 1.29MB 0.2s
+#6 sha256:0526d5e29bf341cb1941d46a6d4ab64fcde4fca3dc3adccfb4dbf5728b88b61e 249B / 249B 0.3s done
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 0B / 29.83MB 0.2s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 1.05MB / 14.45MB 1.5s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 2.10MB / 14.45MB 2.1s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 3.15MB / 14.45MB 2.6s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 4.19MB / 14.45MB 3.3s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 5.24MB / 14.45MB 4.7s
+#6 sha256:41e7217c2e506d048f89ca0c5cfef848c05ef990900627c19f99938c4aae57f8 1.05MB / 1.29MB 4.7s
+#6 sha256:41e7217c2e506d048f89ca0c5cfef848c05ef990900627c19f99938c4aae57f8 1.29MB / 1.29MB 4.8s done
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 6.29MB / 14.45MB 5.0s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 7.34MB / 14.45MB 5.6s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 0B / 29.83MB 5.3s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 8.39MB / 14.45MB 6.0s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 9.44MB / 14.45MB 6.6s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 10.49MB / 14.45MB 7.1s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 11.53MB / 14.45MB 7.8s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 12.58MB / 14.45MB 9.2s
+#6 ...
+
+#7 [llama-build 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251 0.0s done
+#7 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 8.39MB / 28.24MB 10.1s
+#7 ...
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 13.63MB / 14.45MB 10.2s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 2.10MB / 29.83MB 9.9s
+#6 sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 14.45MB / 14.45MB 10.4s done
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 4.19MB / 29.83MB 13.7s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 6.29MB / 29.83MB 16.7s
+#6 ...
+
+#7 [llama-build 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251
+#7 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 28.24MB / 28.24MB 19.2s done
+#7 extracting sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 0.5s done
+#7 DONE 19.8s
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 0.391 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.656 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.759 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#8 0.845 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+#8 5.392 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#8 ...
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 13.63MB / 29.83MB 25.1s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 15.73MB / 29.83MB 26.1s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 17.83MB / 29.83MB 27.0s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 19.92MB / 29.83MB 28.7s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 22.02MB / 29.83MB 31.2s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 24.12MB / 29.83MB 32.9s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 26.21MB / 29.83MB 35.0s
+#6 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 6.014 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [340 kB]
+#8 7.021 Fetched 9379 kB in 7s (1377 kB/s)
+#8 7.021 Reading package lists...
+#8 7.354 Reading package lists...
+#8 7.689 Building dependency tree...
+#8 7.768 Reading state information...
+#8 7.858 The following additional packages will be installed:
+#8 7.858   binutils binutils-common binutils-x86-64-linux-gnu bzip2 cmake-data cpp
+#8 7.858   cpp-12 dpkg-dev g++ g++-12 gcc gcc-12 git-man libarchive13 libasan8
+#8 7.858   libatomic1 libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0
+#8 7.858   libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls libcurl4 libdpkg-perl
+#8 7.858   liberror-perl libexpat1 libgcc-12-dev libgdbm-compat4 libgdbm6 libgomp1
+#8 7.858   libgprofng0 libgssapi-krb5-2 libicu72 libisl23 libitm1 libjansson4
+#8 7.858   libjsoncpp25 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+#8 7.858   libldap-2.5-0 liblsan0 libmpc3 libmpfr6 libncursesw6 libnghttp2-14
+#8 7.858   libnsl-dev libnsl2 libperl5.36 libproc2-0 libpsl5 libquadmath0 librhash0
+#8 7.858   librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1 libssl3 libstdc++-12-dev
+#8 7.858   libtirpc-common libtirpc-dev libtirpc3 libtsan2 libubsan1 libuv1 libxml2
+#8 7.859   linux-libc-dev make openssl patch perl perl-modules-5.36 procps rpcsvc-proto
+#8 7.859   xz-utils
+#8 7.860 Suggested packages:
+#8 7.860   binutils-doc bzip2-doc cmake-doc cmake-format elpa-cmake-mode ninja-build
+#8 7.860   cpp-doc gcc-12-locales cpp-12-doc debian-keyring g++-multilib
+#8 7.860   g++-12-multilib gcc-12-doc gcc-multilib manpages-dev autoconf automake
+#8 7.860   libtool flex bison gdb gcc-doc gcc-12-multilib gettext-base git-daemon-run
+#8 7.860   | git-daemon-sysvinit git-doc git-email git-gui gitk gitweb git-cvs
+#8 7.860   git-mediawiki git-svn lrzip glibc-doc gnupg | sq | sqop | pgpainless-cli
+#8 7.860   sensible-utils bzr gdbm-l10n krb5-doc krb5-user libstdc++-12-doc make-doc ed
+#8 7.860   diffutils-doc perl-doc libterm-readline-gnu-perl
+#8 7.860   | libterm-readline-perl-perl libtap-harness-archive-perl
+#8 7.860 Recommended packages:
+#8 7.860   fakeroot gnupg | sq | sqop | pgpainless-cli libalgorithm-merge-perl less
+#8 7.860   ssh-client manpages manpages-dev libc-devtools libfile-fcntllock-perl
+#8 7.860   liblocale-gettext-perl krb5-locales libldap-common libgpm2 publicsuffix
+#8 7.860   libsasl2-modules netbase psmisc
+#8 8.106 The following NEW packages will be installed:
+#8 8.106   binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2
+#8 8.106   ca-certificates cmake cmake-data cpp cpp-12 dpkg-dev g++ g++-12 gcc gcc-12
+#8 8.106   git git-man libarchive13 libasan8 libatomic1 libbinutils libbrotli1
+#8 8.106   libc-dev-bin libc6-dev libcc1-0 libcrypt-dev libctf-nobfd0 libctf0
+#8 8.106   libcurl3-gnutls libcurl4 libdpkg-perl liberror-perl libexpat1 libgcc-12-dev
+#8 8.106   libgdbm-compat4 libgdbm6 libgomp1 libgprofng0 libgssapi-krb5-2 libicu72
+#8 8.106   libisl23 libitm1 libjansson4 libjsoncpp25 libk5crypto3 libkeyutils1
+#8 8.106   libkrb5-3 libkrb5support0 libldap-2.5-0 liblsan0 libmpc3 libmpfr6
+#8 8.106   libncursesw6 libnghttp2-14 libnsl-dev libnsl2 libperl5.36 libproc2-0 libpsl5
+#8 8.106   libquadmath0 librhash0 librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1
+#8 8.106   libssl3 libstdc++-12-dev libtirpc-common libtirpc-dev libtirpc3 libtsan2
+#8 8.106   libubsan1 libuv1 libxml2 linux-libc-dev make openssl patch perl
+#8 8.106   perl-modules-5.36 procps rpcsvc-proto xz-utils
+#8 9.043 0 upgraded, 83 newly installed, 0 to remove and 0 not upgraded.
+#8 9.043 Need to get 112 MB of archives.
+#8 9.043 After this operation, 462 MB of additional disk space will be used.
+#8 9.043 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#8 13.58 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#8 13.62 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#8 13.64 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#8 ...
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 28.31MB / 29.83MB 36.9s
+#6 sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 29.83MB / 29.83MB 38.0s done
+#6 extracting sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8
+#6 extracting sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 0.5s done
+#6 DONE 38.9s
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 17.91 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#8 18.11 Get:6 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+#8 18.16 Get:7 http://deb.debian.org/debian bookworm/main amd64 libproc2-0 amd64 2:4.0.2-3 [62.8 kB]
+#8 18.18 Get:8 http://deb.debian.org/debian bookworm/main amd64 procps amd64 2:4.0.2-3 [709 kB]
+#8 18.68 Get:9 http://deb.debian.org/debian bookworm/main amd64 bzip2 amd64 1.0.8-5+b1 [49.8 kB]
+#8 18.89 Get:10 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.20-1~deb12u2 [2036 kB]
+#8 ...
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 extracting sha256:41e7217c2e506d048f89ca0c5cfef848c05ef990900627c19f99938c4aae57f8 0.1s done
+#6 extracting sha256:58abdd9670ca8c69d03432ce188995dee67f0979357caf83866fe1ef2ec37138 0.3s done
+#6 DONE 39.3s
+
+#6 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#6 extracting sha256:0526d5e29bf341cb1941d46a6d4ab64fcde4fca3dc3adccfb4dbf5728b88b61e 0.0s done
+#6 DONE 39.3s
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 20.05 Get:11 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.20-1~deb12u2 [1439 kB]
+#8 20.97 Get:12 http://deb.debian.org/debian-security bookworm-security/main amd64 ca-certificates all 20250419~deb12u1 [162 kB]
+#8 21.09 Get:13 http://deb.debian.org/debian-security bookworm-security/main amd64 xz-utils amd64 5.4.1-1+deb12u2 [471 kB]
+#8 21.35 Get:14 http://deb.debian.org/debian bookworm/main amd64 binutils-common amd64 2.40-2 [2487 kB]
+#8 22.65 Get:15 http://deb.debian.org/debian bookworm/main amd64 libbinutils amd64 2.40-2 [572 kB]
+#8 23.08 Get:16 http://deb.debian.org/debian bookworm/main amd64 libctf-nobfd0 amd64 2.40-2 [153 kB]
+#8 23.12 Get:17 http://deb.debian.org/debian bookworm/main amd64 libctf0 amd64 2.40-2 [89.8 kB]
+#8 23.14 Get:18 http://deb.debian.org/debian bookworm/main amd64 libgprofng0 amd64 2.40-2 [812 kB]
+#8 23.92 Get:19 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+#8 24.07 Get:20 http://deb.debian.org/debian bookworm/main amd64 binutils-x86-64-linux-gnu amd64 2.40-2 [2246 kB]
+#8 ...
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 6.414 Hit:1 http://deb.debian.org/debian trixie InRelease
+#9 6.592 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#9 6.897 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#9 7.281 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+#9 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 0.643 Hit:1 http://deb.debian.org/debian trixie InRelease
+#10 0.911 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#10 1.175 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#10 1.392 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 27.14 Get:21 http://deb.debian.org/debian bookworm/main amd64 binutils amd64 2.40-2 [65.0 kB]
+#8 27.51 Get:22 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u14 [48.1 kB]
+#8 28.12 Get:23 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.187-1 [2357 kB]
+#8 36.50 Get:24 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#8 37.39 Get:25 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+#8 37.48 Get:26 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+#8 38.03 Get:27 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#8 38.15 Get:28 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+#8 42.17 Get:29 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+#8 42.64 Get:30 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#8 42.67 Get:31 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#8 42.76 Get:32 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#8 42.81 Get:33 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#8 43.29 Get:34 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#8 43.46 Get:35 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#8 43.79 Get:36 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u14 [1904 kB]
+#8 45.98 Get:37 http://deb.debian.org/debian bookworm/main amd64 libisl23 amd64 0.25-1.1 [683 kB]
+#8 46.67 Get:38 http://deb.debian.org/debian bookworm/main amd64 libmpfr6 amd64 4.2.0-1 [701 kB]
+#8 47.27 Get:39 http://deb.debian.org/debian bookworm/main amd64 libmpc3 amd64 1.3.1-1 [51.5 kB]
+#8 47.30 Get:40 http://deb.debian.org/debian bookworm/main amd64 cpp-12 amd64 12.2.0-14+deb12u1 [9768 kB]
+#8 ...
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 30.86 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [4412 B]
+#9 30.95 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [262 kB]
+#9 31.39 Fetched 10.0 MB in 31s (322 kB/s)
+#9 31.39 Reading package lists...
+#9 31.78 Reading package lists...
+#9 32.15 Building dependency tree...
+#9 32.24 Reading state information...
+#9 32.38 ca-certificates is already the newest version (20250419).
+#9 32.38 The following additional packages will be installed:
+#9 32.38   git-man libbrotli1 libcom-err2 libcurl3t64-gnutls libcurl4t64 liberror-perl
+#9 32.38   libexpat1 libgdbm-compat4t64 libgnutls30t64 libgssapi-krb5-2 libidn2-0
+#9 32.38   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libnghttp2-14
+#9 32.38   libnghttp3-9 libngtcp2-16 libngtcp2-crypto-gnutls8 libp11-kit0 libperl5.40
+#9 32.38   libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules-db libsensors-config
+#9 32.38   libsensors5 libssh2-1t64 libtasn1-6 libunistring5 perl perl-modules-5.40
+#9 32.38 Suggested packages:
+#9 32.38   gettext-base git-doc git-email git-gui gitk gitweb git-cvs git-mediawiki
+#9 32.38   git-svn gnutls-bin krb5-doc krb5-user sensible-utils fancontrol i2c-tools
+#9 32.38   read-edid perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl
+#9 32.38   make libtap-harness-archive-perl
+#9 32.38 Recommended packages:
+#9 32.38   bash-completion patch less ssh-client krb5-locales libldap-common
+#9 32.38   publicsuffix libsasl2-modules
+#9 32.54 The following NEW packages will be installed:
+#9 32.54   curl git git-man libbrotli1 libcom-err2 libcurl3t64-gnutls libcurl4t64
+#9 32.54   liberror-perl libexpat1 libgdbm-compat4t64 libgnutls30t64 libgomp1
+#9 32.54   libgssapi-krb5-2 libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3
+#9 32.54   libkrb5support0 libldap2 libnghttp2-14 libnghttp3-9 libngtcp2-16
+#9 32.54   libngtcp2-crypto-gnutls8 libp11-kit0 libperl5.40 libpsl5t64 librtmp1
+#9 32.54   libsasl2-2 libsasl2-modules-db libsensors-config libsensors5 libssh2-1t64
+#9 32.54   libtasn1-6 libunistring5 lm-sensors perl perl-modules-5.40
+#9 33.57 0 upgraded, 37 newly installed, 0 to remove and 0 not upgraded.
+#9 33.57 Need to get 24.6 MB of archives.
+#9 33.57 After this operation, 122 MB of additional disk space will be used.
+#9 33.57 Get:1 http://deb.debian.org/debian trixie/main amd64 libexpat1 amd64 2.8.3-1~deb13u1 [123 kB]
+#9 34.03 Get:2 http://deb.debian.org/debian trixie/main amd64 perl-modules-5.40 all 5.40.1-6+deb13u1 [3014 kB]
+#9 35.24 Get:3 http://deb.debian.org/debian trixie/main amd64 libgdbm-compat4t64 amd64 1.24-2 [50.3 kB]
+#9 35.24 Get:4 http://deb.debian.org/debian trixie/main amd64 libperl5.40 amd64 5.40.1-6+deb13u1 [4326 kB]
+#9 36.54 Get:5 http://deb.debian.org/debian trixie/main amd64 perl amd64 5.40.1-6+deb13u1 [268 kB]
+#9 37.32 Get:6 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#9 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 34.09 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [4412 B]
+#10 34.18 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [262 kB]
+#10 34.64 Fetched 10.0 MB in 34s (291 kB/s)
+#10 34.64 Reading package lists...
+#10 35.02 Reading package lists...
+#10 35.44 Building dependency tree...
+#10 35.53 Reading state information...
+#10 35.66 ca-certificates is already the newest version (20250419).
+#10 35.66 The following additional packages will be installed:
+#10 35.66   binutils binutils-common binutils-x86-64-linux-gnu bzip2 cmake-data cpp
+#10 35.66   cpp-14 cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu dpkg-dev g++ g++-14
+#10 35.66   g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+#10 35.66   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu git-man libarchive13t64
+#10 35.66   libasan8 libatomic1 libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0
+#10 35.66   libcom-err2 libcrypt-dev libctf-nobfd0 libctf0 libcurl3t64-gnutls
+#10 35.66   libcurl4t64 libdpkg-perl liberror-perl libexpat1 libgcc-14-dev
+#10 35.66   libgdbm-compat4t64 libgnutls30t64 libgomp1 libgprofng0 libgssapi-krb5-2
+#10 35.66   libhwasan0 libidn2-0 libisl23 libitm1 libjansson4 libjsoncpp26 libk5crypto3
+#10 35.66   libkeyutils1 libkrb5-3 libkrb5support0 libldap2 liblsan0 libmpc3 libmpfr6
+#10 35.66   libnghttp2-14 libnghttp3-9 libngtcp2-16 libngtcp2-crypto-gnutls8 libp11-kit0
+#10 35.67   libperl5.40 libproc2-0 libpsl5t64 libquadmath0 librhash1 librtmp1 libsasl2-2
+#10 35.67   libsasl2-modules-db libsframe1 libssh2-1t64 libstdc++-14-dev libtasn1-6
+#10 35.67   libtsan2 libubsan1 libunistring5 libuv1t64 libxml2 linux-libc-dev make patch
+#10 35.67   perl perl-modules-5.40 procps rpcsvc-proto xz-utils
+#10 35.67 Suggested packages:
+#10 35.67   binutils-doc gprofng-gui binutils-gold bzip2-doc cmake-doc cmake-format
+#10 35.67   elpa-cmake-mode ninja-build cpp-doc gcc-14-locales cpp-14-doc debian-keyring
+#10 35.67   debian-tag2upload-keyring g++-multilib g++-14-multilib gcc-14-doc
+#10 35.67   gcc-multilib manpages-dev autoconf automake libtool flex bison gdb gcc-doc
+#10 35.67   gcc-14-multilib gdb-x86-64-linux-gnu gettext-base git-doc git-email git-gui
+#10 35.67   gitk gitweb git-cvs git-mediawiki git-svn lrzip libc-devtools glibc-doc sq
+#10 35.67   | sqop | rsop | gosop | pgpainless-cli | gpg-sq | gnupg sensible-utils bzr
+#10 35.67   gnutls-bin krb5-doc krb5-user libstdc++-14-doc make-doc ed diffutils-doc
+#10 35.67   perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl
+#10 35.67   libtap-harness-archive-perl
+#10 35.67 Recommended packages:
+#10 35.67   fakeroot sq | sqop | rsop | gosop | pgpainless-cli | gpg-sq | gnupg
+#10 35.67   libalgorithm-merge-perl less ssh-client manpages manpages-dev
+#10 35.67   libfile-fcntllock-perl liblocale-gettext-perl krb5-locales libldap-common
+#10 35.67   publicsuffix libsasl2-modules psmisc linux-sysctl-defaults
+#10 35.94 The following NEW packages will be installed:
+#10 35.94   binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2
+#10 35.94   cmake cmake-data cpp cpp-14 cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu
+#10 35.94   dpkg-dev g++ g++-14 g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+#10 35.94   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu git git-man libarchive13t64
+#10 35.94   libasan8 libatomic1 libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0
+#10 35.94   libcom-err2 libcrypt-dev libctf-nobfd0 libctf0 libcurl3t64-gnutls
+#10 35.94   libcurl4t64 libdpkg-perl liberror-perl libexpat1 libgcc-14-dev
+#10 35.94   libgdbm-compat4t64 libgnutls30t64 libgomp1 libgprofng0 libgssapi-krb5-2
+#10 35.94   libhwasan0 libidn2-0 libisl23 libitm1 libjansson4 libjsoncpp26 libk5crypto3
+#10 35.94   libkeyutils1 libkrb5-3 libkrb5support0 libldap2 liblsan0 libmpc3 libmpfr6
+#10 35.94   libnghttp2-14 libnghttp3-9 libngtcp2-16 libngtcp2-crypto-gnutls8 libp11-kit0
+#10 35.94   libperl5.40 libproc2-0 libpsl5t64 libquadmath0 librhash1 librtmp1 libsasl2-2
+#10 35.94   libsasl2-modules-db libsframe1 libssh2-1t64 libstdc++-14-dev libtasn1-6
+#10 35.94   libtsan2 libubsan1 libunistring5 libuv1t64 libxml2 linux-libc-dev make patch
+#10 35.94   perl perl-modules-5.40 procps rpcsvc-proto xz-utils
+#10 36.38 0 upgraded, 89 newly installed, 0 to remove and 0 not upgraded.
+#10 36.38 Need to get 116 MB of archives.
+#10 36.38 After this operation, 466 MB of additional disk space will be used.
+#10 36.38 Get:1 http://deb.debian.org/debian trixie/main amd64 libexpat1 amd64 2.8.3-1~deb13u1 [123 kB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 61.20 Get:41 http://deb.debian.org/debian bookworm/main amd64 cpp amd64 4:12.2.0-3 [6836 B]
+#8 61.20 Get:42 http://deb.debian.org/debian bookworm/main amd64 libcc1-0 amd64 12.2.0-14+deb12u1 [41.7 kB]
+#8 61.24 Get:43 http://deb.debian.org/debian bookworm/main amd64 libgomp1 amd64 12.2.0-14+deb12u1 [116 kB]
+#8 61.45 Get:44 http://deb.debian.org/debian bookworm/main amd64 libitm1 amd64 12.2.0-14+deb12u1 [26.1 kB]
+#8 61.48 Get:45 http://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9376 B]
+#8 61.49 Get:46 http://deb.debian.org/debian bookworm/main amd64 libasan8 amd64 12.2.0-14+deb12u1 [2193 kB]
+#8 64.16 Get:47 http://deb.debian.org/debian bookworm/main amd64 liblsan0 amd64 12.2.0-14+deb12u1 [969 kB]
+#8 65.24 Get:48 http://deb.debian.org/debian bookworm/main amd64 libtsan2 amd64 12.2.0-14+deb12u1 [2197 kB]
+#8 ...
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 45.77 Get:7 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u1 [33.1 kB]
+#9 45.82 Get:8 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+#9 46.09 Get:9 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u1 [81.2 kB]
+#9 46.44 Get:10 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#9 46.63 Get:11 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u1 [326 kB]
+#9 47.91 Get:12 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u1 [138 kB]
+#9 48.42 Get:13 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#9 49.18 Get:14 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#9 49.40 Get:15 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#9 49.45 Get:16 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#9 49.50 Get:17 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#9 49.58 Get:18 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1+deb13u1 [76.2 kB]
+#9 49.59 Get:19 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#9 49.61 Get:20 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#9 49.74 Get:21 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#9 50.02 Get:22 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2+deb13u1 [50.1 kB]
+#9 50.02 Get:23 http://deb.debian.org/debian trixie/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u4 [1469 kB]
+#9 50.55 Get:24 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#9 50.59 Get:25 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1+deb13u2 [245 kB]
+#9 50.68 Get:26 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u5 [391 kB]
+#9 50.86 Get:27 http://deb.debian.org/debian trixie/main amd64 curl amd64 8.14.1-2+deb13u5 [270 kB]
+#9 51.34 Get:28 http://deb.debian.org/debian trixie/main amd64 libngtcp2-16 amd64 1.11.0-1+deb13u1 [132 kB]
+#9 51.48 Get:29 http://deb.debian.org/debian trixie/main amd64 libngtcp2-crypto-gnutls8 amd64 1.11.0-1+deb13u1 [29.5 kB]
+#9 51.49 Get:30 http://deb.debian.org/debian trixie/main amd64 libcurl3t64-gnutls amd64 8.14.1-2+deb13u5 [384 kB]
+#9 54.35 Get:31 http://deb.debian.org/debian trixie/main amd64 liberror-perl all 0.17030-1 [26.9 kB]
+#9 54.81 Get:32 http://deb.debian.org/debian trixie/main amd64 git-man all 1:2.47.3-0+deb13u1 [2205 kB]
+#9 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 57.27 Get:2 http://deb.debian.org/debian trixie/main amd64 libproc2-0 amd64 2:4.0.4-9 [65.6 kB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 86.14 Get:49 http://deb.debian.org/debian bookworm/main amd64 libubsan1 amd64 12.2.0-14+deb12u1 [883 kB]
+#8 89.44 Get:50 http://deb.debian.org/debian bookworm/main amd64 libquadmath0 amd64 12.2.0-14+deb12u1 [145 kB]
+#8 89.98 Get:51 http://deb.debian.org/debian bookworm/main amd64 libgcc-12-dev amd64 12.2.0-14+deb12u1 [2437 kB]
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 67.38 Get:3 http://deb.debian.org/debian trixie/main amd64 procps amd64 2:4.0.4-9 [882 kB]
+#10 70.37 Get:4 http://deb.debian.org/debian trixie/main amd64 bzip2 amd64 1.0.8-6 [40.5 kB]
+#10 70.50 Get:5 http://deb.debian.org/debian trixie/main amd64 perl-modules-5.40 all 5.40.1-6+deb13u1 [3014 kB]
+#10 ...
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 67.09 Get:33 http://deb.debian.org/debian trixie/main amd64 git amd64 1:2.47.3-0+deb13u1 [8862 kB]
+#9 76.91 Get:34 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#9 76.97 Get:35 http://deb.debian.org/debian trixie/main amd64 libsensors-config all 1:3.6.2-2 [16.2 kB]
+#9 76.97 Get:36 http://deb.debian.org/debian trixie/main amd64 libsensors5 amd64 1:3.6.2-2 [37.5 kB]
+#9 77.09 Get:37 http://deb.debian.org/debian trixie/main amd64 lm-sensors amd64 1:3.6.2-2 [101 kB]
+#9 77.41 debconf: unable to initialize frontend: Dialog
+#9 77.41 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 77.41 debconf: falling back to frontend: Readline
+#9 77.41 debconf: unable to initialize frontend: Readline
+#9 77.41 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 37.)
+#9 77.41 debconf: falling back to frontend: Teletype
+#9 77.41 debconf: unable to initialize frontend: Teletype
+#9 77.41 debconf: (This frontend requires a controlling tty.)
+#9 77.41 debconf: falling back to frontend: Noninteractive
+#9 78.09 Fetched 24.6 MB in 45s (549 kB/s)
+#9 78.10 Selecting previously unselected package libexpat1:amd64.
+#9 78.10 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5660 files and directories currently installed.)
+#9 78.11 Preparing to unpack .../00-libexpat1_2.8.3-1~deb13u1_amd64.deb ...
+#9 78.11 Unpacking libexpat1:amd64 (2.8.3-1~deb13u1) ...
+#9 78.14 Selecting previously unselected package perl-modules-5.40.
+#9 78.14 Preparing to unpack .../01-perl-modules-5.40_5.40.1-6+deb13u1_all.deb ...
+#9 78.14 Unpacking perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#9 78.29 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#9 78.29 Preparing to unpack .../02-libgdbm-compat4t64_1.24-2_amd64.deb ...
+#9 78.29 Unpacking libgdbm-compat4t64:amd64 (1.24-2) ...
+#9 78.32 Selecting previously unselected package libperl5.40:amd64.
+#9 78.32 Preparing to unpack .../03-libperl5.40_5.40.1-6+deb13u1_amd64.deb ...
+#9 78.32 Unpacking libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#9 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 78.36 Get:6 http://deb.debian.org/debian trixie/main amd64 libgdbm-compat4t64 amd64 1.24-2 [50.3 kB]
+#10 78.39 Get:7 http://deb.debian.org/debian trixie/main amd64 libperl5.40 amd64 5.40.1-6+deb13u1 [4326 kB]
+#10 ...
+
+#9 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#9 78.49 Selecting previously unselected package perl.
+#9 78.49 Preparing to unpack .../04-perl_5.40.1-6+deb13u1_amd64.deb ...
+#9 78.49 Unpacking perl (5.40.1-6+deb13u1) ...
+#9 78.53 Selecting previously unselected package libbrotli1:amd64.
+#9 78.53 Preparing to unpack .../05-libbrotli1_1.1.0-2+b7_amd64.deb ...
+#9 78.53 Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+#9 78.57 Selecting previously unselected package libkrb5support0:amd64.
+#9 78.57 Preparing to unpack .../06-libkrb5support0_1.21.3-5+deb13u1_amd64.deb ...
+#9 78.57 Unpacking libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#9 78.59 Selecting previously unselected package libcom-err2:amd64.
+#9 78.59 Preparing to unpack .../07-libcom-err2_1.47.2-3+b12_amd64.deb ...
+#9 78.60 Unpacking libcom-err2:amd64 (1.47.2-3+b12) ...
+#9 78.62 Selecting previously unselected package libk5crypto3:amd64.
+#9 78.62 Preparing to unpack .../08-libk5crypto3_1.21.3-5+deb13u1_amd64.deb ...
+#9 78.62 Unpacking libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#9 78.65 Selecting previously unselected package libkeyutils1:amd64.
+#9 78.65 Preparing to unpack .../09-libkeyutils1_1.6.3-6_amd64.deb ...
+#9 78.65 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#9 78.67 Selecting previously unselected package libkrb5-3:amd64.
+#9 78.67 Preparing to unpack .../10-libkrb5-3_1.21.3-5+deb13u1_amd64.deb ...
+#9 78.67 Unpacking libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#9 78.71 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#9 78.72 Preparing to unpack .../11-libgssapi-krb5-2_1.21.3-5+deb13u1_amd64.deb ...
+#9 78.72 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#9 78.74 Selecting previously unselected package libunistring5:amd64.
+#9 78.75 Preparing to unpack .../12-libunistring5_1.3-2_amd64.deb ...
+#9 78.75 Unpacking libunistring5:amd64 (1.3-2) ...
+#9 78.79 Selecting previously unselected package libidn2-0:amd64.
+#9 78.80 Preparing to unpack .../13-libidn2-0_2.3.8-2_amd64.deb ...
+#9 78.80 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#9 78.82 Selecting previously unselected package libsasl2-modules-db:amd64.
+#9 78.82 Preparing to unpack .../14-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#9 78.83 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#9 78.85 Selecting previously unselected package libsasl2-2:amd64.
+#9 78.85 Preparing to unpack .../15-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#9 78.85 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#9 78.87 Selecting previously unselected package libldap2:amd64.
+#9 78.87 Preparing to unpack .../16-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#9 78.88 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#9 78.91 Selecting previously unselected package libnghttp2-14:amd64.
+#9 78.91 Preparing to unpack .../17-libnghttp2-14_1.64.0-1.1+deb13u1_amd64.deb ...
+#9 78.91 Unpacking libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#9 78.93 Selecting previously unselected package libnghttp3-9:amd64.
+#9 78.93 Preparing to unpack .../18-libnghttp3-9_1.8.0-1_amd64.deb ...
+#9 78.94 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#9 78.96 Selecting previously unselected package libpsl5t64:amd64.
+#9 78.96 Preparing to unpack .../19-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#9 78.97 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#9 78.99 Selecting previously unselected package libp11-kit0:amd64.
+#9 78.99 Preparing to unpack .../20-libp11-kit0_0.25.5-3_amd64.deb ...
+#9 78.99 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#9 79.03 Selecting previously unselected package libtasn1-6:amd64.
+#9 79.03 Preparing to unpack .../21-libtasn1-6_4.20.0-2+deb13u1_amd64.deb ...
+#9 79.03 Unpacking libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#9 79.06 Selecting previously unselected package libgnutls30t64:amd64.
+#9 79.06 Preparing to unpack .../22-libgnutls30t64_3.8.9-3+deb13u4_amd64.deb ...
+#9 79.06 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#9 79.12 Selecting previously unselected package librtmp1:amd64.
+#9 79.12 Preparing to unpack .../23-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#9 79.12 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#9 79.14 Selecting previously unselected package libssh2-1t64:amd64.
+#9 79.14 Preparing to unpack .../24-libssh2-1t64_1.11.1-1+deb13u2_amd64.deb ...
+#9 79.15 Unpacking libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#9 79.18 Selecting previously unselected package libcurl4t64:amd64.
+#9 79.18 Preparing to unpack .../25-libcurl4t64_8.14.1-2+deb13u5_amd64.deb ...
+#9 79.18 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u5) ...
+#9 79.21 Selecting previously unselected package curl.
+#9 79.21 Preparing to unpack .../26-curl_8.14.1-2+deb13u5_amd64.deb ...
+#9 79.21 Unpacking curl (8.14.1-2+deb13u5) ...
+#9 79.25 Selecting previously unselected package libngtcp2-16:amd64.
+#9 79.25 Preparing to unpack .../27-libngtcp2-16_1.11.0-1+deb13u1_amd64.deb ...
+#9 79.25 Unpacking libngtcp2-16:amd64 (1.11.0-1+deb13u1) ...
+#9 79.28 Selecting previously unselected package libngtcp2-crypto-gnutls8:amd64.
+#9 79.28 Preparing to unpack .../28-libngtcp2-crypto-gnutls8_1.11.0-1+deb13u1_amd64.deb ...
+#9 79.28 Unpacking libngtcp2-crypto-gnutls8:amd64 (1.11.0-1+deb13u1) ...
+#9 79.30 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#9 79.30 Preparing to unpack .../29-libcurl3t64-gnutls_8.14.1-2+deb13u5_amd64.deb ...
+#9 79.30 Unpacking libcurl3t64-gnutls:amd64 (8.14.1-2+deb13u5) ...
+#9 79.34 Selecting previously unselected package liberror-perl.
+#9 79.34 Preparing to unpack .../30-liberror-perl_0.17030-1_all.deb ...
+#9 79.34 Unpacking liberror-perl (0.17030-1) ...
+#9 79.36 Selecting previously unselected package git-man.
+#9 79.36 Preparing to unpack .../31-git-man_1%3a2.47.3-0+deb13u1_all.deb ...
+#9 79.36 Unpacking git-man (1:2.47.3-0+deb13u1) ...
+#9 79.42 Selecting previously unselected package git.
+#9 79.42 Preparing to unpack .../32-git_1%3a2.47.3-0+deb13u1_amd64.deb ...
+#9 79.42 Unpacking git (1:2.47.3-0+deb13u1) ...
+#9 79.63 Selecting previously unselected package libgomp1:amd64.
+#9 79.63 Preparing to unpack .../33-libgomp1_14.2.0-19_amd64.deb ...
+#9 79.63 Unpacking libgomp1:amd64 (14.2.0-19) ...
+#9 79.66 Selecting previously unselected package libsensors-config.
+#9 79.66 Preparing to unpack .../34-libsensors-config_1%3a3.6.2-2_all.deb ...
+#9 79.66 Unpacking libsensors-config (1:3.6.2-2) ...
+#9 79.68 Selecting previously unselected package libsensors5:amd64.
+#9 79.69 Preparing to unpack .../35-libsensors5_1%3a3.6.2-2_amd64.deb ...
+#9 79.69 Unpacking libsensors5:amd64 (1:3.6.2-2) ...
+#9 79.71 Selecting previously unselected package lm-sensors.
+#9 79.71 Preparing to unpack .../36-lm-sensors_1%3a3.6.2-2_amd64.deb ...
+#9 79.72 Unpacking lm-sensors (1:3.6.2-2) ...
+#9 79.75 Setting up libexpat1:amd64 (2.8.3-1~deb13u1) ...
+#9 79.75 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#9 79.76 Setting up libgdbm-compat4t64:amd64 (1.24-2) ...
+#9 79.77 Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+#9 79.77 Setting up libsensors-config (1:3.6.2-2) ...
+#9 79.78 Setting up libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#9 79.79 Setting up libcom-err2:amd64 (1.47.2-3+b12) ...
+#9 79.80 Setting up libgomp1:amd64 (14.2.0-19) ...
+#9 79.80 Setting up libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#9 79.81 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#9 79.82 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#9 79.82 Setting up libunistring5:amd64 (1.3-2) ...
+#9 79.83 Setting up libsensors5:amd64 (1:3.6.2-2) ...
+#9 79.84 Setting up libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#9 79.84 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#9 79.85 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#9 79.86 Setting up lm-sensors (1:3.6.2-2) ...
+#9 79.94 Setting up perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#9 79.94 Setting up libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#9 79.95 Setting up git-man (1:2.47.3-0+deb13u1) ...
+#9 79.96 Setting up libngtcp2-16:amd64 (1.11.0-1+deb13u1) ...
+#9 79.96 Setting up libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#9 79.97 Setting up libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#9 79.98 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#9 79.98 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#9 79.99 Setting up libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#9 80.00 Setting up perl (5.40.1-6+deb13u1) ...
+#9 80.01 Setting up libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#9 80.01 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#9 80.03 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#9 80.03 Setting up liberror-perl (0.17030-1) ...
+#9 80.04 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#9 80.05 Setting up libngtcp2-crypto-gnutls8:amd64 (1.11.0-1+deb13u1) ...
+#9 80.05 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u5) ...
+#9 80.06 Setting up libcurl3t64-gnutls:amd64 (8.14.1-2+deb13u5) ...
+#9 80.07 Setting up git (1:2.47.3-0+deb13u1) ...
+#9 80.08 Setting up curl (8.14.1-2+deb13u5) ...
+#9 80.08 Processing triggers for libc-bin (2.41-12+deb13u4) ...
+#9 DONE 80.2s
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 99.48 Get:52 http://deb.debian.org/debian bookworm/main amd64 gcc-12 amd64 12.2.0-14+deb12u1 [19.3 MB]
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 81.77 Get:8 http://deb.debian.org/debian trixie/main amd64 perl amd64 5.40.1-6+deb13u1 [268 kB]
+#10 81.96 Get:9 http://deb.debian.org/debian trixie/main amd64 xz-utils amd64 5.8.1-1+deb13u1 [659 kB]
+#10 82.35 Get:10 http://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+#10 82.37 Get:11 http://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+#10 84.15 Get:12 http://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+#10 84.75 Get:13 http://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+#10 85.75 Get:14 http://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+#10 85.88 Get:15 http://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+#10 86.01 Get:16 http://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+#10 86.06 Get:17 http://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+#10 100.4 Get:18 http://deb.debian.org/debian trixie/main amd64 binutils amd64 2.44-3 [265 kB]
+#10 101.5 Get:19 http://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u4 [60.0 kB]
+#10 101.8 Get:20 http://deb.debian.org/debian trixie/main amd64 linux-libc-dev all 6.12.107-1 [2919 kB]
+#10 133.0 Get:21 http://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+#10 133.4 Get:22 http://deb.debian.org/debian trixie/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#10 133.6 Get:23 http://deb.debian.org/debian trixie/main amd64 libc6-dev amd64 2.41-12+deb13u4 [1995 kB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 158.8 Get:53 http://deb.debian.org/debian bookworm/main amd64 gcc amd64 4:12.2.0-3 [5216 B]
+#8 158.8 Get:54 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14+deb12u1 [2047 kB]
+#8 161.1 Get:55 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14+deb12u1 [10.7 MB]
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 141.7 Get:24 http://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+#10 142.3 Get:25 http://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+#10 143.3 Get:26 http://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+#10 143.3 Get:27 http://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 167.5 Get:56 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+#8 167.5 Get:57 http://deb.debian.org/debian bookworm/main amd64 make amd64 4.3-4.1 [396 kB]
+#8 167.8 Get:58 http://deb.debian.org/debian bookworm/main amd64 libdpkg-perl all 1.21.23 [604 kB]
+#8 168.1 Get:59 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#8 168.5 Get:60 http://deb.debian.org/debian bookworm/main amd64 dpkg-dev all 1.21.23 [1354 kB]
+#8 172.4 Get:61 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#8 172.5 Get:62 http://deb.debian.org/debian bookworm/main amd64 libicu72 amd64 72.1-3+deb12u1 [9376 kB]
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 156.2 Get:28 http://deb.debian.org/debian trixie/main amd64 cpp-14 amd64 14.2.0-19 [1280 B]
+#10 156.2 Get:29 http://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+#10 156.2 Get:30 http://deb.debian.org/debian trixie/main amd64 cpp amd64 4:14.2.0-1 [1568 B]
+#10 156.3 Get:31 http://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+#10 156.3 Get:32 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#10 156.4 Get:33 http://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+#10 156.4 Get:34 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+#10 156.5 Get:35 http://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+#10 158.2 Get:36 http://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+#10 159.0 Get:37 http://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+#10 162.0 Get:38 http://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+#10 162.9 Get:39 http://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 178.9 Get:63 http://deb.debian.org/debian bookworm/main amd64 libxml2 amd64 2.9.14+dfsg-1.3~deb12u6 [689 kB]
+#8 179.4 Get:64 http://deb.debian.org/debian-security bookworm-security/main amd64 libarchive13 amd64 3.6.2-1+deb12u5 [345 kB]
+#8 180.1 Get:65 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#8 180.8 Get:66 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#8 180.8 Get:67 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#8 181.0 Get:68 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#8 181.2 Get:69 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u3 [72.4 kB]
+#8 181.3 Get:70 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#8 181.4 Get:71 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#8 181.7 Get:72 http://deb.debian.org/debian-security bookworm-security/main amd64 libssh2-1 amd64 1.10.0-3+deb12u1 [176 kB]
+#8 182.0 Get:73 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u15 [392 kB]
+#8 182.3 Get:74 http://deb.debian.org/debian-security bookworm-security/main amd64 libexpat1 amd64 2.5.0-1+deb12u3 [104 kB]
+#8 182.3 Get:75 http://deb.debian.org/debian bookworm/main amd64 libjsoncpp25 amd64 1.9.5-4 [78.6 kB]
+#8 182.4 Get:76 http://deb.debian.org/debian bookworm/main amd64 librhash0 amd64 1.4.3-3 [134 kB]
+#8 182.6 Get:77 http://deb.debian.org/debian bookworm/main amd64 libuv1 amd64 1.44.2-1+deb12u1 [136 kB]
+#8 182.7 Get:78 http://deb.debian.org/debian bookworm/main amd64 cmake-data all 3.25.1-1 [2026 kB]
+#8 184.2 Get:79 http://deb.debian.org/debian bookworm/main amd64 cmake amd64 3.25.1-1 [8692 kB]
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 164.1 Get:40 http://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+#10 164.4 Get:41 http://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+#10 166.0 Get:42 http://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 196.3 Get:80 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u15 [386 kB]
+#8 196.9 Get:81 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#8 197.0 Get:82 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#8 198.4 Get:83 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#8 209.6 debconf: delaying package configuration, since apt-utils is not installed
+#8 209.6 Fetched 112 MB in 3min 21s (555 kB/s)
+#8 209.7 Selecting previously unselected package perl-modules-5.36.
+#8 209.7 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#8 209.7 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#8 209.7 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#8 209.8 Selecting previously unselected package libgdbm6:amd64.
+#8 209.8 Preparing to unpack .../01-libgdbm6_1.23-3_amd64.deb ...
+#8 209.8 Unpacking libgdbm6:amd64 (1.23-3) ...
+#8 209.9 Selecting previously unselected package libgdbm-compat4:amd64.
+#8 209.9 Preparing to unpack .../02-libgdbm-compat4_1.23-3_amd64.deb ...
+#8 209.9 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#8 209.9 Selecting previously unselected package libperl5.36:amd64.
+#8 209.9 Preparing to unpack .../03-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#8 209.9 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#8 210.1 Selecting previously unselected package perl.
+#8 210.1 Preparing to unpack .../04-perl_5.36.0-7+deb12u3_amd64.deb ...
+#8 210.1 Unpacking perl (5.36.0-7+deb12u3) ...
+#8 210.2 Selecting previously unselected package libncursesw6:amd64.
+#8 210.2 Preparing to unpack .../05-libncursesw6_6.4-4_amd64.deb ...
+#8 210.2 Unpacking libncursesw6:amd64 (6.4-4) ...
+#8 210.2 Selecting previously unselected package libproc2-0:amd64.
+#8 210.2 Preparing to unpack .../06-libproc2-0_2%3a4.0.2-3_amd64.deb ...
+#8 210.2 Unpacking libproc2-0:amd64 (2:4.0.2-3) ...
+#8 210.2 Selecting previously unselected package procps.
+#8 210.2 Preparing to unpack .../07-procps_2%3a4.0.2-3_amd64.deb ...
+#8 210.2 Unpacking procps (2:4.0.2-3) ...
+#8 210.3 Selecting previously unselected package bzip2.
+#8 210.3 Preparing to unpack .../08-bzip2_1.0.8-5+b1_amd64.deb ...
+#8 210.3 Unpacking bzip2 (1.0.8-5+b1) ...
+#8 210.3 Selecting previously unselected package libssl3:amd64.
+#8 210.3 Preparing to unpack .../09-libssl3_3.0.20-1~deb12u2_amd64.deb ...
+#8 210.3 Unpacking libssl3:amd64 (3.0.20-1~deb12u2) ...
+#8 210.5 Selecting previously unselected package openssl.
+#8 210.5 Preparing to unpack .../10-openssl_3.0.20-1~deb12u2_amd64.deb ...
+#8 210.5 Unpacking openssl (3.0.20-1~deb12u2) ...
+#8 210.6 Selecting previously unselected package ca-certificates.
+#8 210.6 Preparing to unpack .../11-ca-certificates_20250419~deb12u1_all.deb ...
+#8 210.6 Unpacking ca-certificates (20250419~deb12u1) ...
+#8 210.7 Selecting previously unselected package xz-utils.
+#8 210.7 Preparing to unpack .../12-xz-utils_5.4.1-1+deb12u2_amd64.deb ...
+#8 210.7 Unpacking xz-utils (5.4.1-1+deb12u2) ...
+#8 210.7 Selecting previously unselected package binutils-common:amd64.
+#8 210.7 Preparing to unpack .../13-binutils-common_2.40-2_amd64.deb ...
+#8 210.7 Unpacking binutils-common:amd64 (2.40-2) ...
+#8 210.9 Selecting previously unselected package libbinutils:amd64.
+#8 210.9 Preparing to unpack .../14-libbinutils_2.40-2_amd64.deb ...
+#8 210.9 Unpacking libbinutils:amd64 (2.40-2) ...
+#8 211.0 Selecting previously unselected package libctf-nobfd0:amd64.
+#8 211.0 Preparing to unpack .../15-libctf-nobfd0_2.40-2_amd64.deb ...
+#8 211.0 Unpacking libctf-nobfd0:amd64 (2.40-2) ...
+#8 211.1 Selecting previously unselected package libctf0:amd64.
+#8 211.1 Preparing to unpack .../16-libctf0_2.40-2_amd64.deb ...
+#8 211.1 Unpacking libctf0:amd64 (2.40-2) ...
+#8 211.1 Selecting previously unselected package libgprofng0:amd64.
+#8 211.1 Preparing to unpack .../17-libgprofng0_2.40-2_amd64.deb ...
+#8 211.1 Unpacking libgprofng0:amd64 (2.40-2) ...
+#8 211.2 Selecting previously unselected package libjansson4:amd64.
+#8 211.2 Preparing to unpack .../18-libjansson4_2.14-2_amd64.deb ...
+#8 211.2 Unpacking libjansson4:amd64 (2.14-2) ...
+#8 211.3 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#8 211.3 Preparing to unpack .../19-binutils-x86-64-linux-gnu_2.40-2_amd64.deb ...
+#8 211.3 Unpacking binutils-x86-64-linux-gnu (2.40-2) ...
+#8 211.4 Selecting previously unselected package binutils.
+#8 211.4 Preparing to unpack .../20-binutils_2.40-2_amd64.deb ...
+#8 211.4 Unpacking binutils (2.40-2) ...
+#8 211.5 Selecting previously unselected package libc-dev-bin.
+#8 211.5 Preparing to unpack .../21-libc-dev-bin_2.36-9+deb12u14_amd64.deb ...
+#8 211.5 Unpacking libc-dev-bin (2.36-9+deb12u14) ...
+#8 211.5 Selecting previously unselected package linux-libc-dev:amd64.
+#8 211.5 Preparing to unpack .../22-linux-libc-dev_6.1.187-1_amd64.deb ...
+#8 211.5 Unpacking linux-libc-dev:amd64 (6.1.187-1) ...
+#8 211.7 Selecting previously unselected package libcrypt-dev:amd64.
+#8 211.7 Preparing to unpack .../23-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#8 211.7 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#8 211.7 Selecting previously unselected package libkrb5support0:amd64.
+#8 211.7 Preparing to unpack .../24-libkrb5support0_1.20.1-2+deb12u5_amd64.deb ...
+#8 211.7 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#8 211.7 Selecting previously unselected package libk5crypto3:amd64.
+#8 211.7 Preparing to unpack .../25-libk5crypto3_1.20.1-2+deb12u5_amd64.deb ...
+#8 211.7 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#8 211.8 Selecting previously unselected package libkeyutils1:amd64.
+#8 211.8 Preparing to unpack .../26-libkeyutils1_1.6.3-2_amd64.deb ...
+#8 211.8 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#8 211.9 Selecting previously unselected package libkrb5-3:amd64.
+#8 211.9 Preparing to unpack .../27-libkrb5-3_1.20.1-2+deb12u5_amd64.deb ...
+#8 211.9 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#8 211.9 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#8 211.9 Preparing to unpack .../28-libgssapi-krb5-2_1.20.1-2+deb12u5_amd64.deb ...
+#8 211.9 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#8 212.0 Selecting previously unselected package libtirpc-common.
+#8 212.0 Preparing to unpack .../29-libtirpc-common_1.3.3+ds-1_all.deb ...
+#8 212.0 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#8 212.0 Selecting previously unselected package libtirpc3:amd64.
+#8 212.0 Preparing to unpack .../30-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#8 212.0 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#8 212.1 Selecting previously unselected package libnsl2:amd64.
+#8 212.1 Preparing to unpack .../31-libnsl2_1.3.0-2_amd64.deb ...
+#8 212.1 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#8 212.1 Selecting previously unselected package libtirpc-dev:amd64.
+#8 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 192.6 Get:43 http://deb.debian.org/debian trixie/main amd64 gcc-14 amd64 14.2.0-19 [540 kB]
+#10 193.0 Get:44 http://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+#10 193.0 Get:45 http://deb.debian.org/debian trixie/main amd64 gcc amd64 4:14.2.0-1 [5136 B]
+#10 193.0 Get:46 http://deb.debian.org/debian trixie/main amd64 libstdc++-14-dev amd64 14.2.0-19 [2376 kB]
+#10 195.1 Get:47 http://deb.debian.org/debian trixie/main amd64 g++-14-x86-64-linux-gnu amd64 14.2.0-19 [12.1 MB]
+#10 ...
+
+#8 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 212.1 Preparing to unpack .../32-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#8 212.2 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#8 212.2 Selecting previously unselected package libnsl-dev:amd64.
+#8 212.2 Preparing to unpack .../33-libnsl-dev_1.3.0-2_amd64.deb ...
+#8 212.2 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#8 212.2 Selecting previously unselected package rpcsvc-proto.
+#8 212.2 Preparing to unpack .../34-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#8 212.3 Unpacking rpcsvc-proto (1.4.3-1) ...
+#8 212.3 Selecting previously unselected package libc6-dev:amd64.
+#8 212.3 Preparing to unpack .../35-libc6-dev_2.36-9+deb12u14_amd64.deb ...
+#8 212.3 Unpacking libc6-dev:amd64 (2.36-9+deb12u14) ...
+#8 212.5 Selecting previously unselected package libisl23:amd64.
+#8 212.5 Preparing to unpack .../36-libisl23_0.25-1.1_amd64.deb ...
+#8 212.5 Unpacking libisl23:amd64 (0.25-1.1) ...
+#8 212.5 Selecting previously unselected package libmpfr6:amd64.
+#8 212.5 Preparing to unpack .../37-libmpfr6_4.2.0-1_amd64.deb ...
+#8 212.5 Unpacking libmpfr6:amd64 (4.2.0-1) ...
+#8 212.6 Selecting previously unselected package libmpc3:amd64.
+#8 212.6 Preparing to unpack .../38-libmpc3_1.3.1-1_amd64.deb ...
+#8 212.6 Unpacking libmpc3:amd64 (1.3.1-1) ...
+#8 212.6 Selecting previously unselected package cpp-12.
+#8 212.6 Preparing to unpack .../39-cpp-12_12.2.0-14+deb12u1_amd64.deb ...
+#8 212.6 Unpacking cpp-12 (12.2.0-14+deb12u1) ...
+#8 213.0 Selecting previously unselected package cpp.
+#8 213.0 Preparing to unpack .../40-cpp_4%3a12.2.0-3_amd64.deb ...
+#8 213.0 Unpacking cpp (4:12.2.0-3) ...
+#8 213.0 Selecting previously unselected package libcc1-0:amd64.
+#8 213.0 Preparing to unpack .../41-libcc1-0_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.0 Unpacking libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#8 213.1 Selecting previously unselected package libgomp1:amd64.
+#8 213.1 Preparing to unpack .../42-libgomp1_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.1 Unpacking libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#8 213.1 Selecting previously unselected package libitm1:amd64.
+#8 213.1 Preparing to unpack .../43-libitm1_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.1 Unpacking libitm1:amd64 (12.2.0-14+deb12u1) ...
+#8 213.1 Selecting previously unselected package libatomic1:amd64.
+#8 213.1 Preparing to unpack .../44-libatomic1_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.1 Unpacking libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#8 213.1 Selecting previously unselected package libasan8:amd64.
+#8 213.1 Preparing to unpack .../45-libasan8_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.1 Unpacking libasan8:amd64 (12.2.0-14+deb12u1) ...
+#8 213.3 Selecting previously unselected package liblsan0:amd64.
+#8 213.3 Preparing to unpack .../46-liblsan0_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.3 Unpacking liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#8 213.4 Selecting previously unselected package libtsan2:amd64.
+#8 213.4 Preparing to unpack .../47-libtsan2_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.4 Unpacking libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#8 213.5 Selecting previously unselected package libubsan1:amd64.
+#8 213.5 Preparing to unpack .../48-libubsan1_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.5 Unpacking libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#8 213.6 Selecting previously unselected package libquadmath0:amd64.
+#8 213.6 Preparing to unpack .../49-libquadmath0_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.6 Unpacking libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#8 213.6 Selecting previously unselected package libgcc-12-dev:amd64.
+#8 213.6 Preparing to unpack .../50-libgcc-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.6 Unpacking libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#8 213.7 Selecting previously unselected package gcc-12.
+#8 213.7 Preparing to unpack .../51-gcc-12_12.2.0-14+deb12u1_amd64.deb ...
+#8 213.7 Unpacking gcc-12 (12.2.0-14+deb12u1) ...
+#8 214.2 Selecting previously unselected package gcc.
+#8 214.2 Preparing to unpack .../52-gcc_4%3a12.2.0-3_amd64.deb ...
+#8 214.2 Unpacking gcc (4:12.2.0-3) ...
+#8 214.2 Selecting previously unselected package libstdc++-12-dev:amd64.
+#8 214.2 Preparing to unpack .../53-libstdc++-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#8 214.2 Unpacking libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#8 214.4 Selecting previously unselected package g++-12.
+#8 214.4 Preparing to unpack .../54-g++-12_12.2.0-14+deb12u1_amd64.deb ...
+#8 214.4 Unpacking g++-12 (12.2.0-14+deb12u1) ...
+#8 214.8 Selecting previously unselected package g++.
+#8 214.8 Preparing to unpack .../55-g++_4%3a12.2.0-3_amd64.deb ...
+#8 214.8 Unpacking g++ (4:12.2.0-3) ...
+#8 214.8 Selecting previously unselected package make.
+#8 214.8 Preparing to unpack .../56-make_4.3-4.1_amd64.deb ...
+#8 214.8 Unpacking make (4.3-4.1) ...
+#8 214.9 Selecting previously unselected package libdpkg-perl.
+#8 214.9 Preparing to unpack .../57-libdpkg-perl_1.21.23_all.deb ...
+#8 214.9 Unpacking libdpkg-perl (1.21.23) ...
+#8 214.9 Selecting previously unselected package patch.
+#8 214.9 Preparing to unpack .../58-patch_2.7.6-7_amd64.deb ...
+#8 214.9 Unpacking patch (2.7.6-7) ...
+#8 214.9 Selecting previously unselected package dpkg-dev.
+#8 215.0 Preparing to unpack .../59-dpkg-dev_1.21.23_all.deb ...
+#8 215.0 Unpacking dpkg-dev (1.21.23) ...
+#8 215.0 Selecting previously unselected package build-essential.
+#8 215.0 Preparing to unpack .../60-build-essential_12.9_amd64.deb ...
+#8 215.0 Unpacking build-essential (12.9) ...
+#8 215.1 Selecting previously unselected package libicu72:amd64.
+#8 215.1 Preparing to unpack .../61-libicu72_72.1-3+deb12u1_amd64.deb ...
+#8 215.1 Unpacking libicu72:amd64 (72.1-3+deb12u1) ...
+#8 215.4 Selecting previously unselected package libxml2:amd64.
+#8 215.4 Preparing to unpack .../62-libxml2_2.9.14+dfsg-1.3~deb12u6_amd64.deb ...
+#8 215.4 Unpacking libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#8 215.5 Selecting previously unselected package libarchive13:amd64.
+#8 215.5 Preparing to unpack .../63-libarchive13_3.6.2-1+deb12u5_amd64.deb ...
+#8 215.5 Unpacking libarchive13:amd64 (3.6.2-1+deb12u5) ...
+#8 215.5 Selecting previously unselected package libbrotli1:amd64.
+#8 215.5 Preparing to unpack .../64-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#8 215.5 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#8 215.5 Selecting previously unselected package libsasl2-modules-db:amd64.
+#8 215.6 Preparing to unpack .../65-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#8 215.6 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#8 215.6 Selecting previously unselected package libsasl2-2:amd64.
+#8 215.6 Preparing to unpack .../66-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#8 215.6 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#8 215.6 Selecting previously unselected package libldap-2.5-0:amd64.
+#8 215.6 Preparing to unpack .../67-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#8 215.6 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#8 215.6 Selecting previously unselected package libnghttp2-14:amd64.
+#8 215.6 Preparing to unpack .../68-libnghttp2-14_1.52.0-1+deb12u3_amd64.deb ...
+#8 215.7 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#8 215.7 Selecting previously unselected package libpsl5:amd64.
+#8 215.7 Preparing to unpack .../69-libpsl5_0.21.2-1_amd64.deb ...
+#8 215.7 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#8 215.7 Selecting previously unselected package librtmp1:amd64.
+#8 215.7 Preparing to unpack .../70-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#8 215.7 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#8 215.7 Selecting previously unselected package libssh2-1:amd64.
+#8 215.7 Preparing to unpack .../71-libssh2-1_1.10.0-3+deb12u1_amd64.deb ...
+#8 215.7 Unpacking libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#8 215.8 Selecting previously unselected package libcurl4:amd64.
+#8 215.8 Preparing to unpack .../72-libcurl4_7.88.1-10+deb12u15_amd64.deb ...
+#8 215.8 Unpacking libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#8 215.8 Selecting previously unselected package libexpat1:amd64.
+#8 215.8 Preparing to unpack .../73-libexpat1_2.5.0-1+deb12u3_amd64.deb ...
+#8 215.8 Unpacking libexpat1:amd64 (2.5.0-1+deb12u3) ...
+#8 215.8 Selecting previously unselected package libjsoncpp25:amd64.
+#8 215.8 Preparing to unpack .../74-libjsoncpp25_1.9.5-4_amd64.deb ...
+#8 215.8 Unpacking libjsoncpp25:amd64 (1.9.5-4) ...
+#8 215.9 Selecting previously unselected package librhash0:amd64.
+#8 215.9 Preparing to unpack .../75-librhash0_1.4.3-3_amd64.deb ...
+#8 215.9 Unpacking librhash0:amd64 (1.4.3-3) ...
+#8 215.9 Selecting previously unselected package libuv1:amd64.
+#8 215.9 Preparing to unpack .../76-libuv1_1.44.2-1+deb12u1_amd64.deb ...
+#8 215.9 Unpacking libuv1:amd64 (1.44.2-1+deb12u1) ...
+#8 215.9 Selecting previously unselected package cmake-data.
+#8 215.9 Preparing to unpack .../77-cmake-data_3.25.1-1_all.deb ...
+#8 216.0 Unpacking cmake-data (3.25.1-1) ...
+#8 216.1 Selecting previously unselected package cmake.
+#8 216.1 Preparing to unpack .../78-cmake_3.25.1-1_amd64.deb ...
+#8 216.1 Unpacking cmake (3.25.1-1) ...
+#8 216.5 Selecting previously unselected package libcurl3-gnutls:amd64.
+#8 216.5 Preparing to unpack .../79-libcurl3-gnutls_7.88.1-10+deb12u15_amd64.deb ...
+#8 216.5 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u15) ...
+#8 216.5 Selecting previously unselected package liberror-perl.
+#8 216.6 Preparing to unpack .../80-liberror-perl_0.17029-2_all.deb ...
+#8 216.6 Unpacking liberror-perl (0.17029-2) ...
+#8 216.6 Selecting previously unselected package git-man.
+#8 216.6 Preparing to unpack .../81-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#8 216.6 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#8 216.7 Selecting previously unselected package git.
+#8 216.7 Preparing to unpack .../82-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#8 216.7 Unpacking git (1:2.39.5-0+deb12u3) ...
+#8 216.9 Setting up libexpat1:amd64 (2.5.0-1+deb12u3) ...
+#8 216.9 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#8 216.9 Setting up libpsl5:amd64 (0.21.2-1) ...
+#8 216.9 Setting up libicu72:amd64 (72.1-3+deb12u1) ...
+#8 216.9 Setting up libtirpc-common (1.3.3+ds-1) ...
+#8 216.9 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#8 216.9 Setting up binutils-common:amd64 (2.40-2) ...
+#8 217.0 Setting up libssl3:amd64 (3.0.20-1~deb12u2) ...
+#8 217.0 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#8 217.0 Setting up linux-libc-dev:amd64 (6.1.187-1) ...
+#8 217.0 Setting up libctf-nobfd0:amd64 (2.40-2) ...
+#8 217.0 Setting up libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#8 217.0 Setting up bzip2 (1.0.8-5+b1) ...
+#8 217.0 Setting up libjansson4:amd64 (2.14-2) ...
+#8 217.1 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#8 217.1 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#8 217.1 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#8 217.1 Setting up libuv1:amd64 (1.44.2-1+deb12u1) ...
+#8 217.1 Setting up rpcsvc-proto (1.4.3-1) ...
+#8 217.1 Setting up make (4.3-4.1) ...
+#8 217.1 Setting up libmpfr6:amd64 (4.2.0-1) ...
+#8 217.1 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#8 217.2 Setting up xz-utils (5.4.1-1+deb12u2) ...
+#8 217.2 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+#8 217.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+#8 217.2 Setting up libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#8 217.2 Setting up libproc2-0:amd64 (2:4.0.2-3) ...
+#8 217.2 Setting up libmpc3:amd64 (1.3.1-1) ...
+#8 217.2 Setting up libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#8 217.2 Setting up patch (2.7.6-7) ...
+#8 217.3 Setting up libjsoncpp25:amd64 (1.9.5-4) ...
+#8 217.3 Setting up libncursesw6:amd64 (6.4-4) ...
+#8 217.3 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#8 217.3 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#8 217.3 Setting up libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#8 217.3 Setting up librhash0:amd64 (1.4.3-3) ...
+#8 217.3 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#8 217.4 Setting up libasan8:amd64 (12.2.0-14+deb12u1) ...
+#8 217.4 Setting up procps (2:4.0.2-3) ...
+#8 217.4 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#8 217.4 Setting up libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#8 217.4 Setting up cmake-data (3.25.1-1) ...
+#8 217.5 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#8 217.5 Setting up libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#8 217.5 Setting up libbinutils:amd64 (2.40-2) ...
+#8 217.5 Setting up libisl23:amd64 (0.25-1.1) ...
+#8 217.5 Setting up libc-dev-bin (2.36-9+deb12u14) ...
+#8 217.5 Setting up openssl (3.0.20-1~deb12u2) ...
+#8 217.5 Setting up libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#8 217.5 Setting up libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#8 217.5 Setting up liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#8 217.5 Setting up libitm1:amd64 (12.2.0-14+deb12u1) ...
+#8 217.5 Setting up libgdbm6:amd64 (1.23-3) ...
+#8 217.5 Setting up libctf0:amd64 (2.40-2) ...
+#8 217.5 Setting up cpp-12 (12.2.0-14+deb12u1) ...
+#8 217.5 Setting up libarchive13:amd64 (3.6.2-1+deb12u5) ...
+#8 217.5 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#8 217.6 Setting up ca-certificates (20250419~deb12u1) ...
+#8 217.6 debconf: unable to initialize frontend: Dialog
+#8 217.6 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#8 217.6 debconf: falling back to frontend: Readline
+#8 217.6 debconf: unable to initialize frontend: Readline
+#8 217.6 debconf: (This frontend requires a controlling tty.)
+#8 217.6 debconf: falling back to frontend: Teletype
+#8 217.9 Updating certificates in /etc/ssl/certs...
+#8 218.4 150 added, 0 removed; done.
+#8 218.5 Setting up libgprofng0:amd64 (2.40-2) ...
+#8 218.5 Setting up libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#8 218.5 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#8 218.5 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#8 218.5 Setting up cpp (4:12.2.0-3) ...
+#8 218.5 Setting up libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#8 218.6 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#8 218.6 Setting up binutils-x86-64-linux-gnu (2.40-2) ...
+#8 218.6 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#8 218.6 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u15) ...
+#8 218.6 Setting up binutils (2.40-2) ...
+#8 218.6 Setting up perl (5.36.0-7+deb12u3) ...
+#8 218.7 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#8 218.7 Setting up gcc-12 (12.2.0-14+deb12u1) ...
+#8 218.7 Setting up libdpkg-perl (1.21.23) ...
+#8 218.7 Setting up libnsl2:amd64 (1.3.0-2) ...
+#8 218.7 Setting up cmake (3.25.1-1) ...
+#8 218.7 Setting up gcc (4:12.2.0-3) ...
+#8 218.8 Setting up dpkg-dev (1.21.23) ...
+#8 218.8 Setting up liberror-perl (0.17029-2) ...
+#8 218.8 Setting up git (1:2.39.5-0+deb12u3) ...
+#8 218.8 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#8 218.9 Setting up libc6-dev:amd64 (2.36-9+deb12u14) ...
+#8 218.9 Setting up libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#8 218.9 Setting up g++-12 (12.2.0-14+deb12u1) ...
+#8 218.9 Setting up g++ (4:12.2.0-3) ...
+#8 218.9 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#8 218.9 Setting up build-essential (12.9) ...
+#8 218.9 Processing triggers for libc-bin (2.36-9+deb12u14) ...
+#8 219.0 Processing triggers for ca-certificates (20250419~deb12u1) ...
+#8 219.0 Updating certificates in /etc/ssl/certs...
+#8 219.4 0 added, 0 removed; done.
+#8 219.4 Running hooks in /etc/ca-certificates/update.d...
+#8 219.4 done.
+#8 DONE 219.5s
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 0.153 Cloning into '/src/llama.cpp'...
+#11 ...
+
+#10 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#10 200.9 Get:48 http://deb.debian.org/debian trixie/main amd64 g++-14 amd64 14.2.0-19 [22.5 kB]
+#10 200.9 Get:49 http://deb.debian.org/debian trixie/main amd64 g++-x86-64-linux-gnu amd64 4:14.2.0-1 [1200 B]
+#10 200.9 Get:50 http://deb.debian.org/debian trixie/main amd64 g++ amd64 4:14.2.0-1 [1344 B]
+#10 200.9 Get:51 http://deb.debian.org/debian trixie/main amd64 make amd64 4.4.1-2 [463 kB]
+#10 201.2 Get:52 http://deb.debian.org/debian trixie/main amd64 libdpkg-perl all 1.22.22 [651 kB]
+#10 201.6 Get:53 http://deb.debian.org/debian trixie/main amd64 patch amd64 2.8-2 [134 kB]
+#10 201.7 Get:54 http://deb.debian.org/debian trixie/main amd64 dpkg-dev all 1.22.22 [1337 kB]
+#10 202.2 Get:55 http://deb.debian.org/debian trixie/main amd64 build-essential amd64 12.12 [4624 B]
+#10 202.2 Get:56 http://deb.debian.org/debian trixie/main amd64 cmake-data all 3.31.6-2 [2268 kB]
+#10 203.4 Get:57 http://deb.debian.org/debian trixie/main amd64 libxml2 amd64 2.12.7+dfsg+really2.9.14-2.1+deb13u3 [700 kB]
+#10 203.9 Get:58 http://deb.debian.org/debian trixie/main amd64 libarchive13t64 amd64 3.7.4-4+deb13u1 [350 kB]
+#10 204.1 Get:59 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#10 204.2 Get:60 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u1 [33.1 kB]
+#10 204.2 Get:61 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+#10 204.3 Get:62 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u1 [81.2 kB]
+#10 204.3 Get:63 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#10 204.3 Get:64 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u1 [326 kB]
+#10 204.5 Get:65 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u1 [138 kB]
+#10 204.6 Get:66 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#10 204.8 Get:67 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#10 204.9 Get:68 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#10 204.9 Get:69 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#10 204.9 Get:70 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#10 205.0 Get:71 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1+deb13u1 [76.2 kB]
+#10 205.1 Get:72 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#10 205.1 Get:73 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#10 205.1 Get:74 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#10 205.4 Get:75 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2+deb13u1 [50.1 kB]
+#10 205.4 Get:76 http://deb.debian.org/debian trixie/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u4 [1469 kB]
+#10 206.6 Get:77 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#10 206.9 Get:78 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1+deb13u2 [245 kB]
+#10 207.1 Get:79 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u5 [391 kB]
+#10 207.4 Get:80 http://deb.debian.org/debian trixie/main amd64 libjsoncpp26 amd64 1.9.6-3 [81.7 kB]
+#10 207.5 Get:81 http://deb.debian.org/debian trixie/main amd64 librhash1 amd64 1.4.5-1 [132 kB]
+#10 207.6 Get:82 http://deb.debian.org/debian trixie/main amd64 libuv1t64 amd64 1.50.0-2 [154 kB]
+#10 207.7 Get:83 http://deb.debian.org/debian trixie/main amd64 cmake amd64 3.31.6-2 [12.0 MB]
+#10 220.6 Get:84 http://deb.debian.org/debian trixie/main amd64 libngtcp2-16 amd64 1.11.0-1+deb13u1 [132 kB]
+#10 220.6 Get:85 http://deb.debian.org/debian trixie/main amd64 libngtcp2-crypto-gnutls8 amd64 1.11.0-1+deb13u1 [29.5 kB]
+#10 220.7 Get:86 http://deb.debian.org/debian trixie/main amd64 libcurl3t64-gnutls amd64 8.14.1-2+deb13u5 [384 kB]
+#10 221.7 Get:87 http://deb.debian.org/debian trixie/main amd64 liberror-perl all 0.17030-1 [26.9 kB]
+#10 221.8 Get:88 http://deb.debian.org/debian trixie/main amd64 git-man all 1:2.47.3-0+deb13u1 [2205 kB]
+#10 226.7 Get:89 http://deb.debian.org/debian trixie/main amd64 git amd64 1:2.47.3-0+deb13u1 [8862 kB]
+#10 253.6 debconf: unable to initialize frontend: Dialog
+#10 253.6 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#10 253.6 debconf: falling back to frontend: Readline
+#10 253.6 debconf: unable to initialize frontend: Readline
+#10 253.6 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 89.)
+#10 253.6 debconf: falling back to frontend: Teletype
+#10 253.6 debconf: unable to initialize frontend: Teletype
+#10 253.6 debconf: (This frontend requires a controlling tty.)
+#10 253.6 debconf: falling back to frontend: Noninteractive
+#10 254.8 Fetched 116 MB in 3min 38s (531 kB/s)
+#10 254.8 Selecting previously unselected package libexpat1:amd64.
+#10 254.8 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5660 files and directories currently installed.)
+#10 254.8 Preparing to unpack .../00-libexpat1_2.8.3-1~deb13u1_amd64.deb ...
+#10 254.8 Unpacking libexpat1:amd64 (2.8.3-1~deb13u1) ...
+#10 254.8 Selecting previously unselected package libproc2-0:amd64.
+#10 254.8 Preparing to unpack .../01-libproc2-0_2%3a4.0.4-9_amd64.deb ...
+#10 254.8 Unpacking libproc2-0:amd64 (2:4.0.4-9) ...
+#10 254.9 Selecting previously unselected package procps.
+#10 254.9 Preparing to unpack .../02-procps_2%3a4.0.4-9_amd64.deb ...
+#10 254.9 Unpacking procps (2:4.0.4-9) ...
+#10 254.9 Selecting previously unselected package bzip2.
+#10 254.9 Preparing to unpack .../03-bzip2_1.0.8-6_amd64.deb ...
+#10 254.9 Unpacking bzip2 (1.0.8-6) ...
+#10 254.9 Selecting previously unselected package perl-modules-5.40.
+#10 254.9 Preparing to unpack .../04-perl-modules-5.40_5.40.1-6+deb13u1_all.deb ...
+#10 254.9 Unpacking perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#10 255.1 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#10 255.1 Preparing to unpack .../05-libgdbm-compat4t64_1.24-2_amd64.deb ...
+#10 255.1 Unpacking libgdbm-compat4t64:amd64 (1.24-2) ...
+#10 255.1 Selecting previously unselected package libperl5.40:amd64.
+#10 255.1 Preparing to unpack .../06-libperl5.40_5.40.1-6+deb13u1_amd64.deb ...
+#10 255.1 Unpacking libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#10 255.3 Selecting previously unselected package perl.
+#10 255.3 Preparing to unpack .../07-perl_5.40.1-6+deb13u1_amd64.deb ...
+#10 255.3 Unpacking perl (5.40.1-6+deb13u1) ...
+#10 255.4 Selecting previously unselected package xz-utils.
+#10 255.4 Preparing to unpack .../08-xz-utils_5.8.1-1+deb13u1_amd64.deb ...
+#10 255.4 Unpacking xz-utils (5.8.1-1+deb13u1) ...
+#10 255.4 Selecting previously unselected package libsframe1:amd64.
+#10 255.4 Preparing to unpack .../09-libsframe1_2.44-3_amd64.deb ...
+#10 255.4 Unpacking libsframe1:amd64 (2.44-3) ...
+#10 255.4 Selecting previously unselected package binutils-common:amd64.
+#10 255.4 Preparing to unpack .../10-binutils-common_2.44-3_amd64.deb ...
+#10 255.4 Unpacking binutils-common:amd64 (2.44-3) ...
+#10 255.6 Selecting previously unselected package libbinutils:amd64.
+#10 255.6 Preparing to unpack .../11-libbinutils_2.44-3_amd64.deb ...
+#10 255.6 Unpacking libbinutils:amd64 (2.44-3) ...
+#10 255.6 Selecting previously unselected package libgprofng0:amd64.
+#10 255.6 Preparing to unpack .../12-libgprofng0_2.44-3_amd64.deb ...
+#10 255.6 Unpacking libgprofng0:amd64 (2.44-3) ...
+#10 255.7 Selecting previously unselected package libctf-nobfd0:amd64.
+#10 255.7 Preparing to unpack .../13-libctf-nobfd0_2.44-3_amd64.deb ...
+#10 255.7 Unpacking libctf-nobfd0:amd64 (2.44-3) ...
+#10 255.7 Selecting previously unselected package libctf0:amd64.
+#10 255.7 Preparing to unpack .../14-libctf0_2.44-3_amd64.deb ...
+#10 255.7 Unpacking libctf0:amd64 (2.44-3) ...
+#10 255.7 Selecting previously unselected package libjansson4:amd64.
+#10 255.7 Preparing to unpack .../15-libjansson4_2.14-2+b3_amd64.deb ...
+#10 255.7 Unpacking libjansson4:amd64 (2.14-2+b3) ...
+#10 255.8 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#10 255.8 Preparing to unpack .../16-binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+#10 255.8 Unpacking binutils-x86-64-linux-gnu (2.44-3) ...
+#10 255.8 Selecting previously unselected package binutils.
+#10 255.8 Preparing to unpack .../17-binutils_2.44-3_amd64.deb ...
+#10 255.8 Unpacking binutils (2.44-3) ...
+#10 255.9 Selecting previously unselected package libc-dev-bin.
+#10 255.9 Preparing to unpack .../18-libc-dev-bin_2.41-12+deb13u4_amd64.deb ...
+#10 255.9 Unpacking libc-dev-bin (2.41-12+deb13u4) ...
+#10 255.9 Selecting previously unselected package linux-libc-dev.
+#10 255.9 Preparing to unpack .../19-linux-libc-dev_6.12.107-1_all.deb ...
+#10 255.9 Unpacking linux-libc-dev (6.12.107-1) ...
+#10 256.1 Selecting previously unselected package libcrypt-dev:amd64.
+#10 256.1 Preparing to unpack .../20-libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+#10 256.1 Unpacking libcrypt-dev:amd64 (1:4.4.38-1) ...
+#10 256.1 Selecting previously unselected package rpcsvc-proto.
+#10 256.1 Preparing to unpack .../21-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#10 256.1 Unpacking rpcsvc-proto (1.4.3-1) ...
+#10 256.1 Selecting previously unselected package libc6-dev:amd64.
+#10 256.1 Preparing to unpack .../22-libc6-dev_2.41-12+deb13u4_amd64.deb ...
+#10 256.1 Unpacking libc6-dev:amd64 (2.41-12+deb13u4) ...
+#10 256.2 Selecting previously unselected package libisl23:amd64.
+#10 256.3 Preparing to unpack .../23-libisl23_0.27-1_amd64.deb ...
+#10 256.3 Unpacking libisl23:amd64 (0.27-1) ...
+#10 256.3 Selecting previously unselected package libmpfr6:amd64.
+#10 256.3 Preparing to unpack .../24-libmpfr6_4.2.2-1_amd64.deb ...
+#10 256.3 Unpacking libmpfr6:amd64 (4.2.2-1) ...
+#10 256.3 Selecting previously unselected package libmpc3:amd64.
+#10 256.3 Preparing to unpack .../25-libmpc3_1.3.1-1+b3_amd64.deb ...
+#10 256.3 Unpacking libmpc3:amd64 (1.3.1-1+b3) ...
+#10 256.4 Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+#10 256.4 Preparing to unpack .../26-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#10 256.4 Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 256.7 Selecting previously unselected package cpp-14.
+#10 256.7 Preparing to unpack .../27-cpp-14_14.2.0-19_amd64.deb ...
+#10 256.7 Unpacking cpp-14 (14.2.0-19) ...
+#10 256.8 Selecting previously unselected package cpp-x86-64-linux-gnu.
+#10 256.8 Preparing to unpack .../28-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#10 256.8 Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 256.8 Selecting previously unselected package cpp.
+#10 256.8 Preparing to unpack .../29-cpp_4%3a14.2.0-1_amd64.deb ...
+#10 256.8 Unpacking cpp (4:14.2.0-1) ...
+#10 256.8 Selecting previously unselected package libcc1-0:amd64.
+#10 256.8 Preparing to unpack .../30-libcc1-0_14.2.0-19_amd64.deb ...
+#10 256.8 Unpacking libcc1-0:amd64 (14.2.0-19) ...
+#10 256.8 Selecting previously unselected package libgomp1:amd64.
+#10 256.8 Preparing to unpack .../31-libgomp1_14.2.0-19_amd64.deb ...
+#10 256.8 Unpacking libgomp1:amd64 (14.2.0-19) ...
+#10 256.9 Selecting previously unselected package libitm1:amd64.
+#10 256.9 Preparing to unpack .../32-libitm1_14.2.0-19_amd64.deb ...
+#10 256.9 Unpacking libitm1:amd64 (14.2.0-19) ...
+#10 256.9 Selecting previously unselected package libatomic1:amd64.
+#10 256.9 Preparing to unpack .../33-libatomic1_14.2.0-19_amd64.deb ...
+#10 256.9 Unpacking libatomic1:amd64 (14.2.0-19) ...
+#10 256.9 Selecting previously unselected package libasan8:amd64.
+#10 256.9 Preparing to unpack .../34-libasan8_14.2.0-19_amd64.deb ...
+#10 256.9 Unpacking libasan8:amd64 (14.2.0-19) ...
+#10 257.1 Selecting previously unselected package liblsan0:amd64.
+#10 257.1 Preparing to unpack .../35-liblsan0_14.2.0-19_amd64.deb ...
+#10 257.1 Unpacking liblsan0:amd64 (14.2.0-19) ...
+#10 257.1 Selecting previously unselected package libtsan2:amd64.
+#10 257.1 Preparing to unpack .../36-libtsan2_14.2.0-19_amd64.deb ...
+#10 257.1 Unpacking libtsan2:amd64 (14.2.0-19) ...
+#10 257.3 Selecting previously unselected package libubsan1:amd64.
+#10 257.3 Preparing to unpack .../37-libubsan1_14.2.0-19_amd64.deb ...
+#10 257.3 Unpacking libubsan1:amd64 (14.2.0-19) ...
+#10 257.3 Selecting previously unselected package libhwasan0:amd64.
+#10 257.3 Preparing to unpack .../38-libhwasan0_14.2.0-19_amd64.deb ...
+#10 257.3 Unpacking libhwasan0:amd64 (14.2.0-19) ...
+#10 257.4 Selecting previously unselected package libquadmath0:amd64.
+#10 257.4 Preparing to unpack .../39-libquadmath0_14.2.0-19_amd64.deb ...
+#10 257.4 Unpacking libquadmath0:amd64 (14.2.0-19) ...
+#10 257.4 Selecting previously unselected package libgcc-14-dev:amd64.
+#10 257.4 Preparing to unpack .../40-libgcc-14-dev_14.2.0-19_amd64.deb ...
+#10 257.4 Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+#10 257.6 Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+#10 257.6 Preparing to unpack .../41-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#10 257.6 Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 258.0 Selecting previously unselected package gcc-14.
+#10 258.1 Preparing to unpack .../42-gcc-14_14.2.0-19_amd64.deb ...
+#10 258.1 Unpacking gcc-14 (14.2.0-19) ...
+#10 258.1 Selecting previously unselected package gcc-x86-64-linux-gnu.
+#10 258.1 Preparing to unpack .../43-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#10 258.1 Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 258.1 Selecting previously unselected package gcc.
+#10 258.1 Preparing to unpack .../44-gcc_4%3a14.2.0-1_amd64.deb ...
+#10 258.1 Unpacking gcc (4:14.2.0-1) ...
+#10 258.1 Selecting previously unselected package libstdc++-14-dev:amd64.
+#10 258.1 Preparing to unpack .../45-libstdc++-14-dev_14.2.0-19_amd64.deb ...
+#10 258.1 Unpacking libstdc++-14-dev:amd64 (14.2.0-19) ...
+#10 258.3 Selecting previously unselected package g++-14-x86-64-linux-gnu.
+#10 258.3 Preparing to unpack .../46-g++-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#10 258.3 Unpacking g++-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 258.6 Selecting previously unselected package g++-14.
+#10 258.6 Preparing to unpack .../47-g++-14_14.2.0-19_amd64.deb ...
+#10 258.6 Unpacking g++-14 (14.2.0-19) ...
+#10 258.7 Selecting previously unselected package g++-x86-64-linux-gnu.
+#10 258.7 Preparing to unpack .../48-g++-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#10 258.7 Unpacking g++-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 258.7 Selecting previously unselected package g++.
+#10 258.7 Preparing to unpack .../49-g++_4%3a14.2.0-1_amd64.deb ...
+#10 258.7 Unpacking g++ (4:14.2.0-1) ...
+#10 258.7 Selecting previously unselected package make.
+#10 258.7 Preparing to unpack .../50-make_4.4.1-2_amd64.deb ...
+#10 258.7 Unpacking make (4.4.1-2) ...
+#10 258.8 Selecting previously unselected package libdpkg-perl.
+#10 258.8 Preparing to unpack .../51-libdpkg-perl_1.22.22_all.deb ...
+#10 258.8 Unpacking libdpkg-perl (1.22.22) ...
+#10 258.8 Selecting previously unselected package patch.
+#10 258.8 Preparing to unpack .../52-patch_2.8-2_amd64.deb ...
+#10 258.8 Unpacking patch (2.8-2) ...
+#10 258.8 Selecting previously unselected package dpkg-dev.
+#10 258.8 Preparing to unpack .../53-dpkg-dev_1.22.22_all.deb ...
+#10 258.8 Unpacking dpkg-dev (1.22.22) ...
+#10 258.9 Selecting previously unselected package build-essential.
+#10 258.9 Preparing to unpack .../54-build-essential_12.12_amd64.deb ...
+#10 258.9 Unpacking build-essential (12.12) ...
+#10 258.9 Selecting previously unselected package cmake-data.
+#10 258.9 Preparing to unpack .../55-cmake-data_3.31.6-2_all.deb ...
+#10 258.9 Unpacking cmake-data (3.31.6-2) ...
+#10 259.2 Selecting previously unselected package libxml2:amd64.
+#10 259.2 Preparing to unpack .../56-libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3_amd64.deb ...
+#10 259.2 Unpacking libxml2:amd64 (2.12.7+dfsg+really2.9.14-2.1+deb13u3) ...
+#10 259.3 Selecting previously unselected package libarchive13t64:amd64.
+#10 259.3 Preparing to unpack .../57-libarchive13t64_3.7.4-4+deb13u1_amd64.deb ...
+#10 259.3 Unpacking libarchive13t64:amd64 (3.7.4-4+deb13u1) ...
+#10 259.3 Selecting previously unselected package libbrotli1:amd64.
+#10 259.3 Preparing to unpack .../58-libbrotli1_1.1.0-2+b7_amd64.deb ...
+#10 259.3 Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+#10 259.4 Selecting previously unselected package libkrb5support0:amd64.
+#10 259.4 Preparing to unpack .../59-libkrb5support0_1.21.3-5+deb13u1_amd64.deb ...
+#10 259.4 Unpacking libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#10 259.4 Selecting previously unselected package libcom-err2:amd64.
+#10 259.4 Preparing to unpack .../60-libcom-err2_1.47.2-3+b12_amd64.deb ...
+#10 259.4 Unpacking libcom-err2:amd64 (1.47.2-3+b12) ...
+#10 259.5 Selecting previously unselected package libk5crypto3:amd64.
+#10 259.5 Preparing to unpack .../61-libk5crypto3_1.21.3-5+deb13u1_amd64.deb ...
+#10 259.5 Unpacking libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#10 259.5 Selecting previously unselected package libkeyutils1:amd64.
+#10 259.5 Preparing to unpack .../62-libkeyutils1_1.6.3-6_amd64.deb ...
+#10 259.6 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#10 259.6 Selecting previously unselected package libkrb5-3:amd64.
+#10 259.6 Preparing to unpack .../63-libkrb5-3_1.21.3-5+deb13u1_amd64.deb ...
+#10 259.6 Unpacking libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#10 259.7 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#10 259.7 Preparing to unpack .../64-libgssapi-krb5-2_1.21.3-5+deb13u1_amd64.deb ...
+#10 259.7 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#10 259.7 Selecting previously unselected package libunistring5:amd64.
+#10 259.7 Preparing to unpack .../65-libunistring5_1.3-2_amd64.deb ...
+#10 259.7 Unpacking libunistring5:amd64 (1.3-2) ...
+#10 259.8 Selecting previously unselected package libidn2-0:amd64.
+#10 259.8 Preparing to unpack .../66-libidn2-0_2.3.8-2_amd64.deb ...
+#10 259.8 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#10 259.9 Selecting previously unselected package libsasl2-modules-db:amd64.
+#10 259.9 Preparing to unpack .../67-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#10 259.9 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#10 259.9 Selecting previously unselected package libsasl2-2:amd64.
+#10 259.9 Preparing to unpack .../68-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#10 259.9 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#10 260.0 Selecting previously unselected package libldap2:amd64.
+#10 260.0 Preparing to unpack .../69-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#10 260.0 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#10 260.0 Selecting previously unselected package libnghttp2-14:amd64.
+#10 260.0 Preparing to unpack .../70-libnghttp2-14_1.64.0-1.1+deb13u1_amd64.deb ...
+#10 260.0 Unpacking libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#10 260.1 Selecting previously unselected package libnghttp3-9:amd64.
+#10 260.1 Preparing to unpack .../71-libnghttp3-9_1.8.0-1_amd64.deb ...
+#10 260.1 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#10 260.1 Selecting previously unselected package libpsl5t64:amd64.
+#10 260.1 Preparing to unpack .../72-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#10 260.1 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#10 260.2 Selecting previously unselected package libp11-kit0:amd64.
+#10 260.2 Preparing to unpack .../73-libp11-kit0_0.25.5-3_amd64.deb ...
+#10 260.2 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#10 260.2 Selecting previously unselected package libtasn1-6:amd64.
+#10 260.2 Preparing to unpack .../74-libtasn1-6_4.20.0-2+deb13u1_amd64.deb ...
+#10 260.2 Unpacking libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#10 260.3 Selecting previously unselected package libgnutls30t64:amd64.
+#10 260.3 Preparing to unpack .../75-libgnutls30t64_3.8.9-3+deb13u4_amd64.deb ...
+#10 260.3 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#10 260.4 Selecting previously unselected package librtmp1:amd64.
+#10 260.4 Preparing to unpack .../76-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#10 260.4 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#10 260.4 Selecting previously unselected package libssh2-1t64:amd64.
+#10 260.4 Preparing to unpack .../77-libssh2-1t64_1.11.1-1+deb13u2_amd64.deb ...
+#10 260.4 Unpacking libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#10 260.5 Selecting previously unselected package libcurl4t64:amd64.
+#10 260.5 Preparing to unpack .../78-libcurl4t64_8.14.1-2+deb13u5_amd64.deb ...
+#10 260.5 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u5) ...
+#10 260.5 Selecting previously unselected package libjsoncpp26:amd64.
+#10 260.5 Preparing to unpack .../79-libjsoncpp26_1.9.6-3_amd64.deb ...
+#10 260.5 Unpacking libjsoncpp26:amd64 (1.9.6-3) ...
+#10 260.6 Selecting previously unselected package librhash1:amd64.
+#10 260.6 Preparing to unpack .../80-librhash1_1.4.5-1_amd64.deb ...
+#10 260.6 Unpacking librhash1:amd64 (1.4.5-1) ...
+#10 260.6 Selecting previously unselected package libuv1t64:amd64.
+#10 260.6 Preparing to unpack .../81-libuv1t64_1.50.0-2_amd64.deb ...
+#10 260.6 Unpacking libuv1t64:amd64 (1.50.0-2) ...
+#10 260.7 Selecting previously unselected package cmake.
+#10 260.7 Preparing to unpack .../82-cmake_3.31.6-2_amd64.deb ...
+#10 260.7 Unpacking cmake (3.31.6-2) ...
+#10 261.0 Selecting previously unselected package libngtcp2-16:amd64.
+#10 261.0 Preparing to unpack .../83-libngtcp2-16_1.11.0-1+deb13u1_amd64.deb ...
+#10 261.1 Unpacking libngtcp2-16:amd64 (1.11.0-1+deb13u1) ...
+#10 261.1 Selecting previously unselected package libngtcp2-crypto-gnutls8:amd64.
+#10 261.1 Preparing to unpack .../84-libngtcp2-crypto-gnutls8_1.11.0-1+deb13u1_amd64.deb ...
+#10 261.1 Unpacking libngtcp2-crypto-gnutls8:amd64 (1.11.0-1+deb13u1) ...
+#10 261.2 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#10 261.2 Preparing to unpack .../85-libcurl3t64-gnutls_8.14.1-2+deb13u5_amd64.deb ...
+#10 261.2 Unpacking libcurl3t64-gnutls:amd64 (8.14.1-2+deb13u5) ...
+#10 261.2 Selecting previously unselected package liberror-perl.
+#10 261.2 Preparing to unpack .../86-liberror-perl_0.17030-1_all.deb ...
+#10 261.2 Unpacking liberror-perl (0.17030-1) ...
+#10 261.2 Selecting previously unselected package git-man.
+#10 261.2 Preparing to unpack .../87-git-man_1%3a2.47.3-0+deb13u1_all.deb ...
+#10 261.3 Unpacking git-man (1:2.47.3-0+deb13u1) ...
+#10 261.3 Selecting previously unselected package git.
+#10 261.3 Preparing to unpack .../88-git_1%3a2.47.3-0+deb13u1_amd64.deb ...
+#10 261.3 Unpacking git (1:2.47.3-0+deb13u1) ...
+#10 261.6 Setting up libexpat1:amd64 (2.8.3-1~deb13u1) ...
+#10 261.6 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#10 261.6 Setting up libgdbm-compat4t64:amd64 (1.24-2) ...
+#10 261.7 Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+#10 261.7 Setting up libuv1t64:amd64 (1.50.0-2) ...
+#10 261.7 Setting up binutils-common:amd64 (2.44-3) ...
+#10 261.7 Setting up libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#10 261.7 Setting up linux-libc-dev (6.12.107-1) ...
+#10 261.7 Setting up libctf-nobfd0:amd64 (2.44-3) ...
+#10 261.7 Setting up libcom-err2:amd64 (1.47.2-3+b12) ...
+#10 261.7 Setting up libgomp1:amd64 (14.2.0-19) ...
+#10 261.7 Setting up bzip2 (1.0.8-6) ...
+#10 261.7 Setting up libsframe1:amd64 (2.44-3) ...
+#10 261.8 Setting up libjansson4:amd64 (2.14-2+b3) ...
+#10 261.8 Setting up libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#10 261.8 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#10 261.8 Setting up rpcsvc-proto (1.4.3-1) ...
+#10 261.8 Setting up make (4.4.1-2) ...
+#10 261.8 Setting up libmpfr6:amd64 (4.2.2-1) ...
+#10 261.8 Setting up libjsoncpp26:amd64 (1.9.6-3) ...
+#10 261.9 Setting up xz-utils (5.8.1-1+deb13u1) ...
+#10 261.9 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+#10 261.9 update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+#10 261.9 Setting up libquadmath0:amd64 (14.2.0-19) ...
+#10 261.9 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#10 261.9 Setting up libproc2-0:amd64 (2:4.0.4-9) ...
+#10 261.9 Setting up libunistring5:amd64 (1.3-2) ...
+#10 262.0 Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+#10 262.0 Setting up libatomic1:amd64 (14.2.0-19) ...
+#10 262.0 Setting up patch (2.8-2) ...
+#10 262.0 Setting up libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#10 262.0 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#10 262.1 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#10 262.1 Setting up libubsan1:amd64 (14.2.0-19) ...
+#10 262.1 Setting up perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#10 262.1 Setting up libhwasan0:amd64 (14.2.0-19) ...
+#10 262.1 Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+#10 262.2 Setting up libasan8:amd64 (14.2.0-19) ...
+#10 262.2 Setting up procps (2:4.0.4-9) ...
+#10 262.2 Setting up libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#10 262.2 Setting up git-man (1:2.47.3-0+deb13u1) ...
+#10 262.3 Setting up libngtcp2-16:amd64 (1.11.0-1+deb13u1) ...
+#10 262.3 Setting up cmake-data (3.31.6-2) ...
+#10 262.3 Setting up librhash1:amd64 (1.4.5-1) ...
+#10 262.3 Setting up libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#10 262.3 Setting up libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#10 262.4 Setting up libtsan2:amd64 (14.2.0-19) ...
+#10 262.4 Setting up libbinutils:amd64 (2.44-3) ...
+#10 262.4 Setting up libisl23:amd64 (0.27-1) ...
+#10 262.4 Setting up libc-dev-bin (2.41-12+deb13u4) ...
+#10 262.4 Setting up libxml2:amd64 (2.12.7+dfsg+really2.9.14-2.1+deb13u3) ...
+#10 262.4 Setting up libcc1-0:amd64 (14.2.0-19) ...
+#10 262.4 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#10 262.4 Setting up liblsan0:amd64 (14.2.0-19) ...
+#10 262.4 Setting up libitm1:amd64 (14.2.0-19) ...
+#10 262.4 Setting up libctf0:amd64 (2.44-3) ...
+#10 262.4 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#10 262.5 Setting up libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#10 262.5 Setting up perl (5.40.1-6+deb13u1) ...
+#10 262.5 Setting up libgprofng0:amd64 (2.44-3) ...
+#10 262.5 Setting up libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#10 262.5 Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 262.5 Setting up libdpkg-perl (1.22.22) ...
+#10 262.5 Setting up cpp-14 (14.2.0-19) ...
+#10 262.5 Setting up libc6-dev:amd64 (2.41-12+deb13u4) ...
+#10 262.5 Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+#10 262.5 Setting up libstdc++-14-dev:amd64 (14.2.0-19) ...
+#10 262.6 Setting up libarchive13t64:amd64 (3.7.4-4+deb13u1) ...
+#10 262.6 Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+#10 262.6 Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 262.6 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#10 262.6 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#10 262.6 Setting up binutils (2.44-3) ...
+#10 262.6 Setting up dpkg-dev (1.22.22) ...
+#10 262.6 Setting up liberror-perl (0.17030-1) ...
+#10 262.6 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#10 262.7 Setting up cpp (4:14.2.0-1) ...
+#10 262.7 Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 262.7 Setting up libngtcp2-crypto-gnutls8:amd64 (1.11.0-1+deb13u1) ...
+#10 262.7 Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 262.7 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u5) ...
+#10 262.7 Setting up libcurl3t64-gnutls:amd64 (8.14.1-2+deb13u5) ...
+#10 262.7 Setting up gcc-14 (14.2.0-19) ...
+#10 262.7 Setting up git (1:2.47.3-0+deb13u1) ...
+#10 262.8 Setting up g++-14-x86-64-linux-gnu (14.2.0-19) ...
+#10 262.8 Setting up g++-x86-64-linux-gnu (4:14.2.0-1) ...
+#10 262.8 Setting up cmake (3.31.6-2) ...
+#10 262.8 Setting up g++-14 (14.2.0-19) ...
+#10 262.8 Setting up gcc (4:14.2.0-1) ...
+#10 262.8 Setting up g++ (4:14.2.0-1) ...
+#10 262.8 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#10 262.8 Setting up build-essential (12.12) ...
+#10 262.8 Processing triggers for libc-bin (2.41-12+deb13u4) ...
+#10 DONE 263.1s
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 ...
+
+#12 [py-build 3/6] WORKDIR /opt/adtc-profiler
+#12 DONE 0.1s
+
+#13 [py-build 4/6] COPY pyproject.toml README.md ./
+#13 DONE 0.0s
+
+#14 [py-build 5/6] COPY src/ ./src/
+#14 DONE 0.0s
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 1.061 Processing /opt/adtc-profiler
+#15 1.063   Installing build dependencies: started
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 79.51 Note: switching to '60bccc3763395e01b039aa1ddeacc8cc0ea69f70'.
+#11 79.51 
+#11 79.51 You are in 'detached HEAD' state. You can look around, make experimental
+#11 79.51 changes and commit them, and you can discard any commits you make in this
+#11 79.51 state without impacting any branches by switching back to a branch.
+#11 79.51 
+#11 79.51 If you want to create a new branch to retain commits you create, you may
+#11 79.51 do so (now or later) by using -c with the switch command. Example:
+#11 79.51 
+#11 79.51   git switch -c <new-branch-name>
+#11 79.51 
+#11 79.51 Or undo this operation with:
+#11 79.51 
+#11 79.51   git switch -
+#11 79.51 
+#11 79.51 Turn off this advice by setting config variable advice.detachedHead to false
+#11 79.51 
+#11 80.08 -- The C compiler identification is GNU 12.2.0
+#11 80.15 -- The CXX compiler identification is GNU 12.2.0
+#11 80.17 -- Detecting C compiler ABI info
+#11 80.23 -- Detecting C compiler ABI info - done
+#11 80.24 -- Check for working C compiler: /usr/bin/cc - skipped
+#11 80.24 -- Detecting C compile features
+#11 80.24 -- Detecting C compile features - done
+#11 80.24 -- Detecting CXX compiler ABI info
+#11 80.31 -- Detecting CXX compiler ABI info - done
+#11 80.31 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#11 80.31 -- Detecting CXX compile features
+#11 80.31 -- Detecting CXX compile features - done
+#11 80.31 CMAKE_BUILD_TYPE=Release
+#11 80.32 -- Found Git: /usr/bin/git (found version "2.39.5") 
+#11 80.34 -- The ASM compiler identification is GNU
+#11 80.34 -- Found assembler: /usr/bin/cc
+#11 80.40 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#11 80.46 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#11 80.46 -- Found Threads: TRUE  
+#11 80.47 -- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+#11 80.48 -- CMAKE_SYSTEM_PROCESSOR: x86_64
+#11 80.48 -- GGML_SYSTEM_ARCH: x86
+#11 80.72 -- Found OpenMP_C: -fopenmp (found version "4.5") 
+#11 80.79 -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+#11 80.79 -- Found OpenMP: TRUE (found version "4.5")  
+#11 80.80 -- Including CPU backend
+#11 80.80 -- x86 detected
+#11 80.80 -- Adding CPU backend variant ggml-cpu: -msse4.2;-mbmi2 GGML_SSE42;GGML_BMI2
+#11 80.80 -- ggml version: 0.17.0
+#11 80.80 -- ggml commit:  60bccc3
+#11 80.81 -- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+#11 80.81 CMake Warning at vendor/cpp-httplib/CMakeLists.txt:152 (message):
+#11 80.81   OpenSSL not found, HTTPS support disabled
+#11 80.81 
+#11 80.81 
+#11 80.84 -- Generating embedded license file for target: llama-app
+#11 80.84 -- Configuring done
+#11 81.01 -- Generating done
+#11 81.02 -- Build files have been written to: /src/llama.cpp/build
+#11 81.10 [  2%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
+#11 81.10 [  2%] Building CXX object vendor/cpp-httplib/CMakeFiles/cpp-httplib.dir/httplib.cpp.o
+#11 82.98 [  2%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o
+#11 83.14 [  2%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o
+#11 83.46 [  2%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o
+#11 84.51 [  2%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend-meta.cpp.o
+#11 87.22 [  4%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o
+#11 87.95 [  4%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o
+#11 88.12 [  4%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 17.88   Installing build dependencies: finished with status 'done'
+#15 17.88   Getting requirements to build wheel: started
+#15 17.94   Getting requirements to build wheel: finished with status 'done'
+#15 17.95   Preparing metadata (pyproject.toml): started
+#15 18.04   Preparing metadata (pyproject.toml): finished with status 'done'
+#15 18.39 Collecting click>=8.1.0 (from adtc-profiler==0.1.0)
+#15 18.70   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#15 18.85 Collecting jsonschema>=4.21.0 (from adtc-profiler==0.1.0)
+#15 18.93   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+#15 19.07 Collecting llama-cpp-python>=0.3.0 (from adtc-profiler==0.1.0)
+#15 19.15   Downloading llama_cpp_python-0.3.35.tar.gz (74.9 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 92.28 [  4%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o
+#11 94.46 [  4%] Linking CXX static library libcpp-httplib.a
+#11 94.50 [  4%] Built target cpp-httplib
+#11 94.52 [  4%] Building CXX object common/CMakeFiles/llama-common-base.dir/build-info.cpp.o
+#11 94.67 [  4%] Linking CXX static library libllama-common-base.a
+#11 94.69 [  4%] Built target llama-common-base
+#11 94.84 [  4%] Linking CXX static library libggml-base.a
+#11 94.88 [  4%] Built target ggml-base
+#11 94.90 [  6%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o
+#11 94.90 [  6%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o
+#11 95.60 [  6%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/repack.cpp.o
+#11 95.65 [  6%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/hbm.cpp.o
+#11 95.67 [  6%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/quants.c.o
+#11 96.63 [  6%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o
+#11 96.75 In function 'block_q4_0x4 make_block_q4_0x4(block_q4_0*, unsigned int)',
+#11 96.75     inlined from 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)' at /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:39:
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:2762:19: warning: writing 16 bytes into a region of size 0 [-Wstringop-overflow=]
+#11 96.75  2762 |             memcpy(&out.qs[dst_offset], &elems, sizeof(uint64_t));
+#11 96.75       |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp: In function 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)':
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:20: note: at offset 72 into destination object '<anonymous>' of size 72
+#11 96.75  3222 |             *dst++ = make_block_q4_0x4(dst_tmp, interleave_block);
+#11 96.75       |             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 In function 'block_q4_0x4 make_block_q4_0x4(block_q4_0*, unsigned int)',
+#11 96.75     inlined from 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)' at /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:39:
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:2762:19: warning: writing 16 bytes into a region of size 0 [-Wstringop-overflow=]
+#11 96.75  2762 |             memcpy(&out.qs[dst_offset], &elems, sizeof(uint64_t));
+#11 96.75       |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp: In function 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)':
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:20: note: at offset 88 into destination object '<anonymous>' of size 72
+#11 96.75  3222 |             *dst++ = make_block_q4_0x4(dst_tmp, interleave_block);
+#11 96.75       |             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 In function 'block_q4_0x4 make_block_q4_0x4(block_q4_0*, unsigned int)',
+#11 96.75     inlined from 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)' at /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:39:
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:2762:19: warning: writing 16 bytes into a region of size 0 [-Wstringop-overflow=]
+#11 96.75  2762 |             memcpy(&out.qs[dst_offset], &elems, sizeof(uint64_t));
+#11 96.75       |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp: In function 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)':
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:20: note: at offset 104 into destination object '<anonymous>' of size 72
+#11 96.75  3222 |             *dst++ = make_block_q4_0x4(dst_tmp, interleave_block);
+#11 96.75       |             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 In function 'block_q4_0x4 make_block_q4_0x4(block_q4_0*, unsigned int)',
+#11 96.75     inlined from 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)' at /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:39:
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:2762:19: warning: writing 16 bytes into a region of size 0 [-Wstringop-overflow=]
+#11 96.75  2762 |             memcpy(&out.qs[dst_offset], &elems, sizeof(uint64_t));
+#11 96.75       |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp: In function 'int repack_q4_0_to_q4_0_4_bl(ggml_tensor*, int, const void*, size_t)':
+#11 96.75 /src/llama.cpp/ggml/src/ggml-cpu/repack.cpp:3222:20: note: at offset 120 into destination object '<anonymous>' of size 72
+#11 96.75  3222 |             *dst++ = make_block_q4_0x4(dst_tmp, interleave_block);
+#11 96.75       |             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#11 97.09 [  9%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o
+#11 97.60 [  9%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o
+#11 98.11 [  9%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o
+#11 99.47 [  9%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o
+#11 100.1 [  9%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o
+#11 100.8 [ 11%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o
+#11 101.4 [ 11%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.o
+#11 101.9 [ 11%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/quants.c.o
+#11 102.2 [ 11%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/repack.cpp.o
+#11 106.2 [ 11%] Linking CXX static library libggml-cpu.a
+#11 106.2 [ 11%] Built target ggml-cpu
+#11 106.2 [ 11%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o
+#11 106.2 [ 11%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-dl.cpp.o
+#11 107.1 [ 11%] Linking CXX static library libggml.a
+#11 107.1 [ 11%] Built target ggml
+#11 107.1 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama-adapter.cpp.o
+#11 107.1 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama.cpp.o
+#11 108.1 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama-arch.cpp.o
+#11 108.5 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama-batch.cpp.o
+#11 109.3 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama-chat.cpp.o
+#11 109.9 [ 13%] Building CXX object src/CMakeFiles/llama.dir/llama-context.cpp.o
+#11 110.8 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-cparams.cpp.o
+#11 110.8 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-grammar.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 49.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.9/74.9 MB 2.3 MB/s eta 0:00:00
+#15 51.06   Installing build dependencies: started
+#15 52.85   Installing build dependencies: finished with status 'done'
+#15 52.85   Getting requirements to build wheel: started
+#15 53.05   Getting requirements to build wheel: finished with status 'done'
+#15 53.05   Installing backend dependencies: started
+#15 54.43   Installing backend dependencies: finished with status 'done'
+#15 54.43   Preparing metadata (pyproject.toml): started
+#15 54.64   Preparing metadata (pyproject.toml): finished with status 'done'
+#15 54.83 Collecting lm-eval>=0.4.4 (from adtc-profiler==0.1.0)
+#15 54.92   Downloading lm_eval-0.4.13-py3-none-any.whl.metadata (64 kB)
+#15 54.95      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.1/64.1 kB 7.1 MB/s eta 0:00:00
+#15 55.44 Collecting numpy>=1.24 (from adtc-profiler==0.1.0)
+#15 55.52   Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#15 55.75 Collecting psutil>=5.9.0 (from adtc-profiler==0.1.0)
+#15 55.83   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+#15 56.01 Collecting rich>=13.0.0 (from adtc-profiler==0.1.0)
+#15 56.10   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#15 56.21 Collecting attrs>=22.2.0 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#15 56.29   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#15 56.39 Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#15 56.48   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+#15 56.64 Collecting referencing>=0.28.4 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#15 56.72   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+#15 57.22 Collecting rpds-py>=0.25.0 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#15 57.30   Downloading rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+#15 57.42 Collecting typing-extensions>=4.5.0 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#15 57.51   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#15 57.73 Collecting diskcache>=5.6.1 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#15 57.81   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+#15 57.91 Collecting jinja2>=2.11.3 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#15 58.00   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#15 58.17 Collecting datasets>=2.16.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 58.26   Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+#15 58.36 Collecting evaluate>=0.4.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 58.45   Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+#15 58.68 Collecting pytablewriter (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 58.75   Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+#15 58.97 Collecting rouge-score>=0.0.4 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 59.05   Downloading rouge_score-0.1.2.tar.gz (17 kB)
+#15 59.06   Preparing metadata (setup.py): started
+#15 59.36   Preparing metadata (setup.py): finished with status 'done'
+#15 59.59 Collecting sacrebleu>=1.5.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 59.67   Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+#15 59.94 Collecting scikit-learn>=0.24.1 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 60.02   Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+#15 60.20 Collecting sqlitedict (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 60.28   Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+#15 60.30   Preparing metadata (setup.py): started
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 113.4 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-graph.cpp.o
+#11 115.1 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-hparams.cpp.o
+#11 115.3 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-impl.cpp.o
+#11 115.7 [ 15%] Building CXX object src/CMakeFiles/llama.dir/llama-io.cpp.o
+#11 115.8 [ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-kv-cache.cpp.o
+#11 116.5 [ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-kv-cache-iswa.cpp.o
+#11 117.5 [ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-kv-cache-dsa.cpp.o
+#11 118.5 [ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-kv-cache-dsv4.cpp.o
+#11 120.0 [ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-memory.cpp.o
+#11 120.4 [ 20%] Building CXX object src/CMakeFiles/llama.dir/llama-memory-hybrid.cpp.o
+#11 121.5 [ 20%] Building CXX object src/CMakeFiles/llama.dir/llama-memory-hybrid-iswa.cpp.o
+#11 121.6 [ 20%] Building CXX object src/CMakeFiles/llama.dir/llama-memory-recurrent.cpp.o
+#11 122.7 [ 20%] Building CXX object src/CMakeFiles/llama.dir/llama-mmap.cpp.o
+#11 122.8 [ 20%] Building CXX object src/CMakeFiles/llama.dir/llama-model-loader.cpp.o
+#11 123.2 [ 22%] Building CXX object src/CMakeFiles/llama.dir/llama-model-saver.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 60.54   Preparing metadata (setup.py): finished with status 'done'
+#15 60.64 Collecting dill (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 60.77   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+#15 60.95 Collecting word2number (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 61.03   Downloading word2number-1.1.zip (9.7 kB)
+#15 61.04   Preparing metadata (setup.py): started
+#15 61.19   Preparing metadata (setup.py): finished with status 'done'
+#15 61.30 Collecting more_itertools (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 61.37   Downloading more_itertools-11.1.0-py3-none-any.whl.metadata (41 kB)
+#15 61.38      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.4/41.4 kB 58.0 MB/s eta 0:00:00
+#15 61.53 Collecting tqdm>=4.59.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 61.61   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#15 61.62      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 17.3 MB/s eta 0:00:00
+#15 61.76 Collecting markdown-it-py>=2.2.0 (from rich>=13.0.0->adtc-profiler==0.1.0)
+#15 61.84   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+#15 61.95 Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.0.0->adtc-profiler==0.1.0)
+#15 62.03   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#15 62.29 Collecting filelock (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 62.37   Downloading filelock-4.0.1-py3-none-any.whl.metadata (2.0 kB)
+#15 62.64 Collecting pyarrow>=21.0.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 62.72   Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+#15 63.05 Collecting pandas (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 63.14   Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+#15 63.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 3.3 MB/s eta 0:00:00
+#15 63.32 Collecting requests>=2.32.2 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 63.40   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#15 63.53 Collecting httpx<1.0.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 63.61   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#15 63.93 Collecting xxhash (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 64.01   Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+#15 64.19 Collecting multiprocess<0.70.20 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 64.27   Downloading multiprocess-0.70.19-py311-none-any.whl.metadata (7.5 kB)
+#15 64.39 Collecting fsspec<=2026.6.0,>=2023.1.0 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 64.47   Downloading fsspec-2026.6.0-py3-none-any.whl.metadata (10 kB)
+#15 64.67 Collecting huggingface-hub<2.0,>=0.25.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 64.74   Downloading huggingface_hub-1.32.0-py3-none-any.whl.metadata (16 kB)
+#15 64.86 Collecting packaging (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 64.94   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#15 65.06 Collecting pyyaml>=5.1 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 65.14   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#15 65.43 Collecting MarkupSafe>=2.0 (from jinja2>=2.11.3->llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#15 65.53   Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#15 65.66 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.0.0->adtc-profiler==0.1.0)
+#15 65.74   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#15 65.87 Collecting absl-py (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 65.99   Downloading absl_py-2.5.0-py3-none-any.whl.metadata (3.3 kB)
+#15 66.13 Collecting nltk (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 66.24   Downloading nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+#15 66.35 Collecting six>=1.14.0 (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 66.43   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#15 66.61 Collecting portalocker (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 66.71   Downloading portalocker-4.4.0-py3-none-any.whl.metadata (10 kB)
+#15 67.62 Collecting regex (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 67.70   Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+#15 67.71      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 kB 11.4 MB/s eta 0:00:00
+#15 67.81 Collecting tabulate>=0.8.9 (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 67.89   Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+#15 67.90      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 6.4 MB/s eta 0:00:00
+#15 68.52 Collecting colorama (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 68.71   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 123.9 [ 22%] Building CXX object src/CMakeFiles/llama.dir/llama-model.cpp.o
+#11 127.6 [ 22%] Building CXX object src/CMakeFiles/llama.dir/llama-quant.cpp.o
+#11 129.7 [ 22%] Building CXX object src/CMakeFiles/llama.dir/llama-sampler.cpp.o
+#11 131.6 [ 22%] Building CXX object src/CMakeFiles/llama.dir/llama-vocab.cpp.o
+#11 134.2 [ 22%] Building CXX object src/CMakeFiles/llama.dir/unicode-data.cpp.o
+#11 134.7 [ 25%] Building CXX object src/CMakeFiles/llama.dir/unicode.cpp.o
+#11 135.4 [ 25%] Building CXX object src/CMakeFiles/llama.dir/models/afmoe.cpp.o
+#11 136.0 [ 25%] Building CXX object src/CMakeFiles/llama.dir/models/apertus.cpp.o
+#11 136.6 [ 25%] Building CXX object src/CMakeFiles/llama.dir/models/arcee.cpp.o
+#11 137.2 [ 25%] Building CXX object src/CMakeFiles/llama.dir/models/arctic.cpp.o
+#11 137.8 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/arwkv7.cpp.o
+#11 138.4 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/baichuan.cpp.o
+#11 139.0 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/bailingmoe.cpp.o
+#11 139.6 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/bailingmoe2.cpp.o
+#11 140.2 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/bert.cpp.o
+#11 140.4 [ 27%] Building CXX object src/CMakeFiles/llama.dir/models/bitnet.cpp.o
+#11 140.9 [ 29%] Building CXX object src/CMakeFiles/llama.dir/models/bloom.cpp.o
+#11 141.1 [ 29%] Building CXX object src/CMakeFiles/llama.dir/models/chameleon.cpp.o
+#11 141.5 [ 29%] Building CXX object src/CMakeFiles/llama.dir/models/chatglm.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 78.34 Collecting lxml (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 78.43   Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+#15 83.36 Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 83.69   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#15 83.69      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 284.7 MB/s eta 0:00:00
+#15 84.27 Collecting joblib>=1.4.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 84.54   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 141.7 [ 29%] Building CXX object src/CMakeFiles/llama.dir/models/codeshell.cpp.o
+#11 142.1 [ 29%] Building CXX object src/CMakeFiles/llama.dir/models/cogvlm.cpp.o
+#11 142.3 [ 31%] Building CXX object src/CMakeFiles/llama.dir/models/cohere2.cpp.o
+#11 142.7 [ 31%] Building CXX object src/CMakeFiles/llama.dir/models/cohere2moe.cpp.o
+#11 142.9 [ 31%] Building CXX object src/CMakeFiles/llama.dir/models/command-r.cpp.o
+#11 143.4 [ 31%] Building CXX object src/CMakeFiles/llama.dir/models/dbrx.cpp.o
+#11 143.5 [ 31%] Building CXX object src/CMakeFiles/llama.dir/models/deci.cpp.o
+#11 144.0 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/deepseek.cpp.o
+#11 144.1 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/deepseek2.cpp.o
+#11 144.6 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/deepseek2ocr.cpp.o
+#11 144.8 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/deepseek32.cpp.o
+#11 145.2 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/deepseek4.cpp.o
+#11 145.5 [ 34%] Building CXX object src/CMakeFiles/llama.dir/models/delta-net-base.cpp.o
+#11 146.1 [ 36%] Building CXX object src/CMakeFiles/llama.dir/models/dflash.cpp.o
+#11 146.2 [ 36%] Building CXX object src/CMakeFiles/llama.dir/models/dots1.cpp.o
+#11 146.8 [ 36%] Building CXX object src/CMakeFiles/llama.dir/models/dream.cpp.o
+#11 147.0 [ 36%] Building CXX object src/CMakeFiles/llama.dir/models/eagle3.cpp.o
+#11 147.4 [ 36%] Building CXX object src/CMakeFiles/llama.dir/models/ernie4-5-moe.cpp.o
+#11 147.6 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/ernie4-5.cpp.o
+#11 148.0 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/eurobert.cpp.o
+#11 148.2 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/exaone-moe.cpp.o
+#11 148.6 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/exaone.cpp.o
+#11 148.9 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/exaone4.cpp.o
+#11 149.2 [ 38%] Building CXX object src/CMakeFiles/llama.dir/models/falcon-h1.cpp.o
+#11 149.5 [ 40%] Building CXX object src/CMakeFiles/llama.dir/models/falcon.cpp.o
+#11 149.9 [ 40%] Building CXX object src/CMakeFiles/llama.dir/models/gemma-embedding.cpp.o
+#11 150.1 [ 40%] Building CXX object src/CMakeFiles/llama.dir/models/gemma.cpp.o
+#11 150.5 [ 40%] Building CXX object src/CMakeFiles/llama.dir/models/gemma2.cpp.o
+#11 150.7 [ 40%] Building CXX object src/CMakeFiles/llama.dir/models/gemma3.cpp.o
+#11 151.1 [ 43%] Building CXX object src/CMakeFiles/llama.dir/models/gemma3n.cpp.o
+#11 151.4 [ 43%] Building CXX object src/CMakeFiles/llama.dir/models/gemma4-assistant.cpp.o
+#11 151.8 [ 43%] Building CXX object src/CMakeFiles/llama.dir/models/gemma4.cpp.o
+#11 152.0 [ 43%] Building CXX object src/CMakeFiles/llama.dir/models/glm-dsa.cpp.o
+#11 152.6 [ 43%] Building CXX object src/CMakeFiles/llama.dir/models/glm4-moe.cpp.o
+#11 152.9 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/glm4.cpp.o
+#11 153.2 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/gpt2.cpp.o
+#11 153.5 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/gptneox.cpp.o
+#11 153.8 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/granite-hybrid.cpp.o
+#11 154.1 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/granite-moe.cpp.o
+#11 154.4 [ 45%] Building CXX object src/CMakeFiles/llama.dir/models/granite.cpp.o
+#11 154.6 [ 47%] Building CXX object src/CMakeFiles/llama.dir/models/grok.cpp.o
+#11 155.2 [ 47%] Building CXX object src/CMakeFiles/llama.dir/models/grovemoe.cpp.o
+#11 155.3 [ 47%] Building CXX object src/CMakeFiles/llama.dir/models/hunyuan-dense.cpp.o
+#11 155.8 [ 47%] Building CXX object src/CMakeFiles/llama.dir/models/hunyuan-moe.cpp.o
+#11 155.8 [ 47%] Building CXX object src/CMakeFiles/llama.dir/models/hunyuan-vl.cpp.o
+#11 156.4 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/hy-v3.cpp.o
+#11 156.4 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/internlm2.cpp.o
+#11 157.0 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/jais.cpp.o
+#11 157.1 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/jais2.cpp.o
+#11 157.6 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/jamba.cpp.o
+#11 157.7 [ 50%] Building CXX object src/CMakeFiles/llama.dir/models/jina-bert-v2.cpp.o
+#11 158.2 [ 52%] Building CXX object src/CMakeFiles/llama.dir/models/jina-bert-v3.cpp.o
+#11 158.3 [ 52%] Building CXX object src/CMakeFiles/llama.dir/models/kimi-linear.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 85.07 Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 85.47   Downloading narwhals-2.26.0-py3-none-any.whl.metadata (15 kB)
+#15 85.61 Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 85.69   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#15 86.57 Collecting setuptools>=38.3.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 86.66   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+#15 87.11 Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 158.8 [ 52%] Building CXX object src/CMakeFiles/llama.dir/models/laguna.cpp.o
+#11 159.0 [ 52%] Building CXX object src/CMakeFiles/llama.dir/models/lfm2.cpp.o
+#11 159.4 [ 52%] Building CXX object src/CMakeFiles/llama.dir/models/lfm2moe.cpp.o
+#11 159.8 [ 54%] Building CXX object src/CMakeFiles/llama.dir/models/llada-moe.cpp.o
+#11 160.1 [ 54%] Building CXX object src/CMakeFiles/llama.dir/models/llada.cpp.o
+#11 160.4 [ 54%] Building CXX object src/CMakeFiles/llama.dir/models/llama-embed.cpp.o
+#11 160.7 [ 54%] Building CXX object src/CMakeFiles/llama.dir/models/llama.cpp.o
+#11 160.9 [ 54%] Building CXX object src/CMakeFiles/llama.dir/models/llama4.cpp.o
+#11 161.4 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/maincoder.cpp.o
+#11 161.6 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/mamba-base.cpp.o
+#11 162.0 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/mamba.cpp.o
+#11 162.2 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/mamba2.cpp.o
+#11 162.6 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/mellum.cpp.o
+#11 162.8 [ 56%] Building CXX object src/CMakeFiles/llama.dir/models/mimo2.cpp.o
+#11 163.2 [ 59%] Building CXX object src/CMakeFiles/llama.dir/models/minicpm.cpp.o
+#11 163.4 [ 59%] Building CXX object src/CMakeFiles/llama.dir/models/minicpm3.cpp.o
+#11 163.8 [ 59%] Building CXX object src/CMakeFiles/llama.dir/models/minimax-m2.cpp.o
+#11 164.0 [ 59%] Building CXX object src/CMakeFiles/llama.dir/models/minimax-m3.cpp.o
+#11 164.4 [ 59%] Building CXX object src/CMakeFiles/llama.dir/models/mistral3.cpp.o
+#11 164.9 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/mistral4.cpp.o
+#11 165.0 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/modern-bert.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 102.1   WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out. (read timeout=15)")': /packages/03/41/eab7fe313820578b341a2a1d6aeeedd2c38ec1e3f3d51e57e2735b5beac0/dataproperty-1.1.1-py3-none-any.whl.metadata
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 165.4 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/mpt.cpp.o
+#11 165.7 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/nanbeige.cpp.o
+#11 166.0 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/nemotron-h-moe.cpp.o
+#11 166.3 [ 61%] Building CXX object src/CMakeFiles/llama.dir/models/nemotron-h.cpp.o
+#11 166.6 [ 63%] Building CXX object src/CMakeFiles/llama.dir/models/nemotron.cpp.o
+#11 166.9 [ 63%] Building CXX object src/CMakeFiles/llama.dir/models/neo-bert.cpp.o
+#11 167.1 [ 63%] Building CXX object src/CMakeFiles/llama.dir/models/nomic-bert-moe.cpp.o
+#11 167.5 [ 63%] Building CXX object src/CMakeFiles/llama.dir/models/nomic-bert.cpp.o
+#11 167.7 [ 63%] Building CXX object src/CMakeFiles/llama.dir/models/olmo.cpp.o
+#11 168.1 [ 65%] Building CXX object src/CMakeFiles/llama.dir/models/olmo2.cpp.o
+#11 168.3 [ 65%] Building CXX object src/CMakeFiles/llama.dir/models/olmoe.cpp.o
+#11 168.8 [ 65%] Building CXX object src/CMakeFiles/llama.dir/models/openai-moe.cpp.o
+#11 168.9 [ 65%] Building CXX object src/CMakeFiles/llama.dir/models/openelm.cpp.o
+#11 169.4 [ 65%] Building CXX object src/CMakeFiles/llama.dir/models/orion.cpp.o
+#11 169.5 [ 68%] Building CXX object src/CMakeFiles/llama.dir/models/paddleocr.cpp.o
+#11 170.0 [ 68%] Building CXX object src/CMakeFiles/llama.dir/models/pangu-embed.cpp.o
+#11 170.1 [ 68%] Building CXX object src/CMakeFiles/llama.dir/models/phi2.cpp.o
+#11 170.6 [ 68%] Building CXX object src/CMakeFiles/llama.dir/models/phi3.cpp.o
+#11 170.6 [ 68%] Building CXX object src/CMakeFiles/llama.dir/models/phimoe.cpp.o
+#11 171.2 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/plamo.cpp.o
+#11 171.2 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/plamo2.cpp.o
+#11 171.8 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/plamo3.cpp.o
+#11 171.9 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/plm.cpp.o
+#11 172.4 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/qwen.cpp.o
+#11 172.5 [ 70%] Building CXX object src/CMakeFiles/llama.dir/models/qwen2.cpp.o
+#11 173.0 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen2moe.cpp.o
+#11 173.1 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen2vl.cpp.o
+#11 173.6 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen3.cpp.o
+#11 173.7 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen35.cpp.o
+#11 174.2 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen35moe.cpp.o
+#11 174.5 [ 72%] Building CXX object src/CMakeFiles/llama.dir/models/qwen3moe.cpp.o
+#11 175.0 [ 75%] Building CXX object src/CMakeFiles/llama.dir/models/qwen3next.cpp.o
+#11 175.1 [ 75%] Building CXX object src/CMakeFiles/llama.dir/models/qwen3vl.cpp.o
+#11 175.7 [ 75%] Building CXX object src/CMakeFiles/llama.dir/models/qwen3vlmoe.cpp.o
+#11 175.7 [ 75%] Building CXX object src/CMakeFiles/llama.dir/models/refact.cpp.o
+#11 176.3 [ 75%] Building CXX object src/CMakeFiles/llama.dir/models/rnd1.cpp.o
+#11 176.3 [ 77%] Building CXX object src/CMakeFiles/llama.dir/models/rwkv6-base.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 113.2   Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+#15 113.7 Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 114.0   Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+#15 114.8 Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 115.0   Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+#15 115.6 Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 115.7   Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+#15 115.9 Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 116.0   Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+#15 116.3 Collecting typepy<2,>=1.3.2 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 116.5   Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 176.9 [ 77%] Building CXX object src/CMakeFiles/llama.dir/models/rwkv6.cpp.o
+#11 176.9 [ 77%] Building CXX object src/CMakeFiles/llama.dir/models/rwkv6qwen2.cpp.o
+#11 177.5 [ 77%] Building CXX object src/CMakeFiles/llama.dir/models/rwkv7-base.cpp.o
+#11 177.5 [ 77%] Building CXX object src/CMakeFiles/llama.dir/models/rwkv7.cpp.o
+#11 178.1 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/seed-oss.cpp.o
+#11 178.1 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/smallthinker.cpp.o
+#11 178.7 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/smollm3.cpp.o
+#11 178.8 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/stablelm.cpp.o
+#11 179.3 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/starcoder.cpp.o
+#11 179.4 [ 79%] Building CXX object src/CMakeFiles/llama.dir/models/starcoder2.cpp.o
+#11 179.9 [ 81%] Building CXX object src/CMakeFiles/llama.dir/models/step35.cpp.o
+#11 180.0 [ 81%] Building CXX object src/CMakeFiles/llama.dir/models/t5.cpp.o
+#11 180.7 [ 81%] Building CXX object src/CMakeFiles/llama.dir/models/t5encoder.cpp.o
+#11 180.7 [ 81%] Building CXX object src/CMakeFiles/llama.dir/models/talkie.cpp.o
+#11 181.2 [ 81%] Building CXX object src/CMakeFiles/llama.dir/models/wavtokenizer-dec.cpp.o
+#11 181.3 [ 84%] Building CXX object src/CMakeFiles/llama.dir/models/xverse.cpp.o
+#11 181.9 [ 84%] Linking CXX static library libllama.a
+#11 182.0 [ 84%] Built target llama
+#11 182.0 [ 86%] Building CXX object common/CMakeFiles/llama-common.dir/chat-auto-parser-generator.cpp.o
+#11 182.0 [ 86%] Building CXX object common/CMakeFiles/llama-common.dir/arg.cpp.o
+#11 185.5 [ 86%] Building CXX object common/CMakeFiles/llama-common.dir/chat-auto-parser-helpers.cpp.o
+#11 187.8 [ 86%] Building CXX object common/CMakeFiles/llama-common.dir/chat-diff-analyzer.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 127.8 Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 128.5   Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+#15 128.9 Collecting anyio (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 129.0   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#15 129.1 Collecting certifi (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 129.3   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#15 129.4 Collecting httpcore==1.* (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 129.6   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#15 129.8 Collecting idna (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 129.9   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#15 130.1 Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 130.2   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#15 130.6 Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 130.7   Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+#15 130.8 Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 130.9   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#15 131.4 Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 131.5   Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+#15 132.1 Collecting charset_normalizer<4,>=2 (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 132.1   Downloading charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
+#15 132.3      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 kB 442.8 kB/s eta 0:00:00
+#15 132.4 Collecting urllib3<3,>=1.26 (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 132.5   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#15 132.8 Collecting python-dateutil<3.0.0,>=2.8.0 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 132.8   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#15 133.0 Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 133.1   Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+#15 133.3 Collecting defusedxml (from nltk->rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 133.4   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+#15 133.7 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 133.8   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#15 133.9 Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 134.0   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#15 134.2 Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 134.3   Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+#15 135.0 Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 135.1   Downloading multidict-6.9.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+#15 135.4 Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 135.4   Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+#15 136.2 Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#15 136.3   Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+#15 136.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 458.8 kB/s eta 0:00:00
+#15 136.9 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#15 137.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 469.4 kB/s eta 0:00:00
+#15 137.3 Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+#15 137.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.6/90.6 kB 530.8 kB/s eta 0:00:00
+#15 137.5 Downloading lm_eval-0.4.13-py3-none-any.whl (9.1 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 195.5 [ 86%] Building CXX object common/CMakeFiles/llama-common.dir/chat-peg-parser.cpp.o
+#11 196.2 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/chat.cpp.o
+#11 200.3 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/common.cpp.o
+#11 204.7 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/console.cpp.o
+#11 205.5 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/debug.cpp.o
+#11 208.0 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/download.cpp.o
+#11 208.2 [ 88%] Building CXX object common/CMakeFiles/llama-common.dir/fit.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 146.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 1.0 MB/s eta 0:00:00
+#15 146.5 Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 209.8 [ 90%] Building CXX object common/CMakeFiles/llama-common.dir/hf-cache.cpp.o
+#11 213.9 [ 90%] Building CXX object common/CMakeFiles/llama-common.dir/imatrix-loader.cpp.o
+#11 214.6 [ 90%] Building CXX object common/CMakeFiles/llama-common.dir/json-schema-to-grammar.cpp.o
+#11 215.4 [ 90%] Building CXX object common/CMakeFiles/llama-common.dir/llguidance.cpp.o
+#11 215.7 [ 90%] Building CXX object common/CMakeFiles/llama-common.dir/log.cpp.o
+#11 216.4 [ 93%] Building CXX object common/CMakeFiles/llama-common.dir/ngram-cache.cpp.o
+#11 217.2 [ 93%] Building CXX object common/CMakeFiles/llama-common.dir/ngram-map.cpp.o
+#11 217.8 [ 93%] Building CXX object common/CMakeFiles/llama-common.dir/ngram-mod.cpp.o
+#11 217.9 [ 93%] Building CXX object common/CMakeFiles/llama-common.dir/peg-parser.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 157.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 1.6 MB/s eta 0:00:00
+#15 157.4 Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+#15 157.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 5.1 MB/s eta 0:00:00
+#15 157.5 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+#15 157.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 4.8 MB/s eta 0:00:00
+#15 157.7 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+#15 157.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 3.9 MB/s eta 0:00:00
+#15 157.8 Downloading datasets-5.0.1-py3-none-any.whl (559 kB)
+#15 158.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 559.1/559.1 kB 3.9 MB/s eta 0:00:00
+#15 158.0 Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+#15 158.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.0/120.0 kB 5.9 MB/s eta 0:00:00
+#15 158.2 Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+#15 158.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 kB 6.0 MB/s eta 0:00:00
+#15 158.3 Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+#15 158.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.1/84.1 kB 3.7 MB/s eta 0:00:00
+#15 158.4 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#15 158.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 622.9 kB/s eta 0:00:00
+#15 158.7 Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+#15 158.8 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+#15 158.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 2.2 MB/s eta 0:00:00
+#15 158.9 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+#15 159.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 1.7 MB/s eta 0:00:00
+#15 159.7 Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+#15 159.8 Downloading rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+#15 160.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 371.3/371.3 kB 2.6 MB/s eta 0:00:00
+#15 160.1 Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+#15 160.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 kB 5.1 MB/s eta 0:00:00
+#15 160.2 Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+#15 163.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 2.6 MB/s eta 0:00:00
+#15 163.9 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+#15 163.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 2.2 MB/s eta 0:00:00
+#15 164.1 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#15 164.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 3.0 MB/s eta 0:00:00
+#15 164.2 Downloading more_itertools-11.1.0-py3-none-any.whl (72 kB)
+#15 164.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.2/72.2 kB 1.9 MB/s eta 0:00:00
+#15 164.4 Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+#15 164.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.1/91.1 kB 7.1 MB/s eta 0:00:00
+#15 164.5 Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+#15 164.6 Downloading fsspec-2026.6.0-py3-none-any.whl (203 kB)
+#15 164.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.9/203.9 kB 5.9 MB/s eta 0:00:00
+#15 164.7 Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+#15 164.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 3.4 MB/s eta 0:00:00
+#15 164.8 Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+#15 164.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 3.3 MB/s eta 0:00:00
+#15 164.9 Downloading huggingface_hub-1.32.0-py3-none-any.whl (842 kB)
+#15 165.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 842.9/842.9 kB 1.2 MB/s eta 0:00:00
+#15 165.7 Downloading filelock-4.0.1-py3-none-any.whl (106 kB)
+#15 165.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.2/106.2 kB 890.9 kB/s eta 0:00:00
+#15 166.0 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#15 166.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 2.6 MB/s eta 0:00:00
+#15 166.2 Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#15 166.3 Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+#15 166.3 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+#15 166.4 Downloading multiprocess-0.70.19-py311-none-any.whl (144 kB)
+#15 166.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 144.5/144.5 kB 4.1 MB/s eta 0:00:00
+#15 166.5 Downloading narwhals-2.26.0-py3-none-any.whl (474 kB)
+#15 166.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 474.0/474.0 kB 2.9 MB/s eta 0:00:00
+#15 166.8 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#15 166.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 3.8 MB/s eta 0:00:00
+#15 166.9 Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+#15 167.2 Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl (50.1 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 221.9 [ 93%] Building CXX object common/CMakeFiles/llama-common.dir/preset.cpp.o
+#11 226.6 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/reasoning-budget.cpp.o
+#11 227.3 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/sampling.cpp.o
+#11 228.7 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/speculative.cpp.o
+#11 228.9 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/subproc.cpp.o
+#11 229.1 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/trie.cpp.o
+#11 229.6 [ 95%] Building CXX object common/CMakeFiles/llama-common.dir/unicode.cpp.o
+#11 229.8 [ 97%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/lexer.cpp.o
+#11 230.8 [ 97%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/parser.cpp.o
+#11 232.1 [ 97%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/runtime.cpp.o
+#11 233.3 [ 97%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/value.cpp.o
+#11 235.4 [ 97%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/string.cpp.o
+#11 236.2 [100%] Building CXX object common/CMakeFiles/llama-common.dir/jinja/caps.cpp.o
+#11 239.8 [100%] Linking CXX static library libllama-common.a
+#11 239.9 [100%] Built target llama-common
+#11 239.9 [100%] Building CXX object tools/llama-bench/CMakeFiles/llama-bench-impl.dir/llama-bench.cpp.o
+#11 246.5 [100%] Linking CXX static library libllama-bench-impl.a
+#11 246.5 [100%] Built target llama-bench-impl
+#11 246.5 [100%] Building CXX object tools/llama-bench/CMakeFiles/llama-bench.dir/main.cpp.o
+#11 246.5 [100%] Linking CXX executable ../../bin/llama-bench
+#11 246.7 [100%] Built target llama-bench
+#11 246.8 [  0%] Built target llama-common-base
+#11 246.8 [  3%] Built target ggml-base
+#11 246.8 [  3%] Building CXX object tools/ui/CMakeFiles/llama-ui-embed.dir/embed.cpp.o
+#11 246.8 [  3%] Built target cpp-httplib
+#11 246.9 [  8%] Built target ggml-cpu
+#11 246.9 [  8%] Built target ggml
+#11 247.0 [ 64%] Built target llama
+#11 247.0 [ 64%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/mtmd.cpp.o
+#11 247.8 [ 66%] Linking CXX executable llama-ui-embed
+#11 247.9 [ 66%] Built target llama-ui-embed
+#11 247.9 [ 78%] Built target llama-common
+#11 247.9 [ 78%] Provisioning UI assets
+#11 248.0 -- UI: npm not found, skipping npm build
+#11 248.0 -- UI: downloading from b1: https://huggingface.co/buckets/ggml-org/llama-ui/resolve/b1/dist.tar.gz
+#11 249.4 [ 78%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/mtmd-audio.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 186.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 MB 3.0 MB/s eta 0:00:00
+#15 186.9 Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+#15 187.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 2.8 MB/s eta 0:00:00
+#15 187.3 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#15 187.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 3.3 MB/s eta 0:00:00
+#15 187.4 Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 251.0 [ 78%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/mtmd-image.cpp.o
+#11 252.7 [ 80%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/mtmd-helper.cpp.o
+#11 253.5 -- UI: download dist.tar.gz from b1 failed: "HTTP response code said error"
+#11 253.5 -- UI: downloading from latest: https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/dist.tar.gz
+#11 261.2 [ 80%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/clip.cpp.o
+#11 268.4 [ 80%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/cogvlm.cpp.o
+#11 268.9 [ 80%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/conformer.cpp.o
+#11 269.5 [ 80%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/dotsocr.cpp.o
+#11 270.1 [ 82%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/exaone4_5.cpp.o
+#11 270.7 [ 82%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/gemma4a.cpp.o
+#11 271.3 [ 82%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/gemma4v.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 208.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 807.7 kB/s eta 0:00:00
+#15 208.5 Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+#15 208.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 2.3 MB/s eta 0:00:00
+#15 209.0 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#15 209.1 Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+#15 209.2 Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+#15 209.3 Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+#15 209.4 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#15 209.5 Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+#15 209.6 Downloading absl_py-2.5.0-py3-none-any.whl (137 kB)
+#15 209.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.4/137.4 kB 6.7 MB/s eta 0:00:00
+#15 209.7 Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+#15 209.8 Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+#15 211.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 3.1 MB/s eta 0:00:00
+#15 211.6 Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+#15 212.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.8 MB/s eta 0:00:00
+#15 212.4 Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (802 kB)
+#15 212.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 803.0/803.0 kB 1.5 MB/s eta 0:00:00
+#15 213.0 Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+#15 216.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 3.4 MB/s eta 0:00:00
+#15 216.5 Downloading portalocker-4.4.0-py3-none-any.whl (129 kB)
+#15 216.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.6/129.6 kB 10.7 MB/s eta 0:00:00
+#15 216.7 Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+#15 216.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 261.0/261.0 kB 6.1 MB/s eta 0:00:00
+#15 216.8 Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+#15 217.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.2 MB/s eta 0:00:00
+#15 217.7 Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+#15 217.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 2.0 MB/s eta 0:00:00
+#15 217.9 Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+#15 218.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 627.2/627.2 kB 3.1 MB/s eta 0:00:00
+#15 218.2 Downloading charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (262 kB)
+#15 218.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 262.3/262.3 kB 3.0 MB/s eta 0:00:00
+#15 218.4 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#15 218.4 Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 271.9 [ 82%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/gemma4ua.cpp.o
+#11 272.5 [ 82%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/gemma4uv.cpp.o
+#11 273.1 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/glm4v.cpp.o
+#11 273.7 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/granite-speech.cpp.o
+#11 274.3 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/granite4-vision.cpp.o
+#11 275.1 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/hunyuanvl.cpp.o
+#11 275.7 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/internvl.cpp.o
+#11 276.2 [ 84%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/kimivl.cpp.o
+#11 276.8 [ 85%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/kimik25.cpp.o
+#11 277.4 [ 85%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/nemotron-v2-vl.cpp.o
+#11 278.0 [ 85%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/llama4.cpp.o
+#11 278.6 [ 85%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/llava.cpp.o
+#11 279.0 -- UI: archive verified and extracted
+#11 279.0 -- UI: HF download succeeded, stamp updated (latest)
+#11 279.2 [ 85%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/minicpmv.cpp.o
+#11 279.4 -- UI: gzip compression applied (/src/llama.cpp/build/tools/ui/dist/_gzip)
+#11 279.4 embed: write output file /src/llama.cpp/build/tools/ui/ui.h
+#11 279.4 embed: write output file /src/llama.cpp/build/tools/ui/ui.cpp
+#11 279.4 [ 85%] Built target llama-ui-assets
+#11 279.4 [ 85%] Building CXX object tools/ui/CMakeFiles/llama-ui.dir/ui.cpp.o
+#11 279.9 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/paddleocr.cpp.o
+#11 280.6 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/pixtral.cpp.o
+#11 281.2 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/qwen2vl.cpp.o
+#11 281.8 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/minimax-m3.cpp.o
+#11 282.5 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/qwen3vl.cpp.o
+#11 282.9 [ 87%] Linking CXX static library libllama-ui.a
+#11 282.9 [ 87%] Built target llama-ui
+#11 282.9 [ 87%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/mimovl.cpp.o
+#11 283.1 [ 89%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/qwen3a.cpp.o
+#11 283.6 [ 89%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/mimo-audio.cpp.o
+#11 283.7 [ 89%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/step3vl.cpp.o
+#11 284.3 [ 89%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/siglip.cpp.o
+#11 284.3 [ 89%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/whisper-enc.cpp.o
+#11 284.9 [ 91%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/deepseekocr.cpp.o
+#11 284.9 [ 91%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/deepseekocr2.cpp.o
+#11 ...
+
+#15 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#15 221.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 1.3 MB/s eta 0:00:00
+#15 221.9 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#15 222.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 806.2 kB/s eta 0:00:00
+#15 222.1 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#15 222.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 3.8 MB/s eta 0:00:00
+#15 222.3 Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+#15 222.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 508.3/508.3 kB 3.4 MB/s eta 0:00:00
+#15 222.5 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#15 222.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 3.1 MB/s eta 0:00:00
+#15 222.7 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#15 222.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 4.3 MB/s eta 0:00:00
+#15 222.8 Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+#15 222.9 Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+#15 222.9 Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+#15 223.1 Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+#15 223.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 231.1/231.1 kB 2.0 MB/s eta 0:00:00
+#15 223.3 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#15 223.3 Downloading multidict-6.9.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (304 kB)
+#15 223.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 304.4/304.4 kB 5.3 MB/s eta 0:00:00
+#15 223.5 Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+#15 223.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 235.4/235.4 kB 3.3 MB/s eta 0:00:00
+#15 223.7 Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+#15 223.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.7/117.7 kB 3.3 MB/s eta 0:00:00
+#15 223.9 Saved /wheels/click-8.5.0-py3-none-any.whl
+#15 223.9 Saved /wheels/jsonschema-4.26.0-py3-none-any.whl
+#15 223.9 Saved /wheels/lm_eval-0.4.13-py3-none-any.whl
+#15 223.9 Saved /wheels/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#15 223.9 Saved /wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl
+#15 223.9 Saved /wheels/rich-15.0.0-py3-none-any.whl
+#15 223.9 Saved /wheels/attrs-26.1.0-py3-none-any.whl
+#15 223.9 Saved /wheels/datasets-5.0.1-py3-none-any.whl
+#15 223.9 Saved /wheels/dill-0.4.1-py3-none-any.whl
+#15 223.9 Saved /wheels/diskcache-5.6.3-py3-none-any.whl
+#15 223.9 Saved /wheels/evaluate-0.4.6-py3-none-any.whl
+#15 223.9 Saved /wheels/jinja2-3.1.6-py3-none-any.whl
+#15 223.9 Saved /wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl
+#15 223.9 Saved /wheels/markdown_it_py-4.2.0-py3-none-any.whl
+#15 223.9 Saved /wheels/pygments-2.21.0-py3-none-any.whl
+#15 223.9 Saved /wheels/referencing-0.37.0-py3-none-any.whl
+#15 223.9 Saved /wheels/rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+#15 223.9 Saved /wheels/sacrebleu-2.6.0-py3-none-any.whl
+#15 223.9 Saved /wheels/scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#15 223.9 Saved /wheels/tqdm-4.70.1-py3-none-any.whl
+#15 223.9 Saved /wheels/typing_extensions-4.16.0-py3-none-any.whl
+#15 223.9 Saved /wheels/more_itertools-11.1.0-py3-none-any.whl
+#15 223.9 Saved /wheels/pytablewriter-1.2.1-py3-none-any.whl
+#15 223.9 Saved /wheels/dataproperty-1.1.1-py3-none-any.whl
+#15 223.9 Saved /wheels/fsspec-2026.6.0-py3-none-any.whl
+#15 223.9 Saved /wheels/httpx-0.28.1-py3-none-any.whl
+#15 223.9 Saved /wheels/httpcore-1.0.9-py3-none-any.whl
+#15 223.9 Saved /wheels/huggingface_hub-1.32.0-py3-none-any.whl
+#15 223.9 Saved /wheels/filelock-4.0.1-py3-none-any.whl
+#15 223.9 Saved /wheels/joblib-1.6.0-py3-none-any.whl
+#15 223.9 Saved /wheels/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 223.9 Saved /wheels/mbstrdecoder-1.1.5-py3-none-any.whl
+#15 223.9 Saved /wheels/mdurl-0.1.2-py3-none-any.whl
+#15 223.9 Saved /wheels/multiprocess-0.70.19-py311-none-any.whl
+#15 223.9 Saved /wheels/narwhals-2.26.0-py3-none-any.whl
+#15 223.9 Saved /wheels/packaging-26.3-py3-none-any.whl
+#15 223.9 Saved /wheels/pathvalidate-3.3.1-py3-none-any.whl
+#15 224.0 Saved /wheels/pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/requests-2.34.2-py3-none-any.whl
+#15 224.0 Saved /wheels/scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/setuptools-84.0.0-py3-none-any.whl
+#15 224.0 Saved /wheels/six-1.17.0-py2.py3-none-any.whl
+#15 224.0 Saved /wheels/tabledata-1.3.5-py3-none-any.whl
+#15 224.0 Saved /wheels/tabulate-0.10.0-py3-none-any.whl
+#15 224.0 Saved /wheels/tcolorpy-0.1.7-py3-none-any.whl
+#15 224.0 Saved /wheels/threadpoolctl-3.7.0-py3-none-any.whl
+#15 224.0 Saved /wheels/typepy-1.3.5-py3-none-any.whl
+#15 224.0 Saved /wheels/absl_py-2.5.0-py3-none-any.whl
+#15 224.0 Saved /wheels/colorama-0.4.6-py2.py3-none-any.whl
+#15 224.0 Saved /wheels/lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/nltk-3.10.3-py3-none-any.whl
+#15 224.0 Saved /wheels/regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/portalocker-4.4.0-py3-none-any.whl
+#15 224.0 Saved /wheels/xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/certifi-2026.7.22-py3-none-any.whl
+#15 224.0 Saved /wheels/chardet-6.0.0.post1-py3-none-any.whl
+#15 224.0 Saved /wheels/charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/cloudpickle-3.1.2-py3-none-any.whl
+#15 224.0 Saved /wheels/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+#15 224.0 Saved /wheels/idna-3.20-py3-none-any.whl
+#15 224.0 Saved /wheels/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+#15 224.0 Saved /wheels/pytz-2026.3.post1-py2.py3-none-any.whl
+#15 224.0 Saved /wheels/urllib3-2.8.0-py3-none-any.whl
+#15 224.0 Saved /wheels/anyio-4.15.1-py3-none-any.whl
+#15 224.0 Saved /wheels/defusedxml-0.7.1-py2.py3-none-any.whl
+#15 224.0 Saved /wheels/aiohappyeyeballs-2.7.1-py3-none-any.whl
+#15 224.0 Saved /wheels/aiosignal-1.4.0-py3-none-any.whl
+#15 224.0 Saved /wheels/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+#15 224.0 Saved /wheels/h11-0.16.0-py3-none-any.whl
+#15 224.0 Saved /wheels/multidict-6.9.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.0 Saved /wheels/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#15 224.7 Building wheels for collected packages: adtc-profiler, llama-cpp-python, rouge-score, sqlitedict, word2number
+#15 224.7   Building wheel for adtc-profiler (pyproject.toml): started
+#15 224.8   Building wheel for adtc-profiler (pyproject.toml): finished with status 'done'
+#15 224.8   Created wheel for adtc-profiler: filename=adtc_profiler-0.1.0-py3-none-any.whl size=28575 sha256=a91ae4cc038bc26b04c675bb95faf02faf4633903af4eabe3b4c9ba5a1e549df
+#15 224.8   Stored in directory: /tmp/pip-ephem-wheel-cache-t5tv5uev/wheels/ca/78/b1/45d8b4b048a217bc19bf80e7c8a06a66a56b0d5679d965968e
+#15 224.8   Building wheel for llama-cpp-python (pyproject.toml): started
+#15 ...
+
+#11 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#11 285.6 [ 91%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/mobilenetv5.cpp.o
+#11 285.6 [ 91%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/youtuvl.cpp.o
+#11 286.2 [ 91%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/yasa2.cpp.o
+#11 286.3 [ 92%] Building CXX object tools/mtmd/CMakeFiles/mtmd.dir/models/parakeet.cpp.o
+#11 286.9 [ 92%] Linking CXX static library libmtmd.a
+#11 287.0 [ 92%] Built target mtmd
+#11 287.0 [ 92%] Building CXX object tools/server/CMakeFiles/server-context.dir/server-task.cpp.o
+#11 287.0 [ 92%] Building CXX object tools/server/CMakeFiles/server-context.dir/server-chat.cpp.o
+#11 301.9 [ 92%] Building CXX object tools/server/CMakeFiles/server-context.dir/server-queue.cpp.o
