@@ -1,0 +1,11 @@
+adtc-profiler mode=participant model=adtc-agritgllm-adviser-v2-Q4_K_M-egrpo.gguf
+→ running llama-bench (throughput)…
+→ running lm_eval task=arc_easy limit=50…
+llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ai2_arc.py
+Retrying in 1s [Retry 1/5].
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'ARC-Easy' at /root/.cache/huggingface/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Wed Sep  9 21:53:14 2026).
+  0%|          | 0/50 [00:00<?, ?it/s]100%|██████████| 50/50 [00:00<00:00, 1188.30it/s]
+fatal: not a git repository (or any of the parent directories): .git
+✓ wrote /artifacts/egrpo-q4-froid_r1.json

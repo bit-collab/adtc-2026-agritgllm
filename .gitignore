@@ -1,9 +1,7 @@
-# Model weights are fetched by download_model.sh and never committed to git.
-*.gguf
-*.bin
-*.safetensors
-model/*
-!model/.gitkeep
+# Model weights — never commit these to git
+model/*.gguf
+model/*.bin
+model/*.safetensors
 
 # macOS
 .DS_Store

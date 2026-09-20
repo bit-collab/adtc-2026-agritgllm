@@ -1,0 +1,199 @@
+{
+ "date": "2026-09-19",
+ "split": "train-gate2/data/sft_train.jsonl (7587 lignes)",
+ "battery": "acceptance_27_round1.jsonl",
+ "method": "similarite de Jaccard sur les mots de 3 lettres et plus, question de banc contre chaque question d entrainement, maximum retenu",
+ "identiques": 19,
+ "inedites": 8,
+ "items": [
+  {
+   "id": "keep_whitefly_tomato",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "verdict:whitefly_tomato_decisive",
+   "status": "identique"
+  },
+  {
+   "id": "keep_tick_borne_cattle",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "verdict:tick_borne_cattle_decisive",
+   "status": "identique"
+  },
+  {
+   "id": "keep_off_topic_refusal",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:off_topic_general_knowledge",
+   "status": "identique"
+  },
+  {
+   "id": "keep_kara_verdict_full_context",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "verdict:verdict_depleted_soil_full_context",
+   "status": "identique"
+  },
+  {
+   "id": "keep_refuse_dilution_ratio",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:unregistered_pesticide_mix",
+   "status": "identique"
+  },
+  {
+   "id": "fix_when_to_plant_maize",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "verdict:maize_planting_region_unknown",
+   "status": "identique"
+  },
+  {
+   "id": "fix_kara_verdict_thin_context",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "verdict:verdict_depleted_soil_thin_context",
+   "status": "identique"
+  },
+  {
+   "id": "fix_human_medicine_hard_refusal",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:human_drug_dose_with_nervous_signs",
+   "status": "identique"
+  },
+  {
+   "id": "fix_meta_no_camera",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:no_camera_no_image",
+   "status": "identique"
+  },
+  {
+   "id": "fix_meta_own_size",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:running_on_small_hardware",
+   "status": "identique"
+  },
+  {
+   "id": "fix_meta_out_of_distribution",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:out_of_distribution_plant",
+   "status": "identique"
+  },
+  {
+   "id": "keep_whitefly_not_aphid_discriminative",
+   "kind": "keep",
+   "jaccard": 0.45,
+   "closest_bundle": "problem_fact:tomato_sucking_pests:signs:1",
+   "status": "inedite"
+  },
+  {
+   "id": "meta_architecture_hybrid",
+   "kind": "fix",
+   "jaccard": 0.167,
+   "closest_bundle": "identity:transformer_or_mamba",
+   "status": "inedite"
+  },
+  {
+   "id": "greet_bonjour_french",
+   "kind": "fix",
+   "jaccard": 1.0,
+   "closest_bundle": "greeting:bonjour_french",
+   "status": "identique"
+  },
+  {
+   "id": "meta_photos_describe_instead",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:photos",
+   "status": "identique"
+  },
+  {
+   "id": "meta_can_you_be_wrong",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:can_you_be_wrong",
+   "status": "identique"
+  },
+  {
+   "id": "meta_who_are_you",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "identity:who_are_you",
+   "status": "identique"
+  },
+  {
+   "id": "limit_trypanocide_dose",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:trypanocide_dose",
+   "status": "identique"
+  },
+  {
+   "id": "limit_double_urea",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:stronger_fertiliser_dose",
+   "status": "identique"
+  },
+  {
+   "id": "dom_newcastle_sudden_deaths",
+   "kind": "keep",
+   "jaccard": 0.429,
+   "closest_bundle": "problem_fact:poultry_newcastle:prevention:1",
+   "status": "inedite"
+  },
+  {
+   "id": "dom_cassava_mosaic",
+   "kind": "keep",
+   "jaccard": 0.636,
+   "closest_bundle": "problem_fact:cassava_mosaic:signs:1",
+   "status": "inedite"
+  },
+  {
+   "id": "dom_maize_streak",
+   "kind": "ood",
+   "jaccard": 0.333,
+   "closest_bundle": "multihop:cassava_mosaic",
+   "status": "inedite"
+  },
+  {
+   "id": "dom_groundnut_rosette",
+   "kind": "ood",
+   "jaccard": 0.444,
+   "closest_bundle": "problem_fact:cassava_mosaic:prevention:1",
+   "status": "inedite"
+  },
+  {
+   "id": "limit_market_price_live",
+   "kind": "keep",
+   "jaccard": 0.625,
+   "closest_bundle": "guidance_fact:market_prices_guidance:steps:0",
+   "status": "inedite"
+  },
+  {
+   "id": "limit_weather_forecast",
+   "kind": "keep",
+   "jaccard": 0.455,
+   "closest_bundle": "guidance_fact:weather_forecast_guidance:steps:0",
+   "status": "inedite"
+  },
+  {
+   "id": "limit_sick_after_spraying",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:sick_after_spraying",
+   "status": "identique"
+  },
+  {
+   "id": "limit_child_ate_treated_seed",
+   "kind": "keep",
+   "jaccard": 1.0,
+   "closest_bundle": "limit:child_ate_treated_seed",
+   "status": "identique"
+  }
+ ]
+}

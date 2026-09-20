@@ -1,12 +1,27 @@
 # AgriTG LLM, an offline farm adviser for Togo
 
-An agricultural advisory model that runs on a cheap laptop with no internet, built for the Africa Deep Tech Challenge 2026 Laptop LLM track.
+An agricultural advisory model that runs on a cheap laptop with no internet. Built for the Africa
+Deep Tech Challenge 2026, Laptop LLM track. Semifinalist after Round 1 (submission ADTC2026_556).
 
-Ask it a question in plain English and it answers as a Togolese agricultural adviser: crops, livestock, weather decisions and market timing, grounded in the national services (ICAT, ITRA, ANAMET, ANSAT, CAGIA, SIM). No system prompt needed, the persona is baked into the model file.
+Ask it a question in plain English and it answers like a Togolese extension adviser: crops,
+livestock, weather decisions and market timing, grounded in the national services (ICAT, ITRA,
+ANAMET, ANSAT, CAGIA, SIM). No system prompt needed, the persona is baked into the model file.
 
-- **Base:** SmolLM2-1.7B-Instruct, fine-tuned with QLoRA and a DPO pass
-- **Runtime:** llama.cpp. **Weights:** GGUF Q4_K_M, about 1.0 GB
-- **Measured:** 32.84 tok/s generation, 1.91 GB peak RSS, no throttling
+| | |
+|---|---|
+| **Base model** | LFM2-700M (Liquid AI), LoRA on a bf16 base, supervised fine-tuning then DPO |
+| **Runtime** | llama.cpp, CPU only, fully offline |
+| **Weights** | GGUF Q4_K_M, 468.6 MB (447 MiB) |
+| **On the target machine** | 15.6 tok/s cold, 557 MB peak, official profiler on 8 GB RAM / 4 vCPU / no GPU. Section 6 of the report says exactly which file was measured and how |
+
+**What changed since Round 1.** The file is 2.4 times smaller. The base model was changed twice,
+each time on a measurement and not on a preference. The training data was rebuilt from 60 curated
+extension sheets with a word-for-word check on every fact. The three failures the Round 1 judges
+named (deferring instead of answering, inventing names, and failing the human-medicine boundary
+test) are scored requirements in our own 27 item test. The first two pass. On the third, the
+dangerous half is gone: across every draw we ran, the model never gives a human drug dose for an
+animal, under any wording we tried. It still sometimes names a disease from the signs, which we
+also count as a failure, and section 5.3 of the report says so.
 
 ## Running it
 
@@ -14,22 +29,30 @@ Ask it a question in plain English and it answers as a Togolese agricultural adv
 bash download_model.sh
 ```
 
-That pulls the weights into `model/`. From there, point llama.cpp at the file:
+That puts the weights in `model/`. Then:
 
 ```bash
-llama-server -m model/adtc-agritgllm-adviser-Q4_K_M.gguf -c 2048 --temp 0
+llama-cli -m model/adtc-agritgllm-adviser-v3-Q4_K_M.gguf --jinja -t 4 --temp 0.3 --min-p 0.15 --repeat-penalty 1.05
 ```
 
-Then ask it something:
+Those three sampling values are what Liquid AI recommends for the LFM2 family, and every number in
+REPORT.md was measured with them. The model also works with llama.cpp defaults.
+
+Something to try:
 
 ```
 My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong?
 ```
 
-**Run it at temperature 0.** This adviser is tuned to commit to one diagnosis and to
-decline questions outside its domain, such as how to build an irrigation pump, and
-greedy decoding is what keeps both behaviours stable. At the sampling temperatures
-some clients default to, a 1.7B model starts padding sound advice with invented
-detail, which is exactly what you do not want in a tool a farmer will act on.
+## What is in this repository
 
-Read **[REPORT.md](REPORT.md)** for the problem it solves, why this base model and this quantization won over the alternatives we measured, and the full benchmark numbers from the official ADTC profiler. **[metadata.json](metadata.json)** holds the submission metadata and the test prompts.
+| file or folder | what it holds |
+|---|---|
+| [REPORT.md](REPORT.md) | the problem, how the base model and the quantization were chosen, what Round 1 taught us, training, benchmarks, and the Model Provenance section |
+| [metadata.json](metadata.json) | submission metadata, the two test prompts, the SHA256 of the shipped file, the Git commit SHA |
+| [NOTICE.md](NOTICE.md) | base model attribution and the statement of changes the licence requires |
+| [LICENSE-LFM2-700M.txt](LICENSE-LFM2-700M.txt) | the base model licence, which travels with any derivative |
+| [provenance/](provenance/) | LoRA adapter, training and export scripts, per-step logs, dataset, checksums |
+| [provenance/evaluation/](provenance/evaluation/) | the 27 item test, every answer the model gave on the target machine, and the wide benchmark results |
+| `submission.json` | the official profiler output. It is produced by running the profiler on the target machine, not written by hand, so it is added once that run is done and is absent until then. |
+| `model/` | the weights, not committed to git (see `.gitignore`) |

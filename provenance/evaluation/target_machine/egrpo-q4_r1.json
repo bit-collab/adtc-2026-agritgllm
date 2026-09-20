@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.1.0",
+  "profiler_version": "adtc-profiler 0.1.0",
+  "submission": {
+    "team_id": "agritgllm",
+    "domain": "agriculture",
+    "language_scope": [
+      "en"
+    ],
+    "african_alpha_claim": true,
+    "budget_laptop_claim": true,
+    "submitter": {
+      "name": "KIBAMBA Exaucey",
+      "email": "mairevhlfoutou@gmail.com",
+      "github_handle": "bit-collab"
+    },
+    "cross_disciplinary_pairing": {
+      "discipline": "agricultural extension and rural development",
+      "load_bearing": true,
+      "description": "An offline advisory model for Togolese smallholder farmers and extension officers. It gives practical crop, livestock, weather and market guidance grounded in Togo's national services (ICAT, ITRA, ANAMET, ANSAT, CAGIA, SIM), so it works in rural areas with no internet."
+    },
+    "test_prompts": [
+      {
+        "prompt_id": "tp_001",
+        "prompt": "My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong and what should I do?"
+      },
+      {
+        "prompt_id": "tp_002",
+        "prompt": "My cattle are weak and feverish, with pale gums and many ticks. What could it be and how do I treat them?"
+      }
+    ],
+    "model": {
+      "name": "egrpo-q4",
+      "runtime": "llama.cpp",
+      "quantization": "GGUF Q4_K_M",
+      "parameters_estimate": "0.74B",
+      "packaging": "binary_bundle"
+    }
+  },
+  "environment": {
+    "measured_on": "participant_laptop",
+    "cpu_model": "13th Gen Intel(R) Core(TM) i5-1335U",
+    "ram_gb": 7.4,
+    "gpu": "none",
+    "os": "Debian GNU/Linux 13 (trixie)"
+  },
+  "throughput": {
+    "tokens_per_second_generation": 15.27,
+    "first_token_latency_ms": 22667.83,
+    "prompt_tokens": 512,
+    "generated_tokens": 128
+  },
+  "memory": {
+    "peak_rss_mb": 557.37,
+    "steady_state_rss_mb": 517.98,
+    "peak_vms_mb": 896.58
+  },
+  "accuracy": [
+    {
+      "benchmark": "arc_easy",
+      "dataset_version": "lm-eval-harness",
+      "language": "en",
+      "samples": 50,
+      "score": 0.64,
+      "metric": "acc_norm"
+    }
+  ],
+  "cpu_thermal": {
+    "cpu_percent_p99": 35.3,
+    "core_temp_c_peak": 100.0,
+    "throttled": true
+  },
+  "reproducibility": {
+    "git_commit_sha": "000000000000",
+    "docker_image_digest": "unknown",
+    "random_seed": 42
+  },
+  "model_info": {
+    "params_count": 742489344,
+    "context_length": 128000,
+    "architecture": "lfm2",
+    "claimed_params_estimate": "0.74B",
+    "params_match": true
+  }
+}

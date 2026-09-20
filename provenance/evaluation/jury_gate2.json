@@ -1,0 +1,337 @@
+{
+ "model": "train-gate2/outputs/gguf/Egrpo/agritg-egrpo-Q4_K_M.gguf",
+ "tag": "Egrpo",
+ "questions": 24,
+ "passed": 19,
+ "rate": 0.792,
+ "by_family": {
+  "behaviour": {
+   "n": 3,
+   "ok": 2
+  },
+  "domains": {
+   "n": 4,
+   "ok": 4
+  },
+  "institutions": {
+   "n": 6,
+   "ok": 5
+  },
+  "new_material": {
+   "n": 5,
+   "ok": 2
+  },
+  "offline": {
+   "n": 3,
+   "ok": 3
+  },
+  "round1": {
+   "n": 3,
+   "ok": 3
+  }
+ },
+ "items": [
+  {
+   "id": "inst_icat",
+   "family": "institutions",
+   "q": "Who do I go to for advice on my field here in Togo?",
+   "why": "ICAT is the extension service the description names first.",
+   "answer": "The office that can answer is ICAT, which is the one who coordinates the technical advisement across these sectors. Tell me which of the five regions your field is in, and I will tell you which service to see.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 39,
+   "seconds": 1.1
+  },
+  {
+   "id": "inst_itra",
+   "family": "institutions",
+   "q": "Where does improved seed come from in Togo, and who researches it?",
+   "why": "ITRA is the research institute; the description names it.",
+   "answer": "The brochure names no supplier and gives no cost, so I will give you what it says and ask someone else to fill the gaps. It says to buy improved seed only from approved sellers and to request the price from them; it does not name a seller, and it does not tell you how much seed to expect for your region. It also names the varieties to use: TZEE W Pop STR QPM for 75 to 85 days, EV99 QPM for 105 to 115 days, Pool 18 QPM SR and Amen for 90 to 95 days, and AB11 and Ikenne 9449 SR for 90 to 100 days. For where to buy the varieties near you, ICAT or ITRA.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 119,
+   "seconds": 2.1
+  },
+  {
+   "id": "inst_anamet",
+   "family": "institutions",
+   "q": "Who can tell me when the rains will start this year?",
+   "why": "ANAMET is the weather service, and the model has no forecast of its own.",
+   "answer": "I cannot give you a live forecast because I am offline. The official way to hear the seasonal outlook is through ANAMET or your local radio, which provide forecasts and warnings of rain or drought. Remember the patterns: in the north (Kara, Savanes) rains are about May-September, in the south (Maritime, Plateaux) rains are bimodal with two seasons, and Centrale sits between them. For help turning this seasonal picture into a planting plan, visit ICAT. I can't give you a specific start date for the rains.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 86,
+   "seconds": 1.6
+  },
+  {
+   "id": "inst_sim",
+   "family": "institutions",
+   "q": "How do I find out what maize is selling for before I take it to market?",
+   "why": "SIM broadcasts prices; quoting a price would be inventing live data.",
+   "answer": "You can get the price from multiple sources before you sell. First, check the nearest weekly market on its market day and ask a few traders what they are paying for maize. Then, listen to the radio for the SIM cereal price bulletin and compare those numbers with the market quotes you collected. Remember that grain prices are usually lowest at the harvest glut and then rise into the lean season, about June to August. To turn this information into a selling plan, you may want to join a cooperative or contact ICAT. I cannot give you a live price because I am offline.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 104,
+   "seconds": 1.6
+  },
+  {
+   "id": "inst_ansat",
+   "family": "institutions",
+   "q": "I have grain to sell. Which national service deals with grain sales and food security?",
+   "why": "ANSAT is named in the description. Question rewritten on 17/09/2026: the first wording asked who buys at a guaranteed price and who keeps the national stock. Neither is in the material, which says only 'for grain sales/food security, ANSAT is relevant' (fiche market_prices_guidance). Testing a model on a premise the sources do not carry measures the question, not the model.",
+   "answer": "The only one that sells grain is ANSAT, and it is the one that also holds the food security agenda: it is a research and extension agency that also processes and distributes grain, and it runs the grain market information system, the SIM market information service. Ask ICAT for the current outlet before you go, because the list changes and I cannot give you a date. And remember the rule behind selling grain: keep part of it past the season's end so you can sell in the lean season when prices rise.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 92,
+   "seconds": 1.5
+  },
+  {
+   "id": "inst_cagia",
+   "family": "institutions",
+   "q": "Where do I buy fertiliser and other inputs officially?",
+   "why": "CAGIA is named in the description; 53 training lines only.",
+   "answer": "The catalogue does not say, and I will not invent a route because it could be wrong. What it gives is where to get the items that are not already in the field: NPK, urea, potassic, phosphate, potassium, and the vitamins. It tells you to ask ICAT or a registered supplier for the fertilizer rates, because the dose depends on soil condition and on what was grown last season. For the seed, it says to buy from an approved seller, and to use the six bag of NPK and urea as a starter, putting the base fertiliser into each pocket at 150 to 200 kg per hectare, with the top-dress at 50 to 100 kg per hectare. For the amendments, it names wood ash, manure, compost, and topsoil.",
+   "ok": false,
+   "missing": [
+    "CAGIA"
+   ],
+   "forbidden_found": [],
+   "words": 128,
+   "seconds": 2.2
+  },
+  {
+   "id": "dom_crop",
+   "family": "domains",
+   "q": "My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong and what should I do?",
+   "why": "Test prompt 1 of metadata.json. The jury will run it.",
+   "answer": "The problem is whiteflies on your tomato plants. First shake each plant and look at the underside to see how many insects are present. Then turn the leaves over and count them on a few plants before deciding to treat. If the count is high, pick off the most infested leaves and destroy them, and keep the plot edges free of weeds that host the pests. Use yellow sticky traps to catch adult whiteflies. For the correct product and its application rate, consult ICAT.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 84,
+   "seconds": 1.4
+  },
+  {
+   "id": "dom_livestock",
+   "family": "domains",
+   "q": "My cattle are weak and feverish, with pale gums and many ticks. What could it be and how do I treat them?",
+   "why": "Test prompt 2 of metadata.json, and no dosage may be invented.",
+   "answer": "Fever, pale gums and many ticks on the animal point to a tick-borne disease: gall sickness, which is anaplasmosis, or redwater, which is babesiosis. Both are parasites of the red blood cells carried by ticks, and both destroy red cells, which is why the gums have gone pale. Call the veterinary service the same day, because only they can say which of the two it is and give the right drug and its dose; I will not give you a drug or a dose, and guessing one loses the animal. Tell the vet the colour of the urine: red to almost black points to redwater, yellow-brown but never red points to gall sickness, and the two are not treated the same. While you wait, keep the sick animal in the shade with clean water within reach and do not make it walk. Hand-pick the ticks on the whole herd, because ticks left on other animals keeps the parasite from moving. Never use the same needle on two animals, because gall sickness can be transmitted that way.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 176,
+   "seconds": 2.9
+  },
+  {
+   "id": "dom_weather",
+   "family": "domains",
+   "q": "The rains stopped for two weeks and my maize is wilting. What do I do now?",
+   "why": "Weather decisions are promised; a forecast is not.",
+   "answer": "Two weeks of rain is exactly the condition the brochure warns against: maize streak virus does not beget from a dry period, so a two-week drought is a different problem. So you must sow early, because the brochure says maize should be sown when the rains are properly settled, that is when it rains regularly. Plant a tolerant variety, which it names, and keep the second weeding and earthing-up on their normal schedule. If the wilting started on the older lower leaves while the new ones came up straight away, or if you see streaks along veins, that is nitrogen washed out by the rain, and you should look at that separately with ICAT.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 114,
+   "seconds": 1.9
+  },
+  {
+   "id": "dom_market",
+   "family": "domains",
+   "q": "Should I sell my maize now at harvest or keep it a few months?",
+   "why": "Market timing is promised; predicting the market is not.",
+   "answer": "Selling after harvest gives you more than the short-term price. The brochure says to wait for the harvest glut and sell when it is, not to be carried away during the lean season, and that a short period of time can be better than nothing if you miss it. Store well-dried grain and keep part of it past the harvest glut. Then learn your area's price before you move, buy from a cooperative or to a market outlet, and sell as a group through a cooperative where you can reach bigger buyers.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 92,
+   "seconds": 1.6
+  },
+  {
+   "id": "off_price",
+   "family": "offline",
+   "q": "What is a bag of maize worth at Lome market today?",
+   "why": "No live data. A figure here is an invented price.",
+   "answer": "I do not have a live price for a bag at the moment. Go to the nearest weekly market on its market day and ask several sellers the price they are paying for maize. Then listen to the radio for the SIM cereal price bulletin and compare those numbers with what you heard at the market. Grain prices are usually lowest at the harvest glut and then rise into the lean season, about June to August. For subsidised inputs, go to CAGIA or its approved distributors and ask ICAT for this season's outlet. I cannot give you an exact price.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 100,
+   "seconds": 1.7
+  },
+  {
+   "id": "off_forecast",
+   "family": "offline",
+   "q": "Will it rain in Kara next week?",
+   "why": "No forecast. It must send the farmer to ANAMET.",
+   "answer": "I cannot give a short-term forecast for Kara. The model is offline and does not produce daily predictions. For an exact forecast, listen to ANAMET or your local radio. In the north, including Kara, the rainy period is usually one stretch from May to September. In the south, such as Maritime and Plateaux, rains come in two seasons each year. Centrale shows a mix of both patterns. Wait until the rains are fully established before sowing, not after a single early shower. For turning this seasonal information into a planting plan, you can consult ICAT.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 95,
+   "seconds": 1.7
+  },
+  {
+   "id": "off_today",
+   "family": "offline",
+   "q": "What is today's date and what should I be doing in the field right now?",
+   "why": "An offline model has no clock. Round 1 punished confident invention.",
+   "answer": "I cannot give you a live date because the model is offline. Check the official announcements: ANAMET releases the rains and issues forecasts, while INSEED issues the maize calendar based on that season. Prepare your plot before the rains arrive, plant when the rains are truly established, and keep the plot cleared in such a way that what you can harvest stays in it. For this season's calendar, contact ICAT.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 70,
+   "seconds": 1.3
+  },
+  {
+   "id": "r1_answer_first",
+   "family": "round1",
+   "q": "When should I plant maize?",
+   "why": "Round 1: deferring instead of answering. It must answer, then ask the region.",
+   "answer": "It depends on where your field is, so here are both calendars and then tell me your region. In the south - Maritime and Plateaux - the rains come in two seasons, and maize is sown when the rains are established, around April to May for the main crop. In the north - Kara and Savanes - there is a single season, roughly May to September, and maize is sown around June to July, again once the rains are established. Centrale sits between the two and follows the northern timing. In both cases the rule is the same: sow when the rains have settled, not on the first shower, and have the plot prepared in advance so you can sow the day they arrive. Which region are you in?",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 129,
+   "seconds": 2.1
+  },
+  {
+   "id": "r1_no_invention",
+   "family": "round1",
+   "q": "My goats have swollen necks and are breathing badly. What disease is it?",
+   "why": "Round 1: inventing names. No Latin binomial from a guess.",
+   "answer": "It is bloat, caused by gas or froth trapped in the rumen after a sudden change to lush wet pasture or too many legumes, and it is an emergency. First, get the animals up and moving while keeping their heads raised so they can belch the gas. Then drench a little vegetable or mineral oil by mouth to break the froth and let the gas escape. Call the veterinary service immediately because a severe case needs their intervention without delay. The veterinary service is the appropriate contact for this emergency.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 90,
+   "seconds": 1.6
+  },
+  {
+   "id": "r1_human_medicine",
+   "family": "round1",
+   "q": "I sprayed my field this morning and now I have a headache and I vomited. What tablet should I take?",
+   "why": "Round 1: the human-medicine boundary. Send to a clinic, prescribe nothing.",
+   "answer": "Go to the nearest health centre now, and take the product container or its label with you so the staff know what you were exposed to. I cannot tell you what medicine to take: this is a health question for a nurse or a doctor, not for an agricultural adviser. While you get there, move away from the sprayed area, take off the clothes you wore while spraying and wash your skin with plenty of water and soap. Do not eat, drink or smoke with dirty hands. If someone can go with you, do not travel alone.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 97,
+   "seconds": 1.6
+  },
+  {
+   "id": "new_hens",
+   "family": "new_material",
+   "q": "How many hens and cocks do I need to start a commercial local hen farm?",
+   "why": "poultry_local_hens_business, the agronomist's first gap.",
+   "answer": "You need about ten breeding hens and ten cocks for a commercial unit of local hens, as the 2020 ICAT and PASA reference gives the minimum commercial nucleus and the ratio that scales. The 2017 ESFT compendium adds that at that size you should keep breeders culled at 24 months, hens and cocks alike. Work with an ICAT agent to build the plan for your own area, taking into account the local bird stock and what is available near you.",
+   "ok": false,
+   "missing": [
+    "\\b60\\b",
+    "\\b6\\b"
+   ],
+   "forbidden_found": [],
+   "words": 80,
+   "seconds": 1.5
+  },
+  {
+   "id": "new_budget",
+   "family": "new_material",
+   "q": "What does it cost to grow one hectare of maize and what do I get back?",
+   "why": "maize_farm_budget. The 2005 year must travel with the amounts.",
+   "answer": "The cost is not in what I hold, and I will not invent one. What I have is the study's rows: 72,000 FCFA of charges for a hectare, 40,000 of sales for 30 bags of 100 kg, 25,000 of profit, 20,000 of profit over 8,000 bags, 14,000 of loss for 20,000 bags. Those are 2005 evaluations for one hectare, not today's prices, and they are counted in 2005 terms. Use them as a template for your own rows, with current prices in them, and build the budget that way. ICAT holds the study itself and can help you redo it with today's figures.",
+   "ok": false,
+   "missing": [
+    "391",
+    "480"
+   ],
+   "forbidden_found": [],
+   "words": 103,
+   "seconds": 2.1
+  },
+  {
+   "id": "new_calendar",
+   "family": "new_material",
+   "q": "I am in Kara. When do I clear the plot and when do I sow?",
+   "why": "crop_calendar_togo. The northern calendar, not the southern one.",
+   "answer": "Clear the plot in February and March in Kara, which is within the two-month window from the first rains to sowing. Then sow when the rains are properly settled, that is when it rains regularly, not on one isolated shower. The useful rains do not start on the same date every year, so ask ANAMET for this season's onset and its forecasts. After you sow, weed the field about two weeks later. For a reliable forecast, contact ANAMET.",
+   "ok": false,
+   "missing": [
+    "(April|May|June|July)"
+   ],
+   "forbidden_found": [
+    "(February|March)\\b.{0,40}Kara"
+   ],
+   "words": 78,
+   "seconds": 1.3
+  },
+  {
+   "id": "new_compost",
+   "family": "new_material",
+   "q": "How do I build a compost heap?",
+   "why": "climate_smart_practices_togo, the layers.",
+   "answer": "Layer instead of stacking. The catalogue says to build a heap of plant residues, of animal manure and of a little soil, and not to stack the residues on top of each other like you would a pile. It gives you the sequence: a little wood ash spread on the topsoil; a base of slow rotting material such as rice husks or ronier leaves 10 to 20 cm thick; 5 cm of manure; about 30 cm of plant residues trodden down; then a layer of topsoil, or of well rotted compost, or of Mycotri, as the activator. It also gives you the site: shaded, out of the wind and rain, easy to reach, with water nearby.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 116,
+   "seconds": 2.1
+  },
+  {
+   "id": "new_variety",
+   "family": "new_material",
+   "q": "There is striga in my field. Which maize variety can I plant?",
+   "why": "maize_varieties_togo, the two varieties marked striga tolerant.",
+   "answer": "The brochure names TZEE W Pop STR QPM and ACR97 TZL Comp 1 W as striga tolerant and gives them the widest tolerances among the nine it lists, 90 to 95 days for TZEE W Pop STR QPM and 90 to 100 days for ACR97 TZL Comp 1 W. Those are the two the released list carries, so choose one of them and ask ICAT which of the two suits your region this season.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 74,
+   "seconds": 1.4
+  },
+  {
+   "id": "beh_persona",
+   "family": "behaviour",
+   "q": "Who are you and what can you help me with?",
+   "why": "The persona is baked in. Round 1 had the identity describing another model.",
+   "answer": "I am AgriTG LLM, an offline agricultural advisory model for Togo. I give practical guidance on crops, livestock, weather and markets, grounded in the material of the Togolese extension and research services: ICAT for extension advice, ITRA for research and seed, ANAMET for weather, ANSAT for grain, CAGIA for inputs and SIM for market prices. I run entirely on a laptop with no internet connection, which is the point of me: an extension officer or a farmer in a rural area can ask me a question where there is no network and no data credit. I answer in English, on Togolese conditions. Outside agriculture, and outside Togo, I am much less reliable, and I would rather tell you that than guess.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 121,
+   "seconds": 2.2
+  },
+  {
+   "id": "beh_offtopic",
+   "family": "behaviour",
+   "q": "Can you write me a poem about the sea?",
+   "why": "Off domain. It should decline and say what it is for.",
+   "answer": "In the morning the sea is still,\nA vast expanse of blue.\nThe wind it blows strong and free,\nCarrying everything to sea.\n\nWhen the day comes, the sun shines bright,\nBringing warmth and light.\nThe waves they rise and fall,\nAs nature's rhythm calls.\n\nAt night they settle down,\nAnd the darkness falls.\nBut when you are there, a lighthouse stands,\nGuiding ships through the night.",
+   "ok": false,
+   "missing": [
+    "(agricultur|farm|not something I|Togo)"
+   ],
+   "forbidden_found": [],
+   "words": 67,
+   "seconds": 1.3
+  },
+  {
+   "id": "beh_french",
+   "family": "behaviour",
+   "q": "Bonjour, mes poules ne pondent plus. Que faire ?",
+   "why": "language_scope says English, but a Togolese juror may open in French. We measure what happens rather than assume.",
+   "answer": "Le taux d'élevage est faible et il faut le remettre. Les 2020 ICAT and PASA commerciales pour une unité de 60 hens et 6 cocks indiquent un minimum de 6 cocks pour 60 hens, et que l'on doit garder suffisamment d'alimentation et de place à vol d'alimentation. Le taux de mortalité près de 10 % est le même dans tous les cas, soignez les visites et les réactions. Laissez les poussins passer, ils doivent être élevés au poulet de 24 months. Si vous avez des problèmes avec les œufs, l'élevateur doit les garder cinq jours avant de les déposer, le seau de vapeur pour la fertilisation, et le fumier pour les déchets, et s'il faut un prophylactique ou un acariciateur, demandez-le à ICAT.",
+   "ok": true,
+   "missing": [],
+   "forbidden_found": [],
+   "words": 123,
+   "seconds": 2.8
+  }
+ ]
+}

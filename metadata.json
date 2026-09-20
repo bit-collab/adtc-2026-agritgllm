@@ -1,7 +1,9 @@
 {
   "team_id": "agritgllm",
   "domain": "agriculture",
-  "language_scope": ["en"],
+  "language_scope": [
+    "en"
+  ],
   "african_alpha_claim": true,
   "budget_laptop_claim": true,
   "submitter": {
@@ -25,13 +27,34 @@
     }
   ],
   "model": {
-    "name": "adtc-agritgllm-adviser-Q4_K_M",
+    "name": "adtc-agritgllm-adviser-v3-Q4_K_M",
     "runtime": "llama.cpp",
     "quantization": "GGUF Q4_K_M",
-    "parameters_estimate": "1.7B",
-    "packaging": "binary_bundle"
+    "parameters_estimate": "0.74B",
+    "packaging": "binary_bundle",
+    "base_model": "LiquidAI/LFM2-700M",
+    "base_model_revision": "86f49fc9a3800c3a325b7320bde179c318062583",
+    "base_model_licence": "LFM Open License v1.0 (LICENSE-LFM2-700M.txt)",
+    "sha256": "f07c19a52a27d6e2d9ba6ee5a8a7ea10f9bf8f2c72bfeb173407620216208533",
+    "file_size_mb": 468.6,
+    "weights_repo": "exau/adtc-agritgllm-adviser-v2",
+    "weights_commit_sha": "6ccfeee3a440aa9d194665c1937ec9076bd445e1",
+    "_note_weights": "The Hugging Face commit that holds the file above; the same SHA is pinned in download_model.sh. The repository name still says v2 because it is the container we created for Round 2; the file inside is v3."
   },
   "_runtime": {
-    "model_path": "model/adtc-agritgllm-adviser-Q4_K_M.gguf"
+    "model_path": "model/adtc-agritgllm-adviser-v3-Q4_K_M.gguf",
+    "recommended_sampling": {
+      "temperature": 0.3,
+      "min_p": 0.15,
+      "repeat_penalty": 1.05,
+      "_note": "Liquid AI's recommendation for the LFM2 family. All figures in REPORT.md section 5 were measured with these values on the target machine."
+    }
+  },
+  "reproducibility": {
+    "git_commit_sha": "e5c98c155b0018fd58f448038f4a44800e7f8da7",
+    "random_seed": 23,
+    "provenance_dir": "provenance/",
+    "_note_seed": "Training and split seed, the one in provenance/config.py and provenance/train_config.json. The seed 42 quoted in provenance/evaluation/ is the llama.cpp sampling seed used to generate the answer files; the two are different things.",
+    "_note_sha": "Commit of this repository that holds every file the report describes; it is written after that commit exists, so it points one commit behind HEAD."
   }
 }
