@@ -52,11 +52,16 @@ def main():
                 if not b:
                     break
                 h.update(b)
-        v(h.hexdigest() == d["model"]["sha256"],
-          "sha256 du fichier livre identique a metadata.model.sha256")
+        # Le schema du profileur n'a pas de champ pour l'empreinte : elle vit dans
+        # provenance/checksums.txt, et c'est contre cette ligne qu'on verifie le fichier livre.
+        attendu = ""
+        for l in io.open("provenance/checksums.txt", encoding="utf-8"):
+            if l.strip().endswith(chemin):
+                attendu = l.split()[0]
+        v(attendu != "" and h.hexdigest() == attendu,
+          "sha256 du fichier livre identique a la ligne de provenance/checksums.txt")
         taille = os.path.getsize(chemin) / 1e6
-        v(abs(taille - d["model"]["file_size_mb"]) < 1.0,
-          "taille annoncee coherente (%.1f Mo sur disque)" % taille)
+        v(True, "taille du fichier livre : %.1f Mo sur disque" % taille)
 
     # Les chiffres de la machine cible vivent dans REPORT.md section 6 et dans
     # provenance/evaluation/target_machine/, pas dans metadata.json : le schema officiel ne
@@ -74,17 +79,29 @@ def main():
               "%s renseigne depuis la machine cible" % champ)
         v(mes.get("model_measured", "").startswith(os.path.splitext(nom)[0][:20]) or nom in mes.get("model_measured", ""),
           "les chiffres de la machine cible portent bien sur le fichier livre")
-    wsha = d["model"].get("weights_commit_sha", "")
-    v(bool(re.fullmatch(r"[0-9a-f]{40}", wsha)) and ("/resolve/%s/" % wsha) in url,
-      "metadata.model.weights_commit_sha est le commit epingle dans download_model.sh")
+    # Le schema du profileur est strict (additionalProperties: false) : toute cle qui n'est
+    # pas dans sa liste fait echouer la mesure avant meme qu'elle commence, sauf les cles en
+    # "_" qu'il retire lui-meme. Le 20/09 il a rejete un bloc "reproducibility" ecrit a la
+    # main ; ces deux controles empechent que ca se reproduise.
+    RACINE_OK = {"team_id", "domain", "language_scope", "african_alpha_claim", "budget_laptop_claim",
+                 "submitter", "cross_disciplinary_pairing", "test_prompts", "model"}
+    MODELE_OK = {"name", "runtime", "quantization", "parameters_estimate", "packaging", "base_model_commit_sha"}
+    hors = sorted(k for k in d if not k.startswith("_") and k not in RACINE_OK)
+    v(not hors, "aucune cle hors schema a la racine de metadata.json%s" % (" (%s)" % ", ".join(hors) if hors else ""))
+    hors_m = sorted(k for k in d["model"] if k not in MODELE_OK)
+    v(not hors_m, "aucune cle hors schema dans metadata.model%s" % (" (%s)" % ", ".join(hors_m) if hors_m else ""))
+    v(RACINE_OK <= set(d), "toutes les cles obligatoires du schema sont presentes")
+
+    # Regle 3.1 : le commit du modele de base, dans le champ que le schema prevoit pour ca.
+    # Le commit du depot de soumission n'est ecrit nulle part : le profileur le capture seul.
+    bsha = d["model"].get("base_model_commit_sha", "")
+    v(re.fullmatch(r"[a-f0-9]{7,40}", bsha) is not None, "model.base_model_commit_sha rempli")
+    tc = json.load(io.open("provenance/train_config.json", encoding="utf-8"))
+    v(bsha == tc.get("revision"), "model.base_model_commit_sha identique a la revision de provenance/train_config.json")
 
     texte = json.dumps(d, ensure_ascii=False)
-    sha = d["reproducibility"]["git_commit_sha"]
-    reste = texte.replace(sha, "")
-    for marqueur in ("A_REMPLIR", "A REMPLIR", "TODO", "XXX"):
-        v(marqueur not in reste, "aucun marqueur %r hors git_commit_sha" % marqueur)
-    v(re.fullmatch(r"[0-9a-f]{7,40}", sha) is not None,
-      "git_commit_sha rempli (actuellement %r)" % sha)
+    for marqueur in ("A_REMPLIR", "A REMPLIR", "TODO", "XXX", "[YOUR_", "your-team-id"):
+        v(marqueur not in texte, "aucun marqueur %r dans metadata.json" % marqueur)
 
     for ligne in ok:
         print("  ok    " + ligne)

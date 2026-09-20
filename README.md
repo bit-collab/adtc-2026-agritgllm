@@ -49,7 +49,7 @@ My tomato leaves have tiny white insects underneath and are turning yellow. What
 | file or folder | what it holds |
 |---|---|
 | [REPORT.md](REPORT.md) | the problem, how the base model and the quantization were chosen, what Round 1 taught us, training, benchmarks, and the Model Provenance section |
-| [metadata.json](metadata.json) | submission metadata, the two test prompts, the SHA256 of the shipped file, the Git commit SHA |
+| [metadata.json](metadata.json) | submission metadata as the profiler's schema defines it: team, domain, the two test prompts, the model, and the commit of the base model it was built from |
 | [NOTICE.md](NOTICE.md) | base model attribution and the statement of changes the licence requires |
 | [LICENSE-LFM2-700M.txt](LICENSE-LFM2-700M.txt) | the base model licence, which travels with any derivative |
 | [provenance/](provenance/) | LoRA adapter, training and export scripts, per-step logs, dataset, checksums |

@@ -64,8 +64,10 @@ commite pas. Puis, depuis la racine du dossier :
 
     python provenance/evaluation/check_submission.py
 
-Dix-sept controles, tous verts une fois le commit final fait ; le `git_commit_sha` de
-`metadata.json` pointe sur le commit qui contient tout, un cran derriere HEAD.
+Tous les controles doivent etre verts. Le commit du depot n'est ecrit nulle part a la main :
+le schema du profileur l'interdit et le capture lui-meme depuis `git rev-parse HEAD` quand il
+tourne dans le clone. Le seul commit dans `metadata.json` est `model.base_model_commit_sha`,
+celui du modele de base.
 
 ## Question restee ouverte, a poser aux organisateurs
 
