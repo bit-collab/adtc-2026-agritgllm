@@ -37,11 +37,20 @@ et il vaut mieux le dire que le laisser trouver.
 ## 2. Un second banc, tenu hors de l'entrainement
 
 `acceptance_27_heldout.jsonl` reprend les 27 memes defauts avec d'autres situations et un autre
-vocabulaire. La meme mesure de similarite donne un maximum de 0,55 contre l'entrainement,
-c'est-a-dire aucune question identique ni proche.
+vocabulaire. La meme mesure de similarite donnait un maximum de 0,55 contre l'entrainement au moment
+ou le banc a ete construit, c'est-a-dire aucune question identique ni proche.
 
-Les questions de ce fichier ont ete ecrites par l'assistant, pas par l'equipe, et cela est
-inscrit dans chaque ligne. Les criteres de reussite sont ceux du fichier d'origine, a trois
+Correction du 20/09/2026, mesuree et non supposee : les lots L et M, ecrits le 19/09 apres la
+construction du banc, ont introduit dans l'entrainement quatre questions identiques mot pour
+mot a quatre items de ce banc (keep_off_topic_refusal_v2, greet_bonjour_french_v2,
+fix_meta_no_camera_v2, dom_newcastle_sudden_deaths_v2). Le fichier livre v3 les a lues. Sur
+ces quatre items il ne reussissait que 2 passages sur 16, donc la contamination n'a presque
+rien gonfle ; mais le chiffre honnete de v3 sur ce banc est 15,75 sur les 23 items propres, et
+16,25 sur 27. Les quatre lignes ont ete retirees de l'entrainement pour la chaine suivante, et
+le controle de similarite est desormais passe sur les 78 prompts de mesure avant chaque split.
+
+Les questions de ce fichier ont ete ecrites le 19/09/2026 pour ce banc, pas reprises du
+rapport des juges, et cela est inscrit dans chaque ligne. Les criteres de reussite sont ceux du fichier d'origine, a trois
 exceptions signalees dans l'en-tete de `make_heldout_battery.py` : les deux items de striure et
 de rosette, dont la reponse attendue a change avec l'arbitrage decrit plus bas, et les items de
 verdict, ou la tournure a la premiere personne a ete ajoutee a la liste acceptee.

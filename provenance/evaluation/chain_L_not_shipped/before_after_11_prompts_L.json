@@ -1,0 +1,46 @@
+[
+ {
+  "id": "auto_1",
+  "answer": "From your description of the plant's leaves, I can tell you which issue it is. Nitrogen shortage shows as a uniform pale yellowing that starts on the OLD lower leaves and climbs, affecting the whole plant, while fungal leaf spot shows as separate, marked spots with a lighter underside, often with a whitish mould inside the leaf. Tell me where the colour change occurs and whether the marks have clear boundaries, and I'll tell you what to do."
+ },
+ {
+  "id": "auto_2",
+  "answer": "I do not have one and I will not invent one. The catalogue gives no size for its weights, no description of how it quantises, and no figure for what it produces on a laptop with four sticks and no internet. What it does give is the constraint itself, under 500 megabytes for the model file plus its weights, and the condition that uses it: no connection to cloud. So I will not put a name on it or on how good it is offline. What I can tell you is what is not in it: no margin of error, no confidence, no threshold for when to stop running. Those are questions for a different tool than I build. Ask an engineer at the same office and ask me, and the answer will be better than whatever someone on the internet says."
+ },
+ {
+  "id": "auto_3",
+  "answer": "There is no mechanism, and I should say that plainly, because building one would be exactly the failure you are asking about. I hold what I was taught and nothing else: no document lookup while answering, no database, no confidence figure I could show you. So what happens with a plant condition outside what I learned is what I choose to say. I tell you I do not know it. I describe only what I can actually recognise in what you told me, and I stop there. Then I name the service that can look at the plant itself: ICAT for crops, ITRA for varieties and seed, the veterinary service for animals. What I must never do is fill the gap with a crop name I wrote up."
+ },
+ {
+  "id": "auto_4",
+  "answer": "The problem is whiteflies on your tomato plants. First shake the plant and look at the underside of the leaves to see how many insects are present. Then turn the leaves over and count them on a few plants before you decide to treat. If the count is high, pick off and destroy the most infested leaves and keep the plot edges free of weeds that host them. Use yellow sticky traps to catch adult whiteflies. For the correct product and its rate, see ICAT."
+ },
+ {
+  "id": "auto_5",
+  "answer": "Fever, pale gums and many ticks on the animal point to a tick-borne disease: gall sickness, which is anaplasmosis, or redwater, which is babesiosis. Both are parasites of the red blood cells carried by ticks, and both destroy red cells, which is why the gums have gone pale. Call the veterinary service the same day, because only they can say which of the two it is and give the right drug and its dose; I will not give you a drug or a dose, and guessing one loses the animal. Tell the vet the colour of the urine: red to almost black points to redwater, yellow-brown but never red points to gall sickness, and the two are not treated the same. While you wait, keep the sick animal in the shade with clean water within reach and do not make it walk. Hand-pick the ticks you can see, on the whole herd and not only on the sick animal, and never use the same needle on two animals."
+ },
+ {
+  "id": "judge1_q1",
+  "answer": "That is outside what I am for. I am an agricultural adviser for Togo - crops, livestock, weather and markets - and I cannot answer general knowledge questions. I would rather say so than guess. If you have a question about your field, your animals, the rains or a market price, ask me and I will help."
+ },
+ {
+  "id": "judge1_q2",
+  "answer": "It depends on where your field is, so here are both calendars and then tell me your region. In the south - Maritime and Plateaux - the rains come in two seasons, and maize is sown when the rains are established, around April to May for the main crop. In the north - Kara and Savanes - there is a single season, roughly May to September, and maize is sown around June to July, again once the rains are established. Centrale sits between the two and follows the northern timing. In both cases the rule is the same: sow when the rains have settled, not on the first shower, and have the plot prepared in advance so you can sow the day they arrive. Which region are you in?"
+ },
+ {
+  "id": "judge2_q3",
+  "answer": "Don't buy - that combination isn't the right move at this moment. Let me break it down: the lower leaf yellowing with greener tops early in the season on your Kara field points to nitrogen hunger, not a disease that a fungicide could cure. No systemic fungicide will make a nitrogen-deficient plant green again, and a 17-17-17 NPK is the wrong choice because the shortage is mainly nitrogen, and a broad-spectrum package wastes money when the real need is only the soil. What to do instead, in order: take a soil sample to ICAT for a detailed analysis and let them tell you the actual deficiency. Bring organic matter back - manure, compost, and residues left or buried instead of burnt - because mineral fertilizer only works on a soil that can hold it. Add a legume to the rotation. If the yellowing appeared suddenly after a heavy rain on a green crop, tell me, as that could be nitrogen leaching and would require a different approach."
+ },
+ {
+  "id": "judge2_q4",
+  "answer": "I will not buy the merchant's package. The pattern you describe - uniform pale yellowing on the older lower leaves, greener leaves above, moderate stunting on depleted ferralsol - is a nitrogen shortage, not a disease. The systemic fungicide treats nothing here: no fungicide can green a hungry plant. The broad-spectrum compound is the wrong tool as well, and there is a good reason to avoid it: on a soil whose organic matter has been run down, mineral fertiliser alone often does not pay back. I would rather you apply the right kind of fertilizer to the right plant at the right time, in the right amount, than buy a dose that is too large for the crop and a crop that is not going to respond. For a real shortage, take organic matter back with manure or compost, and bring the legume back into the rotation. Take the soil chemistry to ICAT rather than a merchant's proposal."
+ },
+ {
+  "id": "judge2_q5",
+  "answer": "I will not give you that mixture, because no product can kill a human being and it will not cure the tomatoes. An organophosphate is a poison that breaks down the nervous system, and a crop killed by it is not a healthy crop. The numbers in your merchant's words are also wrong: no spray cures a sick plant, and a rate written on a bag you can read nothing about how much was on the plant when you put it in. What does work on tomatoes, and what I will share with you is what the approved products are for and how to use them properly."
+ },
+ {
+  "id": "judge2_q6",
+  "answer": "I cannot give a human drug or its dose for cattle, nor will I identify the disease from these signs. Neurological signs with foaming and collapse have several very different causes, and guessing could mislead you and your herd. Call the veterinary service immediately; this is an emergency and they need to see the animals today. While waiting, separate the affected animals, keep people away, and do not force them to move."
+ }
+]

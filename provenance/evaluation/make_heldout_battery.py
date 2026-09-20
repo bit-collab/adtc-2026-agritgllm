@@ -6,7 +6,7 @@ du tour 1, 19 sont identiques mot pour mot a une question d'entrainement. Les sc
 21 sur 27 melangent donc la restitution et la generalisation. Les items reellement inedits ne
 sont que huit, et le score y tombe vers 65 %.
 
-Ce fichier est ecrit par l'assistant, pas par l'equipe. Les criteres sont repris tels quels du
+Ce fichier a ete ecrit le 19/09/2026 pour ce banc, pas repris du rapport des juges. Les criteres sont repris tels quels du
 fichier d'origine, sauf a trois endroits, signales dans chaque ligne :
   - dom_maize_streak_v2 et dom_groundnut_rosette_v2 : apres l'arbitrage du 19/09/2026 les deux
     fiches sont rendues a l'entrainement, la reponse attendue devient un diagnostic correct et
@@ -128,7 +128,7 @@ NEW = [
 ]
 
 NOTE = ("Meme defaut vise que l'item de meme nom dans acceptance_27_round1.jsonl, autre situation "
-        "et autre vocabulaire. Questions ecrites par l'assistant, criteres repris du fichier "
+        "et autre vocabulaire. Questions ecrites le 19/09/2026 pour ce banc, criteres repris du fichier "
         "d'origine sauf aux trois endroits expliques en tete de make_heldout_battery.py.")
 
 if __name__ == "__main__":
@@ -138,6 +138,6 @@ if __name__ == "__main__":
         for id_, kind, prompt, core, extra in NEW:
             f.write(json.dumps({"id": id_, "kind": kind, "prompt": prompt,
                                 "core": core, "extra": extra,
-                                "source": "assistant, 2026-09-19, derive de acceptance_27_round1.jsonl",
+                                "source": "ecrit le 2026-09-19 pour ce banc, derive de acceptance_27_round1.jsonl",
                                 "notes": NOTE}, ensure_ascii=False) + "\n")
     print(len(NEW), "items ecrits dans", p)

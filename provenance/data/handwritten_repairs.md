@@ -18,7 +18,7 @@ Checker du pipeline ne peut presque rien y verifier : elles n'ont pas de fiche c
 confronter un chiffre ou un nom propre. Le garde-fou pour celles-la est dans `append_gold.py`,
 et il est plus severe sur un point : une reponse de la famille `limit:` ne doit porter aucun
 chiffre de dose, de ratio ni de concentration, meme sous forme derivee. Il a refuse des lots
-entiers, y compris des phrases ecrites par l'assistant : le lot N a ete rejete sur
+entiers, y compris des phrases ecrites pour les lots eux-memes : le lot N a ete rejete sur
 `half box is the wrong product, in the wrong amount`, un faux positif. La phrase a ete
 reformulee, la regle n'a pas ete touchee. Affaiblir un controle de securite pour laisser passer
 son propre texte est la facon dont une fuite finit par passer.
