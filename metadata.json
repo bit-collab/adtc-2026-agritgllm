@@ -51,7 +51,7 @@
     }
   },
   "reproducibility": {
-    "git_commit_sha": "e5c98c155b0018fd58f448038f4a44800e7f8da7",
+    "git_commit_sha": "2025fe0a273af4cacebab178fc54c502a1a188c8",
     "random_seed": 23,
     "provenance_dir": "provenance/",
     "_note_seed": "Training and split seed, the one in provenance/config.py and provenance/train_config.json. The seed 42 quoted in provenance/evaluation/ is the llama.cpp sampling seed used to generate the answer files; the two are different things.",
