@@ -485,44 +485,64 @@ AVX512, FMA and F16C all turned off, in a container limited to 7.5 GB of memory 
 CPUs, with 4 threads and the network switched off. The machine is a replica of the evaluation
 profile: an Intel Core i5-1335U with 7.4 GB of RAM, no GPU, Debian 13. The image build logs, the
 three JSON reports, their logs and the thermal trace are in `provenance/evaluation/target_machine/`,
-under `v3-q4-*` and `docker-build-20260920*`.
+under `v4-q4-*`, `thermo-20260921-124507.csv` and `docker-build-20260920*`.
 
 **Which file these numbers come from.** The shipped one. All three runs below were made on
-`adtc-agritgllm-adviser-v3-Q4_K_M.gguf`, downloaded by `download_model.sh` from the pinned
-Hugging Face commit into a fresh clone of this repository at commit `0d720d0`, which is the
-`git_commit_sha` the profiler wrote on its own into each report. The earlier runs on the file we
-had first published for this round are kept next to them, under `egrpo-q4-*`, for comparison.
+21 September on `adtc-agritgllm-adviser-v4-Q4_K_M.gguf`, downloaded by `download_model.sh` from
+the pinned Hugging Face commit into a fresh clone of this repository at commit `4a1494c`, which
+is the `git_commit_sha` the profiler wrote on its own into each report, after the download
+script had verified the SHA256 `c7ede5aa...f386b`. The runs of the previous day on the earlier
+file of this round, `v3-q4-*`, and those on the file first published for the round, `egrpo-q4-*`,
+are kept next to them for comparison.
+
+One detail of these three reports has to be said. The profiler in the image, commit `12be4f3`,
+still validated `metadata.json` against a schema that did not know the `provenance` object the
+Gate 2 template asks for, and refused the file as committed. The runs were therefore made on a
+copy of the working tree in which that one key was renamed `_provenance`, which the profiler
+ignores; nothing else was touched, and the reports show `"schema_version": "1.2.0"` and no
+provenance block for that reason. We reported the conflict to the organizers, who fixed the
+profiler the same day (commit `7f117dd`, schema `1.3.0`); section 7 says what that fix changed in
+`metadata.json` and how we verified it.
 
 We do not report numbers from our development laptop. On the very file audited in Round 1, that
 laptop measured about ten times faster than the audit environment. Rule 3.4 penalises an
 unexplained gap between what we declare and what organizers measure, and the only way to avoid
 the gap is never to quote the wrong machine.
 
-**Throughput.** Three runs: **16.74 tok/s on a cold start**, then 16.24 once the machine had
-heated, and 16.26 on the full run that also scores accuracy. First token after the 512 token
-prompt: 22,967, 23,396 and 22,912 ms. We quote the cold run because that is the condition a fresh
-audit starts from, and the other two because hiding the spread would be dishonest; the spread is
-0.50 tok/s, about 3 per cent. All three sit above the 15 tok/s where the performance score
-saturates. The previous file measured 15.64 cold on the same machine, before the container recipe.
+**Throughput.** Three runs: **14.62 tok/s on the first run**, then 14.55 once the machine had
+heated, and 14.52 on the full run that also scores accuracy. First token after the 512 token
+prompt: 24,164, 24,424 and 24,269 ms. The spread is 0.10 tok/s, under 1 per cent. All three sit
+just under the 15 tok/s where the performance score saturates, and this is a step down from the
+file of the previous day: on the same machine, the same image and the same recipe, the v3 file
+measured 16.74, 16.24 and 16.26. The two files have the same architecture, the same
+quantization and exactly the same size, 468,624,800 bytes, so the weights themselves cannot
+explain a 13 per cent gap. What differs is the machine's state: the v3 runs started from a cold
+laptop, while the first v4 run started at 61 degrees after two attempts that the schema had
+refused (the paragraph above), and the trace below shows the processor holding 3,600 MHz on
+average against 3,850 the day before. We cannot prove that this is the whole difference, so we
+quote the figure the profiler wrote, 14.6, and not the one we would prefer.
 
-**Memory.** Peak resident set 557.4, 557.6 and 557.5 MB against a 7.5 GB limit, steady state
-around 521 MB, for a file of 447 MiB. Only 6 of the 16 layers keep a key-value cache, so the
+**Memory.** Peak resident set 556.9, 557.3 and 557.1 MB against a 7.5 GB limit, steady state
+514 to 517 MB, for a file of 447 MiB. Only 6 of the 16 layers keep a key-value cache, so the
 working set grows slowly as a conversation gets longer. Free memory on the host never went below
-4.2 GB during the whole session. There is no realistic path to an out-of-memory failure on this
+2.8 GB during the whole session, and that low point was reached while the image was being
+refreshed, not during a run. There is no realistic path to an out-of-memory failure on this
 profile.
 
-**Accuracy, as the profiler measures it.** The full run scores `arc_easy` at 0.68 `acc_norm` on
-50 samples, against 0.64 for the previous file. It is a general knowledge benchmark in English,
-not an agricultural one, and 50 samples carry a wide error bar; we record it because the
-profiler does, not because it says much about the job.
+**Accuracy, as the profiler measures it.** The full run scores `arc_easy` at 0.66 `acc_norm` on
+50 samples; the v3 file scored 0.68 and the file before it 0.64, and one sample out of fifty
+separates each of these from the next. It is a general knowledge benchmark in English, not an
+agricultural one, and 50 samples carry a wide error bar; we record it because the profiler
+does, not because it says much about the job.
 
 **Temperature, and this one is against us.** All three runs report `"throttled": true`, with a
-core peak of 100, 100 and 98 degrees, and this with the audit recipe of four threads on four
-CPUs. The thermal trace, 711 samples over 3,565 seconds, shows what is actually happening: three
-hot windows of 171, 176 and 251 seconds, one per run, during which the processor holds 2,150 to
-4,300 MHz, 3,850 on average. It is not collapsing, it is working at its power limit, which is
-normal behaviour for this class of chip and its 100 degree junction limit. Between runs it
-returns to 50 to 60 degrees within a minute.
+core peak of 98, 98 and 97 degrees, and this with the audit recipe of four threads on four
+CPUs. The thermal trace, 622 samples over 3,119 seconds, shows what is actually happening: three
+hot windows of 186 seconds each, one per `llama-bench` pass, plus a fourth of 66 seconds for the
+accuracy pass, during which the processor holds 2,900 to 4,300 MHz, 3,640 on average. It is not
+collapsing, it is working at its power limit, which is normal behaviour for this class of chip
+and its 100 degree junction limit. After each window it returns to 60 degrees within 30 to 160
+seconds.
 
 What that changes from our earlier reading: we had hoped that going down to four threads would
 clear the flag while keeping the score above 15 tok/s. Four threads is exactly what the recipe
@@ -559,10 +579,18 @@ discovered.
   `provenance/data_o/sft_train.jsonl` (8,146 conversations) for chain O; all written from
   Togolese extension sheets; names, sources and checksums in `provenance/dataset_info.md`.
 
-The same four facts are in the `provenance` object of `metadata.json`. The value is also kept in
-`model.base_model_commit_sha`, the field the published profiler (`adtc-profiler`, commit `77f084d`
-of 20 September) validates; its schema does not yet list a `provenance` object, so we keep both
-until the tool and the template agree.
+The same four facts are in the `provenance` object of `metadata.json`, in the shape the template
+gives. Until 21 September the published profiler validated `metadata.json` against a schema that
+did not list that object and rejected the file outright (`additionalProperties: false`), while
+its own example `metadata.json` failed the same way; we reported this to the organizers, and
+their fix, `adtc-profiler` commit `7f117dd` (schema `1.3.0`), accepts the `provenance` object
+and removes the older `model.base_model_commit_sha` field that the previous schema had defined
+instead. `metadata.json` follows the fixed schema: the provenance object, and no commit field
+under `model`. We verified it by installing that commit of the profiler in a clean environment
+and running it on this repository end to end: the schema accepts the file, the four provenance
+fields are copied unchanged into the report, and the run completes. Those runs were made on
+our development laptop to test the tool, not the model, and none of their numbers is quoted
+anywhere in this report.
 
 **Before and after, three of the eleven Round 1 prompts.** The full set, with the unmodified base
 answered on the same machine with the same sampling, is `provenance/evaluation/before_after_round1_judges.md`.
@@ -591,7 +619,7 @@ The rest of this section is the map of the provenance folder, rule 3.1 of the gu
 | merge and quantization script | `provenance/merge_adapters.py` for the adapter merge, `provenance/03_export.py` for the merge into the base and the quantization, run log in `provenance/export_manifest.json` |
 | SHA256 of every file | `provenance/checksums.txt`: shipped GGUF, base model, adapter, logs, data. The shipped file is `c7ede5aad81de93b454eb6f1251b5b3a795883aff90b9500bdd176de956f386b`, 468,624,800 bytes |
 | before and after comparison | `provenance/evaluation/before_after_round1_judges.md`, the eleven prompts of the Round 1 judging report answered by the unmodified base and by the shipped file; and the `base_*` files in `provenance/evaluation/batteries_4seeds/`, the base model on both 27 item batteries |
-| Git commit SHA | `metadata.json`, field `model.base_model_commit_sha`: `86f49fc9a3800c3a325b7320bde179c318062583`, the revision of the base model this adapter was trained on. The profiler's schema defines that field for Gate 2 and forbids any hand-written commit of the submission repository itself: it captures that one on its own from `git rev-parse HEAD` when it runs inside the clone. The Hugging Face commit that holds the shipped weights is the one pinned in `download_model.sh`, `6ccfeee3a440aa9d194665c1937ec9076bd445e1` |
+| Git commit SHA | `metadata.json`, field `provenance.base_model_commit_sha`: `86f49fc9a3800c3a325b7320bde179c318062583`, the revision of the base model this adapter was trained on. The profiler's schema defines that field for Gate 2 and forbids any hand-written commit of the submission repository itself: it captures that one on its own from `git rev-parse HEAD` when it runs inside the clone. The Hugging Face commit that holds the shipped weights is the one pinned in `download_model.sh`, `e6cf3fa75b51bda452c21efb6eb15ea4e13f2682` |
 
 **On the base model licence.** The LFM Open License v1.0 is an open weights licence, not an OSI approved open source licence. It grants a perpetual, worldwide, royalty free right to use, modify and redistribute, but it restricts commercial use by a legal entity at or above ten million US dollars of annual revenue. Team agritgllm is far below that threshold, so the grant applies in full. We state the difference rather than calling the base model "open source", which it is not in the OSI sense. `NOTICE.md` carries the attribution and the list of changes that clause 4(b) of the licence requires. The base repository publishes no NOTICE file, so there is none to reproduce.
 

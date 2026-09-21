@@ -41,8 +41,7 @@
     "runtime": "llama.cpp",
     "quantization": "GGUF Q4_K_M",
     "parameters_estimate": "0.74B",
-    "packaging": "binary_bundle",
-    "base_model_commit_sha": "86f49fc9a3800c3a325b7320bde179c318062583"
+    "packaging": "binary_bundle"
   },
   "_runtime": {
     "model_path": "model/adtc-agritgllm-adviser-v4-Q4_K_M.gguf",

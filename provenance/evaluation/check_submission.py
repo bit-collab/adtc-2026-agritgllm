@@ -85,19 +85,27 @@ def main():
     # main ; ces deux controles empechent que ca se reproduise.
     RACINE_OK = {"team_id", "domain", "language_scope", "african_alpha_claim", "budget_laptop_claim", "provenance",
                  "submitter", "cross_disciplinary_pairing", "test_prompts", "model"}
-    MODELE_OK = {"name", "runtime", "quantization", "parameters_estimate", "packaging", "base_model_commit_sha"}
+    # Schema 1.3.0 (adtc-profiler 7f117dd, 21/09) : l'objet "provenance" a la racine remplace
+    # model.base_model_commit_sha, que le schema n'accepte plus.
+    MODELE_OK = {"name", "runtime", "quantization", "parameters_estimate", "packaging"}
     hors = sorted(k for k in d if not k.startswith("_") and k not in RACINE_OK)
     v(not hors, "aucune cle hors schema a la racine de metadata.json%s" % (" (%s)" % ", ".join(hors) if hors else ""))
     hors_m = sorted(k for k in d["model"] if k not in MODELE_OK)
     v(not hors_m, "aucune cle hors schema dans metadata.model%s" % (" (%s)" % ", ".join(hors_m) if hors_m else ""))
     v(RACINE_OK <= set(d), "toutes les cles obligatoires du schema sont presentes")
 
-    # Regle 3.1 : le commit du modele de base, dans le champ que le schema prevoit pour ca.
+    # Regle 3.1 : le commit du modele de base, dans l'objet provenance du gabarit.
     # Le commit du depot de soumission n'est ecrit nulle part : le profileur le capture seul.
-    bsha = d["model"].get("base_model_commit_sha", "")
-    v(re.fullmatch(r"[a-f0-9]{7,40}", bsha) is not None, "model.base_model_commit_sha rempli")
+    prov = d.get("provenance", {})
+    bsha = prov.get("base_model_commit_sha", "")
+    v(re.fullmatch(r"[a-f0-9]{7,40}", bsha) is not None, "provenance.base_model_commit_sha rempli")
     tc = json.load(io.open("provenance/train_config.json", encoding="utf-8"))
-    v(bsha == tc.get("revision"), "model.base_model_commit_sha identique a la revision de provenance/train_config.json")
+    v(bsha == tc.get("revision"), "provenance.base_model_commit_sha identique a la revision de provenance/train_config.json")
+    v(prov.get("fine_tuning_method") in {"none", "prompt_engineering", "lora", "qlora", "full_fine_tune"},
+      "provenance.fine_tuning_method dans la liste du schema")
+    v(prov.get("base_model_source", "").startswith("huggingface:"), "provenance.base_model_source renseigne")
+    v(isinstance(prov.get("training_datasets"), list) and prov["training_datasets"] and all(isinstance(x, str) and x for x in prov["training_datasets"]),
+      "provenance.training_datasets : liste de chaines non vides")
 
     texte = json.dumps(d, ensure_ascii=False)
     for marqueur in ("A_REMPLIR", "A REMPLIR", "TODO", "XXX", "[YOUR_", "your-team-id"):

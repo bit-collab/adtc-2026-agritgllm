@@ -1,0 +1,4 @@
+adtc-profiler mode=participant model=adtc-agritgllm-adviser-v4-Q4_K_M.gguf
+→ running llama-bench (throughput)…
+→ skipping accuracy (--skip-accuracy)
+✓ wrote /artifacts/submission-froid.json
