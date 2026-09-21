@@ -31,7 +31,7 @@ tells the story; this file is the map of the evidence.
 
 Standard error of the wide benchmark is about 0.04 at 150 questions. The same adapter (M)
 quantised with and without an importance matrix scored 17.0 and 15.5 on the held-out battery;
-those files are in `instrument_noise_same_adapter_two_quantisations/`.
+those files are in `instrument_noise/`.
 
 ## What is in the folder
 
@@ -61,7 +61,7 @@ toward the base voice; the identity answers are where that drift shows first.
 
 The two adapters that held opposite halves of the job, chain K after DPO (identity, knowledge)
 and chain O supervised only (the dose traps), were combined without training: weighted sums of
-the two LoRA adapters (`morning_merges_and_personas/MERGE_*.json`, `../../merge_adapters.py`),
+the two LoRA adapters (`morning_merges/MERGE_*.json`, `../../merge_adapters.py`),
 one TIES merge, and the two parents with a longer baked persona (`personas.md`). Same
 instruments, same rule, two draws for the red-team, four per battery.
 
@@ -81,5 +81,5 @@ red-team draws, while 0.3 and 0.7 each leak twice or three times. The personas c
 points on the held-out battery and closed nothing: a 700M model follows a longer system text
 poorly. None of the eight passed the chain rule as written; `REPORT.md` 4.4 says why the 0.5
 merge was shipped anyway, and `decision_F55_shipped.txt` is its output under that rule. The
-raw outputs of the five non-shipped candidates are in `morning_merges_and_personas/`; the
+raw outputs of the five non-shipped candidates are in `morning_merges/`; the
 shipped file's are in the main evaluation folders under `F55` and `f55`.
