@@ -1,0 +1,70 @@
+{
+  "steps": [
+    {
+      "step": "merge",
+      "seconds": 4.5,
+      "adapter": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\sft\\O\\best_lora",
+      "merged": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\OSP",
+      "note": "LoRA trained on an NF4 base, merged into the fp16 base (standard QLoRA export, an approximation)"
+    },
+    {
+      "step": "convert_hf_to_gguf",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\.venv-train\\Scripts\\python.exe",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\adtc-2026\\llama.cpp\\convert_hf_to_gguf.py",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\OSP",
+        "--outfile",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\agritg-osp-F16.gguf",
+        "--outtype",
+        "f16"
+      ],
+      "returncode": 0,
+      "seconds": 8.3
+    },
+    {
+      "step": "llama-imatrix",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-imatrix.exe",
+        "-m",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\agritg-osp-F16.gguf",
+        "-f",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\imatrix-calibration.txt",
+        "-o",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\imatrix.dat",
+        "-t",
+        "16",
+        "-c",
+        "512",
+        "-ngl",
+        "0",
+        "--chunks",
+        "400"
+      ],
+      "returncode": 0,
+      "seconds": 2215.2
+    },
+    {
+      "step": "llama-quantize Q4_K_M",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-quantize.exe",
+        "--imatrix",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\imatrix.dat",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\agritg-osp-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\agritg-osp-Q4_K_M.gguf",
+        "Q4_K_M",
+        "16"
+      ],
+      "returncode": 0,
+      "seconds": 27.9
+    }
+  ],
+  "outputs": [
+    {
+      "quant": "Q4_K_M",
+      "file": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\OSP\\agritg-osp-Q4_K_M.gguf",
+      "size_mb": 446.9,
+      "imatrix": true,
+      "sha256": "fc1b508a09d30b2c42d295a1859ee22e64ae6e8c493a243b59adde63b5ac7088"
+    }
+  ]
+}

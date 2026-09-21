@@ -1,0 +1,16 @@
+{
+  "method": "cat",
+  "weights": {
+    "Kdpo (v3)": 0.5,
+    "O sft": 0.5
+  },
+  "density": null,
+  "rank_out": 64,
+  "sources": {
+    "Kdpo": "provenance/adapter_sources/kdpo (chain K, SFT then DPO, the file measured on the replica on 20 September)",
+    "O": "provenance/adapter_sources/o_sft (chain O, SFT only, no cap on paraphrases, lots T and U)"
+  },
+  "tool": "peft add_weighted_adapter",
+  "command": "python provenance/merge_adapters.py F55 cat 0.5 0.5",
+  "check": "merged delta equals 0.5*delta_K + 0.5*delta_O on every layer (relative error 1.2e-3 on layers.0.conv.in_proj)"
+}

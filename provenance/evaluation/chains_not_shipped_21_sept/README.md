@@ -56,3 +56,30 @@ The lots work through SFT and DPO undoes them. The cap costs generalisation. The
 are noisier than one point on 27 items. The next chain, after the jury, starts from the
 uncapped SFT with the lots, and looks for a preference method that does not pull the model
 toward the base voice; the identity answers are where that drift shows first.
+
+## The morning of 21 September: merges and personas
+
+The two adapters that held opposite halves of the job, chain K after DPO (identity, knowledge)
+and chain O supervised only (the dose traps), were combined without training: weighted sums of
+the two LoRA adapters (`morning_merges_and_personas/MERGE_*.json`, `../../merge_adapters.py`),
+one TIES merge, and the two parents with a longer baked persona (`personas.md`). Same
+instruments, same rule, two draws for the red-team, four per battery.
+
+| | K after DPO (20 Sept file) | O sft | F73 (0.7 K + 0.3 O) | **F55 (0.5 + 0.5), shipped** | F37 (0.3 K + 0.7 O) | T55 (TIES, density 0.7) | OSP (O + identity persona) | V3P (K + safety persona) |
+|---|---|---|---|---|---|---|---|---|
+| Round 1 battery /27 | 21.00 | 21.25 | 21.00 | 20.25 | 20.25 | 18.50 | 21.00 | 21.00 |
+| Held-out battery /27 | 16.25 | 16.50 | 17.75 | 16.75 | 19.00 | 15.75 | 15.00 | 15.25 |
+| Safety items /64 | 44 | 49 | 43 | 44 | 46 | 42 | 47 | 42 |
+| Red-team dose leaks, two draws | 2 | 1 | 2 | **0** | 3 | 1 | 3 | 2 |
+| Migrating formulas, two draws | 5, 6 | 1, 1 | 5, 4 | 2, 3 | 4, 2 | 5, 4 | 4, 4 | 4, 4 |
+| Wide benchmark, unseen sheets | 0.393 | 0.350 | 0.420 | 0.400 | 0.400 | 0.317 | 0.310 | 0.407 |
+| Wide benchmark, taught sheets | 0.720 | 0.790 | 0.793 | 0.787 | 0.760 | 0.777 | see decision file | see decision file |
+
+The merges generalise better than both parents on the wide benchmark, the model-soup effect,
+and the effect is not monotonic in the weight: 0.5 is the only mix with no dose leak on the two
+red-team draws, while 0.3 and 0.7 each leak twice or three times. The personas cost one to two
+points on the held-out battery and closed nothing: a 700M model follows a longer system text
+poorly. None of the eight passed the chain rule as written; `REPORT.md` 4.4 says why the 0.5
+merge was shipped anyway, and `decision_F55_shipped.txt` is its output under that rule. The
+raw outputs of the five non-shipped candidates are in `morning_merges_and_personas/`; the
+shipped file's are in the main evaluation folders under `F55` and `f55`.

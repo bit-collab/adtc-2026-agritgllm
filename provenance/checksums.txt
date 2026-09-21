@@ -3,23 +3,38 @@
 Verify with: sha256sum -c checksums.txt (run from the repository root)
 
 # Final quantized GGUF, the file download_model.sh fetches and metadata.json describes.
-f07c19a52a27d6e2d9ba6ee5a8a7ea10f9bf8f2c72bfeb173407620216208533  model/adtc-agritgllm-adviser-v3-Q4_K_M.gguf
+c7ede5aad81de93b454eb6f1251b5b3a795883aff90b9500bdd176de956f386b  model/adtc-agritgllm-adviser-v4-Q4_K_M.gguf
 # Base model, as cached from Hugging Face at the revision declared in metadata.json.
 # Repo LiquidAI/LFM2-700M, revision 86f49fc9a3800c3a325b7320bde179c318062583, file model.safetensors,
 # 1485.0 MB. It is not committed here: rule 2.2 forbids committing weights. Fetch it and check it with
 #   huggingface-cli download LiquidAI/LFM2-700M --revision 86f49fc9a3800c3a325b7320bde179c318062583
 a7b52669217ecb538740187f41ce2a5802afa1c8d81d8d153b847bbd21d1bdda  LiquidAI/LFM2-700M@86f49fc9a3800c3a325b7320bde179c318062583/model.safetensors
-# LoRA adapter after DPO (train-gate2 chain K -> Kdpo), the one merged into the base to make the GGUF above.
-8e4e4b5684fb174b309a57812dbd99407ab7bc786bb73a1d455f80968863d445  provenance/adapter/adapter_model.safetensors
-c9e84d7c68c38c328b2a7761e7ab056e7c68710769cb00892cdf98ced7c0a368  provenance/adapter/adapter_config.json
-# Training configuration and run logs.
+# The shipped adapter: the merge (rank 64) of the two adapters below, 0.5 each, provenance/merge_adapters.py.
+563cd55114ab5e836878fe9b28db38b619f7004ee39d398ab8ae355ebe3fb465  provenance/adapter/adapter_model.safetensors
+a294209fb849096b7eb4f6cba12ef56e6ec7515153c839014fac98758445bbb1  provenance/adapter/adapter_config.json
+29707055de3e7ef504a2d3a3bf7385bc845ce3d782218f082fecf6d0864c11d6  provenance/adapter/MERGE.json
+b599a006d6576b7e9e89b0fbb1fadc8f787ec1822684b0dee6fbe74bac980d95  provenance/merge_adapters.py
+# Source adapter 1: chain K then DPO (the Gate 2 file measured on the replica on 20 September), with its run logs.
+8e4e4b5684fb174b309a57812dbd99407ab7bc786bb73a1d455f80968863d445  provenance/adapter_sources/kdpo/adapter_model.safetensors
+c9e84d7c68c38c328b2a7761e7ab056e7c68710769cb00892cdf98ced7c0a368  provenance/adapter_sources/kdpo/adapter_config.json
 d03406e318840b71ed8490f62f638d411f8f894441e8db2c0fca686becda784f  provenance/train_config.json
 6ebcbbd755bb084468e513155c83bfa1474b69c366309f817ed192b33080fb52  provenance/training_log.csv
 b07704812ed151ee2cadd5c22d8eea945e7fd9d43d73f841e5b7cd5ad1ac4389  provenance/training_log.json
 f1898df93a1774a837b51e9e347561735e4a90e3ee235664a5dcdeab77e8b84f  provenance/dpo_log.csv
 4da49de944cd27ec0ae398baa1a87a4b154eea377847812e19ac032f3c6daa66  provenance/dpo_log.json
-99e7245e54f9c6a657dd3e8b9dcd3f97bf574e80cdb6522093e58b2f36153e33  provenance/export_manifest.json
-# Dataset split read by the run (7987 train / 382 eval / 344 test / 2817 DPO pairs).
+# Source adapter 2: chain O, supervised only, no DPO, with its run logs, split and data (8146 train / 327 eval / 344 test).
+3a1332f92db8d2456ee275dcd62aca18ef1482a61f723efadf9ec965e5b4883d  provenance/adapter_sources/o_sft/adapter_model.safetensors
+6cc1c238cb0b135cd6e504ff7153b961e1e6d50365d7510cb7d30930ffad75aa  provenance/adapter_sources/o_sft/adapter_config.json
+7779a36682f0ab07d8402ed7a8799ef1d7ba7e771905a66dfec2e19f93e7b6d7  provenance/training_o/train_config.json
+c3c9eac483c2c5646ce71455ab1bfa09efd17d330d91840585e303bf9c9c86f6  provenance/training_o/training_log.csv
+dddbd28a473d2eff24e78d37a1f22f165a4c80c173e7c7711a24e5d172071bee  provenance/training_o/training_log.json
+bbafc16dcd4d1bf94a4659f466925e3aa667e896edbe7dd15ac12580240fd6cd  provenance/data_o/sft_train.jsonl
+03c8f6d7e3ea4e6aee568f59b12ec03e61bc57f8a5c5b8a5daf9e6191de4a378  provenance/data_o/sft_eval.jsonl
+97166049bc255ef895d2758ed07528a46103576c06a09632c47888fabfe2a16f  provenance/data_o/sft_test.jsonl
+61de67055d0937793a6d97fd93bd9d7901862ab77d3ef22935c7d521a698717b  provenance/data_o/split_manifest.json
+# Merge and quantization run log of the shipped file.
+408c3491c48c95ce8cb5d36de3c5af761dad07de0321cf13e1399831d43a41d0  provenance/export_manifest.json
+# Dataset split read by chain K (7987 train / 382 eval / 344 test / 2817 DPO pairs).
 f1db4987525f9583b922a8afa35c0478473e473bac201ae4cecf0e7ee78bf118  provenance/data/sft_train.jsonl
 3889db525dbe9eddba825dcf69b118f016716792f0395f4b8a1987ba9cda4946  provenance/data/sft_eval.jsonl
 97166049bc255ef895d2758ed07528a46103576c06a09632c47888fabfe2a16f  provenance/data/sft_test.jsonl
@@ -27,4 +42,4 @@ f1db4987525f9583b922a8afa35c0478473e473bac201ae4cecf0e7ee78bf118  provenance/dat
 7ed6526a38c9511583ac2987765de7fac7b9a5b0342cdf69fa8f35653a99a85e  provenance/data/split_manifest.json
 # Evaluation batteries.
 d5a1d68c3ae79c4ca6254e648c876bdc18723c75253cf417919ce4b97cecaa65  provenance/evaluation/acceptance_27_round1.jsonl
-606676bc6d8cd2183c1b055287f8efb4fa9625fcce7ee0354e0d15dc03db65a2  provenance/evaluation/acceptance_27_heldout.jsonl
+5d010ad8ac5af1bd39904fb79fa26cd530eed8f6d8237cc20b28d864fef8dbec  provenance/evaluation/acceptance_27_heldout.jsonl

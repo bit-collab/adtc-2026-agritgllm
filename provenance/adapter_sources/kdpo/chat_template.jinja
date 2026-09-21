@@ -1,0 +1,6 @@
+{{- bos_token -}}{%- for m in messages %}{%- if m['role'] == 'assistant' %}{{- '<|im_start|>assistant
+' }}{% generation %}{{- m['content'] + '<|im_end|>
+' }}{% endgeneration %}{%- else %}{{- '<|im_start|>' + m['role'] + '
+' + m['content'] + '<|im_end|>
+' }}{%- endif %}{%- endfor %}{%- if add_generation_prompt %}{{- '<|im_start|>assistant
+' }}{%- endif %}

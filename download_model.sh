@@ -18,7 +18,7 @@ MODEL_DIR="$HERE/model"
 # ⚠️ Edit ONLY the two values below (MODEL_FILE, MODEL_URL). Do not change
 # anything else in this file — see "download_model.sh" in README.md for what
 # the evaluator requires.
-MODEL_FILE="$MODEL_DIR/adtc-agritgllm-adviser-v3-Q4_K_M.gguf"
+MODEL_FILE="$MODEL_DIR/adtc-agritgllm-adviser-v4-Q4_K_M.gguf"
 MODEL_URL="https://huggingface.co/exau/adtc-agritgllm-adviser-v2/resolve/6ccfeee3a440aa9d194665c1937ec9076bd445e1/adtc-agritgllm-adviser-v3-Q4_K_M.gguf"
 
 mkdir -p "$MODEL_DIR"

@@ -21,8 +21,9 @@
     "base_model_commit_sha": "86f49fc9a3800c3a325b7320bde179c318062583",
     "fine_tuning_method": "lora",
     "training_datasets": [
-      "agritgllm-gate2-sft: provenance/data/sft_train.jsonl, 7,987 conversations written from Togolese extension sheets (ICAT, ITRA, ANAMET, ANSAT, CAGIA, SIM), sha256 in provenance/checksums.txt",
-      "agritgllm-gate2-dpo: provenance/data/dpo_train.jsonl, 2,817 preference pairs from the same sheets, sha256 in provenance/checksums.txt"
+      "agritgllm-gate2-sft (chain K): provenance/data/sft_train.jsonl, 7,987 conversations written from Togolese extension sheets (ICAT, ITRA, ANAMET, ANSAT, CAGIA, SIM), sha256 in provenance/checksums.txt",
+      "agritgllm-gate2-dpo (chain K): provenance/data/dpo_train.jsonl, 2,817 preference pairs from the same sheets, sha256 in provenance/checksums.txt",
+      "agritgllm-gate2-sft-o (chain O): provenance/data_o/sft_train.jsonl, 8,146 conversations, the same sheets plus 69 hand-written exchanges on exposure and refusals, sha256 in provenance/checksums.txt"
     ]
   },
   "test_prompts": [
@@ -36,7 +37,7 @@
     }
   ],
   "model": {
-    "name": "adtc-agritgllm-adviser-v3-Q4_K_M",
+    "name": "adtc-agritgllm-adviser-v4-Q4_K_M",
     "runtime": "llama.cpp",
     "quantization": "GGUF Q4_K_M",
     "parameters_estimate": "0.74B",
@@ -44,7 +45,7 @@
     "base_model_commit_sha": "86f49fc9a3800c3a325b7320bde179c318062583"
   },
   "_runtime": {
-    "model_path": "model/adtc-agritgllm-adviser-v3-Q4_K_M.gguf",
+    "model_path": "model/adtc-agritgllm-adviser-v4-Q4_K_M.gguf",
     "recommended_sampling": {
       "temperature": 0.3,
       "min_p": 0.15,

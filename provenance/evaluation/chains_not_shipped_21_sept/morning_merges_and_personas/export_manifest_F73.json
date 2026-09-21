@@ -1,0 +1,70 @@
+{
+  "steps": [
+    {
+      "step": "merge",
+      "seconds": 8.0,
+      "adapter": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged_adapters\\F73\\best_lora",
+      "merged": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\F73",
+      "note": "LoRA trained on an NF4 base, merged into the fp16 base (standard QLoRA export, an approximation)"
+    },
+    {
+      "step": "convert_hf_to_gguf",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\.venv-train\\Scripts\\python.exe",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\adtc-2026\\llama.cpp\\convert_hf_to_gguf.py",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\F73",
+        "--outfile",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\agritg-f73-F16.gguf",
+        "--outtype",
+        "f16"
+      ],
+      "returncode": 0,
+      "seconds": 23.0
+    },
+    {
+      "step": "llama-imatrix",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-imatrix.exe",
+        "-m",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\agritg-f73-F16.gguf",
+        "-f",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\imatrix-calibration.txt",
+        "-o",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\imatrix.dat",
+        "-t",
+        "16",
+        "-c",
+        "512",
+        "-ngl",
+        "0",
+        "--chunks",
+        "400"
+      ],
+      "returncode": 0,
+      "seconds": 1541.4
+    },
+    {
+      "step": "llama-quantize Q4_K_M",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-quantize.exe",
+        "--imatrix",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\imatrix.dat",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\agritg-f73-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\agritg-f73-Q4_K_M.gguf",
+        "Q4_K_M",
+        "16"
+      ],
+      "returncode": 0,
+      "seconds": 11.4
+    }
+  ],
+  "outputs": [
+    {
+      "quant": "Q4_K_M",
+      "file": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F73\\agritg-f73-Q4_K_M.gguf",
+      "size_mb": 446.9,
+      "imatrix": true,
+      "sha256": "7152ff06c666455093111578767859a30c81d7623a3d847973f1f73cdf5ec3c1"
+    }
+  ]
+}

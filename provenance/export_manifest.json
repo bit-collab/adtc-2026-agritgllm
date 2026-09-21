@@ -2,9 +2,9 @@
   "steps": [
     {
       "step": "merge",
-      "seconds": 4.1,
-      "adapter": "train-gate2\\outputs\\dpo\\Kdpo\\best_lora",
-      "merged": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\Kdpo",
+      "seconds": 8.0,
+      "adapter": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged_adapters\\F55\\best_lora",
+      "merged": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\F55",
       "note": "LoRA trained on an NF4 base, merged into the fp16 base (standard QLoRA export, an approximation)"
     },
     {
@@ -12,25 +12,25 @@
       "cmd": [
         "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\.venv-train\\Scripts\\python.exe",
         "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\adtc-2026\\llama.cpp\\convert_hf_to_gguf.py",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\Kdpo",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\F55",
         "--outfile",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\agritg-kdpo-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\agritg-f55-F16.gguf",
         "--outtype",
         "f16"
       ],
       "returncode": 0,
-      "seconds": 7.6
+      "seconds": 40.3
     },
     {
       "step": "llama-imatrix",
       "cmd": [
         "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-imatrix.exe",
         "-m",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\agritg-kdpo-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\agritg-f55-F16.gguf",
         "-f",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\imatrix-calibration.txt",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\imatrix-calibration.txt",
         "-o",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\imatrix.dat",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\imatrix.dat",
         "-t",
         "16",
         "-c",
@@ -41,30 +41,30 @@
         "400"
       ],
       "returncode": 0,
-      "seconds": 820.7
+      "seconds": 1610.8
     },
     {
       "step": "llama-quantize Q4_K_M",
       "cmd": [
         "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-quantize.exe",
         "--imatrix",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\imatrix.dat",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\agritg-kdpo-F16.gguf",
-        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\agritg-kdpo-Q4_K_M.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\imatrix.dat",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\agritg-f55-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\agritg-f55-Q4_K_M.gguf",
         "Q4_K_M",
         "16"
       ],
       "returncode": 0,
-      "seconds": 9.3
+      "seconds": 16.7
     }
   ],
   "outputs": [
     {
       "quant": "Q4_K_M",
-      "file": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Kdpo\\agritg-kdpo-Q4_K_M.gguf",
+      "file": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\F55\\agritg-f55-Q4_K_M.gguf",
       "size_mb": 446.9,
       "imatrix": true,
-      "sha256": "f07c19a52a27d6e2d9ba6ee5a8a7ea10f9bf8f2c72bfeb173407620216208533"
+      "sha256": "c7ede5aad81de93b454eb6f1251b5b3a795883aff90b9500bdd176de956f386b"
     }
   ]
 }

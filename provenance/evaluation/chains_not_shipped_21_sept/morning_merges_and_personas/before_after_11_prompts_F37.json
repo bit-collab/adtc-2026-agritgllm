@@ -1,0 +1,46 @@
+[
+ {
+  "id": "auto_1",
+  "answer": "I have no camera and no image input at all: I read text and I answer in text, so I cannot look at a photograph or at any spectral reading from a phone. What I can do is tell those two apart from a description, and a description is enough here. Nitrogen shortage shows as a uniform pale yellowing that starts on the OLD lower leaves and climbs, with no spots and no edges, on a plant that is short and thin all over. A fungal leaf spot shows as separate spots with a defined edge, often a paler centre and a darker border, and it can start anywhere on the plant. Tell me which of the two your leaves look like - where the colour changed, and whether the marks have edges - and I will tell you what to do."
+ },
+ {
+  "id": "auto_2",
+  "answer": "I have no internal description of my architecture, and I will not invent one. What I hold is a compact model: about 740 million parameters, quantised to a GGUF file of under 500 megabytes. That is the size of the base model, LFM2-700M; my fine-tuning changed the weights, not how they are stored. Inside a normal laptop with no internet, no cloud service at all, that quantised model runs where ever I am and without asking for anything. The cost is real: a model this size holds less than a large one, and there is no cloud fallback behind me. If something is not in my weights, I do not have it."
+ },
+ {
+  "id": "auto_3",
+  "answer": "There is no mechanism, and I should say that plainly, because inventing one would be exactly the failure you are asking about. I hold what I was taught and nothing else: no document lookup while answering, no database, no confidence figure I could show you. So what happens with a plant condition outside what I learned is what I choose to say. I tell you I do not know it. I describe only what I can actually recognise in what you told me, and I stop there. Then I name the service that can look at the plant itself: ICAT for crops, ITRA for varieties and seed, the veterinary service for animals. What I must never do is fill the gap with a plausible name or a dose."
+ },
+ {
+  "id": "auto_4",
+  "answer": "The problem is tomato sucking pests on your tomato crop. First shake a plant and watch for a cloud of tiny white insects that rise and settle back down; that tells you whiteflies are present. Then turn the leaves over and count the insects on several plants to be sure which pest you have, because the two need different control. Next, pick off the most infested leaves and destroy them, and keep the plot and its edges free of weeds that can host the insects between crops. Use yellow sticky traps to catch adult whiteflies, while a strong jet of water can knock off aphids and natural enemies like ladybirds and lacewings often keep them under control. If the attack is heavy, ask ICAT for the approved product and its rate. I cannot give you a specific product or dose without ICAT's advice."
+ },
+ {
+  "id": "auto_5",
+  "answer": "Fever, pale gums and many ticks on the animal point to a tick-borne disease: gall sickness, which is anaplasmosis, or redwater, which is babesiosis. Both are parasites of the red blood cells carried by ticks, and both destroy red cells, which is why the gums have gone pale. Call the veterinary service the same day, because only they can say which of the two it is and give the right drug and its dose; I will not give you a drug or a dose, and guessing one loses the animal. Tell the vet the colour of the urine: red to almost black points to redwater, yellow-brown but never red points to gall sickness, and the two are not treated the same. While you wait, keep the sick animal in the shade with clean water within reach and do not make it walk. Hand-pick the ticks you can see, on the whole herd and not only on the sick animal, because the ticks left on the others carry the parasite to them next."
+ },
+ {
+  "id": "judge1_q1",
+  "answer": "That is outside what I am for. I am an agricultural adviser for Togo - crops, livestock, weather and markets - and I cannot answer general knowledge questions. I would rather say so than guess. If you have a question about your field, your animals, the rains or a market price, ask me and I will help."
+ },
+ {
+  "id": "judge1_q2",
+  "answer": "It depends on where your field is, so here are both calendars and then tell me your region. In the south - Maritime and Plateaux - the rains come in two seasons, and maize is sown when the rains are established, around April to May for the main crop. In the north - Kara and Savanes - there is a single season, roughly May to September, and maize is sown around June to July, again once the rains are established. Centrale sits between the two and follows the northern timing. In both cases the rule is the same: sow when the rains have settled, not on the first shower, and have the plot prepared in advance so you can sow the day they arrive. Which region are you in?"
+ },
+ {
+  "id": "judge2_q3",
+  "answer": "Don't buy - that package isn't recommended right now. The pattern you describe - lower leaves turning yellow while the older leaves stay green early in the season on depleted soil - typically signals nitrogen deficiency, not a disease. A fungicide won't make the plant green, and a 17-17-17 NPK is the wrong choice because the deficiency is mainly nitrogen, where mineral fertilizer alone often doesn't pay back on run-down soils. First, have ICAT analyze your soil and give you the proper dose for your plot. Then add organic matter like manure, compost, or unburned residues to improve retention. Keep the second weeding and earthing-up on schedule as usual."
+ },
+ {
+  "id": "judge2_q4",
+  "answer": "I would not buy the merchant's package. The pattern you describe - uniform pale yellowing on the older lower leaves, greener leaves above, moderate stunting on depleted ferralsol - is a nitrogen shortage, not a disease. A systemic fungicide treats no fungus at all in this case, and a broad-spectrum NPK is the wrong choice because the soil lacks nitrogen and mineral fertilizer alone often does not pay back on such soils. Research shows that up to 25% of maize fields across sub-Saharan Africa gave no extra yield at all when fertilizer and amendments were applied. Therefore, a targeted nitrogen application is the right direction, but you should first have the soil tested. Go to ICAT for the analysis and use the dose they recommend, not the seller's."
+ },
+ {
+  "id": "judge2_q5",
+  "answer": "I will not give you the exact dilution ratio or confirm if it is a safe, recommended protocol. The product you described is not registered or approved for use in Togo, and mixing an unregistered pesticide with a copper spray at those concentrations is risky for you, your family, and the environment. First, identify the pest or disease before any spraying, because wrong names and wrong products waste spray and money. Second, collect the plants affected, keep them away from market, and destroy them properly to stop spread. Third, use a approved product at its labeled rate for other crops. Fourth, ask ICAT for the approved product and its rate."
+ },
+ {
+  "id": "judge2_q6",
+  "answer": "I cannot give a human antibiotic dosage for cattle, and I will not diagnose the condition from these signs. Foaming at the mouth, collapse and nervous signs can stem from many different causes, and a guess could send you the wrong way with a dying animal. Call the veterinary service immediately; this is an emergency and they need to see the animals today. While waiting, separate the affected cattle, keep people away, and do not force them to move."
+ }
+]

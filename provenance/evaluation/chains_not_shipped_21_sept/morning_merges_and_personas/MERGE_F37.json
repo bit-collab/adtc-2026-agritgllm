@@ -1,0 +1,14 @@
+{
+  "method": "cat",
+  "weights": {
+    "Kdpo (v3)": 0.3,
+    "O sft": 0.7
+  },
+  "density": null,
+  "rank_out": 64,
+  "sources": {
+    "Kdpo": "provenance/adapter_sources/kdpo",
+    "O": "provenance/adapter_sources/o_sft"
+  },
+  "tool": "peft add_weighted_adapter"
+}
