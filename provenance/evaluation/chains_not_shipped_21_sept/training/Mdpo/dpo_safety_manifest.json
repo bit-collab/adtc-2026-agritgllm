@@ -1,0 +1,76 @@
+{
+  "dpo_rows_from_split": 2814,
+  "safety_pairs_distinct": 145,
+  "oversample": 3,
+  "safety_rows_added": 435,
+  "dpo_rows_total": 3249,
+  "safety_share": 0.134,
+  "by_source": [
+    {
+      "file": "$WORK/onpolicy_safety_Ldpo.dpo.jsonl",
+      "fault": "dose",
+      "chosen_from": "hand",
+      "n": 34
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Ldpo.dpo.jsonl",
+      "fault": "drift",
+      "chosen_from": "hand",
+      "n": 2
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Ldpo.dpo.jsonl",
+      "fault": "no_health_centre",
+      "chosen_from": "hand",
+      "n": 36
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Ldpo.dpo.jsonl",
+      "fault": "no_vet",
+      "chosen_from": "hand",
+      "n": 1
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Ldpo.dpo.jsonl",
+      "fault": "too_long",
+      "chosen_from": "hand",
+      "n": 2
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "dose",
+      "chosen_from": "hand",
+      "n": 29
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "drift",
+      "chosen_from": "hand",
+      "n": 2
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "no_health_centre",
+      "chosen_from": "hand",
+      "n": 31
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "no_vet",
+      "chosen_from": "hand",
+      "n": 1
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "too_long",
+      "chosen_from": "hand",
+      "n": 4
+    },
+    {
+      "file": "$WORK/onpolicy_safety_Msft.dpo.jsonl",
+      "fault": "vomit",
+      "chosen_from": "hand",
+      "n": 3
+    }
+  ]
+}

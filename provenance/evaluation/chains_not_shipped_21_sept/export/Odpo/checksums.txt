@@ -1,0 +1,1 @@
+3930893b9e129ace8a3d77279369a3b7754290fb98a27e3e6b0d9865fadd9f0c  agritg-odpo-Q4_K_M.gguf

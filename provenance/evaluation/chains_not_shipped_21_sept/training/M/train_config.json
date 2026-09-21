@@ -1,0 +1,46 @@
+{
+  "base_model": "LiquidAI/LFM2-700M",
+  "revision": "86f49fc9a3800c3a325b7320bde179c318062583",
+  "experiment": "M",
+  "method": "LoRA on a bf16 base (no quantisation during training), loss on assistant turns only",
+  "chat_template": "ChatML + BOS, no thinking block, assistant content marked for masking",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "out_proj",
+      "in_proj",
+      "w1",
+      "w2",
+      "w3"
+    ],
+    "trainable_params": 17891328
+  },
+  "data": {
+    "train": 6890,
+    "eval": 327,
+    "source": "train-gate2/data/sft_train.jsonl, ecrit par 00_split.py (voir data/split_manifest.json pour les entrees et les temoins de fuite)"
+  },
+  "hyper": {
+    "lr": 0.0002,
+    "epochs": 3,
+    "batch": 2,
+    "grad_accum": 8,
+    "max_length": 1024,
+    "warmup_steps": 64,
+    "weight_decay": 0.01,
+    "steps_per_epoch": 430,
+    "total_steps": 1290,
+    "seed": 23
+  },
+  "env": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+  },
+  "started": "2026-09-20 22:45:21"
+}

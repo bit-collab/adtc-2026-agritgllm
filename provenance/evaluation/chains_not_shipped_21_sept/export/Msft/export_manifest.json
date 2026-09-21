@@ -1,0 +1,70 @@
+{
+  "steps": [
+    {
+      "step": "merge",
+      "seconds": 7.0,
+      "adapter": "train-gate2\\outputs\\sft\\M\\best_lora",
+      "merged": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\Msft",
+      "note": "LoRA trained on an NF4 base, merged into the fp16 base (standard QLoRA export, an approximation)"
+    },
+    {
+      "step": "convert_hf_to_gguf",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\.venv-train\\Scripts\\python.exe",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\adtc-2026\\llama.cpp\\convert_hf_to_gguf.py",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\merged\\Msft",
+        "--outfile",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\agritg-msft-F16.gguf",
+        "--outtype",
+        "f16"
+      ],
+      "returncode": 0,
+      "seconds": 14.3
+    },
+    {
+      "step": "llama-imatrix",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-imatrix.exe",
+        "-m",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\agritg-msft-F16.gguf",
+        "-f",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\imatrix-calibration.txt",
+        "-o",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\imatrix.dat",
+        "-t",
+        "16",
+        "-c",
+        "512",
+        "-ngl",
+        "0",
+        "--chunks",
+        "400"
+      ],
+      "returncode": 0,
+      "seconds": 1050.6
+    },
+    {
+      "step": "llama-quantize Q4_K_M",
+      "cmd": [
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\tools\\llama-cpu\\llama-quantize.exe",
+        "--imatrix",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\imatrix.dat",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\agritg-msft-F16.gguf",
+        "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\agritg-msft-Q4_K_M.gguf",
+        "Q4_K_M",
+        "16"
+      ],
+      "returncode": 0,
+      "seconds": 13.0
+    }
+  ],
+  "outputs": [
+    {
+      "quant": "Q4_K_M",
+      "file": "C:\\Users\\HP VICTUS\\Documents\\concoursllmdata\\train-gate2\\outputs\\gguf\\Msft\\agritg-msft-Q4_K_M.gguf",
+      "size_mb": 446.9,
+      "imatrix": true,
+      "sha256": "686c10578a27dc0a974b384d91a51ca18269d4d5e784ffed2ba52f3c76cea855"
+    }
+  ]
+}

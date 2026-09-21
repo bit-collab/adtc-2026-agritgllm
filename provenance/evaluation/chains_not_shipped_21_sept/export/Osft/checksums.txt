@@ -1,0 +1,1 @@
+a11c1a9432ee0ebd3b9005cb55c7969ba98c8120b2601ca0f9faf11a5bb1453c  agritg-osft-Q4_K_M.gguf

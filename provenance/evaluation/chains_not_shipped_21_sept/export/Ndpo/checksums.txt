@@ -1,0 +1,1 @@
+0c741b6f7e23d482e1cf7039aefd00263d14998dc93e588134ebd73e54844e11  agritg-ndpo-Q4_K_M.gguf

@@ -1,0 +1,1 @@
+ed54a8dab37203abca0b71d7c0d007259bfac290071319283f73369d90ca0ced  agritg-mdpo-Q4_K_M.gguf

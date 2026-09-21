@@ -1,0 +1,1 @@
+686c10578a27dc0a974b384d91a51ca18269d4d5e784ffed2ba52f3c76cea855  agritg-msft-Q4_K_M.gguf
