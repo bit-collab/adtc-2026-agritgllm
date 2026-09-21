@@ -1,0 +1,589 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.02kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:bookworm-slim
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 4.7s
+
+#2 [internal] load metadata for docker.io/library/debian:bookworm-slim
+#2 DONE 4.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 122B done
+#4 DONE 0.0s
+
+#5 [py-build 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+#5 resolve docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9 0.0s done
+#5 DONE 0.0s
+
+#6 [llama-build 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251
+#6 resolve docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 11.58kB done
+#7 DONE 0.0s
+
+#8 [py-build 2/6] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [py-build 3/6] WORKDIR /opt/adtc-profiler
+#9 CACHED
+
+#10 [py-build 4/6] COPY pyproject.toml README.md ./
+#10 CACHED
+
+#11 [py-build 5/6] COPY src/ ./src/
+#11 DONE 0.0s
+
+#12 [py-build 6/6] RUN pip wheel --no-cache-dir --wheel-dir /wheels .
+#12 1.109 Processing /opt/adtc-profiler
+#12 1.112   Installing build dependencies: started
+#12 24.77   Installing build dependencies: finished with status 'done'
+#12 24.77   Getting requirements to build wheel: started
+#12 24.83   Getting requirements to build wheel: finished with status 'done'
+#12 24.83   Preparing metadata (pyproject.toml): started
+#12 24.91   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 25.81 Collecting click>=8.1.0 (from adtc-profiler==0.1.0)
+#12 26.82   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#12 27.16 Collecting jsonschema>=4.21.0 (from adtc-profiler==0.1.0)
+#12 27.75   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+#12 28.08 Collecting llama-cpp-python>=0.3.0 (from adtc-profiler==0.1.0)
+#12 28.36   Downloading llama_cpp_python-0.3.35.tar.gz (74.9 MB)
+#12 108.2      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.9/74.9 MB 966.3 kB/s eta 0:00:00
+#12 109.4   Installing build dependencies: started
+#12 111.6   Installing build dependencies: finished with status 'done'
+#12 111.6   Getting requirements to build wheel: started
+#12 111.7   Getting requirements to build wheel: finished with status 'done'
+#12 111.7   Installing backend dependencies: started
+#12 113.3   Installing backend dependencies: finished with status 'done'
+#12 113.3   Preparing metadata (pyproject.toml): started
+#12 113.4   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 113.6 Collecting lm-eval>=0.4.4 (from adtc-profiler==0.1.0)
+#12 113.8   Downloading lm_eval-0.4.13-py3-none-any.whl.metadata (64 kB)
+#12 114.0      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.1/64.1 kB 549.0 kB/s eta 0:00:00
+#12 115.6 Collecting numpy>=1.24 (from adtc-profiler==0.1.0)
+#12 115.7   Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#12 116.1 Collecting psutil>=5.9.0 (from adtc-profiler==0.1.0)
+#12 116.2   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+#12 116.4 Collecting rich>=13.0.0 (from adtc-profiler==0.1.0)
+#12 116.6   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#12 116.7 Collecting attrs>=22.2.0 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#12 116.8   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#12 117.0 Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#12 117.1   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+#12 117.3 Collecting referencing>=0.28.4 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#12 117.4   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+#12 118.5 Collecting rpds-py>=0.25.0 (from jsonschema>=4.21.0->adtc-profiler==0.1.0)
+#12 118.6   Downloading rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+#12 118.8 Collecting typing-extensions>=4.5.0 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#12 118.9   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#12 119.1 Collecting diskcache>=5.6.1 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#12 119.3   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+#12 119.4 Collecting jinja2>=2.11.3 (from llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#12 119.5   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#12 119.7 Collecting datasets>=2.16.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 119.8   Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+#12 120.0 Collecting evaluate>=0.4.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 120.2   Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+#12 120.4 Collecting pytablewriter (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 120.5   Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+#12 120.8 Collecting rouge-score>=0.0.4 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 120.9   Downloading rouge_score-0.1.2.tar.gz (17 kB)
+#12 120.9   Preparing metadata (setup.py): started
+#12 121.1   Preparing metadata (setup.py): finished with status 'done'
+#12 121.3 Collecting sacrebleu>=1.5.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 121.4   Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+#12 122.5 Collecting scikit-learn>=0.24.1 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 122.6   Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+#12 122.8 Collecting sqlitedict (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 123.0   Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+#12 123.0   Preparing metadata (setup.py): started
+#12 123.1   Preparing metadata (setup.py): finished with status 'done'
+#12 123.3 Collecting dill (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 123.4   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+#12 123.6 Collecting word2number (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 123.8   Downloading word2number-1.1.zip (9.7 kB)
+#12 123.8   Preparing metadata (setup.py): started
+#12 123.9   Preparing metadata (setup.py): finished with status 'done'
+#12 124.0 Collecting more_itertools (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 124.2   Downloading more_itertools-11.1.0-py3-none-any.whl.metadata (41 kB)
+#12 124.2      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.4/41.4 kB 1.4 MB/s eta 0:00:00
+#12 124.5 Collecting tqdm>=4.59.0 (from lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 124.6   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#12 124.6      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 1.9 MB/s eta 0:00:00
+#12 124.8 Collecting markdown-it-py>=2.2.0 (from rich>=13.0.0->adtc-profiler==0.1.0)
+#12 125.0   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+#12 125.2 Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.0.0->adtc-profiler==0.1.0)
+#12 125.3   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#12 125.6 Collecting filelock (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 125.7   Downloading filelock-4.0.1-py3-none-any.whl.metadata (2.0 kB)
+#12 126.2 Collecting pyarrow>=21.0.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 126.3   Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+#12 127.0 Collecting pandas (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 127.1   Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+#12 127.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 2.6 MB/s eta 0:00:00
+#12 127.3 Collecting requests>=2.32.2 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 127.4   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#12 127.6 Collecting httpx<1.0.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 127.7   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#12 128.4 Collecting xxhash (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 128.5   Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+#12 128.7 Collecting multiprocess<0.70.20 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 128.9   Downloading multiprocess-0.70.19-py311-none-any.whl.metadata (7.5 kB)
+#12 129.1 Collecting fsspec<=2026.6.0,>=2023.1.0 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 129.2   Downloading fsspec-2026.6.0-py3-none-any.whl.metadata (10 kB)
+#12 129.5 Collecting huggingface-hub<2.0,>=0.25.0 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 129.6   Downloading huggingface_hub-1.32.0-py3-none-any.whl.metadata (16 kB)
+#12 129.8 Collecting packaging (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 129.9   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#12 130.1 Collecting pyyaml>=5.1 (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 130.2   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#12 130.6 Collecting MarkupSafe>=2.0 (from jinja2>=2.11.3->llama-cpp-python>=0.3.0->adtc-profiler==0.1.0)
+#12 130.7   Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#12 130.8 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.0.0->adtc-profiler==0.1.0)
+#12 131.0   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#12 131.1 Collecting absl-py (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 131.3   Downloading absl_py-2.5.0-py3-none-any.whl.metadata (3.3 kB)
+#12 131.4 Collecting nltk (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 131.5   Downloading nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+#12 131.7 Collecting six>=1.14.0 (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 131.8   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#12 131.9 Collecting portalocker (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 132.0   Downloading portalocker-4.4.0-py3-none-any.whl.metadata (10 kB)
+#12 133.9 Collecting regex (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 134.0   Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+#12 134.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 kB 605.7 kB/s eta 0:00:00
+#12 134.3 Collecting tabulate>=0.8.9 (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 134.4   Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+#12 134.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 601.3 kB/s eta 0:00:00
+#12 134.6 Collecting colorama (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 134.7   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+#12 136.2 Collecting lxml (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 136.4   Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+#12 137.7 Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 137.8   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#12 137.8      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 3.0 MB/s eta 0:00:00
+#12 138.0 Collecting joblib>=1.4.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 138.2   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#12 138.4 Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 138.5   Downloading narwhals-2.26.0-py3-none-any.whl.metadata (15 kB)
+#12 138.7 Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 138.8   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#12 139.4 Collecting setuptools>=38.3.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 139.5   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+#12 139.8 Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 139.9   Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+#12 140.1 Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 140.3   Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+#12 140.4 Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 140.5   Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+#12 140.8 Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 140.9   Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+#12 141.1 Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 141.2   Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+#12 141.5 Collecting typepy<2,>=1.3.2 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 141.6   Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+#12 143.6 Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 143.7   Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+#12 143.9 Collecting anyio (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 144.0   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#12 144.2 Collecting certifi (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 144.3   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#12 144.4 Collecting httpcore==1.* (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 144.6   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#12 144.7 Collecting idna (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 144.8   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#12 145.0 Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 145.1   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#12 145.3 Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 145.4   Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+#12 145.6 Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 145.7   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#12 145.9 Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 146.0   Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+#12 146.6 Collecting charset_normalizer<4,>=2 (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 146.7   Downloading charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
+#12 146.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 kB 1.2 MB/s eta 0:00:00
+#12 146.9 Collecting urllib3<3,>=1.26 (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 147.0   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#12 147.2 Collecting python-dateutil<3.0.0,>=2.8.0 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 147.3   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#12 147.5 Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 147.7   Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+#12 147.8 Collecting defusedxml (from nltk->rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 147.9   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+#12 148.2 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 148.3   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#12 148.4 Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 148.5   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#12 148.8 Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 148.9   Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+#12 149.6 Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 149.7   Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+#12 150.0 Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 150.1   Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+#12 150.9 Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler==0.1.0)
+#12 151.0   Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+#12 151.0      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 5.1 MB/s eta 0:00:00
+#12 151.3 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#12 151.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 10.2 MB/s eta 0:00:00
+#12 151.4 Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+#12 151.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.6/90.6 kB 2.9 MB/s eta 0:00:00
+#12 151.6 Downloading lm_eval-0.4.13-py3-none-any.whl (9.1 MB)
+#12 155.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 2.3 MB/s eta 0:00:00
+#12 155.7 Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+#12 162.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 2.3 MB/s eta 0:00:00
+#12 163.0 Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+#12 163.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 2.4 MB/s eta 0:00:00
+#12 163.2 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+#12 163.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 3.9 MB/s eta 0:00:00
+#12 163.4 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+#12 163.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 1.8 MB/s eta 0:00:00
+#12 163.5 Downloading datasets-5.0.1-py3-none-any.whl (559 kB)
+#12 163.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 559.1/559.1 kB 3.1 MB/s eta 0:00:00
+#12 163.8 Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+#12 163.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.0/120.0 kB 3.1 MB/s eta 0:00:00
+#12 164.0 Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+#12 164.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 kB 4.1 MB/s eta 0:00:00
+#12 164.1 Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+#12 164.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.1/84.1 kB 1.6 MB/s eta 0:00:00
+#12 164.3 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#12 164.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 1.5 MB/s eta 0:00:00
+#12 164.5 Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+#12 164.7 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+#12 164.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 5.1 MB/s eta 0:00:00
+#12 164.8 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+#12 165.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 2.2 MB/s eta 0:00:00
+#12 165.5 Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+#12 165.6 Downloading rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+#12 166.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 371.3/371.3 kB 750.2 kB/s eta 0:00:00
+#12 166.2 Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+#12 166.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 kB 488.7 kB/s eta 0:00:00
+#12 166.5 Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+#12 170.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 2.2 MB/s eta 0:00:00
+#12 171.0 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+#12 171.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 3.3 MB/s eta 0:00:00
+#12 171.1 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#12 171.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 4.0 MB/s eta 0:00:00
+#12 171.2 Downloading more_itertools-11.1.0-py3-none-any.whl (72 kB)
+#12 171.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.2/72.2 kB 1.9 MB/s eta 0:00:00
+#12 171.4 Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+#12 171.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.1/91.1 kB 2.8 MB/s eta 0:00:00
+#12 171.5 Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+#12 171.7 Downloading fsspec-2026.6.0-py3-none-any.whl (203 kB)
+#12 171.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.9/203.9 kB 3.0 MB/s eta 0:00:00
+#12 171.9 Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+#12 171.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 3.3 MB/s eta 0:00:00
+#12 172.0 Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+#12 172.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 4.9 MB/s eta 0:00:00
+#12 172.1 Downloading huggingface_hub-1.32.0-py3-none-any.whl (842 kB)
+#12 172.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 842.9/842.9 kB 2.6 MB/s eta 0:00:00
+#12 172.6 Downloading filelock-4.0.1-py3-none-any.whl (106 kB)
+#12 172.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.2/106.2 kB 1.5 MB/s eta 0:00:00
+#12 172.8 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#12 172.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 3.2 MB/s eta 0:00:00
+#12 173.0 Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#12 173.1 Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+#12 173.3 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+#12 173.4 Downloading multiprocess-0.70.19-py311-none-any.whl (144 kB)
+#12 173.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 144.5/144.5 kB 2.6 MB/s eta 0:00:00
+#12 173.5 Downloading narwhals-2.26.0-py3-none-any.whl (474 kB)
+#12 173.7    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 474.0/474.0 kB 2.8 MB/s eta 0:00:00
+#12 173.8 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#12 173.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 3.9 MB/s eta 0:00:00
+#12 174.0 Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+#12 174.1 Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl (50.1 MB)
+#12 199.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 MB 1.7 MB/s eta 0:00:00
+#12 200.0 Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+#12 200.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 2.7 MB/s eta 0:00:00
+#12 200.4 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#12 200.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 6.1 MB/s eta 0:00:00
+#12 200.5 Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+#12 215.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 2.4 MB/s eta 0:00:00
+#12 215.1 Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+#12 215.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 3.4 MB/s eta 0:00:00
+#12 215.4 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#12 215.6 Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+#12 215.7 Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+#12 215.8 Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+#12 215.9 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#12 216.0 Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+#12 216.2 Downloading absl_py-2.5.0-py3-none-any.whl (137 kB)
+#12 216.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.4/137.4 kB 3.7 MB/s eta 0:00:00
+#12 216.3 Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+#12 216.4 Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+#12 218.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 2.5 MB/s eta 0:00:00
+#12 218.7 Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+#12 219.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.8 MB/s eta 0:00:00
+#12 219.5 Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (802 kB)
+#12 220.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 803.0/803.0 kB 1.9 MB/s eta 0:00:00
+#12 220.1 Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+#12 225.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 2.2 MB/s eta 0:00:00
+#12 225.3 Downloading portalocker-4.4.0-py3-none-any.whl (129 kB)
+#12 225.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.6/129.6 kB 3.5 MB/s eta 0:00:00
+#12 225.5 Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+#12 225.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 261.0/261.0 kB 3.7 MB/s eta 0:00:00
+#12 225.7 Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+#12 226.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.7 MB/s eta 0:00:00
+#12 226.4 Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+#12 226.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 3.5 MB/s eta 0:00:00
+#12 226.6 Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+#12 226.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 627.2/627.2 kB 3.4 MB/s eta 0:00:00
+#12 226.9 Downloading charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (262 kB)
+#12 227.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 262.3/262.3 kB 2.0 MB/s eta 0:00:00
+#12 227.1 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#12 227.3 Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+#12 229.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 1.8 MB/s eta 0:00:00
+#12 229.9 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#12 229.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 178.5 MB/s eta 0:00:00
+#12 230.0 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#12 230.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 632.8 kB/s eta 0:00:00
+#12 230.5 Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+#12 230.8    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 508.3/508.3 kB 2.0 MB/s eta 0:00:00
+#12 230.9 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#12 230.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 3.6 MB/s eta 0:00:00
+#12 231.0 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#12 231.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 3.0 MB/s eta 0:00:00
+#12 231.2 Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+#12 231.3 Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+#12 231.4 Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+#12 231.8 Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+#12 232.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 231.1/231.1 kB 465.5 kB/s eta 0:00:00
+#12 232.7 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#12 232.8 Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (320 kB)
+#12 233.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 320.7/320.7 kB 1.7 MB/s eta 0:00:00
+#12 233.1 Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+#12 233.2    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 235.4/235.4 kB 2.6 MB/s eta 0:00:00
+#12 233.4 Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+#12 233.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.7/117.7 kB 2.0 MB/s eta 0:00:00
+#12 233.6 Saved /wheels/click-8.5.0-py3-none-any.whl
+#12 233.6 Saved /wheels/jsonschema-4.26.0-py3-none-any.whl
+#12 233.6 Saved /wheels/lm_eval-0.4.13-py3-none-any.whl
+#12 233.6 Saved /wheels/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#12 233.6 Saved /wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl
+#12 233.6 Saved /wheels/rich-15.0.0-py3-none-any.whl
+#12 233.6 Saved /wheels/attrs-26.1.0-py3-none-any.whl
+#12 233.6 Saved /wheels/datasets-5.0.1-py3-none-any.whl
+#12 233.6 Saved /wheels/dill-0.4.1-py3-none-any.whl
+#12 233.6 Saved /wheels/diskcache-5.6.3-py3-none-any.whl
+#12 233.6 Saved /wheels/evaluate-0.4.6-py3-none-any.whl
+#12 233.6 Saved /wheels/jinja2-3.1.6-py3-none-any.whl
+#12 233.6 Saved /wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl
+#12 233.6 Saved /wheels/markdown_it_py-4.2.0-py3-none-any.whl
+#12 233.6 Saved /wheels/pygments-2.21.0-py3-none-any.whl
+#12 233.6 Saved /wheels/referencing-0.37.0-py3-none-any.whl
+#12 233.6 Saved /wheels/rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+#12 233.6 Saved /wheels/sacrebleu-2.6.0-py3-none-any.whl
+#12 233.6 Saved /wheels/scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#12 233.6 Saved /wheels/tqdm-4.70.1-py3-none-any.whl
+#12 233.6 Saved /wheels/typing_extensions-4.16.0-py3-none-any.whl
+#12 233.6 Saved /wheels/more_itertools-11.1.0-py3-none-any.whl
+#12 233.6 Saved /wheels/pytablewriter-1.2.1-py3-none-any.whl
+#12 233.6 Saved /wheels/dataproperty-1.1.1-py3-none-any.whl
+#12 233.6 Saved /wheels/fsspec-2026.6.0-py3-none-any.whl
+#12 233.6 Saved /wheels/httpx-0.28.1-py3-none-any.whl
+#12 233.6 Saved /wheels/httpcore-1.0.9-py3-none-any.whl
+#12 233.6 Saved /wheels/huggingface_hub-1.32.0-py3-none-any.whl
+#12 233.6 Saved /wheels/filelock-4.0.1-py3-none-any.whl
+#12 233.6 Saved /wheels/joblib-1.6.0-py3-none-any.whl
+#12 233.6 Saved /wheels/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.6 Saved /wheels/mbstrdecoder-1.1.5-py3-none-any.whl
+#12 233.6 Saved /wheels/mdurl-0.1.2-py3-none-any.whl
+#12 233.6 Saved /wheels/multiprocess-0.70.19-py311-none-any.whl
+#12 233.6 Saved /wheels/narwhals-2.26.0-py3-none-any.whl
+#12 233.6 Saved /wheels/packaging-26.3-py3-none-any.whl
+#12 233.6 Saved /wheels/pathvalidate-3.3.1-py3-none-any.whl
+#12 233.7 Saved /wheels/pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/requests-2.34.2-py3-none-any.whl
+#12 233.7 Saved /wheels/scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/setuptools-84.0.0-py3-none-any.whl
+#12 233.7 Saved /wheels/six-1.17.0-py2.py3-none-any.whl
+#12 233.7 Saved /wheels/tabledata-1.3.5-py3-none-any.whl
+#12 233.7 Saved /wheels/tabulate-0.10.0-py3-none-any.whl
+#12 233.7 Saved /wheels/tcolorpy-0.1.7-py3-none-any.whl
+#12 233.7 Saved /wheels/threadpoolctl-3.7.0-py3-none-any.whl
+#12 233.7 Saved /wheels/typepy-1.3.5-py3-none-any.whl
+#12 233.7 Saved /wheels/absl_py-2.5.0-py3-none-any.whl
+#12 233.7 Saved /wheels/colorama-0.4.6-py2.py3-none-any.whl
+#12 233.7 Saved /wheels/lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/nltk-3.10.3-py3-none-any.whl
+#12 233.7 Saved /wheels/regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/portalocker-4.4.0-py3-none-any.whl
+#12 233.7 Saved /wheels/xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/certifi-2026.7.22-py3-none-any.whl
+#12 233.7 Saved /wheels/chardet-6.0.0.post1-py3-none-any.whl
+#12 233.7 Saved /wheels/charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/cloudpickle-3.1.2-py3-none-any.whl
+#12 233.7 Saved /wheels/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+#12 233.7 Saved /wheels/idna-3.20-py3-none-any.whl
+#12 233.7 Saved /wheels/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+#12 233.7 Saved /wheels/pytz-2026.3.post1-py2.py3-none-any.whl
+#12 233.7 Saved /wheels/urllib3-2.8.0-py3-none-any.whl
+#12 233.7 Saved /wheels/anyio-4.15.1-py3-none-any.whl
+#12 233.7 Saved /wheels/defusedxml-0.7.1-py2.py3-none-any.whl
+#12 233.7 Saved /wheels/aiohappyeyeballs-2.7.1-py3-none-any.whl
+#12 233.7 Saved /wheels/aiosignal-1.4.0-py3-none-any.whl
+#12 233.7 Saved /wheels/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+#12 233.7 Saved /wheels/h11-0.16.0-py3-none-any.whl
+#12 233.7 Saved /wheels/multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 233.7 Saved /wheels/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+#12 234.2 Building wheels for collected packages: adtc-profiler, llama-cpp-python, rouge-score, sqlitedict, word2number
+#12 234.2   Building wheel for adtc-profiler (pyproject.toml): started
+#12 234.2   Building wheel for adtc-profiler (pyproject.toml): finished with status 'done'
+#12 234.2   Created wheel for adtc-profiler: filename=adtc_profiler-0.1.0-py3-none-any.whl size=28745 sha256=88e8b6b6c52142cd055210a0ba6170a436af6620b0a2830dba7e7a4be8dc8b1e
+#12 234.2   Stored in directory: /tmp/pip-ephem-wheel-cache-jtfuoyov/wheels/ca/78/b1/45d8b4b048a217bc19bf80e7c8a06a66a56b0d5679d965968e
+#12 234.2   Building wheel for llama-cpp-python (pyproject.toml): started
+#12 294.9   Building wheel for llama-cpp-python (pyproject.toml): still running...
+#12 333.0   Building wheel for llama-cpp-python (pyproject.toml): finished with status 'done'
+#12 333.0   Created wheel for llama-cpp-python: filename=llama_cpp_python-0.3.35-py3-none-linux_x86_64.whl size=21240746 sha256=12609b27f1706b206649cb732f685d04607c68a3eab6a5dd9eba5234de3bc15d
+#12 333.0   Stored in directory: /tmp/pip-ephem-wheel-cache-jtfuoyov/wheels/89/43/13/b04c479bd7d5b7d18c86dfb94d12034986ccb2a44215487f40
+#12 333.1   Building wheel for rouge-score (setup.py): started
+#12 333.2   Building wheel for rouge-score (setup.py): finished with status 'done'
+#12 333.2   Created wheel for rouge-score: filename=rouge_score-0.1.2-py3-none-any.whl size=24987 sha256=170a20231ffd79dbc9c900ab08c0a22dbea01e375e834aed8101ae9ec94f2784
+#12 333.2   Stored in directory: /tmp/pip-ephem-wheel-cache-jtfuoyov/wheels/1e/19/43/8a442dc83660ca25e163e1bd1f89919284ab0d0c1475475148
+#12 333.2   Building wheel for sqlitedict (setup.py): started
+#12 333.3   Building wheel for sqlitedict (setup.py): finished with status 'done'
+#12 333.3   Created wheel for sqlitedict: filename=sqlitedict-2.1.0-py3-none-any.whl size=16959 sha256=9d88c10c0fb342e1022400fc669eabf38a92811cc92d3e6db654ba10386af91e
+#12 333.3   Stored in directory: /tmp/pip-ephem-wheel-cache-jtfuoyov/wheels/73/63/89/7210274f9b7fb033b8f22671f64c0e0b55083d30c3c046a3ff
+#12 333.3   Building wheel for word2number (setup.py): started
+#12 333.5   Building wheel for word2number (setup.py): finished with status 'done'
+#12 333.5   Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5658 sha256=c53d223a470c4d0229e97bf6bca9461223de7e7008c8553eab573096988bb1ab
+#12 333.5   Stored in directory: /tmp/pip-ephem-wheel-cache-jtfuoyov/wheels/cd/ef/ae/073b491b14d25e2efafcffca9e16b2ee6d114ec5c643ba4f06
+#12 333.5 Successfully built adtc-profiler llama-cpp-python rouge-score sqlitedict word2number
+#12 334.2 
+#12 334.2 [notice] A new release of pip is available: 24.0 -> 26.2.1
+#12 334.2 [notice] To update, run: pip install --upgrade pip
+#12 DONE 335.2s
+
+#13 [runtime 3/8] COPY --from=llama-build /src/llama.cpp/build/bin/llama-bench  /usr/local/bin/
+#13 CACHED
+
+#14 [runtime 4/8] COPY --from=llama-build /src/llama.cpp/build/bin/llama-cli    /usr/local/bin/
+#14 CACHED
+
+#15 [runtime 2/8] RUN apt-get update && apt-get install -y --no-install-recommends       git curl ca-certificates lm-sensors libgomp1     && rm -rf /var/lib/apt/lists/*
+#15 CACHED
+
+#16 [llama-build 2/3] RUN apt-get update && apt-get install -y --no-install-recommends       build-essential cmake git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#16 CACHED
+
+#17 [llama-build 3/3] RUN git clone --depth 1 --branch "b10175"       https://github.com/ggerganov/llama.cpp.git /src/llama.cpp     && cd /src/llama.cpp     && cmake -B build         -DBUILD_SHARED_LIBS=OFF         -DGGML_NATIVE=OFF         -DGGML_AVX=OFF         -DGGML_AVX2=OFF         -DGGML_AVX512=OFF         -DGGML_FMA=OFF         -DGGML_F16C=OFF         -DGGML_BLAS=OFF         -DGGML_CUDA=OFF         -DGGML_METAL=OFF     && cmake --build build --config Release --target llama-bench llama-cli llama-server -j2
+#17 CACHED
+
+#18 [runtime 5/8] COPY --from=llama-build /src/llama.cpp/build/bin/llama-server /usr/local/bin/
+#18 CACHED
+
+#19 [runtime 6/8] COPY --from=py-build /wheels /wheels
+#19 DONE 0.2s
+
+#20 [runtime 7/8] RUN pip install --no-cache-dir --no-index --find-links=/wheels adtc-profiler     && rm -rf /wheels
+#20 1.144 Looking in links: /wheels
+#20 1.153 Processing /wheels/adtc_profiler-0.1.0-py3-none-any.whl
+#20 1.163 Processing /wheels/click-8.5.0-py3-none-any.whl (from adtc-profiler)
+#20 1.167 Processing /wheels/jsonschema-4.26.0-py3-none-any.whl (from adtc-profiler)
+#20 1.173 Processing /wheels/llama_cpp_python-0.3.35-py3-none-linux_x86_64.whl (from adtc-profiler)
+#20 1.191 Processing /wheels/lm_eval-0.4.13-py3-none-any.whl (from adtc-profiler)
+#20 1.248 Processing /wheels/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from adtc-profiler)
+#20 1.268 Processing /wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (from adtc-profiler)
+#20 1.273 Processing /wheels/rich-15.0.0-py3-none-any.whl (from adtc-profiler)
+#20 1.285 Processing /wheels/attrs-26.1.0-py3-none-any.whl (from jsonschema>=4.21.0->adtc-profiler)
+#20 1.289 Processing /wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl (from jsonschema>=4.21.0->adtc-profiler)
+#20 1.293 Processing /wheels/referencing-0.37.0-py3-none-any.whl (from jsonschema>=4.21.0->adtc-profiler)
+#20 1.296 Processing /wheels/rpds_py-2026.6.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from jsonschema>=4.21.0->adtc-profiler)
+#20 1.311 Processing /wheels/typing_extensions-4.16.0-py3-none-any.whl (from llama-cpp-python>=0.3.0->adtc-profiler)
+#20 1.315 Processing /wheels/diskcache-5.6.3-py3-none-any.whl (from llama-cpp-python>=0.3.0->adtc-profiler)
+#20 1.319 Processing /wheels/jinja2-3.1.6-py3-none-any.whl (from llama-cpp-python>=0.3.0->adtc-profiler)
+#20 1.364 Processing /wheels/datasets-5.0.1-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.370 Processing /wheels/evaluate-0.4.6-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.375 Processing /wheels/pytablewriter-1.2.1-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.379 Processing /wheels/rouge_score-0.1.2-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.383 Processing /wheels/sacrebleu-2.6.0-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.389 Processing /wheels/scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.401 Processing /wheels/sqlitedict-2.1.0-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.405 Processing /wheels/dill-0.4.1-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.409 Processing /wheels/word2number-1.1-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.413 Processing /wheels/more_itertools-11.1.0-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.417 Processing /wheels/tqdm-4.70.1-py3-none-any.whl (from lm-eval>=0.4.4->adtc-profiler)
+#20 1.440 Processing /wheels/markdown_it_py-4.2.0-py3-none-any.whl (from rich>=13.0.0->adtc-profiler)
+#20 1.444 Processing /wheels/pygments-2.21.0-py3-none-any.whl (from rich>=13.0.0->adtc-profiler)
+#20 1.502 Processing /wheels/filelock-4.0.1-py3-none-any.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.506 Processing /wheels/pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.544 Processing /wheels/pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.562 Processing /wheels/requests-2.34.2-py3-none-any.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.566 Processing /wheels/httpx-0.28.1-py3-none-any.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.570 Processing /wheels/xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.574 Processing /wheels/multiprocess-0.70.19-py311-none-any.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.578 Processing /wheels/fsspec-2026.6.0-py3-none-any.whl (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.583 Processing /wheels/huggingface_hub-1.32.0-py3-none-any.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.585 Requirement already satisfied: packaging in /usr/local/lib/python3.11/site-packages (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler) (26.3)
+#20 1.588 Processing /wheels/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.627 Processing /wheels/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from jinja2>=2.11.3->llama-cpp-python>=0.3.0->adtc-profiler)
+#20 1.643 Processing /wheels/mdurl-0.1.2-py3-none-any.whl (from markdown-it-py>=2.2.0->rich>=13.0.0->adtc-profiler)
+#20 1.655 Processing /wheels/absl_py-2.5.0-py3-none-any.whl (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler)
+#20 1.659 Processing /wheels/nltk-3.10.3-py3-none-any.whl (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler)
+#20 1.665 Processing /wheels/six-1.17.0-py2.py3-none-any.whl (from rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler)
+#20 1.678 Processing /wheels/portalocker-4.4.0-py3-none-any.whl (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.682 Processing /wheels/regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.687 Processing /wheels/tabulate-0.10.0-py3-none-any.whl (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.691 Processing /wheels/colorama-0.4.6-py2.py3-none-any.whl (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.695 Processing /wheels/lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (from sacrebleu>=1.5.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.706 Processing /wheels/scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler)
+#20 1.737 Processing /wheels/joblib-1.6.0-py3-none-any.whl (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler)
+#20 1.742 Processing /wheels/narwhals-2.26.0-py3-none-any.whl (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler)
+#20 1.747 Processing /wheels/threadpoolctl-3.7.0-py3-none-any.whl (from scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler)
+#20 1.788 Requirement already satisfied: setuptools>=38.3.0 in /usr/local/lib/python3.11/site-packages (from pytablewriter->lm-eval>=0.4.4->adtc-profiler) (79.0.1)
+#20 1.792 Processing /wheels/dataproperty-1.1.1-py3-none-any.whl (from pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.795 Processing /wheels/mbstrdecoder-1.1.5-py3-none-any.whl (from pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.799 Processing /wheels/pathvalidate-3.3.1-py3-none-any.whl (from pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.804 Processing /wheels/tabledata-1.3.5-py3-none-any.whl (from pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.807 Processing /wheels/tcolorpy-0.1.7-py3-none-any.whl (from pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.811 Processing /wheels/typepy-1.3.5-py3-none-any.whl (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 1.891 Processing /wheels/aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.904 Processing /wheels/anyio-4.15.1-py3-none-any.whl (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.908 Processing /wheels/certifi-2026.7.22-py3-none-any.whl (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.911 Processing /wheels/httpcore-1.0.9-py3-none-any.whl (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.915 Processing /wheels/idna-3.20-py3-none-any.whl (from httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.924 Processing /wheels/h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 1.981 Processing /wheels/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from huggingface-hub<2.0,>=0.25.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.003 Processing /wheels/cloudpickle-3.1.2-py3-none-any.whl (from joblib>=1.4.0->scikit-learn>=0.24.1->lm-eval>=0.4.4->adtc-profiler)
+#20 2.015 Processing /wheels/chardet-6.0.0.post1-py3-none-any.whl (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 2.059 Processing /wheels/charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.064 Processing /wheels/urllib3-2.8.0-py3-none-any.whl (from requests>=2.32.2->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.147 Processing /wheels/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 2.152 Processing /wheels/pytz-2026.3.post1-py2.py3-none-any.whl (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval>=0.4.4->adtc-profiler)
+#20 2.184 Processing /wheels/defusedxml-0.7.1-py2.py3-none-any.whl (from nltk->rouge-score>=0.0.4->lm-eval>=0.4.4->adtc-profiler)
+#20 2.255 Processing /wheels/aiohappyeyeballs-2.7.1-py3-none-any.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.259 Processing /wheels/aiosignal-1.4.0-py3-none-any.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.264 Processing /wheels/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.269 Processing /wheels/multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.273 Processing /wheels/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.278 Processing /wheels/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.16.0->lm-eval>=0.4.4->adtc-profiler)
+#20 2.916 Installing collected packages: word2number, sqlitedict, pytz, xxhash, urllib3, typing-extensions, tqdm, threadpoolctl, tcolorpy, tabulate, six, rpds-py, regex, pyyaml, pygments, pyarrow, psutil, propcache, portalocker, pathvalidate, numpy, narwhals, multidict, more_itertools, mdurl, MarkupSafe, lxml, idna, hf-xet, h11, fsspec, frozenlist, filelock, diskcache, dill, defusedxml, colorama, cloudpickle, click, charset_normalizer, chardet, certifi, attrs, aiohappyeyeballs, absl-py, yarl, scipy, sacrebleu, requests, referencing, python-dateutil, multiprocess, mbstrdecoder, markdown-it-py, joblib, jinja2, httpcore, anyio, aiosignal, typepy, scikit-learn, rich, pandas, nltk, llama-cpp-python, jsonschema-specifications, httpx, aiohttp, rouge-score, jsonschema, huggingface-hub, datasets, DataProperty, tabledata, evaluate, pytablewriter, lm-eval, adtc-profiler
+#20 17.18 Successfully installed DataProperty-1.1.1 MarkupSafe-3.0.3 absl-py-2.5.0 adtc-profiler-0.1.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 anyio-4.15.1 attrs-26.1.0 certifi-2026.7.22 chardet-6.0.0.post1 charset_normalizer-3.5.1 click-8.5.0 cloudpickle-3.1.2 colorama-0.4.6 datasets-5.0.1 defusedxml-0.7.1 dill-0.4.1 diskcache-5.6.3 evaluate-0.4.6 filelock-4.0.1 frozenlist-1.8.0 fsspec-2026.6.0 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.32.0 idna-3.20 jinja2-3.1.6 joblib-1.6.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 llama-cpp-python-0.3.35 lm-eval-0.4.13 lxml-6.1.3 markdown-it-py-4.2.0 mbstrdecoder-1.1.5 mdurl-0.1.2 more_itertools-11.1.0 multidict-6.9.1 multiprocess-0.70.19 narwhals-2.26.0 nltk-3.10.3 numpy-2.4.6 pandas-3.0.6 pathvalidate-3.3.1 portalocker-4.4.0 propcache-0.5.4 psutil-7.2.2 pyarrow-25.0.1 pygments-2.21.0 pytablewriter-1.2.1 python-dateutil-2.9.0.post0 pytz-2026.3.post1 pyyaml-6.0.3 referencing-0.37.0 regex-2026.9.10 requests-2.34.2 rich-15.0.0 rouge-score-0.1.2 rpds-py-2026.6.3 sacrebleu-2.6.0 scikit-learn-1.9.1 scipy-1.17.1 six-1.17.0 sqlitedict-2.1.0 tabledata-1.3.5 tabulate-0.10.0 tcolorpy-0.1.7 threadpoolctl-3.7.0 tqdm-4.70.1 typepy-1.3.5 typing-extensions-4.16.0 urllib3-2.8.0 word2number-1.1 xxhash-4.0.1 yarl-1.25.1
+#20 17.18 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#20 DONE 17.5s
+
+#21 [runtime 8/8] WORKDIR /work
+#21 DONE 0.1s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 20.3s done
+#22 exporting manifest sha256:f24f72feadc570687deab827f9b062900ad2ab369a3ff29d53ebc0859fa31df6 done
+#22 exporting config sha256:c12b9f738bb492fa81ef92f68a37bee940d7ba93371597c7c366d5d9c9d429f2 done
+#22 exporting attestation manifest sha256:22cc4091a0d96e990b998e951b37c5b70147b152f2c8624fd3e3aa7399fc03fa 0.0s done
+#22 exporting manifest list sha256:7f78d3c0b95e1dc1f34f0739360519b585f1896988cc7226bed88ed4309f559d done
+#22 naming to docker.io/library/adtc-profiler:latest done
+#22 unpacking to docker.io/library/adtc-profiler:latest
+#22 unpacking to docker.io/library/adtc-profiler:latest 4.6s done
+#22 DONE 24.9s

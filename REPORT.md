@@ -480,69 +480,64 @@ unseen material, and we would rather state that than imply we solved it.
 
 Every speed, memory and temperature figure in this section comes from `adtc-profiler` itself
 and from no tool of ours, run the way the organizers run it: inside the Docker image built from
-the profiler's own Dockerfile on 20 September, which compiles llama.cpp `b10175` with AVX, AVX2,
-AVX512, FMA and F16C all turned off, in a container limited to 7.5 GB of memory and to four
-CPUs, with 4 threads and the network switched off. The machine is a replica of the evaluation
-profile: an Intel Core i5-1335U with 7.4 GB of RAM, no GPU, Debian 13. The image build logs, the
-three JSON reports, their logs and the thermal trace are in `provenance/evaluation/target_machine/`,
-under `v4-q4-*`, `thermo-20260921-124507.csv` and `docker-build-20260920*`.
+the profiler's own Dockerfile, which compiles llama.cpp `b10175` with AVX, AVX2, AVX512, FMA and
+F16C all turned off, in a container limited to 7.5 GB of memory and to four CPUs, with 4
+threads and the network switched off. The machine is a replica of the evaluation profile: an
+Intel Core i5-1335U with 7.4 GB of RAM, no GPU, Debian 13. The image build log, the three JSON
+reports, their logs and the thermal trace are in `provenance/evaluation/target_machine/`, under
+`v4-q4-*`, `thermo-20260921-190846.csv` and `docker-build-20260921-1901.log`.
 
-**Which file these numbers come from.** The shipped one. All three runs below were made on
-21 September on `adtc-agritgllm-adviser-v4-Q4_K_M.gguf`, downloaded by `download_model.sh` from
-the pinned Hugging Face commit into a fresh clone of this repository at commit `4a1494c`, which
-is the `git_commit_sha` the profiler wrote on its own into each report, after the download
-script had verified the SHA256 `c7ede5aa...f386b`. The runs of the previous day on the earlier
-file of this round, `v3-q4-*`, and those on the file first published for the round, `egrpo-q4-*`,
+**Which file these numbers come from.** The shipped one. All three runs below were made on the
+evening of 21 September on `adtc-agritgllm-adviser-v4-Q4_K_M.gguf`, downloaded by
+`download_model.sh` from the pinned Hugging Face commit into a fresh clone of this repository at
+commit `818c9bb`, which is the `git_commit_sha` the profiler wrote on its own into each report,
+after the download script had verified the SHA256 `c7ede5aa...f386b`. The image was rebuilt the
+same evening from the profiler at commit `7f117dd`, the one that accepts the `provenance` object
+of the Gate 2 template (section 7); the reports carry `"schema_version": "1.3.0"` and the
+provenance block copied from `metadata.json`. The runs of the previous day on the earlier file
+of this round, `v3-q4-*`, and those on the file first published for the round, `egrpo-q4-*`,
 are kept next to them for comparison.
 
-One detail of these three reports has to be said. The profiler in the image, commit `12be4f3`,
-still validated `metadata.json` against a schema that did not know the `provenance` object the
-Gate 2 template asks for, and refused the file as committed. The runs were therefore made on a
-copy of the working tree in which that one key was renamed `_provenance`, which the profiler
-ignores; nothing else was touched, and the reports show `"schema_version": "1.2.0"` and no
-provenance block for that reason. We reported the conflict to the organizers, who fixed the
-profiler the same day (commit `7f117dd`, schema `1.3.0`); section 7 says what that fix changed in
-`metadata.json` and how we verified it.
+**Throughput.** Three runs: **17.07 tok/s on the first run**, then 16.38 once the machine had
+heated, and 16.97 on the full run that also scores accuracy. First token after the 512 token
+prompt: 22,744, 22,579 and 22,710 ms. The spread is 0.69 tok/s, about 4 per cent. All three sit
+above the 15 tok/s where the performance score saturates, and in line with the v3 file the day
+before (16.74, 16.24, 16.26), which has the same architecture, the same quantization and exactly
+the same size, 468,624,800 bytes.
 
-We do not report numbers from our development laptop. On the very file audited in Round 1, that
-laptop measured about ten times faster than the audit environment. Rule 3.4 penalises an
-unexplained gap between what we declare and what organizers measure, and the only way to avoid
-the gap is never to quote the wrong machine.
+We also keep, under `v4-q4-*-midi-schema120.*` and `thermo-20260921-124507.csv`, an earlier
+session of the same day on the same file, made with the previous image (profiler `12be4f3`,
+which still rejected the `provenance` object, so it was run on a working copy with that one key
+renamed `_provenance`). It measured 14.62, 14.55 and 14.52 tok/s, below the saturation point.
+The trace of that session shows the processor holding 3,640 MHz on average during the runs
+against 3,860 in the evening, and the first run started at 61 degrees after two attempts the
+old schema had refused. Same file, same machine, same recipe, 15 per cent apart: that is the
+size of the effect the machine's thermal state has on this number, and an audit run on a laptop
+that is not cold can land on either side of 15 tok/s. We quote the evening figures because they
+come from the profiler as published for Gate 2 and from the repository as pushed, and we keep
+the noon ones because hiding them would make the evening ones look more certain than they are.
 
-**Throughput.** Three runs: **14.62 tok/s on the first run**, then 14.55 once the machine had
-heated, and 14.52 on the full run that also scores accuracy. First token after the 512 token
-prompt: 24,164, 24,424 and 24,269 ms. The spread is 0.10 tok/s, under 1 per cent. All three sit
-just under the 15 tok/s where the performance score saturates, and this is a step down from the
-file of the previous day: on the same machine, the same image and the same recipe, the v3 file
-measured 16.74, 16.24 and 16.26. The two files have the same architecture, the same
-quantization and exactly the same size, 468,624,800 bytes, so the weights themselves cannot
-explain a 13 per cent gap. What differs is the machine's state: the v3 runs started from a cold
-laptop, while the first v4 run started at 61 degrees after two attempts that the schema had
-refused (the paragraph above), and the trace below shows the processor holding 3,600 MHz on
-average against 3,850 the day before. We cannot prove that this is the whole difference, so we
-quote the figure the profiler wrote, 14.6, and not the one we would prefer.
-
-**Memory.** Peak resident set 556.9, 557.3 and 557.1 MB against a 7.5 GB limit, steady state
-514 to 517 MB, for a file of 447 MiB. Only 6 of the 16 layers keep a key-value cache, so the
-working set grows slowly as a conversation gets longer. Free memory on the host never went below
-2.8 GB during the whole session, and that low point was reached while the image was being
-refreshed, not during a run. There is no realistic path to an out-of-memory failure on this
-profile.
+**Memory.** Peak resident set 557.2, 557.4 and 557.2 MB against a 7.5 GB limit, steady state
+521 to 522 MB, for a file of 447 MiB, identical to the noon session and to the v3 file. Only 6
+of the 16 layers keep a key-value cache, so the working set grows slowly as a conversation gets
+longer. Free memory on the host never went below 4.8 GB during the whole session. There is no
+realistic path to an out-of-memory failure on this profile.
 
 **Accuracy, as the profiler measures it.** The full run scores `arc_easy` at 0.66 `acc_norm` on
-50 samples; the v3 file scored 0.68 and the file before it 0.64, and one sample out of fifty
-separates each of these from the next. It is a general knowledge benchmark in English, not an
-agricultural one, and 50 samples carry a wide error bar; we record it because the profiler
-does, not because it says much about the job.
+50 samples, the same value as at noon; the v3 file scored 0.68 and the file before it 0.64, and
+one sample out of fifty separates each of these from the next. It is a general knowledge
+benchmark in English, not an agricultural one, and 50 samples carry a wide error bar; we record
+it because the profiler does, not because it says much about the job.
 
 **Temperature, and this one is against us.** All three runs report `"throttled": true`, with a
-core peak of 98, 98 and 97 degrees, and this with the audit recipe of four threads on four
-CPUs. The thermal trace, 622 samples over 3,119 seconds, shows what is actually happening: three
-hot windows of 186 seconds each, one per `llama-bench` pass, plus a fourth of 66 seconds for the
-accuracy pass, during which the processor holds 2,900 to 4,300 MHz, 3,640 on average. It is not
-collapsing, it is working at its power limit, which is normal behaviour for this class of chip
-and its 100 degree junction limit. After each window it returns to 60 degrees within 30 to 160
-seconds.
+core peak of 100, 98 and 100 degrees, and this with the audit recipe of four threads on four
+CPUs. The thermal trace, 560 samples over 2,812 seconds, shows what is actually happening: three
+hot windows of 166, 166 and 176 seconds, one per `llama-bench` pass, plus a fourth of 55 seconds
+for the accuracy pass, during which the processor holds 3,300 to 4,300 MHz, 3,860 on average. It
+is not collapsing, it is working at its power limit, which is normal behaviour for this class
+of chip and its 100 degree junction limit. After each window it returns to 60 degrees within
+about 30 seconds. Over the whole session the core spent 575 seconds above 85 degrees, 21 per
+cent of the time.
 
 What that changes from our earlier reading: we had hoped that going down to four threads would
 clear the flag while keeping the score above 15 tok/s. Four threads is exactly what the recipe
