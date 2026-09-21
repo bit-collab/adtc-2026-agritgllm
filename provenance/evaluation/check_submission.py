@@ -83,7 +83,7 @@ def main():
     # pas dans sa liste fait echouer la mesure avant meme qu'elle commence, sauf les cles en
     # "_" qu'il retire lui-meme. Le 20/09 il a rejete un bloc "reproducibility" ecrit a la
     # main ; ces deux controles empechent que ca se reproduise.
-    RACINE_OK = {"team_id", "domain", "language_scope", "african_alpha_claim", "budget_laptop_claim",
+    RACINE_OK = {"team_id", "domain", "language_scope", "african_alpha_claim", "budget_laptop_claim", "provenance",
                  "submitter", "cross_disciplinary_pairing", "test_prompts", "model"}
     MODELE_OK = {"name", "runtime", "quantization", "parameters_estimate", "packaging", "base_model_commit_sha"}
     hors = sorted(k for k in d if not k.startswith("_") and k not in RACINE_OK)
