@@ -1,36 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 8 - a WIDE, stable score, because 12 binary items cannot tell two models apart.
-
-The problem, measured on 13/09/2026: across six variants of the same model the 12-item battery
-gave 5 to 7 passes in greedy and 0 to 3 at pass^5. One item flipping is worth 8 points, so the
-column moved more from luck than from training. Every decision we take needs a number with a
-small enough error bar to be trusted.
-
-This script builds that number on HUNDREDS of questions instead of twelve, and it is
-DETERMINISTIC first - no model, nothing to pay, reproducible:
-
-  faults   the blocking lint of the pipeline (check.Checker): a figure that is not in the fact,
-           a crop or animal that is not the subject, an unknown proper name, an invented month
-           or weekday, a service that is not in the material, a bare referral, "the fiche" said
-           out loud. These are the round-1 jury's own complaints, written as rules.
-  grounded the answer shares at least GROUND_MIN of the reference answer's content words - it
-           talks about the same thing, in its own words.
-  form     no loop (same 4-gram four times), no cut at max_tokens, length within the fiche's
-           own bounds (40-200 words).
-  A question COUNTS AS GOOD when the three hold. With k draws per question we report
-  pass@1 (share of good draws) and pass^k (questions good on EVERY draw, tau-bench, CME 295 L8).
-
-Optional, with --rubric: the local judge scores each answer on the seven dimensions of the
-AgriGPT paper (arXiv 2508.08632, Table 3: correctness, match, fluency, coherence, relevance,
-logical consistency, completeness), each 0-3 with a written reason BEFORE the score and a
-confidence, the final score being confidence-weighted. Model-based, therefore reported apart
-from the deterministic block, never mixed into it.
-
-Usage (TRAINING venv), from concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\08_bench.py --model train-gate2\\outputs\\gguf\\A3\\agritg-a3-Q6_K.gguf --n 200 -k 3
-    .venv-train\\Scripts\\python train-gate2\\08_bench.py --model ... --set train --n 150 --rubric
-Output: provenance/<tag>/bench-<model>.json  and  bench.md
-"""
 from __future__ import annotations
 import argparse, collections, importlib.util, json, random, re, statistics, sys, time
 from pathlib import Path
@@ -52,8 +19,8 @@ def load_module(name, path):
 CMP = load_module("compare04", HERE / "04_compare.py")
 JURY = load_module("jury05", HERE / "05_jury.py")
 
-GROUND_MIN = 0.25          # same threshold as check.py's "ungrounded" test
-WORDS = (40, 200)          # the length the fiches' own answers keep
+GROUND_MIN = 0.25
+WORDS = (40, 200)
 
 RUBRIC = ["correctness", "match", "fluency", "coherence", "relevance", "logic", "completeness"]
 RUBRIC_SCHEMA = {"type": "object", "additionalProperties": False,
@@ -122,10 +89,6 @@ def main():
     bundles = {b["bundle_id"]: b for b in read_jsonl(G4.BUNDLES)}
     checker = CHK.Checker()
 
-    # --only accepte plusieurs prefixes separes par une virgule, ou un chemin de fichier JSON
-    # contenant {"held_bundles": [...]}. C'est ce qui permet de mesurer separement les paquets
-    # tenus a l'ecart du GRPO : sans cette separation on ne peut pas distinguer -le modele a
-    # appris la matiere- de -le modele a appris le banc-.
     only = None
     if a.only:
         if a.only.lower().endswith(".json"):
@@ -185,9 +148,6 @@ def main():
                     faults["ungrounded"] += 1
                 draws.append({"answer": ans, "ok": ok, "faults": bad, "grounding": g, "words": nw})
                 if a.dump_dpo and bad and r["set"] == "sft_train" and ans != r["reference"]:
-                    # A hard lint fault is a fault the fiche itself contradicts: an invented
-                    # figure, another crop, a service that is not in the material. The reference
-                    # answer of the same question is the chosen side. No model judges this.
                     dpo_rows.append({"row_id": f"bench:{r['bundle_id']}#{i}.{s}",
                                      "bundle_id": r["bundle_id"], "source": "onpolicy:" + bad[0].split(":")[0],
                                      "prompt": r["history"],
@@ -212,10 +172,6 @@ def main():
                       f"pass^{a.k} {sum(1 for x in per_item if x['all_pass']) / len(per_item):.3f}  "
                       f"{CMP.human(el)}  reste ~{CMP.human(el / (i + 1) * (len(rows) - i - 1))}")
 
-    # Le filtre est ecrit DANS la mesure, pas seulement dans le nom du fichier. Corrige le
-    # 18/09/2026 : evolution_report.py devinait le jeu en cherchant "handwritten" ou "holdout"
-    # dans le nom, donc les bancs nommes autrement s'affichaient tous comme "tout" et le rapport
-    # montrait 0,16 et 0,79 sur la meme ligne, pour le meme modele, avec la meme etiquette.
     res = {"model": str(path), "profile": a.profile, "k": a.k, "questions": len(per_item),
            "set": a.set, "only": (list(only) if only else None), "label": a.label,
            "pass_at_1": round(statistics.mean(x["pass_at_1"] for x in per_item), 4),
@@ -230,7 +186,6 @@ def main():
         res["per_set"][s] = {"questions": len(sub),
                              "pass_at_1": round(statistics.mean(x["pass_at_1"] for x in sub), 4),
                              "pass_pow_k": round(sum(1 for x in sub if x["all_pass"]) / len(sub), 4)}
-    # the error bar, so two runs can actually be compared
     n = len(per_item)
     res["pass_at_1_stderr"] = round((res["pass_at_1"] * (1 - res["pass_at_1"]) / n) ** 0.5, 4)
 

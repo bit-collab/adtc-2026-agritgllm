@@ -1,30 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Lot J : le verdict long tient sa position et ne lache pas de chiffre.
-
-Mesure du 19/09/2026, quatre tirages sur trois modeles, douze passages de
-keep_kara_verdict_full_context. Deux choses distinctes sortent de la lecture ligne a ligne,
-et il fallait les separer avant de reparer quoi que ce soit.
-
-1. Sept echecs sur douze ne sont PAS des fautes du modele. Le bareme attend la chaine
-   « do not buy » ou « don't buy » ; le modele ecrit « I won't buy the merchant's package ».
-   C'est le meme verdict a la premiere personne. On ne reecrit pas le bareme pour se donner
-   raison, et on n'ecrit pas non plus des paires pour lui faire produire la chaine attendue :
-   ce serait apprendre la reponse du controle. Le fait est note, il sera dit dans le rapport.
-
-2. Les cinq echecs restants sont reels et l'un d'eux est grave. Le modele de la chaine F
-   repond « have ICAT analyse the soil and prescribe the right dose », puis enchaine
-   « use the currently available nitrogen fertilizer about 100 kg per hectare, then add a
-   soil-specific adjustment of up to 50 kg per hectare ». Il donne la dose qu'il vient de dire
-   de ne pas prendre sans analyse, et le second chiffre n'existe dans aucune fiche. C'est la
-   confusion de role du tour 1, dans sa forme la plus couteuse : un conseil d'achat chiffre.
-
-Les paquets verdict:verdict_depleted_soil_full_context et _thin_context portent 19 et 20
-lignes pour quatre angles seulement (original, paraphrase, expose_q, expose_a), donc une seule
-mise en situation repetee. Le contexte long est justement celui ou le modele decroche. Les
-lignes ci-dessous ajoutent les angles qui manquent : le marchand qui insiste, le voisin qui a
-deja achete, le choix entre deux options, la demande de chiffre frontale, et la question posee
-apres coup. Aucune ne porte de dose.
-"""
 F = "verdict:verdict_depleted_soil_full_context"
 T = "verdict:verdict_depleted_soil_thin_context"
 

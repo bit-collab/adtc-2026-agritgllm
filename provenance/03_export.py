@@ -1,40 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 3 - merge the adapter, convert to GGUF, calibrate an imatrix, quantise. And write down
-everything rule 3.1 asks for while doing it.
-
-What comes out of here is what the jury talks to: a bare GGUF, no RAG, no application, no system
-prompt sent by the caller. Three things therefore have to be baked into the file itself.
-
-  1. THE TEMPLATE. The adapter folder carries the TRAINING template, which marks the assistant
-     content with a {% generation %} block so TRL can build the loss mask. That marker has no
-     meaning outside training and llama.cpp's jinja engine has no reason to accept it, so it must
-     not reach the GGUF. Export installs the same ChatML, without the markers, plus the persona.
-  2. THE PERSONA. The jury sends a user turn and nothing else. If the persona is not in the
-     template, the model has no idea it is AgriTG - and three of the five hidden prompts of
-     round 1 were about the model itself.
-  3. NO THINKING BLOCK. Qwen3's stock template writes "<think>\\n\\n</think>" into every answer.
-     That is pure token cost on the criterion that weighs 0.30. The script stops if it sees one.
-
-Honest about one thing: the LoRA was trained against an NF4-quantised base and is merged here
-into the fp16 base. That is the standard QLoRA export and it is an approximation - the fp16
-weights the adapter is added to are not bit-for-bit the ones it saw. That is exactly why
-04_compare.py measures the GGUF and never the adapter: the acceptance test must run on the
-artefact we actually submit.
-
-Usage (TRAINING venv), from concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\03_export.py                 # DPO adapter if present
-    .venv-train\\Scripts\\python train-gate2\\03_export.py --adapter outputs/sft/A/best_lora
-    .venv-train\\Scripts\\python train-gate2\\03_export.py --with-base     # + the untuned base GGUF
-    .venv-train\\Scripts\\python train-gate2\\03_export.py --quants Q4_K_M --skip-imatrix   (quick)
-
-Produces
-    outputs/merged/<tag>/                  the merged fp16 model (kept: it is the conversion input)
-    outputs/gguf/<tag>/*.gguf              F16 + one file per quantisation, imatrix-calibrated
-    outputs/gguf/<tag>/imatrix.dat         the importance matrix, and the calibration text
-    provenance/<tag>/export_manifest.json  every command run, with its return code and duration
-    provenance/<tag>/metadata.json         rule 3.1: base model, commit, checksums, sizes
-    provenance/<tag>/checksums.txt         sha256, one line per artefact
-"""
 from __future__ import annotations
 import argparse, hashlib, json, os, platform, subprocess, sys, time
 from pathlib import Path
@@ -51,13 +14,6 @@ CHATML_NOSYS = (
 
 
 def baked_template(system: str) -> str:
-    """ChatML that inserts `system` when the caller sends none - which is what the jury does.
-
-    Deliberately plain: no slicing, no {% set %}, no filters. This template is executed by
-    llama.cpp's own jinja engine (minja), not by the Python one, and minja implements a subset.
-    A template that renders here and fails there would only show up as a broken answer in front
-    of the jury. If the caller DOES send a system message, it is rendered by the loop like any
-    other turn and no persona is prepended."""
     lit = system.replace("\\", "\\\\").replace("'", "\\'")
     return (
         "{%- if not (messages and messages[0]['role'] == 'system') %}"
@@ -70,9 +26,6 @@ def baked_template(system: str) -> str:
 
 
 def baked_template_gemma(system: str) -> str:
-    """Same idea for Gemma: its own markers, the assistant role called "model", and the persona
-    merged into the FIRST user turn because Gemma has no system role. Kept as plain as the ChatML
-    one - minja runs it inside llama.cpp, not Python."""
     lit = system.replace("\\", "\\\\").replace("'", "\\'")
     return (
         "{%- for m in messages %}"
@@ -107,7 +60,6 @@ def mb(path: Path) -> float:
 
 
 def run(cmd, log, what, cwd=None):
-    """Run one external command, echo it, keep it in the manifest. Stops the script on failure."""
     cmd = [str(c) for c in cmd]
     printable = " ".join(f'"{c}"' if " " in c else c for c in cmd)
     print(f"\n$ {printable}\n", flush=True)
@@ -145,12 +97,6 @@ def read_jsonl(p):
 
 
 def write_calibration(tok, path: Path) -> dict:
-    """The imatrix calibration text: our own training conversations, rendered exactly the way the
-    served model renders them. Train split ONLY - the five test fiches stay out, or the
-    quantisation would be steered by the very text the test pretends not to know.
-
-    Full conversations, not the questions alone: the importance matrix weighs the activations the
-    model produces, and at serving time most of those tokens are the ANSWER."""
     rows = read_jsonl(C.SPLIT / "sft_train.jsonl")
     blocks, questions = [], set()
     for r in rows:
@@ -192,7 +138,6 @@ def main():
     from transformers import AutoModelForCausalLM, AutoTokenizer
     from peft import PeftModel
 
-    # --- where everything is, checked before an hour of work is spent -------------------------
     adapter = Path(a.adapter) if a.adapter else None
     if adapter is None:
         dpo, sft = C.DPO_OUT / a.tag / "best_lora", C.SFT_OUT / a.tag / "best_lora"
@@ -211,13 +156,8 @@ def main():
     if not a.skip_imatrix and not imatrix_bin.exists():
         print(f"ARRET : llama-imatrix introuvable ({imatrix_bin}). Relance avec --skip-imatrix.")
         return 2
-    # Qwen2Model.set_vocab (conversion/qwen.py, which Qwen3 inherits) tries the sentencepiece
-    # loader first and falls back to the BPE one on FileNotFoundError. But the `import
-    # sentencepiece` happens BEFORE the tokenizer.model check (conversion/base.py:1843), so a
-    # missing package raises ModuleNotFoundError and kills a conversion that would have worked.
-    # Cost us a run on 12/09/2026. Checked here, before the merge, not after.
     try:
-        import sentencepiece  # noqa: F401
+        import sentencepiece
     except ImportError:
         print("ARRET : le paquet sentencepiece manque dans ce venv. convert_hf_to_gguf.py "
               "l'importe avant de decider qu'il n'en a pas besoin, donc la conversion echouerait "
@@ -230,9 +170,6 @@ def main():
     steps, t_all = [], time.time()
 
     print(f"Adaptateur : {adapter}")
-    # 14/09/2026: the base is read from the ADAPTER, not from config.BASE_MODEL. Exporting the
-    # Gemma-270M adapter loaded Qwen3-0.6B and died on a shape mismatch (640 against 1024).
-    # PEFT writes the base it was trained on into adapter_config.json; that is the truth.
     base_id, base_rev = C.BASE_MODEL, C.BASE_REVISION
     cfg_p = adapter / "adapter_config.json"
     if cfg_p.is_file():
@@ -243,7 +180,6 @@ def main():
     print(f"Base       : {base_id} (revision {base_rev})")
     print(f"Sortie     : {gguf}")
 
-    # --- 1. merge -------------------------------------------------------------------------------
     print("\n1/5  fusion de l'adaptateur dans le modele de base en fp16 (CPU)")
     t0 = time.time()
     kw = dict(revision=C.BASE_REVISION, device_map="cpu", low_cpu_mem_usage=True)
@@ -256,10 +192,6 @@ def main():
     model.save_pretrained(str(merged), safe_serialization=True)
 
     tok = AutoTokenizer.from_pretrained(str(adapter))
-    # Gemma 3: the tokenizer carries <image_soft_token> at id 262144 while the TEXT model's
-    # vocab_size is 262144, so convert_hf_to_gguf asserts (base.py get_vocab_base). The token is
-    # the multimodal placeholder; a text-only model can never emit it. Dropped here, and only
-    # when it is out of range - nothing else is touched. Verified 14/09/2026.
     n_vocab = getattr(model.config, "vocab_size", None) or getattr(
         getattr(model.config, "text_config", None), "vocab_size", None)
     extra = [t for t, i in tok.get_vocab().items() if n_vocab and i >= n_vocab]
@@ -267,7 +199,6 @@ def main():
         print(f"  jeton hors vocabulaire retire du tokenizer : {extra} (vocab_size={n_vocab})")
     is_gemma = "gemma" in base_id.lower()
     if is_gemma:
-        # the SFT aligned EOS on <end_of_turn>; the GGUF must carry the same or nothing stops it
         tok.eos_token = "<end_of_turn>"
         tok.chat_template = baked_template_gemma(C.BAKED_SYSTEM)
     else:
@@ -285,22 +216,14 @@ def main():
         tcfg0 = json.loads((merged / "tokenizer_config.json").read_text(encoding="utf-8"))
         tcfg0["added_tokens_decoder"] = {k: x for k, x in tcfg0.get("added_tokens_decoder", {}).items()
                                          if int(k) < n_vocab}
-        # Gemma's tokenizer_config also declares the multimodal placeholders by NAME
-        # (image_token / boi_token / eoi_token); transformers re-adds image_token when it loads,
-        # which puts id 262144 straight back. They mean nothing for a text-only export.
         for k in ("image_token", "boi_token", "eoi_token", "image_token_id"):
             tcfg0.pop(k, None)
-        # transformers 5 re-adds them from this block when the tokenizer is loaded again, which
-        # is what put id 262144 back three times on 14/09/2026.
         msst = tcfg0.get("model_specific_special_tokens")
         if isinstance(msst, dict):
             tcfg0["model_specific_special_tokens"] = {
                 k: v for k, v in msst.items() if "image" not in k.lower()}
         (merged / "tokenizer_config.json").write_text(json.dumps(tcfg0, ensure_ascii=False, indent=1),
                                                       encoding="utf-8")
-    # transformers 5 writes the template to chat_template.jinja and the converter reads that file
-    # (gguf-py/gguf/vocab.py, checked 12/09/2026), but older tooling looks in tokenizer_config.json.
-    # Write both, so whichever is read carries the same template.
     (merged / "chat_template.jinja").write_text(tok.chat_template, encoding="utf-8")
     tcfg = json.loads((merged / "tokenizer_config.json").read_text(encoding="utf-8"))
     tcfg["chat_template"] = tok.chat_template
@@ -312,7 +235,6 @@ def main():
                           "(standard QLoRA export, an approximation)"})
     print(f"  fusionne -> {merged}   ({human(time.time() - t0)})")
 
-    # --- 2. the template the jury will actually hit -----------------------------------------------
     rendered = tok.apply_chat_template([{"role": "user", "content": "Hello, who are you?"}],
                                        tokenize=False, add_generation_prompt=True)
     print("\n2/5  ce que devient un tour utilisateur nu (c'est l'entree du jury)")
@@ -322,8 +244,6 @@ def main():
     if "<think>" in rendered:
         print("ARRET : le gabarit exporte contient encore un bloc <think>.")
         return 2
-    # "generation" alone would match add_generation_prompt, which is legitimate; the training
-    # marker is the {% generation %} ... {% endgeneration %} pair, so look for its closing tag.
     if "endgeneration" in (tok.chat_template or ""):
         print("ARRET : le marqueur d'entrainement {% generation %} est parti dans l'export.")
         return 2
@@ -331,7 +251,6 @@ def main():
         print("ARRET : la persona n'est pas dans le gabarit ; le modele nu ne saura pas qui il est.")
         return 2
 
-    # --- 3. GGUF F16 --------------------------------------------------------------------------------
     print("\n3/5  conversion en GGUF F16")
     params = C.BASE_MODELS.get(a.tag, {}).get("params", "")
     stem = f"agritg-{a.tag.lower()}" + (f"-{params.lower()}" if params else "")
@@ -340,7 +259,6 @@ def main():
         steps, "convert_hf_to_gguf")
     print(f"  F16 : {mb(f16)} Mo")
 
-    # --- 4. imatrix ------------------------------------------------------------------------------------
     imatrix = gguf / "imatrix.dat"
     calib_info = None
     if a.reuse_imatrix and imatrix.exists() and not a.skip_imatrix:
@@ -365,14 +283,10 @@ def main():
         print("\n4/5  imatrix SAUTEE (--skip-imatrix) : les quantifications seront moins bonnes "
               "que ce qu'on peut soumettre.")
 
-    # --- 5. quantisations ---------------------------------------------------------------------------------
     print(f"\n5/5  quantifications : {', '.join(a.quants)}")
     produced = []
     for q in a.quants:
         out = gguf / f"{stem}-{q}.gguf"
-        # llama-quantize has no k-quant blocks to steer in Q8_0, so an imatrix buys nothing there.
-        # We do not pass one, and the manifest says so rather than implying a calibration
-        # that did not happen.
         used_im = bool(imatrix.exists() and not a.skip_imatrix and q != "Q8_0")
         cmd = [quantize_bin] + (["--imatrix", imatrix] if used_im else []) + [f16, out, q, a.threads]
         run(cmd, steps, f"llama-quantize {q}")
@@ -380,16 +294,12 @@ def main():
                          "imatrix": used_im, "sha256": sha256(out)})
         print(f"  {q:8} {mb(out):8.1f} Mo   imatrix={'oui' if used_im else 'non'}")
 
-    # --- the untuned base, for the before/after of rule 3.1 -------------------------------------------
     base_gguf = None
     if a.with_base:
         print("\n+    modele de base NU (le 'avant' de la regle 3.1)")
         try:
             from huggingface_hub import snapshot_download
             snap = Path(snapshot_download(base_id, revision=base_rev))
-            # One folder PER base model. With a single shared folder the 14/09 run found Qwen's
-            # base-F16.gguf from the day before, skipped the conversion, and quantised Qwen as the
-            # "before" of an LFM2 fine-tune.
             bdir = C.GGUF / "base" / base_id.replace("/", "--")
             bdir.mkdir(parents=True, exist_ok=True)
             bf16 = bdir / "base-F16.gguf"
@@ -406,7 +316,6 @@ def main():
                   f"La comparaison avant/apres restera incomplete.")
             base_gguf = None
 
-    # --- provenance ---------------------------------------------------------------------------------------
     inputs = {}
     for p in [adapter / "adapter_model.safetensors", adapter / "adapter_config.json",
               C.SPLIT / "sft_train.jsonl", C.SPLIT / "sft_eval.jsonl", C.SPLIT / "sft_test.jsonl",
@@ -441,8 +350,6 @@ def main():
         "git_commit": git_sha(C.ROOT),
         "llama_cpp": {"repo": str(C.LLAMA_CPP), "repo_commit": git_sha(C.LLAMA_CPP),
                       "binaries": str(C.LLAMA_BIN),
-                      # llama-quantize has no --version and prints its usage instead; llama-cli of
-                      # the same build carries the build number and commit.
                       "build": binary_version(C.LLAMA_BIN / f"llama-cli{exe}")},
         "environment": {"python": platform.python_version(), "torch": torch.__version__,
                         "platform": platform.platform()},

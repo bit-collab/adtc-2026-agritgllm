@@ -1,32 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 1 - supervised fine-tuning, 4-bit QLoRA, no Unsloth.
-
-Runs on the 6 GB laptop GPU. The loss falls ONLY on the adviser's answers: the farmer's question
-and the chat scaffolding are masked, so the model learns to answer, not to write questions.
-
-Two things about Qwen3 that this file handles and that would silently ruin the run otherwise:
-
-  1. Its stock chat template writes "<think>\\n\\n</think>" into every assistant turn. Trained that
-     way the model learns to emit an empty thinking block on every answer - wasted tokens on the
-     criterion that weighs 0.30. We install a plain ChatML template with no thinking block, and
-     the same template is used for training, evaluation and export.
-  2. TRL computes the answer mask from the chat template itself, so the assistant content must be
-     wrapped in {% generation %}...{% endgeneration %}. Verified on the real tokenizer, 12/09/2026:
-     the loss then covers "Check the lower leaves first.<|im_end|>" and nothing else.
-
-Everything Gate 2 rule 3.1 asks for is written as the run goes, not reconstructed afterwards:
-  provenance/<tag>/training_log.csv    loss and learning rate at every logged step
-  provenance/<tag>/training_log.json   the same, plus eval points and the final summary
-  provenance/<tag>/train_config.json   every hyper-parameter, the base model and its revision
-  outputs/sft/<tag>/best_lora/         the adapter (adapter_model.safetensors + adapter_config.json)
-
-Tested against trl 1.13.0 / transformers 5.17.0 / peft 0.20.0 / torch 2.5.1+cu121.
-
-Usage (TRAINING venv), from concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\01_sft.py --dry-run
-    .venv-train\\Scripts\\python train-gate2\\01_sft.py
-    .venv-train\\Scripts\\python train-gate2\\01_sft.py --model ibm-granite/granite-4.0-350m --tag B
-"""
 from __future__ import annotations
 import argparse, json, os, platform, sys, time
 from pathlib import Path
@@ -37,7 +8,6 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config as C
 
-# ChatML with no thinking block, and the assistant content marked so TRL can mask the rest.
 CHATML_GEN = (
     "{%- for m in messages %}"
     "{%- if m['role'] == 'assistant' %}"
@@ -49,18 +19,8 @@ CHATML_GEN = (
     "{%- if add_generation_prompt %}{{- '<|im_start|>assistant\n' }}{%- endif %}")
 
 
-
-# LFM2 uses the SAME ChatML markers as Qwen (<|im_start|>/<|im_end|>, id 7 for the end) and DOES
-# have a system role, so the template above transfers as-is. Two differences only: its tokenizer
-# prepends a BOS <|startoftext|> (add_bos_token=True in tokenizer_config.json), and there is no
-# thinking block to neutralise. Read from LiquidAI/LFM2-700M/chat_template.jinja on 14/09/2026.
 LFM2_GEN = "{{- bos_token -}}" + CHATML_GEN
 
-# Gemma has no <|im_end|> token and no system role. Trained with the ChatML template above, the
-# 270M wrote "<|im_end|>" as PLAIN TEXT and never emitted a stop token: measured 14/09/2026,
-# 1199 of 1200 generations ran to the 400-token cap, pass@1 0.000. Its own markers are
-# <start_of_turn>/<end_of_turn> (id 106), and the assistant role is called "model". The system
-# message is merged into the first user turn, which is what Gemma's own template does.
 GEMMA_GEN = (
     "{%- if messages[0]['role'] == 'system' %}"
     "{%- set sys = messages[0]['content'] + '\n\n' %}{%- set loop_messages = messages[1:] %}"
@@ -76,8 +36,6 @@ GEMMA_GEN = (
 
 
 def template_for(base_id: str) -> str:
-    """One template per base family. Getting this wrong does not raise: it produces a model that
-    never stops, so the choice is explicit and printed by the script."""
     b = (base_id or "").lower()
     if "gemma" in b:
         return GEMMA_GEN
@@ -87,8 +45,6 @@ def template_for(base_id: str) -> str:
 
 
 def stop_token_for(base_id: str):
-    """The token the template ends an answer with. It MUST be the model's EOS, or llama.cpp has
-    nothing to stop on."""
     return "<end_of_turn>" if "gemma" in (base_id or "").lower() else "<|im_end|>"
 
 
@@ -103,7 +59,6 @@ def read_jsonl(p):
 
 
 class LogWriter:
-    """Writes the training log as it happens, so a crash still leaves usable provenance."""
 
     def __init__(self, folder, meta, stem="training"):
         folder.mkdir(parents=True, exist_ok=True)
@@ -162,7 +117,7 @@ def main():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     tok.padding_side = "right"
-    tok.chat_template = template_for(a.model)   # no thinking block, answers marked for the loss mask
+    tok.chat_template = template_for(a.model)
     stop = stop_token_for(a.model)
     stop_id = tok.convert_tokens_to_ids(stop)
     fam = C.family_of(a.model)
@@ -182,7 +137,7 @@ def main():
     print(f"Precision de la base : {'QLoRA nf4 4 bits' if four_bit else 'bf16 (base non quantifiee)'}")
     kw = dict(revision=a.revision, quantization_config=quant, device_map={"": 0},
               attn_implementation="eager")
-    try:                                    # transformers >= 5 uses dtype, older ones torch_dtype
+    try:
         model = AutoModelForCausalLM.from_pretrained(a.model, dtype=torch.bfloat16, **kw)
     except TypeError:
         model = AutoModelForCausalLM.from_pretrained(a.model, torch_dtype=torch.bfloat16, **kw)
@@ -190,9 +145,6 @@ def main():
     if four_bit:
         model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=C.GRAD_CKPT)
     elif C.GRAD_CKPT:
-        # prepare_model_for_kbit_training does this for us in 4-bit. In bf16 nobody does, and
-        # without it checkpointing returns activations detached from the graph: the LoRA weights
-        # get no gradient at all and the loss simply never moves.
         model.enable_input_require_grads()
     targets = C.targets_for(a.model)
     model = get_peft_model(model, LoraConfig(
@@ -210,11 +162,6 @@ def main():
     print(f"LoRA    : r={a.rank}  {trainable / 1e6:.1f} M parametres entraines "
           f"sur {total / 1e6:.0f} M ({100 * trainable / total:.2f} %)")
 
-    # Conversational format: TRL applies the chat template itself, which is how it builds the
-    # answer mask. Do NOT pre-format into a text column, or the mask cannot be computed.
-    # The GGUF template bakes the persona as a system message into EVERY conversation the jury
-    # has (03_export.py, config.BAKED_SYSTEM). Until 13/09/2026 training saw no system message at
-    # all: the model was served with a preamble it had never learnt with. Train = serve, now.
     def with_persona(msgs):
         if msgs and msgs[0]["role"] == "system":
             return msgs
@@ -255,11 +202,6 @@ def main():
             "lora": {"r": a.rank, "alpha": C.LORA_ALPHA, "dropout": C.LORA_DROPOUT,
                      "targets": targets, "trainable_params": trainable},
             "data": {"train": len(train_ds), "eval": len(eval_ds),
-                     # Corrige le 18/09/2026 : sft.jsonl n'est pas la source et ne l'etait plus.
-                     # 00_split.py lit les paires, les copies bruitees, les documents, les
-                     # reponses hors fiches et les paires on-policy. Annoncer un fichier que
-                     # rien ne lit est une fausse piste pour le jury, qui doit pouvoir refaire
-                     # le decoupage.
                      "source": "train-gate2/data/sft_train.jsonl, ecrit par 00_split.py "
                                "(voir data/split_manifest.json pour les entrees et les temoins "
                                "de fuite)"},
@@ -289,9 +231,6 @@ def main():
         max_length=C.MAX_SEQ, packing=False, assistant_only_loss=True,
         logging_steps=5, eval_strategy="steps", eval_steps=every,
         save_strategy="steps", save_steps=every, save_total_limit=2,
-        # --patience 0 means "run the whole schedule and keep the FINAL model": on LFM2 (14/09/2026)
-        # eval_loss picked the 1-epoch checkpoint while the bench is what decides, so reloading the
-        # eval_loss winner would silently undo the extra epochs this flag asks for.
         load_best_model_at_end=(a.patience > 0), metric_for_best_model="eval_loss", greater_is_better=False,
         gradient_checkpointing=C.GRAD_CKPT, gradient_checkpointing_kwargs={"use_reentrant": False},
         report_to=[], seed=C.SEED)

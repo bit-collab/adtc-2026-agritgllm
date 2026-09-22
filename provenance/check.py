@@ -1,21 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 5 - the stop criterion, counted not felt. Deterministic: no model judges here.
-
-The writer is never the corrector. Each blocking check is tied to a real failure:
-
-  bare_referral    the answer ends on "see ICAT" with no advice before it   (round-1 judges)
-  unknown_name     a name or acronym found nowhere in the bundle              (round-1 judges)
-  invented_day     a day of the week, i.e. an invented market day             (measured 10/09)
-  invented_figure  a number that is not in the bundle                         (PPR interval on Newcastle)
-  wrong_host       an animal or crop the bundle is not about                  (goats inside a chicken answer)
-
-A pair with a blocking fault is not repaired: it is set aside in pairs_rejected.jsonl.
-Only pairs_clean.jsonl goes to training. Length, sentence length and lexical overlap are
-reported as indicators - the jury never counted words.
-
-Input : out/pairs/pairs.jsonl, out/facts/bundles.jsonl
-Output: out/pairs/pairs_clean.jsonl, out/pairs/pairs_rejected.jsonl, out/check/rapport.md
-"""
 from __future__ import annotations
 import json, re, sys
 from collections import Counter, defaultdict
@@ -36,13 +18,6 @@ FACT_KINDS = {"problem_fact", "problem_note", "practice_fact", "guidance_fact"}
 BLOCKING = ("bare_referral", "unknown_name", "invented_day", "invented_figure", "wrong_host",
             "wrong_institution", "invented_date", "meta_leak", "incomplete_answer", "unsupported_claim",
             "invented_diagnosis", "invented_institution")
-# Two rules copied from the round-1 jury report (ADTC2026_556, read 12/09/2026), because the two
-# faults they punish happen inside the HAND-WRITTEN families, which the rest of this file skips:
-#   invented_diagnosis  asked for a human antibiotic dose for collapsing cattle, the model answered
-#                       "the likely cause is an antitoxic poisoning..." - Judge 2: "it completely
-#                       fumbled the boundary test by trying to play doctor". A refusal names no disease.
-#   invented_institution  asked for the capital of France, it invented "Comision de Ayuda Tecnica de la
-#                       Republica de France (CATREF)". A refusal names no organisation at all.
 DIAGNOSIS = re.compile(r"\b(the (most )?likely cause is|the cause is|this is (probably|likely)|"
                        r"it is (probably|likely)|points to|the diagnosis is|suffering from|"
                        r"caused by the)\b", re.I)
@@ -52,9 +27,6 @@ ORGLIKE = re.compile(r"\b([A-Z]{3,}[A-Z0-9]*)\b|"
                      r"\b((?:Comisi[oó]n|Institut|Agency|Ministry|Bureau|Council|Association|"
                      r"Federation|Commission)[A-Za-z ]{0,40})")
 JUDGE = ROOT / "out" / "pairs" / "judge.jsonl"
-# The judge works sentence by sentence and its evidence is checked (g5_judge.py): one
-# unsupported sentence is one invented action or reason, and blocks. To be revisited only
-# on the calibration numbers (run.py judge --calibrate).
 JUDGE_BLOCK_AT = 1
 META = re.compile(r"\b(the|this|that) (material|fiche|fiches|text provided|information provided|"
                   r"source material|instructions|excerpts?|context)\b", re.I)
@@ -72,13 +44,12 @@ PLEASANT = re.compile(r"\b(hope (this|that) helps|good question|great question|f
 WEEKDAYS = re.compile(r"\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)s?\b")
 PROPER = re.compile(r"(?<![.!?:;]\s)(?<!^)(?<!\n)(?<!\()\b([A-Z][a-z]{3,}|[A-Z]{2,}[A-Z0-9]*)\b")
 NUM = re.compile(r"(?<![A-Za-z0-9])\d+(?:[.,]\d+)?")
-DIMS = re.compile(r"(?<=\d)\s*[x×]\s*(?=\d)")   # "12x10 m" holds a 12 AND a 10
+DIMS = re.compile(r"(?<=\d)\s*[x×]\s*(?=\d)")
 EMPHASIS = {"ONLY", "NOT", "NEVER", "ALWAYS", "DO", "NO", "YES", "ALL", "AND", "BUT", "IF", "THE",
             "MUST", "STOP", "NOW", "BEFORE", "AFTER", "EVERY", "DRY", "MOVING", "CLOSE", "THREE",
             "SUDDENLY", "NOTIFIABLE", "IMMEDIATELY", "DEFORMATION", "ALONG", "THE", "LOWER", "NECROTIC", "ROT"}
 ALWAYS_OK = {"togo", "togolese", "english", "french", "africa", "african", "west", "lome", "ewe",
              "kabiye", "agritg", "llm", "north", "south", "centre", "apache", "granite", "ibm",
-             # base model since 14/09/2026 - the identity answers name the publisher and the family
              "liquid", "lfm", "mamba", "gguf", "chatml",
              "january", "february", "march", "april", "may", "june", "july", "august",
              "september", "october", "november", "december"}
@@ -130,11 +101,9 @@ class Checker:
                 issues.append("bare_referral")
             if final and len(words) < 40:
                 issues.append("incomplete_answer")
-            # a day the fiche itself gives (Broukou market in Kara is on Friday) is allowed
             days = [d for d in WEEKDAYS.findall(answer) if not re.search(rf"\b{d}", allowed)]
             if days:
                 issues.append("invented_day:" + ",".join(sorted(set(days))[:3]))
-            # figures the farmer gave in his own question may be repeated back to him
             extra = (set(NUM.findall(DIMS.sub(" x ", answer))) - set(NUM.findall(DIMS.sub(" x ", allowed)))
                      - set(NUM.findall(DIMS.sub(" x ", user_text))) - SMALL_NUMBERS)
             if extra:
@@ -146,14 +115,11 @@ class Checker:
                     wrong.add(m.group(0).lower())
             if wrong:
                 issues.append("wrong_host:" + ",".join(sorted(wrong)[:4]))
-            # A service must be one the bundle names: the smoke test sent hens to ANAMET
-            # (the weather agency) "for a health check".
             bad_inst = [ins for ins in self.lex.find(answer, "institutions")
                         if not any(p.search(allowed) for eid, pats in self.lex.index["institutions"]
                                    if eid == ins for p in pats)]
             if bad_inst:
                 issues.append("wrong_institution:" + ",".join(bad_inst))
-            # compare on the first three letters: the fiche writes "Apr-May", the answer "April"
             months = {m for m in MONTHS.findall(answer) if not re.search(rf"\b{m[:3]}", allowed, re.I)}
             if months:
                 issues.append("invented_date:" + ",".join(sorted(months)))
@@ -170,7 +136,6 @@ class Checker:
             if unknown:
                 issues.append("unknown_name:" + ",".join(sorted(set(unknown))[:4]))
 
-        # the two jury rules, applied where the rest is skipped
         if gold:
             if b["kind"] == "limit" and DIAGNOSIS.search(answer):
                 issues.append("invented_diagnosis:" + DIAGNOSIS.search(answer).group(0))
@@ -268,13 +233,6 @@ def run():
     trimmed = sum(1 for r in pairs if r.get("trimmed"))
     trimmed_clean = sum(1 for r in clean if r.get("trimmed"))
     reject_rate = len(rejected) / n
-    # Two rates, because they do not say the same thing. The HARD rate counts the writer
-    # breaking a rule that can be checked without any model (an invented figure, another
-    # crop, a service the bundle never names): that is a defect of the prompt or the model,
-    # and it is what the verdict is about. The JUDGE rate counts answers set aside because a
-    # sentence adds something the material does not say; the judge is a filter, those pairs
-    # are kept as 'rejected' examples for the preference training, and 10 to 20 % is normal
-    # (measured 12/09/2026 on the Groq sample: 2.3 % hard, 14 to 16 % judge).
     hard_rate = len(hard_rows) / n
     judge_rate = len(judge_rows) / n
     incomplete_rate = len(incomplete) / max(1, len(got))

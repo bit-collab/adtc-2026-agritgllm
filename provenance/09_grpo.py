@@ -1,32 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 9 - GRPO on a VERIFIABLE reward: optimise directly what the bench measures.
-
-Why this and not another round of DPO (measured 14/09/2026, banc large):
-  SFT seul            faits appris 0.690, jamais vus 0.337 (DPO 1849) -> 0.357 (DPO 2231)
-  Each DPO round now buys about +0.02, inside the error bar. DPO moves the model AWAY from one
-  bad answer at a time; it never optimises the probability that a DRAW is clean. That probability
-  is exactly pass@1, and a policy-gradient method maximises it by construction.
-
-CME 295 lecture 6 (DeepSeek-R1 recipe) : run RL on rewards a RULE can verify, no reward model.
-Ours is already written and costs nothing:
-    reward = 1.0  if no blocking lint fault, grounded in the reference, well-formed
-           + partial credit otherwise, so the gradient is not flat on the bad half
-The lint is `check.Checker` - the round-1 jury's own complaints written as rules (invented
-figure, wrong crop, unknown name, service absent from the material, bare referral, "the fiche").
-
-Goodhart (L8 p168): a measure that becomes a target stops being a measure. Two guards:
-  1. GRPO trains on TRAIN bundles only. The bench on sft_test stays untouched by this training.
-  2. --holdout keeps a share of the TRAIN bundles out of GRPO as well, so 08_bench can be run
-     on questions this stage never optimised and the two numbers compared.
-LoRA rank: "LoRA Without Regret" (Thinking Machines, 2025) measures that rank 1 already matches
-full fine-tuning for policy gradient, because an episode carries about one bit. We keep the SFT
-rank so the adapter stays mergeable with the same shape.
-
-Usage (TRAINING venv), from concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\09_grpo.py --dry-run
-    .venv-train\\Scripts\\python train-gate2\\09_grpo.py --adapter train-gate2\\outputs\\dpo\\A\\best_lora --prompts 400
-Output: outputs/grpo/<tag>/best_lora/ , provenance/<tag>/grpo_log.json
-"""
 from __future__ import annotations
 import argparse, json, os, random, re, sys, time
 from pathlib import Path
@@ -43,10 +14,6 @@ import check as CHK
 
 GROUND_MIN = 0.25
 WORDS = (40, 200)
-# Au-dela de SOFT_WORDS la note de forme decroit au lieu de rester pleine. Le RL allonge les
-# reponses, c'est son biais connu, et la longueur frappe deux fois : Seff pese 20 % du score
-# ADTC et Sperf 30 %, tous deux mesures sur un portable CPU sans reseau. Nos references tiennent
-# en 85 mots de mediane, donc 160 laisse toute la place utile sans payer la derive.
 SOFT_WORDS = 160
 NO_MATERIAL = {"doc", "unknown"}
 
@@ -75,7 +42,6 @@ def human(sec):
 
 
 class Reward:
-    """Deterministic, no model. Returns 0..1 and keeps the counts for the log."""
 
     def __init__(self):
         self.checker = CHK.Checker()
@@ -108,9 +74,6 @@ class Reward:
             if faults:
                 for f in faults:
                     self.bump(f.split(":")[0])
-            # 0.5 for a clean answer, 0.3 for the grounding, 0.2 for the form: a wrong but
-            # well-shaped answer still beats a shapeless one, so the gradient is informative
-            # everywhere instead of being flat on the whole bad half.
             r = 0.0
             r += 0.5 * (0.0 if faults else 1.0)
             r += 0.3 * min(1.0, ground / GROUND_MIN)
@@ -123,24 +86,6 @@ class Reward:
 
 
 def build_rows(tok, holdout, seed, max_prompts, max_prompt_tokens, only=None):
-    """Ne jamais optimiser une question dont la RECOMPENSE CONDAMNE DEJA LA REFERENCE.
-
-    Trouve le 18/09/2026 en mesurant la recompense sur les references elles-memes, avant
-    d'entrainer. Resultat : 1,000 de moyenne sur la matiere du pipeline, 0,959 sur la matiere
-    ecrite a la main, et tout l'ecart venait de 88 reponses d'arithmetique. Le Checker ne sait
-    pas calculer : quand une reponse ecrit correctement que 33 poules a 8-10 par m2 demandent
-    3,3 a 4,1 m2, il ne retrouve ni 3,3 ni 4,1 dans la fiche et retire 0,5. Le RL aurait donc
-    appris au modele a NE PAS calculer, c'est-a-dire exactement l'inverse de l'angle `scale`
-    que le SFT venait de lui enseigner.
-
-    Deux assouplissements du Checker ont ete mesures et REFUSES tous les deux, sur les 484
-    reponses ou le modele a reellement invente un chiffre (onpolicy_dpo.jsonl) :
-      - tolerer tout chiffre derivable en une operation : 66 % des vraies inventions passent ;
-      - exiger que la reponse montre son calcul dans la phrase : 12 % passent encore, et
-        seulement 19 % de l'arithmetique legitime est recuperee.
-    Aucune des deux ne separe les deux classes, donc le Checker reste strict. C'est le RL qui
-    s'abstient la ou sa recompense est fausse, et non la mesure qui s'assouplit.
-    """
     bundles = {b["bundle_id"]: b for b in read_jsonl(G4.BUNDLES)}
     juge = Reward()
     rows, ecartees = [], 0
@@ -218,7 +163,7 @@ def main():
     tok.chat_template = CHATML_GEN
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
-    tok.padding_side = "left"                      # generation
+    tok.padding_side = "left"
 
     rows, held = build_rows(tok, a.holdout, C.SEED, a.prompts, a.max_prompt_tokens, a.only)
     print(f"GRPO : {len(rows)} questions d'entrainement, {len(held)} paquets mis de cote "
@@ -254,9 +199,7 @@ def main():
         output_dir=str(out), num_train_epochs=a.epochs, learning_rate=a.lr, beta=a.beta,
         per_device_train_batch_size=a.generations, gradient_accumulation_steps=4,
         num_generations=a.generations, max_completion_length=a.max_completion,
-        # TRL 1.13 dropped max_prompt_length from GRPOConfig: build_rows() already refuses a
-        # prompt longer than --max-prompt-tokens, so nothing is silently truncated.
-        temperature=a.temperature, top_k=40, top_p=0.95, min_p=0.05,   # the jury's own sampling
+        temperature=a.temperature, top_k=40, top_p=0.95, min_p=0.05,
         bf16=True, gradient_checkpointing=True, logging_steps=2, save_strategy="no",
         report_to=[], seed=C.SEED, use_vllm=False, log_completions=False,
         optim="paged_adamw_8bit", lr_scheduler_type="constant_with_warmup", warmup_steps=5,
@@ -268,9 +211,6 @@ def main():
     model.save_pretrained(str(out / "best_lora"))
     tok.save_pretrained(str(out / "best_lora"))
     log = {"meta": {"adapter": str(adapter), "prompts": len(rows), "G": a.generations,
-                    # --only et --holdout DOIVENT figurer ici : sans eux un lecteur ne peut pas
-                    # savoir sur quelle partie du jeu ce run a porte, ni combien de paquets sont
-                    # restes hors optimisation. La regle 3.4 demande des mesures reproductibles.
                     "only": a.only, "holdout": a.holdout, "held_bundles": len(held),
                     "lr": a.lr, "beta": a.beta, "temperature": a.temperature,
                     "holdout_bundles": len(held), "reward": "lint + ancrage + forme, deterministe"},

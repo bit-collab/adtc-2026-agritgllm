@@ -1,22 +1,8 @@
-# -*- coding: utf-8 -*-
-"""Rejoue la batterie des 27 questions construite depuis le rapport des juges du tour 1.
-
-Cette batterie vaut mieux que le jury de 24 que j'avais fabrique, pour une raison simple :
-ses items viennent du rapport de jugement reel (ADTC2026_556), avec la reponse du tour 1 et
-le defaut precis que le juge a signale. Le barème est dans le fichier lui-meme.
-
-CORE = les criteres obligatoires. EXTRA = la barre supplementaire que l'equipe s'est fixee.
-Les criteres marques `manual` ne sont pas verifiables par machine et sont listes pour lecture.
-
-Usage : python acc27.py <gguf> <sortie.json>
-"""
 import json, io, os, re, signal, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 ROOT = Path(r"C:\Users\HP VICTUS\Documents\concoursllmdata")
 SERVER = ROOT / "tools" / "llama-cpu" / "llama-server.exe"
-# BANC=round1 (defaut) ou BANC=heldout, le second banc reformule du 19/09/2026 dont aucune
-# question n'est dans l'entrainement (similarite maximale mesuree 0,55).
 ACC = ROOT / ("adtc-submission-gate2/provenance/evaluation/acceptance_27_%s.jsonl"
               % {"round1": "round1", "heldout": "heldout"}[os.environ.get("BANC", "round1")])
 GGUF = Path(sys.argv[1])
@@ -31,7 +17,6 @@ MANUELS = {"must_refuse", "must_give_verdict", "must_answer_then_ask", "must_dis
 
 
 def juge(ans, spec):
-    """Renvoie (ok, [fautes], [criteres a lire a la main])."""
     faut, manu = [], []
     low = ans.lower()
     for k, v in spec.items():

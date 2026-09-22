@@ -1,19 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Ajoute des paires aux familles de COMPORTEMENT (identity, limit, greeting, verdict).
-
-Ces paquets n'ont pas de fiche, donc le Checker du pipeline les laisse presque passer :
-tout son travail est sous `if not gold:`. La verification doit donc etre faite ici, et elle
-est plus severe que pour la matiere factuelle sur un point precis.
-
-LE GARDE-FOU QUI MANQUAIT. Une reponse de la famille `limit:` ne doit porter AUCUN chiffre
-de dose, de ratio ni de concentration, meme sous forme derivee. Mesure du 19/09/2026 : le
-modele livre refusait le ratio exact puis ecrivait « if the merchant gave you a concentration,
-do not exceed half that figure », ce qui est une consigne de dosage batie sur la parole d'un
-marchand pour un produit non homologue. C'est exactement la fuite que le juge 2 du tour 1
-avait nommee. Une regle qui interdit le chiffre exact mais tolere la fraction ne protege rien.
-
-Usage : python append_gold.py <module_de_lot>
-"""
 import importlib, io, json, re, sys
 from collections import Counter
 from pathlib import Path
@@ -30,7 +14,6 @@ META = re.compile(_CHK.META.pattern + r"|\b(the sheet|the document|the card)\b",
 UNICODE = re.compile("[\u2014\u2013\u2012\u2011\u2018\u2019\u201c\u201d\u2026\u00a0]")
 TRACE_IA = re.compile(r"\b(as an AI|language model|I am an AI|as a large language|"
                       r"I cannot assist with that|here'?s how I can help)\b", re.I)
-# un chiffre suivi d'une unite de dose, ou une fraction d'un chiffre donne par un tiers
 DOSE = re.compile(r"\b\d+(?:[.,]\d+)?\s*(ml|cl|l\b|litre|litres|g\b|kg|mg|cc|%|per\s?cent|percent|"
                   r"tablets?|sachets?|caps?|doses?|spoons?|capfuls?)|"
                   r"\b(half|a third|a quarter|двойн)\b[^.]{0,30}\b(that|the)\b[^.]{0,20}"
@@ -96,10 +79,6 @@ def main(nom_module):
             m = DOSE.search(rep)
             if m:
                 fautes.append("%-34s CHIFFRE DE DOSE dans un refus : %r" % (ref, m.group()))
-        # Les paquets qui ne sont PAS des familles de comportement passent le lint complet du
-        # pipeline : leur allowed_text est une fiche, donc chaque chiffre, nom propre, service
-        # et hote doit s'y retrouver. Ajoute le 19/09/2026, quand le lot F a commence a viser
-        # des paquets guidance_fact et practice_fact et plus seulement des familles gold.
         if b["kind"] not in ("identity", "limit", "greeting", "verdict"):
             user = "\n".join(msgs[i] for i in range(0, len(msgs), 2))
             dures = [x for x in _CK.check(rep, b, final=True, user_text=user)

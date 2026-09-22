@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""Fait repondre un GGUF a chaque prompt de acceptance.jsonl via llama-server local.
-usage: ask.py <gguf> <acceptance.jsonl> <sortie.jsonl>
-Parametres = section 7 d'EVAL_JURY.md : --jinja, temp 0.3, min-p 0.15, repeat 1.05, 400 tokens, pas de system prompt."""
 import json, subprocess, sys, time, urllib.request, os, signal
 
 GGUF, ACC, OUT = sys.argv[1:4]

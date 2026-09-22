@@ -1,35 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 5 - measure a GGUF the way the JURY will see it, not the way our bench likes it.
-
-Why this script exists (13/09/2026):
-
-  * 04_compare.py asks every question ONCE, in greedy decoding (temperature 0, top_k 1). The
-    Qwen3 model card says, verbatim: "Do not use greedy decoding, as it can lead to performance
-    degradation and endless repetitions", and recommends T 0.7 / top-p 0.8 / top-k 20 for the
-    non-thinking mode. The jury will most likely run llama.cpp with ITS defaults
-    (T 0.8 / top-k 40 / top-p 0.95 / min-p 0.05). We had never measured the model under either.
-  * One draw says nothing about robustness. CME 295 lecture 8 (tau-bench): pass^k = the
-    probability that ALL k attempts succeed. That is what a human jury experiences when it asks
-    the same kind of question several times. We report pass@1 (mean) AND pass^k (all).
-  * The 12 acceptance items partly answer prompts the model was TRAINED on. The honest
-    generalisation figure is the held-out test split (5 fiches never seen): here it is replayed
-    and graded by the pipeline's own judge (g5_judge.judge_one: sentence by sentence against the
-    fiche material, evidence copied before the verdict, binary at the end - lecture 8 p78).
-    The judge is qwen (Alibaba) and the answers come from our Qwen3 student - same family, but
-    the rule "the writer never corrects" concerns the WRITER of the training data (gpt-oss), and
-    the judge only checks support against the fiche, it does not write. The report says so.
-
-Usage, from concoursllmdata/ with .venv-train (needs psutil only for nothing here; Groq key
-for --judge, as for the pipeline):
-    .venv-train\\Scripts\\python train-gate2\\05_jury.py --quants Q4_K_M Q6_K
-    .venv-train\\Scripts\\python train-gate2\\05_jury.py --quants Q6_K --profiles greedy qwen llamacpp -k 5
-    .venv-train\\Scripts\\python train-gate2\\05_jury.py --quants Q6_K --set test --test-n 60 --judge
-    .venv-train\\Scripts\\python train-gate2\\05_jury.py --model path\\to\\any.gguf --profiles llamacpp -k 3
-
-Produces
-    outputs/answers/<tag>/jury-<model>-<profile>.jsonl     every draw, kept as evidence
-    provenance/<tag>/jury.json  and  jury.md               the table, pass@1 / pass^k per set
-"""
 from __future__ import annotations
 import argparse, collections, importlib.util, json, random, re, sys, time, urllib.request
 from pathlib import Path
@@ -49,20 +17,12 @@ def load_module(name, path):
     return mod
 
 
-CMP = load_module("compare04", HERE / "04_compare.py")          # Server, to_ascii_punct, checker
+CMP = load_module("compare04", HERE / "04_compare.py")
 
-# --- the three ways the model will be sampled ------------------------------------------------
-# greedy   : what 04_compare.py measured until now. Qwen's card warns against it.
-# qwen     : the model card's recommendation for non-thinking mode (Qwen/Qwen3-0.6B, read 13/09/2026).
-# llamacpp : llama.cpp's own defaults (tools/cli/README.md), i.e. what a jury member gets by
-#            typing `llama-cli -m model.gguf` and nothing else.
 PROFILES = {
     "greedy":   {"temperature": 0.0, "top_k": 1},
     "qwen":     {"temperature": 0.7, "top_p": 0.8, "top_k": 20, "min_p": 0.0},
     "llamacpp": {"temperature": 0.8, "top_k": 40, "top_p": 0.95, "min_p": 0.05},
-    # Liquid AI's own recommendation for LFM2 (model card, read 14/09/2026). Much colder than
-    # Qwen's: a low temperature plus a high min_p is exactly what suppresses ungrounded and
-    # invented_figure, the two dominant faults on the bench.
     "lfm2":     {"temperature": 0.3, "min_p": 0.15, "repeat_penalty": 1.05},
 }
 
@@ -83,9 +43,6 @@ def ask(port, messages, max_tokens, profile, seed, timeout=900):
 
 
 def similarity(answers):
-    """Mean pairwise overlap of content words between the k draws of one question. Measured
-    13/09/2026: 0.20 on the cycle-2 model - two answers to the SAME question share a fifth of
-    their words. That is the regularity problem in one number, so the report carries it."""
     import itertools
     sets = [set(re.findall(r"[a-z]{4,}", a.lower())) for a in answers if a]
     if len(sets) < 2:
@@ -95,8 +52,6 @@ def similarity(answers):
 
 
 def looping(answer, n=4, times=4):
-    """The failure Qwen's card warns about: the same 4-gram coming back 4+ times, or a cut at
-    max_tokens. A looping answer is a failed answer for a human reader whatever the keywords."""
     w = answer.lower().split()
     if len(w) < n * times:
         return False
@@ -104,16 +59,11 @@ def looping(answer, n=4, times=4):
     return max(c.values()) >= times
 
 
-# --- item sets -------------------------------------------------------------------------------
 def acceptance_items():
     return [json.loads(l) for l in (GOLD / "acceptance.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
 def test_items(n, seed):
-    """Held-out rows, replayed as the jury would: the whole history up to the last user turn.
-    Each row is tied back to its bundle (through pairs_clean.jsonl) so the judge gets the SAME
-    material the writer had. Gold rows (hand-written, no bundle) are judged against their gold
-    answer instead - said in the report."""
     rows = [json.loads(l) for l in (C.SPLIT / "sft_test.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
     pairs = {}
     for l in (C.PAIRS / "pairs_clean.jsonl").read_text(encoding="utf-8").splitlines():
@@ -134,7 +84,6 @@ def test_items(n, seed):
     return items[:n] if n else items
 
 
-# --- grading ---------------------------------------------------------------------------------
 def grade_acceptance(checker, it, answer):
     clean = CMP.to_ascii_punct(answer)
     core = checker.check(it, it.get("core", {}), clean)
@@ -143,10 +92,9 @@ def grade_acceptance(checker, it, answer):
 
 
 class Judge:
-    """The pipeline's judge, untouched. Loaded only with --judge, because it costs API calls."""
     def __init__(self):
         sys.path.insert(0, str(PIPE))
-        import g5_judge, g4_generate, check as chk  # noqa
+        import g5_judge, g4_generate, check as chk
         self.g5, self.g4, self.block_at = g5_judge, g4_generate, chk.JUDGE_BLOCK_AT
         self.bundles = {b["bundle_id"]: b for b in self.g5.read_jsonl(self.g4.BUNDLES)}
         self.model = g5_judge.JUDGE_MODEL
@@ -163,7 +111,6 @@ class Judge:
                               for s in v["sentences"]]}
 
 
-# --- one model x one profile -----------------------------------------------------------------
 def run(model_name, path, sets, args, checker, judge):
     res = {"model": model_name, "file": str(path), "size_mb": round(path.stat().st_size / (1 << 20), 1),
            "profiles": {}}
@@ -188,7 +135,7 @@ def run(model_name, path, sets, args, checker, judge):
                         elif judge is not None:
                             try:
                                 g = judge.grade(it, r["answer"])
-                            except Exception as e:      # the judge is an API: say it, do not hide it
+                            except Exception as e:
                                 g = {"ok": None, "error": f"{type(e).__name__}: {e}"[:200]}
                         else:
                             g = {"ok": None}

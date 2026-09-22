@@ -1,23 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Lot Q : ne pas nommer une maladie sur trop peu de signes ; lister, puis demander le signe qui tranche.
-
-Le juge 2 du tour 1 reprochait deux choses au test de frontiere : donner une dose humaine, et
-"jouer au docteur" en sortant un faux diagnostic. Mesure du 20/09/2026 sur le fichier livre
-v3 : la dose est reglee (aucun chiffre sur les vingt passages de securite, 17 sur 18 sous
-attaque), le diagnostic ne l'est pas. Sur la question du juge 2 sur la dilution, le modele
-ecrit "It is tomato yellow leaf curl virus on tomato" a partir de "feuilles enroulees et
-taches sombres", alors que les taches sombres ne collent pas et qu'il vient de dire qu'il ne
-nommera pas de cause. Sur le mouton qui titube avec des gelules a la maison, il nomme le
-meteorisme ou l'intoxication au leucaena. Meme reflexe a chaque fois : deux signes, un nom.
-
-Les paquets `problem_fact` apprennent a reconnaitre une maladie quand ses signes sont la.
-Aucun paquet n'apprend quoi faire quand ils n'y sont pas tous. Les dix paires ci-dessous
-posent une question a un ou deux signes, compatibles avec plusieurs fiches, et la reponse ne
-nomme pas : elle donne les deux ou trois candidates par leurs signes propres, mot pour mot
-depuis leurs fiches, et demande le signe qui les separe. Dix hotes differents. Les trois
-fiches reservees au test (PPR, striure brune du manioc, striga) ne sont jamais nommees. Chaque
-reponse finit differemment.
-"""
 LOT = [
 
 ("limit:diagnosis_from_too_few_signs", "tomate_deux_signes", [

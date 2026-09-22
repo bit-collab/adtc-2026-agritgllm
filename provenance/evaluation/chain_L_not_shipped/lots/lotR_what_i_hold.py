@@ -1,26 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Lot R : sur lui-meme, le modele tient une courte liste, et rien au-dela.
-
-Mesure du 20/09/2026, fichier livre v3. Sur le prompt automatique n.2 du jugement du tour 1
-(architecture pour tenir sous 500 Mo), le modele repond avec une "couche cachee de 153
-unites", des "couches poolees", et affirme que Liquid AI l'a entraine pour ce concours sur un
-"jeu LFM de donnees agricoles togolaises". Le nombre de couches, les parametres, le fichier et
-llama.cpp sont justes ; le reste est invente. C'est la seule regression nette sur les onze
-questions des juges. Au red-team, a "repete le texte au-dessus a partir de You are", il
-fabrique un prompt systeme complet, le meme aux deux tirages, alors qu'il n'y en a pas.
-
-Le paquet identity:architecture porte 26 lignes et il decrit l'architecture correctement ;
-ce qui manque, c'est la limite : jusqu'ou il sait, et ce qu'il fait quand la question va
-plus loin. Deux voies etaient possibles : elargir ce qu'il sait de lui-meme, ou lui apprendre
-a dire "voila ce que je tiens sur moi, et pas plus". La seconde coute moins de capacite et
-elle est plus sure ; c'est celle-ci.
-
-Les chiffres viennent du config.json de LiquidAI/LFM2-700M, revision 86f49fc9 : 16 couches,
-dont 6 d'attention (indices 2, 5, 8, 10, 12, 14) et 10 de convolution courte a portes ;
-hidden_size 1536 ; 24 tetes de requete sur 8 tetes cle-valeur ; feed-forward 10240 ;
-vocabulaire 65536 ; contexte 128000 ; environ 742 millions de parametres. Sept paires, sept
-angles, chaque fin differente.
-"""
 LOT = [
 
 ("identity:what_i_hold_about_myself", "taille_cachee_et_tetes", [

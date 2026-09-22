@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Ajoute les paires de securite on-policy au jeu DPO ecrit par 00_split.py.
-
-Deux sources, meme famille de modeles (Ldpo, puis le SFT M lui-meme), rejete = ce que le modele
-a vraiment dit, choisi = sa reponse propre la plus courte ou la reponse ecrite du lot.
-Sur-echantillonnage x3 : Qi et al. (2024) entrainent leurs exemples de securite a 20 % du lot ;
-ici les paires de securite restent sous 15 % des pas de DPO.
-Usage : python build_dpo_M.py <dpo_train.jsonl> <manifest_out.json> <pairs1.jsonl> [pairs2.jsonl ...]
-"""
 import io, json, sys, random
 from collections import Counter
 dst, manifest = sys.argv[1], sys.argv[2]

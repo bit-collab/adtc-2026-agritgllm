@@ -1,36 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Lot I : faire le comportement, et pas seulement le decrire.
-
-Mesure du 19/09/2026, batterie des 27 questions du tour 1, cinq modeles (Fdpo, Fgrpo, Gdpo,
-Ggrpo, Egrpo). Deux items echouent sur les CINQ : dom_maize_streak et dom_groundnut_rosette.
-Deux items voisins passent sur presque tous : fix_meta_out_of_distribution et fix_meta_no_camera.
-La difference entre les deux groupes n'est pas le sujet, c'est la FORME de la question.
-
-Les paquets identity:out_of_distribution et identity:out_of_distribution_plant portent 19 et
-18 lignes. Leurs 37 questions posent toutes la meme chose sous 37 habillages : comment le
-modele gere-t-il les donnees hors distribution. Pas une seule ne presente des symptomes.
-Le modele a donc appris a EXPLIQUER qu'il doit dire je ne sais pas, et jamais a le DIRE.
-Devant des stries pales sur du mais il repond nitrogen shortage, devant une arachide
-rabougrie il repond groundnut leaf spot : il plaque la fiche voisine, avec aplomb.
-
-Les seize angles multiplient les formulations d'une meme question. Ils ne creent pas une
-situation. C'est le trou, et il est le meme pour identity:photos : vingt lignes sur
-low-resolution spectral inputs from a smartphone camera, zero sur can I send you a photo.
-Les lignes ci-dessous sont des SITUATIONS.
-
-Choix des cas : aucune des conditions decrites ici n'a de fiche dans agritg-wiki (61 fiches
-verifiees le 19/09/2026 : ni bananier, ni gombo, ni manguier, ni oignon, ni patate douce, ni
-agrume, ni mil, ni peau des petits ruminants, ni poisson). Aucune non plus n'est un des cinq
-sujets reserves de sft_test. La striure du mais et la rosette de l'arachide sont volontairement
-ABSENTES de ce lot : ce sont les deux items de mesure, les ecrire ici reviendrait a apprendre
-la reponse du controle, ce que la regle 3.5 du tour 2 interdit et ce qui ne prouverait plus rien.
-
-Ce que chaque reponse tient a la fois : dire que ce n'est pas reconnu, ne nommer aucune
-maladie, dire quand meme le peu qui est lisible dans la description, poser deux ou trois
-questions qui separent, renvoyer au service qui peut voir la plante, et ne donner ni produit
-ni dose. Le contrepoids existe deja : les fiches connues portent des centaines de lignes ou
-la bonne reponse est un diagnostic ferme. Il n'y a donc pas de risque d'apprendre a fuir.
-"""
 P = "identity:out_of_distribution_plant"
 G = "identity:out_of_distribution"
 

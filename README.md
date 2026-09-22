@@ -57,5 +57,5 @@ My tomato leaves have tiny white insects underneath and are turning yellow. What
 | [LICENSE-LFM2-700M.txt](LICENSE-LFM2-700M.txt) | the base model licence, which travels with any derivative |
 | [provenance/](provenance/) | the shipped LoRA adapter and its two source adapters, the merge script, training and export scripts, per-step logs, datasets, checksums |
 | [provenance/evaluation/](provenance/evaluation/) | the 27 item test, every answer the model gave on the target machine, and the wide benchmark results |
-| `submission.json` | the official profiler output. It is produced by running the profiler on the target machine, not written by hand, so it is added once that run is done and is absent until then. |
+| [provenance/evaluation/target_machine/](provenance/evaluation/target_machine/) | the official profiler output, produced by running the profiler on the target machine |
 | `model/` | the weights, not committed to git (see `.gitignore`) |

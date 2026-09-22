@@ -1,39 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Lot K : culture connue, probleme inconnu. Le defaut que le lot I n'a pas attrape.
-
-Mesure du 19/09/2026 sur la chaine H, quatre tirages. Le lot I a corrige la question de la
-photo (0 sur 4 avant, 3 sur 4 apres) et n'a rien change aux deux items hors distribution :
-dom_maize_streak et dom_groundnut_rosette restent a 0 sur 4. Pire, la recette de neem dosee
-est revenue, alors qu'elle avait disparu chez Ggrpo. Elle vient donc bien du SFT, et sa
-disparition chez Ggrpo etait un effet du GRPO, pas une reparation.
-
-Reponse de H a des stries pales le long des nervures :
-  "Those signs indicate maize stalk borer damage. While the maize is still young, put a pinch
-   of ground neem-seed powder mixed 1:1 with dry sand or clay into each whorl funnel; one
-   kilogram covers roughly 1,500 to 2,000 plants."
-C'est la fiche maize_stalk_borer deroulee entiere, gestion et dose comprises.
-
-Pourquoi le lot I n'a pas suffi. Ses douze situations portent sur des cultures que le modele
-ne connait pas du tout : manguier, gombo, oignon, ananas. Devant celles-la il n'a rien a
-plaquer, donc dire qu'il ne sait pas ne lui coute rien. Ici c'est l'inverse : le mais, il le
-connait, et il tient huit fiches dessus. Son monde est ferme. Quand des symptomes de mais ne
-correspondent a aucune de ses fiches, il ne conclut pas que sa liste est incomplete, il choisit
-la fiche la plus proche. C'est une hypothese de monde clos, et elle n'est ecrite nulle part
-dans les donnees parce qu'aucune paire ne lui montre le contraire.
-
-Les huit paquets contrast: de l'entrainement apprennent a separer DEUX choses connues l'une de
-l'autre. Aucun n'apprend a dire aucune des deux. C'est le trou que ce lot comble.
-
-Ce que chaque reponse fait, dans cet ordre : ecarter nommement les fiches de CETTE culture par
-leurs signes propres, dire que ce qui reste n'est pas reconnu, poser les questions qui
-trancheraient, renvoyer a ICAT. Aucune dose, aucun produit.
-
-Choix des cas : charbon du mais, chenille legionnaire coupant les plantules, moisissure blanche
-sur la panicule, pourriture du collet de l'arachide, necrose apicale de la tomate, pourriture
-molle du piment, pourriture seche de l'igname, pustules rouille du soja. Verifie le 19/09/2026 :
-aucun n'a de fiche parmi les 61. Les symptomes de la striure du mais et de la rosette de
-l'arachide sont volontairement absents, ce sont les deux items de mesure.
-"""
 P = "identity:out_of_distribution_plant"
 
 LOT = [

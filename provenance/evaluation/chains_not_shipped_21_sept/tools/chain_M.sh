@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Chaine M apres SFT : export rapide du SFT -> echantillonnage on-policy -> DPO enrichi -> export Q4_K_M -> memes instruments.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

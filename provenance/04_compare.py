@@ -1,41 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 4 - measure every GGUF we produced, against each other and against the untuned base.
-
-Three questions, and none of them is answered by an opinion:
-
-  1. ACCURACY (weight 0.50). The 12-item acceptance test is replayed against the real GGUF,
-     served by llama-server, with NO system prompt - exactly the way the jury talks to it. The
-     grading is the deterministic checker of rebuild-gate2/pipeline/acceptance.py, imported, not
-     re-implemented: the same rules that scored the round-1 answers 5/12 score these.
-  2. THROUGHPUT (weight 0.30) and MEMORY (weight 0.20). Measured the way the ORGANISERS measure,
-     because that is the only measurement that can reconcile with theirs. Read from their own
-     profiler (adtc-2026/profiler-src, read 12/09/2026):
-        throughput -> llama-bench -m M -p 512 -n 128 -ngl 0 --output json, generation row avg_ts
-        memory     -> peak and steady-state RSS of the bench process family, sampled at 10 Hz
-     Their comparator flags a submission above 25 % of throughput deviation and fails it above
-     50 % (comparator.py, TOLERANCES). Rule 3.4 is that check.
-  3. THE CHOICE OF QUANTISATION. Q5_K_M is bigger than Q4_K_M, so it costs efficiency (0.20).
-     It is worth it only if it buys accuracy (0.50). This script puts both numbers on one line
-     so the trade is arithmetic instead of a feeling.
-
-About the numbers this bench produces: they are NOT the numbers to declare. The round-1 report
-anchors the translation - the same model measured 6.34 tok/s here and scored Sperf 21.33, i.e.
-3.20 tok/s on the audit VM. The audit machine runs at about HALF this bench (config.AUDIT_SPEED_FACTOR),
-and the report prints both, labelled, so nobody declares the wrong one.
-
-Usage (a venv with psutil - .venv-train or .venv-profiler), from concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\04_compare.py
-    .venv-train\\Scripts\\python train-gate2\\04_compare.py --quants Q4_K_M Q5_K_M
-    .venv-train\\Scripts\\python train-gate2\\04_compare.py --no-bench       # acceptance only
-    .venv-train\\Scripts\\python train-gate2\\04_compare.py --bench-only     # speed and RAM only
-    .venv-train\\Scripts\\python train-gate2\\04_compare.py --extra          # + identity/limits probes
-
-Produces
-    outputs/answers/<tag>/<model>.jsonl          every answer, kept as evidence
-    provenance/<tag>/compare.md                  the before/after table rule 3.1 asks for
-    provenance/<tag>/compare.json                the same, machine-readable
-    provenance/<tag>/measurements.json           throughput + memory in the profiler's own shape
-"""
 from __future__ import annotations
 import argparse, importlib.util, json, os, re, socket, subprocess, sys, threading, time, urllib.error
 import urllib.request
@@ -50,10 +12,6 @@ EXE = ".exe" if os.name == "nt" else ""
 SERVER_BIN = C.LLAMA_BIN / f"llama-server{EXE}"
 BENCH_BIN = C.LLAMA_BIN / f"llama-bench{EXE}"
 
-# Sperf is linear in generation speed and saturates at 15 tok/s: the round-1 report gives
-# Sperf 21.33 for 3.20 tok/s, and 3.20/15*100 = 21.33 to the cent. Seff is a reconstruction from
-# a SINGLE point (Seff 82.99 <-> 1219 MB, and 100*(1-1219/7168) = 82.99), so it is one plausible
-# fit, not a published formula - the report says so wherever it prints an Seff.
 PERF_SATURATION_TOK_S = 15.0
 EFF_BUDGET_MB = 7168.0
 ROUND1 = {"Sacc": 65.54, "Sperf": 21.33, "Seff": 82.99, "total": 55.77}
@@ -69,12 +27,6 @@ def read_jsonl(p):
     return [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]
 
 
-# Typography, not agronomy. Measured on the first real run, 12/09/2026: the model writes
-# "tick‑borne" with U+2011 (a NON-BREAKING hyphen) because 2886 of them are in sft_train.jsonl,
-# and the acceptance checker looks for the ASCII "tick-borne". The item failed on a character the
-# jury cannot even see. Folding this punctuation to ASCII before the textual check is a reading
-# fix, not a lowered bar - and the report prints how many items it flipped, so the difference is
-# never silent. The data itself should lose these characters; that is a pipeline job, not this one.
 TYPO = {0x2010: "-", 0x2011: "-", 0x2012: "-", 0x2013: "-", 0x2014: "-", 0x2015: "-",
         0x00A0: " ", 0x202F: " ", 0x2009: " ", 0x2018: "'", 0x2019: "'",
         0x201C: '"', 0x201D: '"', 0x2026: "..."}
@@ -85,9 +37,6 @@ def to_ascii_punct(s: str) -> str:
 
 
 def load_checker():
-    """The deterministic acceptance checker, imported from the data pipeline. Never a copy: a
-    second copy would drift, and then the test that says 12/12 would not be the test that
-    scored the round-1 answers 5/12."""
     spec = importlib.util.spec_from_file_location("acceptance_check", ACCEPTANCE_PY)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -103,8 +52,6 @@ def free_port(preferred: int) -> int:
 
 
 class Server:
-    """llama-server around one GGUF. --jinja so the template BAKED IN THE FILE is the one used:
-    if the persona is missing from the GGUF, this is where it shows."""
 
     def __init__(self, model: Path, threads: int, port: int, ctx: int, log: Path):
         self.model, self.threads, self.port, self.ctx, self.log = model, threads, port, ctx, log
@@ -144,7 +91,6 @@ class Server:
             pass
 
     def ask(self, question: str, max_tokens: int, timeout: int = 900) -> dict:
-        """One bare user turn. No system message on purpose: that is the jury's input."""
         body = json.dumps({"messages": [{"role": "user", "content": question}],
                            "temperature": 0.0, "top_k": 1, "seed": C.SEED,
                            "max_tokens": max_tokens}).encode("utf-8")
@@ -166,8 +112,6 @@ class Server:
 
 
 def memory_of_server_log(log: Path) -> dict:
-    """Fallback when psutil is absent: llama.cpp prints the buffers it allocated. This is not RSS
-    and must not be declared as such - it is a floor, and the report labels it."""
     out, text = {}, log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
     total = 0.0
     for m in re.finditer(r"(model buffer size|KV buffer size|compute buffer size)\s*=\s*"
@@ -179,8 +123,6 @@ def memory_of_server_log(log: Path) -> dict:
 
 
 def bench(model: Path, threads: int | None, n_prompt=512, n_gen=128) -> dict:
-    """The organisers' own throughput command, plus RSS sampling around it, so the two numbers
-    they compare against our declaration are produced by the same run."""
     cmd = [str(BENCH_BIN), "-m", str(model), "-p", str(n_prompt), "-n", str(n_gen),
            "-ngl", "0", "--output", "json"]
     if threads:
@@ -254,8 +196,6 @@ def seff(rss_mb):
 
 
 def battery(tag_extra: bool):
-    """The 12 scored items, and optionally the unscored probes that answer the jury's OTHER
-    habit: three of the five hidden prompts of round 1 were about the model itself."""
     items = read_jsonl(GOLD / "acceptance.jsonl")
     extra = []
     if tag_extra:
@@ -267,7 +207,6 @@ def battery(tag_extra: bool):
 
 
 def run_model(name, path, items, extra, args, checker):
-    """Serve one GGUF, ask everything, grade the scored part, keep every answer."""
     print(f"\n=== {name}  ({path.name}, {path.stat().st_size / (1 << 20):.1f} Mo) ===")
     res = {"name": name, "file": str(path), "size_mb": round(path.stat().st_size / (1 << 20), 1)}
     answers, rows = [], []
@@ -471,12 +410,11 @@ def main():
         print(f"ARRET : le testeur d'acceptation est introuvable : {ACCEPTANCE_PY}")
         return 2
     try:
-        import psutil  # noqa: F401
+        import psutil
     except ImportError:
         print("NOTE : psutil absent de ce venv, la RAM ne sera pas mesuree (le debit, si). "
               "Utilise .venv-train ou .venv-profiler pour la mesure complete.\n")
 
-    # --- which files ------------------------------------------------------------------------
     gdir = C.GGUF / args.tag
     if args.models:
         files = [(Path(m).stem, Path(m)) for m in args.models]
@@ -492,7 +430,6 @@ def main():
             if args.quants and q not in args.quants:
                 continue
             found.append((q, f))
-        # The untuned base is the one 03_export recorded for THIS tag (one folder per base model).
         base = None
         man = C.PROV / args.tag / "metadata.json"
         if man.is_file():
@@ -513,7 +450,6 @@ def main():
         print("NOTE : pas de GGUF de base ici, donc pas d'avant/apres. "
               "Relance 03_export.py --with-base pour l'obtenir (regle 3.1).")
 
-    # --- calibrate this bench against the audit VM, on the one model whose audit score we know --
     args.audit_factor = C.AUDIT_SPEED_FACTOR
     args.audit_factor_source = (f"constante config.AUDIT_SPEED_FACTOR={C.AUDIT_SPEED_FACTOR}, "
                                 f"mesuree sur un AUTRE banc au tour 1 - a ne pas prendre pour "
@@ -558,7 +494,6 @@ def main():
 
     prov = C.PROV / args.tag
     prov.mkdir(parents=True, exist_ok=True)
-    # llama-bench has no --version; llama-cli of the same build prints it.
     try:
         v = subprocess.run([str(C.LLAMA_BIN / f"llama-cli{EXE}"), "--version"],
                            capture_output=True, text=True, timeout=30)
@@ -579,7 +514,6 @@ def main():
         encoding="utf-8")
     (prov / "compare.md").write_text(markdown(results, args, meta), encoding="utf-8")
 
-    # what a submission.json needs, in the profiler's own shape, for the best model measured
     best = max((r for r in results if (r.get("bench") or {}).get("tokens_per_second_generation")),
                key=lambda r: ((r.get("acceptance") or {}).get("jury", 0),
                               r["bench"]["tokens_per_second_generation"]), default=None)
@@ -598,7 +532,6 @@ def main():
                     "declarer se verifie en relancant adtc-profiler dans l'image d'audit."},
             ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    # --- the summary, on screen ----------------------------------------------------------------
     print("\n" + "=" * 96)
     print(f"{'modele':26} {'taille':>9} {'jury':>7} {'barre':>7} {'tok/s':>8} "
           f"{'~VM audit':>10} {'RSS pic':>9}")

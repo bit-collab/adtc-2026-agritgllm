@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# usage: ./eval/gen.sh Q4_K_M | Q5_K_M | Q6_K
 set -euo pipefail
 cd ~/adtc-2026
 Q="${1:?usage: $0 Q4_K_M|Q5_K_M|Q6_K}"

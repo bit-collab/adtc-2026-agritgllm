@@ -1,28 +1,4 @@
 #!/bin/sh
-# Cherche une configuration qui garde le pic de temperature sous 85 C sans perdre le score
-# de debit. A lancer SUR LA REPLIQUE, pas sur la machine de developpement.
-#
-# Pourquoi ce balayage.
-#   Trois passages d'adtc-profiler sur la replique, le 19/09/2026, avec le meme fichier :
-#   15,64 tok/s a froid, puis 15,27 et 14,91 une fois la machine chaude. Les trois ecrivent
-#   "throttled": true et un pic de coeur entre 98 et 100 C. Le debit n'est donc pas le
-#   probleme : 15,0 tok/s suffisent deja pour le plein score de performance, et nous sommes
-#   au-dessus. Le probleme est la chaleur, et elle coute dix points.
-#
-#   Le releve thermique du 19/09 (thermo-20260919-160921.csv, 365 points sur 1834 s) montre
-#   autre chose d'utile : pendant les phases chaudes le processeur tient 3700 a 3900 MHz. Il
-#   ne s'effondre pas, il travaille a sa limite de puissance. Il y a donc de la frequence a
-#   rendre, et c'est exactement ce qu'on veut echanger.
-#
-#   Le calcul de l'echange, avec la ponderation du concours : la penalite thermique vaut dix
-#   points pleins, la performance ne pese que 0,30. Perdre du debit ne coute 10 points qu'en
-#   tombant vers 10 tok/s. Toute configuration qui reste au-dessus de 10 tok/s en effacant le
-#   drapeau est gagnante, et au-dessus de 15,0 elle est gratuite.
-#
-# Ce que le script fait : pour chaque nombre de fils, un llama-bench de generation, avec la
-# temperature echantillonnee en parallele. Il n'ecrit que son propre fichier de resultats.
-#
-# Usage : sh thermal_sweep.sh /chemin/vers/le/modele.gguf [fichier_de_sortie.csv]
 
 set -eu
 
@@ -34,7 +10,6 @@ REPOS="${REPOS:-120}"   # secondes de refroidissement entre deux essais
 BENCH="$(command -v llama-bench || echo /usr/local/bin/llama-bench)"
 [ -x "$BENCH" ] || { echo "llama-bench introuvable, donner son chemin dans \$BENCH"; exit 1; }
 
-# capteur : on prefere la temperature de paquet, sinon la premiere zone disponible
 ZONE=""
 for z in /sys/class/thermal/thermal_zone*; do
     [ -r "$z/type" ] || continue
@@ -60,7 +35,6 @@ for t in $FILS; do
       done ) > "$TMP" &
     ECH=$!
 
-    # -n 128 jetons generes, -p 0 : on mesure la generation, pas la lecture du prompt
     TPS="$("$BENCH" -m "$MODELE" -t "$t" -ngl 0 -p 0 -n 128 -r 3 -o csv 2>/dev/null \
            | awk -F, '$0 ~ /tg/ {gsub(/"/,"",$NF); v=$NF} END {printf "%.2f", v}')"
 

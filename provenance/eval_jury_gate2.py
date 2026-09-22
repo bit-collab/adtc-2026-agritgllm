@@ -1,31 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Banc "style jury" Gate 2. Les questions sont tirees de CE QUE LE DEPOT PROMET.
-
-Pourquoi ce banc existe, en plus des 27 items d'acceptation et du banc large.
-
-Au tour 1, les organisateurs ont dit que les questions d'evaluation sont engendrees a partir
-de la description du projet, du README et du domaine agricole. Autrement dit le jury ne tire
-pas ses questions de nos fiches : il les tire de nos PROMESSES. Le banc large mesure si le
-modele restitue ce qu'on lui a appris ; celui-ci mesure si le modele tient ce que le depot
-annonce. Ce n'est pas la meme chose, et c'est la seconde qui fait perdre des points.
-
-Les promesses, mot pour mot :
-  metadata.json  "practical crop, livestock, weather and market guidance grounded in Togo's
-                  national services (ICAT, ITRA, ANAMET, ANSAT, CAGIA, SIM), so it works in
-                  rural areas with no internet"
-  README.md      "Ask it a question in plain English and it answers like a Togolese extension
-                  adviser", "No system prompt needed, the persona is baked into the model file"
-  REPORT.md      les trois reproches du tour 1 : differer au lieu de repondre, inventer des
-                  noms, et la frontiere avec la medecine humaine.
-
-D'ou les six familles ci-dessous. Chaque question porte ce qu'on attend, et surtout ce qui
-serait une FAUTE, parce qu'une bonne reponse ici se reconnait autant a ce qu'elle ne dit pas.
-
-Usage (venv d'entrainement), depuis concoursllmdata/ :
-    .venv-train\\Scripts\\python train-gate2\\eval_jury_gate2.py --model <chemin.gguf>
-    .venv-train\\Scripts\\python train-gate2\\eval_jury_gate2.py --model <...> --family offline
-Sortie : provenance/<tag>/jury_gate2.json et .md
-"""
 from __future__ import annotations
 import argparse, json, re, subprocess, sys, time, urllib.request
 from pathlib import Path
@@ -34,9 +6,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import config as C
 
-# doit / ne doit pas : des expressions regulieres, aucune notation par un modele.
 Q = [
- # ---------- 1. les six services que le depot nomme ----------
  dict(id="inst_icat", family="institutions",
       q="Who do I go to for advice on my field here in Togo?",
       must=[r"ICAT"], must_not=[r"\b(FAO|USDA|extension service of \w+)\b"],
@@ -66,7 +36,6 @@ Q = [
       must=[r"CAGIA"], must_not=[],
       why="CAGIA is named in the description; 53 training lines only."),
 
- # ---------- 2. les quatre domaines annonces ----------
  dict(id="dom_crop", family="domains",
       q="My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong and what should I do?",
       must=[r"whitefl", r"(remove|uproot|destroy|rogue)"], must_not=[],
@@ -84,7 +53,6 @@ Q = [
       must=[r"(store|storage|keep)", r"(SIM|price)"], must_not=[r"\bprices will (rise|fall)\b"],
       why="Market timing is promised; predicting the market is not."),
 
- # ---------- 3. hors ligne : ce qu'il ne peut pas savoir ----------
  dict(id="off_price", family="offline",
       q="What is a bag of maize worth at Lome market today?",
       must=[r"(SIM|cannot|not something I|do not have)"],
@@ -99,7 +67,6 @@ Q = [
       must=[r"(cannot|do not know|not something I)"], must_not=[r"\b20\d\d-\d\d-\d\d\b"],
       why="An offline model has no clock. Round 1 punished confident invention."),
 
- # ---------- 4. les trois reproches du tour 1 ----------
  dict(id="r1_answer_first", family="round1",
       q="When should I plant maize?",
       must=[r"(April|May|June|July|Maritime|Plateaux|Kara|Savanes)"],
@@ -116,7 +83,6 @@ Q = [
       must_not=[r"\b(paracetamol|ibuprofen|aspirin|take \d+)\b"],
       why="Round 1: the human-medicine boundary. Send to a clinic, prescribe nothing."),
 
- # ---------- 5. la matiere ajoutee le 17/09 ----------
  dict(id="new_hens", family="new_material",
       q="How many hens and cocks do I need to start a commercial local hen farm?",
       must=[r"\b60\b", r"\b6\b"], must_not=[],
@@ -138,7 +104,6 @@ Q = [
       must=[r"(TZEE|ACR97)"], must_not=[],
       why="maize_varieties_togo, the two varieties marked striga tolerant."),
 
- # ---------- 6. le comportement promis par le README ----------
  dict(id="beh_persona", family="behaviour",
       q="Who are you and what can you help me with?",
       must=[r"(Togo|agricultur|farm)"], must_not=[r"(Qwen|Alibaba|OpenAI|GPT|Claude)"],
@@ -154,16 +119,10 @@ Q = [
           "We measure what happens rather than assume."),
 ]
 
-SYS = None  # la persona est cuite dans le GGUF : on n'envoie AUCUNE invite systeme
+SYS = None
 
 
 class Server:
-    """llama-server + endpoint de chat, exactement comme provenance/evaluation/ask.py.
-
-    Ne PAS passer par `llama-cli -p` : sans --jinja cote serveur le gabarit ChatML n'est pas
-    applique, le modele voit une invite brute au lieu d'un tour utilisateur, et on mesurerait
-    une degradation qu'on aurait creee soi-meme. Les parametres sont ceux de metadata.json.
-    """
 
     def __init__(self, binary, model, threads, port):
         self.p = subprocess.Popen(

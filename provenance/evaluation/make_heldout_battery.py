@@ -1,20 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Deuxieme instrument : memes defauts vises, autres formulations, aucune dans l'entrainement.
-
-Pourquoi il faut un second banc. Mesure du 19/09/2026 : sur les 27 questions de la batterie
-du tour 1, 19 sont identiques mot pour mot a une question d'entrainement. Les scores autour de
-21 sur 27 melangent donc la restitution et la generalisation. Les items reellement inedits ne
-sont que huit, et le score y tombe vers 65 %.
-
-Ce fichier a ete ecrit le 19/09/2026 pour ce banc, pas repris du rapport des juges. Les criteres sont repris tels quels du
-fichier d'origine, sauf a trois endroits, signales dans chaque ligne :
-  - dom_maize_streak_v2 et dom_groundnut_rosette_v2 : apres l'arbitrage du 19/09/2026 les deux
-    fiches sont rendues a l'entrainement, la reponse attendue devient un diagnostic correct et
-    sans dose, et non plus un aveu d'ignorance.
-  - les verdicts : la forme a la premiere personne (I will not buy) est ajoutee a la liste
-    acceptee, parce que la lecture ligne a ligne a montre que sept echecs sur douze venaient de
-    cette seule difference de tournure.
-"""
 import io, json
 
 NEW = [

@@ -1,25 +1,3 @@
-# -*- coding: utf-8 -*-
-"""STEP 2 - preference optimisation on top of the SFT adapter. DPO, not SimPO, and here is why.
-
-SimPO's headline advantage is that it needs no reference model. With TRL + PEFT that advantage
-does not exist: pass ref_model=None and the trainer uses the SAME model with the adapter
-disabled as the reference, and precompute_ref_log_probs computes the reference log-probs once,
-before training, then frees it. So DPO costs us almost nothing in memory.
-
-What DPO gives us that SimPO does not is the explicit pull back towards the SFT behaviour, and
-that matters for the shape of OUR pairs: 655 of them are the same answer minus one invented
-sentence. The signal is surgical, the two sides are the same length (so SimPO's length
-normalisation buys nothing), and we do not want the model wandering away from an SFT it already
-passes 12/12 on.
-
-Start with the 655 surgical pairs alone (config.DPO_SOURCES = ["trim"]). The 529 synthetic ones
-are deliberately easy - a figure changed, a crop swapped - and a model can learn to spot the
-surface anomaly instead of the agronomy. Add them in a second run and check the acceptance test
-did not move.
-
-Usage:  python 02_dpo.py                 (after 01_sft.py)
-        python 02_dpo.py --tag B
-"""
 from __future__ import annotations
 import argparse, json, os, platform, sys, time
 from pathlib import Path
@@ -64,7 +42,6 @@ def main():
     tok = AutoTokenizer.from_pretrained(str(adapter))
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
-    # the adapter folder already carries the no-thinking template saved by 01_sft.py; make sure
     if "<think>" in (tok.chat_template or ""):
         from importlib import import_module
         tok.chat_template = import_module("01_sft").CHATML_GEN
@@ -83,7 +60,6 @@ def main():
     if not rows:
         print("ARRET : aucune paire de preference. Lance 00_split.py.")
         return 2
-    # same preamble as 01_sft.py and as the GGUF template: train = serve (13/09/2026)
     for r in rows:
         if isinstance(r.get("prompt"), list) and r["prompt"] and r["prompt"][0]["role"] != "system":
             r["prompt"] = [{"role": "system", "content": C.BAKED_SYSTEM}] + r["prompt"]
@@ -108,7 +84,6 @@ def main():
             if logs:
                 log.add(logs, state)
 
-    # trl 1.13 dropped warmup_ratio and max_prompt_length from DPOConfig; warmup is in steps.
     steps = max(1, int(len(ds) / (C.DPO_BATCH * C.DPO_GRAD_ACCUM) * a.epochs))
     args = DPOConfig(
         output_dir=str(out), per_device_train_batch_size=C.DPO_BATCH,

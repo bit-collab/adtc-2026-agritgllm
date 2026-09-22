@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-"""Note les reponses contre acceptance.jsonl et ecrit un rapport markdown par modele.
-usage: score.py <acceptance.jsonl> <sortie_dir> <nom=answers.jsonl> [...]
-Criteres verifiables par machine : must_contain_any, must_not_contain, min/max_words, no_dose (regex).
-Les autres (must_refuse, must_give_verdict, ...) sont laisses a la lecture humaine et marques 'manuel'."""
 import json, re, sys, os
 
 ACC, OUTDIR, *MODELS = sys.argv[1:]
@@ -50,7 +46,6 @@ for spec in MODELS:
     open(os.path.join(OUTDIR, f"reponses_{name}.md"), "w").write("\n".join(md))
     summary[name] = (core_ok, extra_ok, rows)
 
-# tableau croise
 names = list(summary)
 print(f"{'item':<42} {'kind':<5} " + " ".join(f"{n:>10}" for n in names))
 for i, it in enumerate(items):

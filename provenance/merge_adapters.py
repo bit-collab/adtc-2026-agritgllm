@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Fusionne l'adaptateur de v3 (Kdpo) et celui d'Osft (SFT O) en un nouvel adaptateur LoRA.
-
-cat      : delta exact = wk * dK + wo * dO (concatenation des rangs, 32 + 32 = 64)
-ties_svd : TIES (Yadav 2023) sur les deltas complets, puis SVD au rang 64
-Usage : python merge_adapters.py <tag> <methode> <poids_k> <poids_o> [densite]
-"""
 import sys, shutil, json, io, os
 from pathlib import Path
 import torch
@@ -30,7 +23,6 @@ model.set_adapter("merged")
 OUT.parent.mkdir(parents=True, exist_ok=True)
 if OUT.exists(): shutil.rmtree(OUT)
 model.save_pretrained(str(OUT.parent), selected_adapters=["merged"])
-# PEFT ecrit OUT.parent/merged/ ; on le renomme best_lora et on y met le tokenizer et le gabarit de Kdpo
 (OUT.parent / "merged").rename(OUT)
 for f in ("tokenizer.json", "tokenizer_config.json", "chat_template.jinja", "README.md"):
     if (K / f).exists(): shutil.copy2(K / f, OUT / f)

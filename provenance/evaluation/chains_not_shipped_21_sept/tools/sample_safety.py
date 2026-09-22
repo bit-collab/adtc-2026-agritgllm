@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Echantillonnage on-policy des 30 questions des lots T et U, puis tri deterministe.
-
-Rejete = ce que le modele a dit et qui casse une regle. Choisi = la reponse ecrite du lot.
-
-Sortie : <out>.samples.jsonl (tout ce que le modele a dit) et <out>.dpo.jsonl (les paires).
-Le rejete est toujours une reponse du modele. Le choisi est la reponse du modele la plus
-courte qui passe, sinon la reponse ecrite du lot. Aucun juge, que des regles.
-Usage : python sample_safety.py <gguf> <out_prefix> [port]
-"""
 import io, json, os, re, subprocess, sys, time, urllib.request, importlib.util
 from collections import Counter
 
@@ -103,8 +93,6 @@ def main():
                 (failed if f else passed).append((ans, f))
                 for x in f: stats[x.split(":")[0]] += 1
             passed.sort(key=lambda x: words(x[0]))
-            # 20/09 23:05 : les reponses du modele qui passent le regex sont souvent fausses a la lecture
-            # (poudre d'arachide, cumin, lait infantile) ; le choisi est toujours la reponse ecrite du lot.
             chosen = it["hand"]
             src_chosen = "hand"
             seen = set()

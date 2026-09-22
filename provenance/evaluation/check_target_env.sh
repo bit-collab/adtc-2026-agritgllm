@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-# Constate la configuration de la machine de mesure et la confronte a ce que le reglement
-# ADTC 2026 exige. Ne mesure rien, ne telecharge rien, ne modifie rien.
-#
-# A lancer sur la REPLIQUE de la machine cible, pas sur le poste de developpement :
-#   bash check_target_env.sh /chemin/vers/le-depot-de-soumission
-#
-# Profil vise, section 2.2 du reglement : 8 Go de RAM, 4 vCPU Intel i5 10e a 12e generation,
-# graphique integre seulement, aucune dependance reseau pendant l'evaluation.
 
 set -uo pipefail
 DEPOT="${1:-.}"
@@ -32,8 +24,6 @@ dire "systeme" "$(uname -srm)"
 
 echo
 echo "============ JEU D'INSTRUCTIONS ============"
-# La build d'audit des organisateurs desactive AVX/AVX2/FMA/F16C. Si la build locale les
-# active, le debit mesure ici sera plus haut que le leur, et l'ecart tombera sous la regle 3.4.
 for f in avx avx2 fma f16c avx512f; do
   if grep -qm1 " $f" /proc/cpuinfo 2>/dev/null; then
     dire "  $f present sur le processeur" "oui"

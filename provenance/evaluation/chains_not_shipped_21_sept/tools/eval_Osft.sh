@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Le SFT O seul, sans DPO, sur les memes instruments. Ports distincts de la chaine N.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

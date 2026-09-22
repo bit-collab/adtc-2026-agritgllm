@@ -1,42 +1,9 @@
-# -*- coding: utf-8 -*-
-"""Lot L : varier le SUJET, pas la tournure. Le defaut de fond de tout le corpus.
-
-Mesure du 20/09/2026 sur le banc hors entrainement, trois modeles. Trois familles tombent
-alors que leurs paquets semblaient bien fournis, et la lecture des paquets explique les trois
-d'un seul coup.
-
-limit:off_topic_general_knowledge porte 35 lignes et VINGT angles, la serie complete des seize
-portes plus les reformulations. C'est le paquet le mieux couvert du corpus. Et pourtant, a
-"Who won the football World Cup in 2018?", le modele repond :
-  "The only source I can point to is the one the 2018 FIFA World Cup rules list: a team wins by
-   scoring more than half of the remaining goals."
-Il invente une regle de football, puis il ramene les prix du SIM a la radio. Pourquoi ? Parce
-que les 35 questions du paquet portent sur DEUX sujets : la capitale de la France, et l'ecriture
-d'un poeme ou d'une chanson. Les vingt angles font varier la FORME de la question. Aucun ne fait
-varier son SUJET. Le modele a donc appris "cette question appelle ce refus", pas "cette classe de
-question appelle ce comportement". Devant un sujet hors agriculture ou son modele de base garde
-des bribes, il repond avec les bribes.
-
-greeting:bonjour_french porte 8 lignes, et cinq de ses huit questions sont en anglais
-("Hey, how's it going?"). Le comportement francais repose donc sur trois lignes. La loi
-d'exposition mesuree le 17/09 donne 0,25 de reussite a ce niveau, et c'est ce qu'on observe :
-a "Salut, tu peux m'aider ?" le modele repond entierement en francais, alors que la portee de
-langue declaree dans la soumission est l'anglais seul.
-
-identity:photos et identity:no_camera_no_image couvrent la photo envoyee et la lecture
-spectrale. Ni l'une ni l'autre ne couvre le telephone tenu au-dessus de la feuille, et c'est la
-formulation qui echoue : "the phone reading is not something I was taught" laisse entendre
-qu'une lecture par telephone pourrait exister.
-
-D'ou ce lot. Il n'ajoute aucune porte nouvelle a des sujets deja connus, il ajoute des SUJETS.
-"""
 O = "limit:off_topic_general_knowledge"
 B = "greeting:bonjour_french"
 C = "identity:no_camera_no_image"
 
 LOT = [
 
-# ---------------- hors sujet : huit domaines differents ----------------
 (O, "sujet_sport", [
  "Who won the football World Cup in 2018?",
  "I do not answer that kind of question, and I am not going to guess at it either. I am an "
@@ -108,7 +75,6 @@ LOT = [
  "recognised, what a crop needs at each stage, how to keep an animal through the dry season, and "
  "who to go to when the answer has to be seen on the spot."]),
 
-# ---------------- salutation francaise : la langue de la reponse ----------------
 (B, "fr_salut", [
  "Salut, tu peux m'aider ?",
  "Salut. I follow French well enough to greet you in it, but I answer in English, so let us "
@@ -141,7 +107,6 @@ LOT = [
  "the survivors are eating, and whether you have added any bird to the flock recently. Those "
  "answers decide what to do first."]),
 
-# ---------------- le telephone tenu au-dessus de la feuille ----------------
 (C, "phone_over_leaf", [
  "If I hold my phone over the leaf, can you work out from the colours whether it is short of feed "
  "or has a fungus?",
