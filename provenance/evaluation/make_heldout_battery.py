@@ -1,3 +1,4 @@
+# Write the held-out battery: 27 items with the same target faults as the Round 1 battery, on other situations.
 import io, json
 
 NEW = [

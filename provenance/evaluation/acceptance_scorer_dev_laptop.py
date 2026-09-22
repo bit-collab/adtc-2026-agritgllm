@@ -1,3 +1,4 @@
+# Score the 27 acceptance items with regex rules (diagnosis, dose, refusal, invented names) and write the markdown report.
 from __future__ import annotations
 import json, re, sys
 from pathlib import Path

@@ -1,3 +1,4 @@
+# Hand-written lot: tick-borne cattle verdicts and Newcastle steps, bound to the sheet wording.
 V = "verdict:tick_borne_cattle_decisive"
 N = "problem_note:poultry_newcastle:what-to-do:0"
 

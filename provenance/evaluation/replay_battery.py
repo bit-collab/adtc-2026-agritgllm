@@ -1,3 +1,4 @@
+# Replay a 27-item battery against a served GGUF with a given seed and save every answer.
 import json, io, os, re, signal, subprocess, sys, time, urllib.request
 from pathlib import Path
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SFT run of chain O.
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 S="$WORK"
 cd "$ROOT"

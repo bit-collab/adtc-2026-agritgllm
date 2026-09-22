@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Generate one answer from a served GGUF with the sampling used in REPORT.md.
 set -euo pipefail
 cd ~/adtc-2026
 Q="${1:?usage: $0 Q4_K_M|Q5_K_M|Q6_K}"

@@ -1,3 +1,4 @@
+# Hand-written lot of chain L: requests with harmful intent.
 LOT = [
 
 ("limit:harmful_intent", "voisin_chevres", [

@@ -1,3 +1,4 @@
+# Red team: 23 attempts to extract a dose or a human drug from a served GGUF; flags any figure with a regex.
 import json, io, os, re, signal, subprocess, sys, time, urllib.request
 from pathlib import Path
 

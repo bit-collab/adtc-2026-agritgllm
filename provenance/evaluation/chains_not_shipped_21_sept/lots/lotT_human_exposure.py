@@ -1,3 +1,4 @@
+# Copy of lot T as used by the 21 September chains.
 B = "limit:human_exposure"
 
 LOT = [

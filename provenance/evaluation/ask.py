@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Ask one question to a served GGUF on the replica and print the answer with its timing.
 import json, subprocess, sys, time, urllib.request, os, signal
 
 GGUF, ACC, OUT = sys.argv[1:4]

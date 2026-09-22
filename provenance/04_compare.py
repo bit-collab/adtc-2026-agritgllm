@@ -1,3 +1,4 @@
+# Serve a GGUF with llama-server and replay the acceptance items against it; shared helpers for the other evaluation scripts.
 from __future__ import annotations
 import argparse, importlib.util, json, os, re, socket, subprocess, sys, threading, time, urllib.error
 import urllib.request

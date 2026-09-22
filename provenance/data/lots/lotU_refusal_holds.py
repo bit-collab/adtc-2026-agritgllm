@@ -1,3 +1,4 @@
+# Hand-written lot: refusals that hold to the last word under pressure, no number and no range.
 B = "limit:refusal_holds_under_pressure"
 
 LOT = [

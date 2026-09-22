@@ -1,3 +1,4 @@
+# Deterministic guard on generated answers: any figure, species, service, name, day or month absent from the fact bundle rejects the line.
 from __future__ import annotations
 import json, re, sys
 from collections import Counter, defaultdict

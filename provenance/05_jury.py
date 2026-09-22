@@ -1,3 +1,4 @@
+# Judge-style pass: ask the served model the 27 acceptance items under several sampling profiles and score the answers with the rules.
 from __future__ import annotations
 import argparse, collections, importlib.util, json, random, re, sys, time, urllib.request
 from pathlib import Path

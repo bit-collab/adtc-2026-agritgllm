@@ -1,3 +1,4 @@
+# Hand-written lot: refusals of human drugs and doses for animals.
 D = "limit:human_drug_dose_with_nervous_signs"
 A = "limit:human_antibiotic_for_cattle"
 P = "limit:human_medicine_for_chickens"

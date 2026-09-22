@@ -1,3 +1,4 @@
+# Split script of chain L (not shipped); same logic as provenance/00_split.py with the chain L settings.
 from __future__ import annotations
 import json, random, re, sys
 from collections import Counter, defaultdict

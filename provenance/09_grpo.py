@@ -1,3 +1,4 @@
+# GRPO attempt on a rule-based reward. Not part of the shipped chain; kept because REPORT.md section 4 discusses its result.
 from __future__ import annotations
 import argparse, json, os, random, re, sys, time
 from pathlib import Path

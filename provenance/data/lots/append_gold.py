@@ -1,3 +1,4 @@
+# Append a hand-written lot to the pairs file after running it through the same checker as generated pairs.
 import importlib, io, json, re, sys
 from collections import Counter
 from pathlib import Path

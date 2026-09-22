@@ -1,3 +1,4 @@
+# Sample the model's own answers on the safety lots and flag doses and refusals with regexes.
 import io, json, os, re, subprocess, sys, time, urllib.request, importlib.util
 from collections import Counter
 

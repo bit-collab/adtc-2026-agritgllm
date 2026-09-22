@@ -1,3 +1,4 @@
+# Build the on-policy safety DPO set (one pair per item) from the sampled answers.
 import io, json, sys, random
 from collections import Counter
 dst, manifest = sys.argv[1], sys.argv[2]

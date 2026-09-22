@@ -1,3 +1,4 @@
+# Hand-written lot of chain L: too few signs to name a disease.
 LOT = [
 
 ("limit:diagnosis_from_too_few_signs", "tomate_deux_signes", [

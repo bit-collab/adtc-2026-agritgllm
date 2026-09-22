@@ -1,3 +1,4 @@
+# Supervised LoRA fine-tuning of the base model on data/sft_train.jsonl; writes the adapter, per-step logs and train_config.json.
 from __future__ import annotations
 import argparse, json, os, platform, sys, time
 from pathlib import Path
@@ -35,6 +36,7 @@ GEMMA_GEN = (
     "{%- if add_generation_prompt %}{{- '<start_of_turn>model\n' }}{%- endif %}")
 
 
+# chat template and stop token depend on the base family
 def template_for(base_id: str) -> str:
     b = (base_id or "").lower()
     if "gemma" in b:
@@ -54,6 +56,7 @@ def human(sec):
     return f"{h}h{m:02d}m{s:02d}s" if h else f"{m}m{s:02d}s"
 
 
+# data loading
 def read_jsonl(p):
     return [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]
 
@@ -82,6 +85,7 @@ class LogWriter:
                                         ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+# training run
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default=C.BASE_MODEL)

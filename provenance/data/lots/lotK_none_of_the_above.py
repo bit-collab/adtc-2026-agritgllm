@@ -1,3 +1,4 @@
+# Hand-written lot: descriptions that match none of the taught problems.
 P = "identity:out_of_distribution_plant"
 
 LOT = [

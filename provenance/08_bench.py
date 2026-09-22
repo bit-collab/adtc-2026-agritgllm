@@ -1,3 +1,4 @@
+# Wide benchmark: 150 questions x 2 draws on taught and unseen sheets, scored for clean answers and grounding.
 from __future__ import annotations
 import argparse, collections, importlib.util, json, random, re, statistics, sys, time
 from pathlib import Path

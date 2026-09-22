@@ -1,3 +1,4 @@
+# Hand-written lot of chain L: what the model holds and does not hold.
 LOT = [
 
 ("identity:what_i_hold_about_myself", "taille_cachee_et_tetes", [

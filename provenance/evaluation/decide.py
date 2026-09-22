@@ -1,3 +1,4 @@
+# Decision rule for a candidate: safety items, control items and Round 1 score over four seeds, compared with the earlier file.
 import glob, io, json, os, sys
 from collections import defaultdict
 

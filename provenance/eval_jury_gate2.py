@@ -1,3 +1,4 @@
+# Judge-style battery built from what the repository promises (services, offline, identity, limits); rules are regexes, no model grades.
 from __future__ import annotations
 import argparse, json, re, subprocess, sys, time, urllib.request
 from pathlib import Path

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Batteries, red team and wide benchmark of the chain O adapter.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

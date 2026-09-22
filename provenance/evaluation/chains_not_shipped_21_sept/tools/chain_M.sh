@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Chain M: SFT on the safety lots, then DPO on the on-policy pairs (x3), export, batteries.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

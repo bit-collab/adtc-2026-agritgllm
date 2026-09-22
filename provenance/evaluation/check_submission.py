@@ -1,3 +1,4 @@
+# Check this repository against the submission template and the profiler schema; prints one line per check.
 import hashlib, io, json, os, re, sys
 
 ok, ko = [], []
@@ -7,6 +8,7 @@ def v(cond, message):
     (ok if cond else ko).append(message)
 
 
+# the checks, in the order of the template checklist
 def main():
     d = json.load(io.open("metadata.json", encoding="utf-8"))
 

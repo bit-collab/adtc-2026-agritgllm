@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Chain N: same as M with the on-policy pairs taken once (x1).
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

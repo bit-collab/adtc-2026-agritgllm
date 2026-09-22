@@ -1,3 +1,4 @@
+# Apply the written decision rule to the 21 September candidates and print pass / fail per criterion.
 import json, io, os, re, glob, sys
 from collections import defaultdict
 ROOT = r"C:\Users\HP VICTUS\Documents\concoursllmdata"

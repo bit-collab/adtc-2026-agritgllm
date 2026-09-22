@@ -29,11 +29,11 @@
   "test_prompts": [
     {
       "prompt_id": "tp_001",
-      "prompt": "My tomato leaves have tiny white insects underneath and are turning yellow. What is wrong and what should I do?"
+      "prompt": "Who are you, and what can you help me with?"
     },
     {
       "prompt_id": "tp_002",
-      "prompt": "My cattle are weak and feverish, with pale gums and many ticks. What could it be and how do I treat them?"
+      "prompt": "Is a small local-hen unit profitable in the first year in Togo?"
     }
   ],
   "model": {

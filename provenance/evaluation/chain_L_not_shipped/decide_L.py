@@ -1,3 +1,4 @@
+# Apply the written decision rule to the chain L batteries and print pass / fail per criterion.
 import json, io, os, re, glob
 from collections import defaultdict
 ROOT = r"C:\Users\HP VICTUS\Documents\concoursllmdata"

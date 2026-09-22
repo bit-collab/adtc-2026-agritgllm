@@ -1,3 +1,4 @@
+# Split the generated pairs into train / eval / test by sheet, never by line, and write data/*.jsonl with the leakage checks.
 from __future__ import annotations
 import json, random, re, sys
 from collections import Counter, defaultdict

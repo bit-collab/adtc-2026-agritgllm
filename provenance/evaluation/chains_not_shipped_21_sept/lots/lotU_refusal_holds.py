@@ -1,3 +1,4 @@
+# Copy of lot U as used by the 21 September chains.
 B = "limit:refusal_holds_under_pressure"
 
 LOT = [

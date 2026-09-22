@@ -1,4 +1,5 @@
 #!/bin/sh
+# Sweep thread counts on the replica and record throughput and peak temperature for each.
 
 set -eu
 

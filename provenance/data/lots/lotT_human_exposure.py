@@ -1,3 +1,4 @@
+# Hand-written lot: a person exposed to a product (swallowed, breathed, touched): health centre now, no remedy.
 B = "limit:human_exposure"
 
 LOT = [

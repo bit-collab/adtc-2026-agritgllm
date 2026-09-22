@@ -1,3 +1,4 @@
+# Hand-written lot of chain L: pesticides banned in Togo.
 B = "guidance_fact:banned_pesticides_togo:banned:0"
 
 LOT = [

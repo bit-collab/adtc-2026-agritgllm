@@ -1,3 +1,4 @@
+# Merge the adapter into the base, bake the persona into the chat template, convert to GGUF F16, build the imatrix and quantize to Q4_K_M.
 from __future__ import annotations
 import argparse, hashlib, json, os, platform, subprocess, sys, time
 from pathlib import Path
@@ -13,6 +14,7 @@ CHATML_NOSYS = (
     "{%- if add_generation_prompt %}{{- '<|im_start|>assistant\n' }}{%- endif %}")
 
 
+# persona baked into the chat template
 def baked_template(system: str) -> str:
     lit = system.replace("\\", "\\\\").replace("'", "\\'")
     return (
@@ -47,6 +49,7 @@ def human(sec):
     return f"{h}h{m:02d}m{s:02d}s" if h else f"{m}m{s:02d}s"
 
 
+# file helpers
 def sha256(path: Path, blocks=1 << 20) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -112,6 +115,7 @@ def write_calibration(tok, path: Path) -> dict:
             "source": "train-gate2/data/sft_train.jsonl (train split only, no test fiche)"}
 
 
+# merge -> F16 -> imatrix -> Q4_K_M, with a manifest of every step
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default=C.EXPERIMENT)

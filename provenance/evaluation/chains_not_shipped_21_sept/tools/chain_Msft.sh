@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Chain M, SFT step only: export and batteries of the adapter before DPO.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"

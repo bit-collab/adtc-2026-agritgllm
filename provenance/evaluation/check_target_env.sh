@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Print what the replica has: CPU, RAM, llama.cpp build flags, Docker image, network state.
 
 set -uo pipefail
 DEPOT="${1:-.}"

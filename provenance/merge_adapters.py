@@ -1,3 +1,4 @@
+# Weighted merge of two LoRA adapters with PEFT add_weighted_adapter, then a layer-by-layer check of the result against the sources.
 import sys, shutil, json, io, os
 from pathlib import Path
 import torch

@@ -1,3 +1,4 @@
+# One DPO pass on top of the SFT adapter, using data/dpo_train.jsonl; the reference policy is the same adapter disabled.
 from __future__ import annotations
 import argparse, json, os, platform, sys, time
 from pathlib import Path
@@ -13,6 +14,7 @@ read_jsonl = _sft.read_jsonl if _sft else None
 LogWriter = _sft.LogWriter if _sft else None
 
 
+# arguments, then the DPO run on the SFT adapter
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default=C.EXPERIMENT)

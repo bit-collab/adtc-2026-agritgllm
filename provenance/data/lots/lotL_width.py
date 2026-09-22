@@ -1,3 +1,4 @@
+# Hand-written lot: off-topic refusals, French greeting, no-camera identity answers.
 O = "limit:off_topic_general_knowledge"
 B = "greeting:bonjour_french"
 C = "identity:no_camera_no_image"

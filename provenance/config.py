@@ -1,3 +1,4 @@
+# Paths, base model revision, LoRA / SFT / DPO hyperparameters and the baked persona shared by every script here.
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent

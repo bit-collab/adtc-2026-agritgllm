@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Chain O: SFT on the uncapped data with lots T and U, export, batteries.
 set -u
 ROOT="C:/Users/HP VICTUS/Documents/concoursllmdata"
 PY="$ROOT/.venv-train/Scripts/python.exe"
